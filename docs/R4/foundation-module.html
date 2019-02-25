@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE HTML>
   <!-- These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+in order to support consistent definitions for schema and UML derived code. --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-  <title>Foundation-module - FHIR v4.0.0</title>
+    <title>基础模块 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -35,22 +35,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 </head>
 <body>
-	<div id="segment-header" class="segment">  <!-- segment-header -->	
-		<div class="container">  <!-- container -->
-			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir"/> </a>
-			<div id="hl7-status">
-				<b>FHIR R4</b>
-			</div>       	
-			
-			<div id="hl7-nav">
-				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org">
-					<img src="./assets/images/hl7-logo.png" width="42" alt="visit the hl7 website" height="50"/>
-				</a> 
-			</div>       	
-			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./assets/images/search.png" alt="Search FHIR"/></a></div> 
-		</div>
-		<div class="container">  <!-- container -->
-	</div></div>  <!-- /segment-header -->	
+    <div id="segment-header" class="segment"></div> <!-- /segment-header -->	
 
 
 	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
@@ -66,18 +51,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 						<span class="icon-bar"> </span>
 					</button>
 					<a href="index.html" class="navbar-brand hidden">FHIR</a>
-					<div class="nav-collapse collapse navbar-inverse-collapse">
-						<ul class="nav navbar-nav">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./modules.html">Getting Started</a></li>
-              <li><a href="./documentation.html">Documentation</a></li>
-              <li><a href="./resourcelist.html">Resources</a></li>
-              <li><a href="./profilelist.html">Profiles</a></li>
-              <li><a href="./extensibility-registry.html">Extensions</a></li>
-              <li><a href="./operationslist.html">Operations</a></li>
-              <li><a href="./terminologies-systems.html">Terminologies</a></li>
-						</ul>
-					</div>  <!-- /.nav-collapse -->
+					    <div class="nav-collapse collapse navbar-inverse-collapse"  id="nav-content"></div>  <!-- /.nav-collapse -->
 				</div>  <!-- /.container -->
 			</nav>  <!-- /.navbar -->
       		
@@ -88,8 +62,8 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
-			<ul class="breadcrumb">
-        <li><b><img src="foundation.png"/> Foundation</b></li>          <!-- foundation-module.html / page / -->
+			<ul class="breadcrumb">  
+        <li><b><img src="foundation.png"/>当前位置：基础模块</b></li>          <!-- foundation-module.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -116,7 +90,8 @@ in order to support consistent definitions for schema and UML derived code. --><
 </p>
 <a name="index"></a>
 <p>
-    基础模块包含了FHIR规范的大部分基础文档。此外，还包括以下资源：
+    基础模块覆盖了FHIR规范中大部分基础<a href="documentation.html">文档</a>的内容。
+   此外，还包括以下资源：
 </p>
 
 <table width="100%" style="table-layout: fixed">
@@ -156,13 +131,12 @@ in order to support consistent definitions for schema and UML derived code. --><
 <ul>
  <li>所有模块都依赖于基础模块</li>
  <li>在基础模块的基础上,通过定义资源的交互方法建立了<a href="exchange-module.html">交易模块</a>.</li>
- <li>The <a href="terminology-module.html">Terminology module</a> provides the formal basis for using Concepts defined in Code Systems in the definitions</li>
+ <li>在使用 <a href="terminology-module.html">术语模块</a> 进行定义基础格式时，需要使用代码系统中的概念定义（属于基础模块）</li>
  <li>The <a href="conformance-module.html">Conformance module</a> provides the basis for extending the foundation for national and local use</li>
  <li>The <a href="secpriv-module.html"> Security &amp; Privacy</a> provides the linking framework to external standards for security and privacy</li>
  <li>The <a href="implsupport-module.html">Implementation Support module</a> builds on the foundation to provide testing and reference implementations</li>
 </ul>
 
-    该术语模块提供了使用概念的定义在代码中定义的系统正规的基础
     该一致性模块提供了基础，扩展为国家和地方的使用奠定了基础
     在安全和隐私提供了链接框架外部标准的安全和隐私
     该实施支持模块构建的基础上提供测试和参考实现
@@ -186,25 +160,7 @@ is communicated back to HL7.
     </div>  <!-- /segment-content -->
 
 
-	<div id="segment-footer" class="segment">  <!-- segment-footer -->
-		<div class="container">  <!-- container -->
-			<div class="inner-wrapper">
-				<p>
-        &reg;&copy; HL7.org 2011+. FHIR Release 4 (v4.0.0) generated on Thu, Dec 27, 2018. <a style="color: #ffffff" href="qa.html">QA Page</a>
-        <br/>
-        <span style="color: #FFFF77">
-        Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search <img src="external.png" style="text-align: baseline"/></a> | 
-               <a style="color: #b8dcf9" href="history.html">Version History</a> | 
-               <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
-               <a style="color: #b8dcf9" href="credits.html">Credits</a> | 
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Ffoundation-module.html&amp;doc2=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Ffoundation-module.html">Compare to R3 <img src="external.png" style="text-align: baseline"/></a> |                
-               <a rel="license" style="color: #b8dcf9" href="license.html"><img src="cc0.png" alt="CC0" style="border-style: none;"/></a> | 
-               <a style="color: #b8dcf9" href="http://hl7.org/fhir-issues" target="_blank">Propose a change <img src="external.png" style="text-align: baseline"/></a>   
-        </span>
-        </p>
-			</div>  <!-- /inner-wrapper -->
-		</div>  <!-- /container -->
-	</div>  <!-- /segment-footer -->
+        <div id="segment-footer" class="segment"></div>  <!-- /segment-footer -->
   <!-- disqus thread -->
   <!-- disqus -->
   <!-- end disqus -->        
@@ -226,6 +182,16 @@ is communicated back to HL7.
 
   <!-- Analytics Below
 ================================================== -->
-
+        <script src="./assets/js/template-web.js"></script>
+        <script src="./assets/js/nav.js"></script>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?351f802705b09ff497ed83d498777ee1";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
 </body>
 </html>
