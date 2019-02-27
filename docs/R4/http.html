@@ -110,72 +110,78 @@
 
 
 <p>
-FHIR is described as a 'RESTful' specification based on common industry level use of the term REST. In practice, FHIR only supports Level 2 of the
-<a href="https://martinfowler.com/articles/richardsonMaturityModel.html">REST Maturity model <img src="external.png" style="text-align: baseline"/></a> as part of the core specification, though full Level 3
-conformance is possible through the use of <a href="extensibility.html">extensions</a>. Because FHIR is a standard, it relies on the standardization of
-resource structures and interfaces.  This may be considered a violation of REST principles but is key to ensuring consistent interoperability across
-diverse systems.
+    
+    FHIR被誉为使用REST风格的行业级“RESTful”规范。
+    实际上，FHIR的核心规范部分仅支持<a href="https://martinfowler.com/articles/richardsonMaturityModel.html">REST成熟度模型 <img src="external.png" style="text-align: baseline" /></a>
+    的第2级，尽管通过使用 <a href="extensibility.html">扩展</a> 可以实现完整的第3级符合性。
+    由于FHIR是一个标准，它依赖于资源结构和接口的标准化。这一点可能被视为违反REST原则，但也是保证不同系统进行一致性交互的关键。
 </p>
 <p>
-Each "resource type" has the same set of interactions defined that can be used to manage the resources
-in a highly granular fashion. Applications claiming conformance to this framework
-claim to be conformant to "RESTful FHIR"  (see <a href="conformance-rules.html">Conformance</a>).
+    每种“资源类型”都定义了一组相同的交互功能，来实现以高粒度模块化的方式管理资源。
+    声称符合这种框架的应用程序即符合了"RESTful FHIR"。
+    (请参见 <a href="conformance-rules.html">符合性</a>章节).
+   </p>
+<p>
+
+    注意，在这个RESTful框架中，事务是使用HTTP请求/响应机制直接在服务器资源上执行的。
+    API不直接负责身份验证、授权和审计收集——有关更多信息，请参阅<a href="security.html">安全页面</a>。
+    这里介绍的交互都是指的同步模式，异步模式的使用见<a href="async.html">
+    异步请求模式
+</a>。
 </p>
 <p>
-Note that in this RESTful framework, transactions are performed directly on the server resource using an
-HTTP request/response. The API does not directly address authentication, authorization, and audit
-collection - for further information, see the <a href="security.html">Security Page</a>. All the 
-interactions are all described for synchronous use, and an <a href="async.html">Asynchronous use
-pattern</a> is also defined.
+    API将FHIR资源描述为对资源的一组操作（称为“交互”），其中单个资源实例具有的交互功能与其类型相对应。
+    服务器可以选择哪些交互功能可用，以及它们支持哪些资源类型。服务器应提供一份<a href="capabilitystatement.html">能力声明</a> ，以说明支持哪些交互功能和资源。
 </p>
 <p>
-The API describes the FHIR resources as a set of operations (known as "interactions") on resources where
-individual resource instances are managed in collections by their type. Servers can choose which of
-these interactions are made available and which resource types they support. Servers SHALL
-provide a <a href="capabilitystatement.html">Capability Statement</a> that specifies which interactions and
-resources are supported.
-</p>
-<p>
-In addition to a number of <a href="#general">General Considerations</a> this page defines the following interactions:
+    除了一些<a href="#general">常规注意事项</a>一般注意事项外，本页还定义了以下交互功能：
 </p>
 <a name="interactions"></a>
 <a name="operations"></a>
 <table class="list">
-  <tr><td><b>Instance Level Interactions</b></td><td></td></tr>
-  <tr><td><a href="#read">read</a></td><td>Read the current state of the resource</td></tr>
-  <tr><td><a href="#vread">vread</a></td><td>Read the state of a specific version of the resource</td></tr>
-  <tr><td><a href="#update">update</a></td><td>Update an existing resource by its id (or create it if it is new)</td></tr>
-  <tr><td><a href="#patch">patch</a></td><td>Update an existing resource by posting a set of changes to it</td></tr>
-  <tr><td><a href="#delete">delete</a></td><td>Delete a resource</td></tr>
-  <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource</td></tr>
-  <tr><td colspan="2"><b>Type Level Interactions</b></td></tr>
-  <tr><td><a href="#create">create</a></td><td>Create a new resource with a server assigned id</td></tr>
-  <tr><td><a href="#search">search</a></td><td>Search the resource type based on some filter criteria</td></tr>
-  <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
-  <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
-  <tr><td><a href="#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
-  <tr><td><a href="#transaction">batch/transaction</a></td><td>Update, create or delete a set of resources in a single interaction</td></tr>
-  <tr><td><a href="#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
-  <tr><td><a href="#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
+  <tr><td colspan="2"><b>资源实例层级上的交互功能</b></td><td></td></tr>
+  <tr><td><a href="#read">read</a></td><td>读取资源的当前状态</td></tr>
+  <tr><td><a href="#vread">vread</a></td><td>读取特定版本资源的状态</td></tr>
+  <tr><td><a href="#update">update</a></td><td>根据ID更新已有资源（如果没有，则创建它）</td></tr>
+  <tr><td><a href="#patch">patch</a></td><td>通过提交一组变更来更新已有资源</td></tr>
+  <tr><td><a href="#delete">delete</a></td><td>删除某个资源</td></tr>
+  <tr><td><a href="#history">history</a></td><td>检索特定资源的更改历史记录</td></tr>
+  <tr><td colspan="2"><b> 资源类型层级上的交互功能</b></td></tr>
+  <tr><td><a href="#create">create</a></td><td>使用服务器分配的ID创建新资源</td></tr>
+  <tr><td><a href="#search">search</a></td><td>根据某些筛选条件搜索资源类型</td></tr>
+  <tr><td><a href="#history">history</a></td><td>检索特定资源类型的更改历史记录</td></tr>
+  <tr><td colspan="2"><b>系统层面的交互功能</b></td></tr>
+  <tr><td><a href="#capabilities">capabilities</a></td><td>获取系统的功能声明</td></tr>
+  <tr><td><a href="#transaction">batch/transaction</a></td><td>通过一次提交完成更新、创建或删除一组资源</td></tr>
+  <tr><td><a href="#history">history</a></td><td>检索所有资源的更改历史记录</td></tr>
+  <tr><td><a href="#search">search</a></td><td>根据某些过滤条件搜索所有资源类型</td></tr>
 </table>
 <p>
-In addition to these interactions, there is an <a href="operations.html">operations framework</a>, which includes endpoints
-for <a href="operation-resource-validate.html">validation</a>, <a href="messaging.html#mailbox">messaging</a> and <a href="documents.html#bundle">Documents</a>.
-Also, implementers can <a href="graphql.html">use GraphQL</a>.</p>
+    In addition to these interactions, there is an <a href="operations.html">operations framework</a>, which includes endpoints
+    for <a href="operation-resource-validate.html">validation</a>、
+    <a href="messaging.html#mailbox">messaging</a> and
+    <a href="documents.html#bundle">Documents</a>.
+    Also, implementers can <a href="graphql.html">use GraphQL</a>.
+    除了这些交互功能之外，还有一个<a href="operations.html">操作框架</a>，它提供了用于
+                   <a href="operation-resource-validate.html">验证</a>、
+                   <a href="messaging.html#mailbox">消息交换</a> 和
+                   <a href="documents.html#bundle">文档交换</a>
+    的端点。
+    此外，实施者可以<a href="graphql.html">使用 GraphQL</a>查询语言。
+</p>
 
 <a name="general"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.0.1</span> General Considerations <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.0.1</span> 常规注意事项 <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-Note: Where the FHIR specification does not specify behavior with regards to HTTP 
-capabilities (such as OPTIONS), implementers cannot expect greater consistency 
-than is mandated in the underlying HTTP protocol.
+    注意：如果FHIR规范未指定HTTP功能动作（也叫HTTP方式，如OPTIONS），则除了基础HTTP协议强制要求实现的方法，实现者不要期望使用其它的。
 </p>
 
 <a name="styleguide"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.1</span> Style Guide <a href="http.html#styleguide" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.1</span> 格式指南 <a href="http.html#styleguide" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-The interactions on this page are defined like this:
+    
+    本页介绍的交互使用格式如下：
 </p>
 
 <pre>
@@ -215,7 +221,7 @@ API defined either by this specification or by implementers.
 
 <a name="root"></a>
 <a name="general"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.2</span> Service Base URL <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.2</span> 1.1.1	服务根路径（Base URL） <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
 The Service Base URL is the address where all of the
 resources defined by this interface are found. The Service
