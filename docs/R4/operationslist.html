@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>操作表 - HL7 FHIR 中国</title>
+    <title>操作列表 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -62,8 +62,8 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><img src="index.png"/><b>当前位置：</b><a href="toc.html">主页</a></li>
-        <li>操作表</li>          <!-- operationslist.html / page / -->
+        <li><img src="index.png"/><b>当前位置：</b><a href="toc.html">目录</a></li>
+        <li>操作功能列表</li>          <!-- operationslist.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -80,20 +80,39 @@
 <div class="col-12">
 
 <a name="base"></a>
-<h2 class="self-link-parent"><span class="sectioncount">1.5<a name="1.5"> </a></span> Defined RESTful API Operations <a href="operationslist.html#1.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">1.5<a name="1.5"> </a></span> 已定义的 RESTful API 操作（功能）  <a href="operationslist.html#1.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <table class="colsi"><tbody><tr><td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure  <img src="external.png" style="text-align: baseline"/></a></td><td id="fmm"><a href="versions.html#maturity">成熟度</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:    <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
 <p>
-The <a href="http.html">RESTful API</a> defines a set of common interactions (read, update, search, etc.)
-performed on a repository of typed resources. For further information concerning how operations are 
-defined and invoked, see <a href="operations.html">Extended Operations on the RESTful API</a>.
+<a href="http.html">RESTful API</a>定义了一组通用的交互动作（读取，更新，搜索等）可以操作储存库中已知类型的资源。
+有关如何定义和调用操作的更多信息，请参阅<a href="operations.html">RESTful API 的扩展操作</a>。
+
+
 </p>
 <p>
-This is a full list of the operations defined by this specification:
+此规范定义的操作的完整列表如下：
 </p>
-<table class="grid"> <tr><td colspan="2"><b>Base Operations (All resource types)</b></td></tr>
-<tr><td><a href="resource-operation-validate.html">Validate a resource</a></td><td>[base]/[Resource]/$validate | [base]/[Resource]/[id]/$validate</td></tr><tr><td><a href="resource-operation-meta.html">Access a list of profiles, tags, and security labels</a></td><td>[base]/$meta | [base]/[Resource]/$meta | [base]/[Resource]/[id]/$meta</td></tr><tr><td><a href="resource-operation-meta-add.html">Add profiles, tags, and security labels to a resource</a></td><td>[base]/[Resource]/[id]/$meta-add</td></tr><tr><td><a href="resource-operation-meta-delete.html">Delete profiles, tags, and security labels for a resource</a></td><td>[base]/[Resource]/[id]/$meta-delete</td></tr><tr><td><a href="resource-operation-convert.html">Convert from one form to another</a></td><td>[base]/$convert</td></tr><tr><td><a href="resource-operation-graphql.html">Execute a graphql statement</a></td><td>[base]/$graphql | [base]/[Resource]/[id]/$graphql</td></tr><tr><td><a href="resource-operation-graph.html">Return a graph of resources</a></td><td>[base]/[Resource]/[id]/$graph</td></tr> <tr><td colspan="2"><b>Operations Defined by Resource Types</b></td></tr>
+<table class="grid"> <tr><td colspan="2"><b>基本操作 (所有资源类型 )</b></td></tr>
+<tr>
+<td><a href="resource-operation-validate.html">Validate a resource</a></td>
+<td>[base]/[Resource]/$validate | [base]/[Resource]/[id]/$validate</td>
+</tr>
+<tr>
+<td><a href="resource-operation-meta.html">Access a list of profiles, tags, and security labels</a></td>
+<td>[base]/$meta | [base]/[Resource]/$meta | [base]/[Resource]/[id]/$meta</td>
+</tr>
+<tr>
+<td><a href="resource-operation-meta-add.html">Add profiles, tags, and security labels to a resource</a></td>
+<td>[base]/[Resource]/[id]/$meta-add</td>
+</tr>
+<tr><td><a href="resource-operation-meta-delete.html">Delete profiles, tags, and security labels for a resource</a></td>
+<td>[base]/[Resource]/[id]/$meta-delete</td></tr>
+<tr><td><a href="resource-operation-convert.html">Convert from one form to another</a></td>
+<td>[base]/$convert</td></tr><tr><td><a href="resource-operation-graphql.html">Execute a graphql statement</a></td>
+<td>[base]/$graphql | [base]/[Resource]/[id]/$graphql</td></tr>
+<tr><td><a href="resource-operation-graph.html">Return a graph of resources</a></td>
+<td>[base]/[Resource]/[id]/$graph</td></tr> <tr><td colspan="2"><b>由资源类型定义的操作</b></td></tr>
 <tr><td><a href="activitydefinition-operation-apply.html">Apply</a></td><td>[base]/ActivityDefinition/$apply | [base]/ActivityDefinition/[id]/$apply</td></tr><tr><td><a href="activitydefinition-operation-data-requirements.html">Data Requirements</a></td><td>[base]/ActivityDefinition/[id]/$data-requirements</td></tr><tr><td><a href="capabilitystatement-operation-subset.html">Fetch a subset of the CapabilityStatement resource</a></td><td>[base]/CapabilityStatement/$subset | [base]/CapabilityStatement/[id]/$subset</td></tr><tr><td><a href="capabilitystatement-operation-implements.html">Test if a server implements a client's required operations</a></td><td>[base]/CapabilityStatement/$implements | [base]/CapabilityStatement/[id]/$implements</td></tr><tr><td><a href="capabilitystatement-operation-conforms.html">Test if a server implements a client's required operations</a></td><td>[base]/CapabilityStatement/$conforms</td></tr><tr><td><a href="capabilitystatement-operation-versions.html">Discover what versions a server supports</a></td><td>[base]/$versions</td></tr><tr><td><a href="chargeitemdefinition-operation-apply.html">Apply</a></td><td>[base]/ChargeItemDefinition/[id]/$apply</td></tr><tr><td><a href="claim-operation-submit.html">Submit a Claim resource for adjudication</a></td><td>[base]/Claim/$submit</td></tr><tr><td><a href="codesystem-operation-lookup.html">Concept Look Up &amp; Decomposition</a></td><td>[base]/CodeSystem/$lookup</td></tr><tr><td><a href="codesystem-operation-validate-code.html">Code System based Validation</a></td><td>[base]/CodeSystem/$validate-code | [base]/CodeSystem/[id]/$validate-code</td></tr><tr><td><a href="codesystem-operation-subsumes.html">Subsumption Testing</a></td><td>[base]/CodeSystem/$subsumes | [base]/CodeSystem/[id]/$subsumes</td></tr><tr><td><a href="codesystem-operation-find-matches.html">Finding codes based on supplied properties</a></td><td>[base]/CodeSystem/$find-matches | [base]/CodeSystem/[id]/$find-matches</td></tr><tr><td><a href="composition-operation-document.html">Generate a Document</a></td><td>[base]/Composition/$document | [base]/Composition/[id]/$document</td></tr><tr><td><a href="conceptmap-operation-translate.html">Concept Translation</a></td><td>[base]/ConceptMap/$translate | [base]/ConceptMap/[id]/$translate</td></tr><tr><td><a href="conceptmap-operation-closure.html">Closure Table Maintenance</a></td><td>[base]/$closure</td></tr><tr><td><a href="coverageeligibilityrequest-operation-submit.html">Submit an EligibilityRequest resource for assessment</a></td><td>[base]/CoverageEligibilityRequest/$submit</td></tr><tr><td><a href="encounter-operation-everything.html">Fetch Encounter Record</a></td><td>[base]/Encounter/[id]/$everything</td></tr><tr><td><a href="group-operation-everything.html">Fetch a group of Patient Records</a></td><td>[base]/Group/[id]/$everything</td></tr><tr><td><a href="library-operation-data-requirements.html">Data Requirements</a></td><td>[base]/$data-requirements | [base]/Library/[id]/$data-requirements</td></tr><tr><td><a href="list-operation-find.html">Find a functional list</a></td><td>[base]/List/$find</td></tr><tr><td><a href="measure-operation-evaluate-measure.html">Evaluate Measure</a></td><td>[base]/Measure/$evaluate-measure | [base]/Measure/[id]/$evaluate-measure</td></tr><tr><td><a href="measure-operation-data-requirements.html">Data Requirements</a></td><td>[base]/Measure/[id]/$data-requirements</td></tr><tr><td><a href="measure-operation-submit-data.html">Submit Data</a></td><td>[base]/Measure/$submit-data | [base]/Measure/[id]/$submit-data</td></tr><tr><td><a href="measure-operation-collect-data.html">Collect Data</a></td><td>[base]/Measure/$collect-data | [base]/Measure/[id]/$collect-data</td></tr><tr><td><a href="measure-operation-care-gaps.html">Care Gaps</a></td><td>[base]/Measure/$care-gaps</td></tr><tr><td><a href="medicinalproduct-operation-everything.html">Fetch Product Record</a></td><td>[base]/MedicinalProduct/$everything | [base]/MedicinalProduct/[id]/$everything</td></tr><tr><td><a href="messageheader-operation-process-message.html">Process Message</a></td><td>[base]/$process-message</td></tr><tr><td><a href="namingsystem-operation-preferred-id.html">Fetch Preferred it</a></td><td>[base]/NamingSystem/$preferred-id</td></tr><tr><td><a href="observation-operation-stats.html">Observation Statistics</a></td><td>[base]/Observation/$stats</td></tr><tr><td><a href="observation-operation-lastn.html">Last N Observations Query</a></td><td>[base]/Observation/$lastn</td></tr><tr><td><a href="patient-operation-match.html">Find patient matches using MPI based logic</a></td><td>[base]/Patient/$match</td></tr><tr><td><a href="patient-operation-everything.html">Fetch Patient Record</a></td><td>[base]/Patient/$everything | [base]/Patient/[id]/$everything</td></tr><tr><td><a href="plandefinition-operation-apply.html">Apply</a></td><td>[base]/PlanDefinition/$apply | [base]/PlanDefinition/[id]/$apply</td></tr><tr><td><a href="plandefinition-operation-data-requirements.html">Data Requirements</a></td><td>[base]/PlanDefinition/[id]/$data-requirements</td></tr><tr><td><a href="structuredefinition-operation-questionnaire.html">Build Questionnaire</a></td><td>[base]/StructureDefinition/$questionnaire | [base]/StructureDefinition/[id]/$questionnaire</td></tr><tr><td><a href="structuredefinition-operation-snapshot.html">Generate Snapshot</a></td><td>[base]/StructureDefinition/$snapshot | [base]/StructureDefinition/[id]/$snapshot</td></tr><tr><td><a href="structuremap-operation-transform.html">Model Instance Transformation</a></td><td>[base]/StructureMap/$transform | [base]/StructureMap/[id]/$transform</td></tr><tr><td><a href="valueset-operation-expand.html">Value Set Expansion</a></td><td>[base]/ValueSet/$expand | [base]/ValueSet/[id]/$expand</td></tr><tr><td><a href="valueset-operation-validate-code.html">Value Set based Validation</a></td><td>[base]/ValueSet/$validate-code | [base]/ValueSet/[id]/$validate-code</td></tr></table>
 <p>
 Notes:

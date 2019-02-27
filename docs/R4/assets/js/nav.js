@@ -20,7 +20,7 @@ document.write('<script id="foot-temp" type="text/html"><div class="container"><
     '</span></p></div></div></script>');
 
 var navData = {
-    text: ['主页', '开始学习', '文档', '资源', '配置', '扩展', '交互功能', '术语'],
+    text: ['主页', '开始学习', '文档', '资源', '配置', '扩展', '操作', '术语'],
     link: ['./index.html', '././modules.html', './documentation.html', './resourcelist.html', "./profilelist.html", './extensibility-registry.html', './operationslist.html', './terminologies-systems.html' ]
 };
 
