@@ -104,56 +104,72 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="valueset-examples.html">Examples</a></li><li><a href="valueset-definitions.html">Detailed Descriptions</a></li><li><a href="valueset-mappings.html">Mappings</a></li><li><a href="valueset-profiles.html">Profiles &amp; Extensions</a></li><li><a href="valueset-operations.html">Operations</a></li><li><a href="valueset-version-maps.html">R3 Conversions</a></li></ul>
+<ul class="nav nav-tabs"><li class="active"><a href="#">主要内容</a></li><li><a href="valueset-examples.html">示例</a></li>
+    <li><a href="valueset-definitions.html">详细介绍</a></li><li><a href="valueset-mappings.html">映射</a></li>
+    <li><a href="valueset-profiles.html">配置 &amp; 扩展</a></li>
+    <li><a href="valueset-operations.html">操作</a></li><li><a href="valueset-version-maps.html">R3 转换</a></li></ul>
 
-<h1 class="self-link-parent"><span class="sectioncount">4.9<a name="4.9"> </a></span> Resource ValueSet - Content <a href="valueset.html#4.9" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+<h1 class="self-link-parent"><span class="sectioncount">4.9<a name="4.9"> </a></span> ValueSet 资源 - 主要内容 <a href="valueset.html#4.9" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
 
 <table class="colsn"><tr><td><a href="http://www.hl7.org/Special/committees/Vocab/index.cfm">Vocabulary <img src="external.png" style="text-align: baseline"/></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: <a href="versions.html#std-process">N</a></td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Normative</a> (from v4.0.0)</td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Anonymous</td>  <!-- !ns! --><td><a href="compartmentdefinition.html">Compartments</a>: Not linked to any defined compartments</td></tr></table>
 
 
 <p>
-<p>A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between <a href="codesystem.html">CodeSystem</a> definitions and their use in <a href="terminologies.html">coded elements</a>.</p>
+<p>
+    ValueSet资源从一个或多个代码系统中提取一组代码作为一个值集实例，用于特定上下文。
+    值集将 <a href="codesystem.html">代码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
+</p>
 
 </p>
 
 <div>
 <a name="scope"></a>
-<h2 class="self-link-parent"><span class="sectioncount">4.9.1</span> Scope and Usage <a href="valueset.html#scope" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">4.9.1</span> 用法与范围<a href="valueset.html#scope" title="link to here" class="self-link">
+    <svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20">
+        <path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>
-The FHIR terminology specification is based on two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles <img src="external.png" style="text-align: baseline"/></a>:
-</p>
+    FHIR的术语规范是基于出自
+    <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3核心原则 <img src="external.png" style="text-align: baseline"/></a>
+    的两个关键概念：</p>
 <ul>
-<li> <code><a href="codesystem.html">CodeSystem</a></code> - declares the existence of and describes a code system or code system supplement and its key properties, and optionally defines a part or all of its content. Also known as Ontology, Terminology, or Enumeration</li>
-<li> <code>ValueSet</code> - specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between <a href="codesystem.html">CodeSystem</a> definitions and their use in <a href="terminologies.html">coded elements</a></li>
+<li> <code><a href="codesystem.html">代码系统：CodeSystem</a></code>
+    - 声明代码系统或代码系统的补充和其关键属性的存在，并对它们进行描述。它的内容可选择性的定义（可以不定义，也可以定义部分或全部）。也称为本体论、术语或字典。
+
+</li>
+<li> <code>值集：ValueSet</code>
+    - 指定从一个或多个代码系统中提取的一组代码，用于特定上下文。 值集将 <a href="codesystem.html">代码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
+</li>
 </ul>
 <p>
-Value sets have 2 aspects:
+值集包含两个关键元素:
 </p>
 <ul>
- <li><code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code>: A definition of which codes are intended to be in the value set ("intension")</li>
- <li><code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>: The list of codes that are actually in the value set under a given set of conditions ("extension") - see <a href="valueset.html#expansion">Value Set Expansion</a></li>
+ <li>构成：<code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code>: A definition of which codes are intended to be in the value set ("intension")
+     定义值集包含会哪些代码（“内涵”）</li>
+ <li>扩展：<code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
+     The list of codes that are actually in the value set under a given set of conditions ("extension") - see <a href="valueset.html#expansion">Value Set Expansion</a>
+        在给定的一系列条件限定下（“扩展”），实际包含在值集中的代码列表。可参见<a href="valueset.html#expansion">值集的扩展</a>
+ </li>
 </ul>
 <p>
-The <code>ValueSet</code> resource can carry either the <code>.compose</code> or the <code>.expansion</code>,
-both of them, or neither of them (if only the metadata is being represented). There is an <a href="valueset-operation-expand.html">"$expand" operation</a> which can be used to ask a server to generate
-an expansion given the composition rules, in a particular context, and a <a href="valueset-operation-validate-code.html">"$validate-code" operation</a> which can be used to ask a server to 
-check whether a given code or concept is in the value set in a particular context.
-</p>
+ <code>ValueSet</code> 资源中可以包含<code>.compose</code>或<code>.expansion</code>元素其中的一个，也可以两个都包含或者一个都不含（如果仅当做元数据使用时）。
+  <a href="valueset-operation-expand.html">"$expand" 操作</a>，可请求服务器根据特定上下文生成给定组合规则的扩展
+   <a href="valueset-operation-validate-code.html">"$validate-code" 操作</a> 可用于请求服务器检查给定代码或概念是否包含在特定上下文中的值集中</p>
 </div>
 
 <div>
 <a name="relationships"></a>
-<h2 class="self-link-parent"><span class="sectioncount">4.9.2</span> Boundaries and Relationships <a href="valueset.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">4.9.2</span> 边界和系统 <a href="valueset.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>
-Value Sets are used by many resources:
+    很多资源都会使用到值集:
 </p>
 <ul>
- <li>Value sets use <a href="codesystem.html">CodeSystem</a> resources by referring to them via their canonical reference.</li>
- <li>Value sets are used in <a href="structuredefinition.html">StructureDefinition</a>,  
-   <a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and other resources 
-   to specify the allowable contents for coded elements, or business rules for data processing</li>
- <li><a href="conceptmap.html">ConceptMap resources</a> describe mappings between value sets</li>
- <li><a href="metadatatypes.html#DataRequirement">DataRequirement</a> data types to specify data processing conditions</li>
+ <li>值集通引用 <a href="codesystem.html">代码系统</a>的权威参考的方式使用CodeSystem资源.</li>
+ <li>结构定义<a href="structuredefinition.html">StructureDefinition</a>、
+   操作定义<a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>、问卷/问询<a href="questionnaire.html">Questionnaire</a>等资源用值集来
+     规定编码元素的允许内容或为数据处理指定业务规则。</li>
+ <li>概念映射<a href="conceptmap.html">ConceptMap</a>资源用于苏杭值集之间的映射关系</li>
+ <li>数据需求<a href="metadatatypes.html#DataRequirement">DataRequirement</a>数据类型用于指定数据处理的条件</li>
 </ul>
 <p>
 For a full list of uses, see below.
