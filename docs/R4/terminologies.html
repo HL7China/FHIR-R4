@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Terminologies - FHIR v4.0.0</title>
+  <title>术语 - FHIR v4.0.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -88,8 +88,8 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="terminology-module.html"><img src="terminology.png"/> Terminology</a></li>
-        <li><b>Using Codes</b></li>          <!-- terminologies.html / page / -->
+        <li><a href="terminology-module.html"><img src="terminology.png"/> 术语</a></li>
+        <li><b>使用代码</b></li>          <!-- terminologies.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -105,59 +105,78 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li class="active"><a href="#">Using Codes</a></li><li><a href="terminologies-systems.html">Code Systems</a></li><li><a href="terminologies-valuesets.html">Value Sets</a></li><li><a href="terminologies-conceptmaps.html">Concept Maps</a></li><li><a href="identifier-registry.html">Identifier Systems</a></li></ul>
+<ul class="nav nav-tabs"><li class="active"><a href="#">使用编码</a></li>
+    <li><a href="terminologies-systems.html">代码系统</a></li><li>
+    <a href="terminologies-valuesets.html">值集</a></li>
+    <li><a href="terminologies-conceptmaps.html">概念映射</a></li><li><a href="identifier-registry.html">标识系统</a></li></ul>
 
 
-<h1 class="self-link-parent"><span class="sectioncount">4.1<a name="4.1"> </a></span> Using Codes in Resources <a href="terminologies.html#4.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+<h1 class="self-link-parent"><span class="sectioncount">4.1<a name="4.1"> </a></span> 在资源中使用编码 <a href="terminologies.html#4.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
 <table class="colsn"><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <a name="bindings"></a>
 <p>
-Many elements in the FHIR resources have a <b>coded value</b>: some fixed string
-(a sequence of characters) assigned elsewhere that identifies some defined "concept". The
-sequence of characters and its meaning may be defined in one of several places:
+    在FHIR资源中有许多元素都有<b>编码值</b>：在别处分配的一些固定字符串（字符序列），用于标识某些已定义的“概念”。
+    字符序列及其含义可能定义在在以下几个位置中：
 </p>
 <ul>
- <li>As one of a set of fixed values defined in this specification</li>
- <li>In an internet RFC (e.g. mime type, language)</li>
- <li>An HL7 specification (<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3 <img src="external.png" style="text-align: baseline"/></a> code system, or <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2 <img src="external.png" style="text-align: baseline"/></a> table)</li>
- <li>Some external terminology or ontology such as <a href="http://loinc.org">LOINC <img src="external.png" style="text-align: baseline"/></a>, or <a href="http://www.snomed.org">SNOMED CT <img src="external.png" style="text-align: baseline"/></a></li>
- <li>A locally maintained dictionary, look up table or enumeration in an application (for further discussion of locally defined value sets, see <a href="profiling.html">"Profiling FHIR"</a></li>
+    <li>
+       
+        作为一组固定值中的一个编码，定义在本规范中。
+    </li>
+    <li>
+       
+        定义在互联网RFC文档中（例如mime类型，语言）
+    </li>
+ <li>定义在HL7规范中 (<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3 <img src="external.png" style="text-align: baseline"/></a> 代码系统,
+    或<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2 <img src="external.png" style="text-align: baseline"/></a> 代码表)</li>
+ <li>定义在一些外部术语系统中 <a href="http://loinc.org">LOINC <img src="external.png" style="text-align: baseline" /></a>, 或 <a href="http://www.snomed.org">SNOMED CT <img src="external.png" style="text-align: baseline" /></a></li>
+ <li>
+    
+     定义在本地维护的字典中，通过在应用程序中查找表或枚举值（有关本地定义的值集的进一步讨论，请参阅
+     <a href="profiling.html">"配置 FHIR"</a>
+ </li>
 </ul>
 <p>
-These methods of defining codes are collectively called "code systems".
-This list is far from complete; there are many ways to define code systems, and they
-vary widely in sophistication and size.
+       这些定义代码的方法统称为“编码系统”。要完成它们还有很长的路要走。 定义代码系统的方法有很多，其复杂程度和重量级相差甚远。
 </p>
 <p>
-Throughout this specification, coded values are always treated as a pair
-composed of "system" and "code", where the system is a URL that identifies the
-code system that defines the codes. Note that <code>system</code> values are always
-case sensitive. Different code systems make their own rules as to whether the codes
-they define are case sensitive or not. Note that all the codes defined by FHIR
-itself are case sensitive and SHALL be used in the provided case (usually, but
-not always, lowercase).
+    
+    编码值以“system”和“code”成对组合的形式贯穿本规范，其中system是一个URL，它用于标识定义此编码值所属的编码系统。
+    请注意，<code>system</code>的值是区分大小写的。不同的编码系统对是否区分大小写有着自己的规定。
+    请注意，在FHIR中定义的所有编码都区分大小写，并且在使用时<b>必须</b>符合其指定的形式（通常是小写但也不一定）。
 </p>
 <p>
-The FHIR framework for using coded values is based on the fundamental framework defined in section 5 of the
-<a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles <img src="external.png" style="text-align: baseline"/></a> document,
-including the separation between code systems and value sets.
+
+    FHIR框架中关于编码使用的部分,包括“代码系统”和“值集”之间区别的定义都是来自于
+    <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 核心规范 <img src="external.png" style="text-align: baseline" /></a>
+    文档第5节所定义的基本框架。
 </p>
 
 <p>
-The general pattern for representing coded elements is using the following four elements: 
+   
+    表示“编码元素”的一般模式是使用以下四个元素：
+
 </p>
 <table class="grid">
- <tr> <td>system</td> <td>A URI that identifies the system (see <a href="#system">below</a>)</td> </tr>
- <tr> <td>version</td> <td>Identifies the version of the system (see <a href="codesystem.html#versioning">Code System Versioning</a>)</td> </tr>
- <tr> <td>code</td> <td>A string pattern that identifies a concept as defined by the code system </td> </tr>
- <tr> <td>display</td> <td>A description of the concept as defined by the code system</td> </tr>
+ <tr> <td>system</td> <td>一个用于标识系统的URI (详<a href="#system">见下</a>)</td> </tr>
+ <tr> <td>version</td> <td>
+    用于标识系统的版本（请参阅<a href="codesystem.html#versioning">代码系统版本控制</a>）
+  
+</td> </tr>
+ <tr> <td>code</td> <td>
+    标识由代码系统定义的概念的字符串模式。
+</td> </tr>
+ <tr> <td>display</td> <td>
+    对代码系统定义的概念的描述
+</td> </tr>
 </table>
 <div class="example">
-<p>
-The <a href="datatypes.html#Coding">Coding</a> data type represents this pattern. This example shows a LOINC code with the 
-LOINC system, the version of LOINC used for the definition, and the display assigned by LOINC:
-</p> 
+    <p>
+
+        上述模式使用<a href="datatypes.html#Coding">编码数据类型</a>来表示。
+        下例展示了一个LOINC代码，同时指定了它所属的LOINC系统和LOINC版本，以及由LOINC指定的用于显示的描述内容：
+    </p> 
 <pre class="json">  
 { 
   "system" : "http://loinc.org",
@@ -169,22 +188,53 @@ LOINC system, the version of LOINC used for the definition, and the display assi
 </div>
 
 <table class="grid">
- <tr><td colspan="2">When codes are carried in resources, one of several different data types is used:</td></tr>
- <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
- <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"></a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
- <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a><a name="CodeableConcept"></a></td><td>A type that represents a concept by plain text and/or one or more <code>coding</code> elements (See the <a href="datatypes.html#CodeableConcept">datatype notes</a> for a discussion of code translations and using text in CodeableConcept)</td></tr>
- <tr><td colspan="2">In addition, the following data types also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
- <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"></a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
- <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td><td>The instance carries a string. In some cases, applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
- <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"></a></td><td>Like <code>string</code>, URIs can be treated as a coded element</td></tr>
+ <tr><td colspan="2">
+    当资源中含有编码时，会用到一种（或多种）下列数据类型：
+</td></tr>
+ <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td>
+     <td>
+         它的实例值仅表示<i>code</i>。作为元素定义的一部分，它所属的<i>system</i>是被隐式定义的，不会出现在它的实例中。
+         </td></tr>
+ <tr>
+     <td><a href="datatypes.html#Coding">Coding</a><a name="Coding"></a></td>
+     
+     <td>含有<i>code</i> 和 <i>system</i> 元素的数据类型，其中<i>system</i>用于标识编码定义的来源</td>
+ </tr>
+ <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a><a name="CodeableConcept"></a></td>
+     <td>
+         A type that represents a concept by plain text and/or one or more <code>coding</code> elements
+         一个表示概念的数据类型，其中含有纯文本和零到多个 <code>coding</code>元素（有关编码转换和CodeableConcept中文本的使用，请参阅
+         <a href="datatypes.html#CodeableConcept">数据类型介绍</a> ）
+        
+     </td></tr>
+ <tr><td colspan="2">此外，以下数据类型也包含编码值或包含的内容可当作编码绑定到值集：</td></tr>
+ <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"></a></td>
+     <td>
+          为了让单位类型能带有<i>code</i>,此类型的实例包含可以绑定到值集的<i>system</i>和<i>code</i>元素。
+        
+     </td></tr>
+ <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td>
+     <td>实例值为一个字符串。在某些情况下，应用程序可能希望对特定元素的有效字符串集进行控制，因此可以将字符串值视为编码元素(如同 <code>code</code>)。</td></tr>
+ <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"></a></td>
+    <td>如同 <code>string</code>, URIs 可当作是编码元素。</td></tr>
 </table>
-<p>
-Notes:
-</p>
+注:
 <ul>
- <li>Generally, the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
-see the FHIR Confluence pages for <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#Choice+of+coding+data+type">advice about data type choice <img src="external.png" style="text-align: baseline"/></a>.</li>
- <li><a href="#strings">See below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
+    <li>
+        通常，数据类型的选择由资源本身决定。在对资源作<a href="extensibility.html">扩展</a>时，为其元素选择数据类型，请参阅
+        FHIR Confluenc页面以获取
+                               <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#Choice+of+coding+data+type">
+                                   有关数据类型选择的建议
+                                   <img src="external.png" style="text-align: baseline" />
+                               </a>。
+    </li>
+    <li>
+
+        有关将类型<a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a>绑定到值集的详细信息，请参阅<a href="#strings">
+            4.1.6.1小节
+        </a>的内容。
+
+    </li>
 </ul>
 
 <a name="valuesets"></a>
@@ -696,7 +746,7 @@ underlying code system, in which case the list of valid concepts may change over
 </li>
 </ul>
 <a name="strings"></a>
-<h3 class="self-link-parent"><span class="sectioncount">4.1.6.1</span> Binding String Values <a href="terminologies.html#strings" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.1.6.1</span>绑定字符串的值 Binding String Values <a href="terminologies.html#strings" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states,
 and there are several places where a URI must come from a set of controlled values.
