@@ -116,8 +116,8 @@
 
 <p>
 <p>
-    ValueSet资源从一个或多个代码系统中提取一组代码作为一个值集实例，用于特定场景。
-    值集将 <a href="codesystem.html">代码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
+    ValueSet资源从一个或多个编码系统中提取一组编码作为一个值集实例，用于特定场景。
+    值集将 <a href="codesystem.html">编码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
 </p>
 
 </p>
@@ -133,13 +133,13 @@
     的两个关键概念：</p>
 <ul>
     <li>
-        代码系统：<code><a href="codesystem.html">CodeSystem</a></code>
-        - 声明代码系统或代码系统的补充和其关键属性的存在，并对它们进行描述。它的内容可选择性的定义（可以不定义，也可以定义部分或全部）。也称为本体论、术语或字典。
+        编码系统：<code><a href="codesystem.html">CodeSystem</a></code>
+        - 声明编码系统或编码系统的补充和其关键属性的存在，并对它们进行描述。它的内容可选择性的定义（可以不定义，也可以定义部分或全部）。也称为本体论、术语或字典。
 
     </li>
     <li>
         值集： <code>ValueSet</code>
-        - 指定从一个或多个代码系统中提取的一组代码，用于特定场景。 值集将 <a href="codesystem.html">代码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
+        - 指定从一个或多个编码系统中提取的一组编码，用于特定场景。 值集将 <a href="codesystem.html">编码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
     </li>
 </ul>
 <p>
@@ -148,15 +148,15 @@
 <ul>
  <li>构成：<code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code>: 
     
-     定义值集包含会哪些代码（“内涵”）</li>
+     定义值集包含会哪些编码（“内涵”）</li>
  <li>扩展：<code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
-    在给定的一系列条件限定下（“外延”），实际包含在值集中的代码列表。可参见<a href="valueset.html#expansion">值集的扩展</a>
+    在给定的一系列条件限定下（“外延”），实际包含在值集中的编码列表。可参见<a href="valueset.html#expansion">值集的扩展</a>
  </li>
 </ul>
 <p>
  <code>ValueSet</code> 资源中可以包含<code>.compose</code>或<code>.expansion</code>元素其中的一个，也可以两个都包含或者一个都不含（如果仅当做元数据使用时）。
   <a href="valueset-operation-expand.html">"$expand" 操作</a>，可请求服务器根据特定场景生成给定组合规则的扩展
-   <a href="valueset-operation-validate-code.html">"$validate-code" 操作</a> 可用于请求服务器检查给定代码或概念是否包含在特定场景中的值集中</p>
+   <a href="valueset-operation-validate-code.html">"$validate-code" 操作</a> 可用于请求服务器检查给定编码或概念是否包含在特定场景中的值集中</p>
 </div>
 
 <div>
@@ -166,7 +166,7 @@
     很多资源都会使用到值集:
 </p>
 <ul>
- <li>值集通引用 <a href="codesystem.html">代码系统</a>的权威参考的方式使用CodeSystem资源.</li>
+ <li>值集通引用 <a href="codesystem.html">编码系统</a>的权威参考的方式使用CodeSystem资源.</li>
  <li>结构定义<a href="structuredefinition.html">StructureDefinition</a>、
    操作定义<a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>、问卷/问询<a href="questionnaire.html">Questionnaire</a>等资源用值集来
      规定编码元素的允许内容或为数据处理指定业务规则。</li>
@@ -184,7 +184,7 @@
      
         值集资源是根据
         <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2 <img src="external.png" style="text-align: baseline" /></a>
-        规范的功能要求和HL7规范对值集元数据的定义要求来设计的。值集资源可以转换为CTS2值集或代码系统实例。
+        规范的功能要求和HL7规范对值集元数据的定义要求来设计的。值集资源可以转换为CTS2值集或编码系统实例。
     </li>
     <li>
         值集资源完全符合<a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">值集定义（VSD）项目<img src="external.png" style="text-align: baseline" /></a>
@@ -199,8 +199,8 @@
 
 <p>
    
-    使用值集时，正确理解代码系统和值集之的区别很重要。在实践中常常会在这里出现重大的临床安全风险。
-    实施者应对<a href="terminologies.html">在资源中使用代码</a>章节的内容很熟悉。
+    使用值集时，正确理解编码系统和值集之的区别很重要。在实践中常常会在这里出现重大的临床安全风险。
+    实施者应对<a href="terminologies.html">在资源中使用编码</a>章节的内容很熟悉。
 </p>
 
 <a name="ident"></a>
@@ -256,13 +256,13 @@
 值集可以通过的内涵或外延来描述它。“内涵”和“外延”这两个术语来自于数学逻辑和集合论的领域。
 </p>
 <p>
-    通常内涵值集是由算法定义的。也就是说, 代码组被定义成一种规则(例如, 在其描述中涵盖糖尿病一词的所有代码)。
-    内涵代码组的主要优点是可以动态更新。动态更新可帮助卫生组织在有新药 (及其相关代码)可用时或疾病代码和其他临床概念发生变化时保持最新状态。
-    用于包含β受体阻滞剂类别中的所有药物的内涵值集可以在新的β受体阻滞剂进入市场后立即自动接收该代码。
+    通常内涵值集是由算法定义的。也就是说, 编码组被定义成一种规则(例如, 在其描述中涵盖糖尿病一词的所有编码)。
+    内涵编码组的主要优点是可以动态更新。动态更新可帮助卫生组织在有新药 (及其相关编码)可用时或疾病编码和其他临床概念发生变化时保持最新状态。
+    用于包含β受体阻滞剂类别中的所有药物的内涵值集可以在新的β受体阻滞剂进入市场后立即自动接收该编码。
 </p>
 <p>
-    另一方面, 外延值集是枚举的代码列表, 其中每个代码都单独列出。
-    这使值集的作者和用户可以更好地控制值集中的代码, 但为了让值集保持最新，维护量会更大。
+    另一方面, 外延值集是枚举的编码列表, 其中每个编码都单独列出。
+    这使值集的作者和用户可以更好地控制值集中的编码, 但为了让值集保持最新，维护量会更大。
 </p>
 
 </div>
