@@ -104,30 +104,33 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="searchparameter-examples.html">Examples</a></li><li><a href="searchparameter-definitions.html">Detailed Descriptions</a></li><li><a href="searchparameter-mappings.html">Mappings</a></li><li><a href="searchparameter-profiles.html">Profiles &amp; Extensions</a></li><li><a href="searchparameter-version-maps.html">R3 Conversions</a></li></ul>
+<ul class="nav nav-tabs"><li class="active"><a href="#">内容</a></li><li><a href="searchparameter-examples.html">示例</a></li>
+    <li><a href="searchparameter-definitions.html">详情</a></li><li><a href="searchparameter-mappings.html">Mappings</a></li><li><a href="searchparameter-profiles.html">Profiles &amp; Extensions</a></li><li><a href="searchparameter-version-maps.html">R3 Conversions</a></li></ul>
 
-<h1 class="self-link-parent"><span class="sectioncount">5.5<a name="5.5"> </a></span> Resource SearchParameter - Content <a href="searchparameter.html#5.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+<h1 class="self-link-parent"><span class="sectioncount">5.5<a name="5.5"> </a></span> 资源搜索参数 - 主要内容 <a href="searchparameter.html#5.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
 
 <table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 3</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Anonymous</td>  <!-- !ns! --><td><a href="compartmentdefinition.html">Compartments</a>: Not linked to any defined compartments</td></tr></table>
 
 
-<p>
-<p>A search parameter that defines a named search item that can be used to search/filter on a resource.</p>
 
-</p>
+<p>搜索参数，它定义了用于搜索/筛选资源的命名搜索项（搜索选项，必须指定选项名称）。</p>
+
+
 
 <div>
 <a name="scope"></a>
 <h2 class="self-link-parent"><span class="sectioncount">5.5.1</span> Scope and Usage <a href="searchparameter.html#scope" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>
-A <code>SearchParameter</code> resource specifies a search parameter
-that may be used on the RESTful API to search or filter on a resource. 
-The SearchParameter resource declares:
+   
+     <code>SearchParameter</code>资源指定一个可在RESTful API上用于搜索或筛选资源的搜索参数。SearchParameter资源声明：
 </p>
 <ul>
- <li>how to refer to the search parameter from a client</li>
- <li>how the search parameter is to be understood by the server</li>
- <li>where in the source resource the parameter matches</li>
+    <li>
+        如何在客户端使用搜索参数
+
+    </li>
+    <li>服务器如何理解搜索参数</li>
+ <li>参数对应到源资源里的哪个位置</li>
 </ul>
 </div> 
 
@@ -135,9 +138,15 @@ The SearchParameter resource declares:
 <a name="bnr"></a>
 <h2 class="self-link-parent"><span class="sectioncount">5.5.2</span> Boundaries and Relationships <a href="searchparameter.html#bnr" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2> 
 <ul>
- <li>Search Parameters are referred to by <a href="capabilitystatement.html">CapabilityStatement</a> resources via the canonical URL for a search 
-    parameter (<a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.definition">CapabilityStatement.rest.resource.searchParam.definition</a>)</li>
- <li>Search Parameters can appear in an <a href="implementationguide.html">Implementation Guide</a> to specify how resources can be found</li>
+    <li>
+        搜索参数被能力声明<a href="capabilitystatement.html">CapabilityStatement</a>资源的规范URL(<a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.definition">CapabilityStatement.rest.resource.searchParam.definition</a>)引用，用于声明其支持的搜索参数。
+        
+    </li>
+ 
+    <li>
+
+        搜索参数可以出现在<a href="implementationguide.html">实施指南</a>中，以说明如何找到资源
+    </li>
 </ul>
 
 </div> 
