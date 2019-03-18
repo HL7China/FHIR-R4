@@ -103,7 +103,7 @@ testable syntax, a set of rules and constraints, methods and interface signature
 implementation of a server capable of requesting and delivering FHIR business objects.
     在医疗领域，“业务对象”的集合没有一种统一定义，但有一个概念性的和持续改进的基于共识的标准化核心业务对象集的定义，
     包括“患者”、“过程”，
-    “观察”、“顺序”等（请参见<a href="resourcelist.html">已经定义的resources列表</a>）。fhir规范
+    “观测”、“顺序”等（请参见<a href="resourcelist.html">已经定义的resources列表</a>）。fhir规范
     定义这些医疗保健业务对象（“资源”）的框架，用组合的方式将它们关联在一起，
     以可计算的形式实现它们，并在定义良好的接口之间共享它们。框架包含可验证的和
     可测试语法、“fhir-aware”API的一组规则和约束、方法和接口签名，以及
@@ -381,95 +381,72 @@ requiring human due diligence and governance to ensure adherence.
 </ul>
 
 <a name="organizing"></a>
-<h3 class="self-link-parent"><span class="sectioncount">2.16.5</span> Organizing FHIR Resources 组织FHIR资源<a href="overview-arch.html#organizing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.16.5</span> 组织FHIR资源<a href="overview-arch.html#organizing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-It is impractical to model the entirety of health data in a single information model. Every modeling
-initiative in healthcare from HL7 version 2 message specifications to FHIR resources decomposes the
-healthcare domain into smaller, more manageable sub-domains or information model snippets. With FHIR,
-each resource is essentially a snippet of the larger healthcare information domain.
-
-    用一个单一的信息模型来模拟整个医疗数据是不现实的。每个建模
-    从HL7 version 2消息规范到FHIR resource的医疗保健计划分解了
-    医疗领域分为更小、更易于管理的子域或信息模型片段。用FHIR，
-    每个资源本质上都是大型医疗保健信息领域的一小部分。
+    用单一的信息模型来模拟整个卫生健康数据是不现实的。
+    每次建模，从HL7第二版消息规范到FHIR资源，都将
+    卫生健康信息域分为更小、更易于管理的子域或信息模型片段。FHIR的每个资源本质上都是大型卫生健康信息领域的一小部分。
 </p>
 <p>
-When breaking down the healthcare information model into smaller chunks (or resources for FHIR), it
-is important to have a framework and set of guidelines to promote consistency and integrity within
-the resource structures and in the way resources reference each other. The framework shown below
-includes health information model sub-categories organized into layers based on their degree of
-commonness. The layers and categories are useful for identifying which parts of healthcare information
-are the most common and therefore need to be the most consistently defined and tightly governed. The
-categories at the top layers are the most common and contain the FHIR resources that support the
-largest number of common healthcare transactions.
 
-    当将医疗信息模型分解成更小的块（或fhir resource）时，
-    关键在于在resource结构上要有一个框架和一套指导方针来促进内部的一致性，完整性和
-    资源相互引用的方式。框架如下所示
-    包括健康信息模型子类别，这些子类别根据其级别组织成层
-    共性。层次和类别对于识别医疗保健信息的哪些部分很有用
-    是最常见的，因此需要被最一致的定义和严格的管理。这个
-    顶层的类别是最常见的，包含支持
-    最大数量的普通医疗保健交易。
+    当将卫生健康信息模型分解成更小的块（或FHIR资源）时，用一个框架和一套指南以资源相互引用的方式来促进内部的一致性和完整性尤为重要。
+    下面所示的框架包含卫生信息模型各子类别，这些子类别根据其共性程度被组织成若干层。
+    用这些层级和类别来区分哪些是最常见的卫生健康信息非常有用，因此需要得到最一致的定义和严格的管理。
+    顶层的类别最常用，它包含的FHIR资源支持了大多数的卫生健康事务。
+    
+
 </p>
 <p>
-Descriptions of the layers in the framework:
-    框架中各层的描述:
+    对此框架中每个层级的描述:
 </p>
 <ol>
-<li><b>Foundation Resources Foundation resources</b>: Foundation resources are the most rudimentary, foundational resources. They are often used for infrastructural tasks.
-  Although not prohibited, they are not always referenced by other resources.
-    基础resources是最基本、最基本的resources。它们通常用于基础设施任务。尽管不是禁止的，但其他resources并不总是引用它们。
-</li>
-<li><b>Base Resources Base Resources </b>: Layer two consists of base resources. These are often the leaf nodes of a resource graph. In other words, they are often
-referenced by  other resources, but don't typically reference other resources themselves. These resources are typically the most commonly used, and
- therefore require the highest degree of consistency and architectural rigor. Governance is greatest for resources in layers one and two.
+    <li>
+        <b>框架资源 - Foundation Resources</b>: 
+        框架资源是最基本、最基础的资源。它们通常用于承担基础架构相关任务。尽管没有禁止，但其他资源一般都会引用它们。
+    </li>
+    <li>
+        <b>基础资源 - Base Resources </b>: 
 
-    第二层由base resources组成。这些通常是资源图的叶节点。换句话说，它们经常被其他resource引用，但通常不引用其他resource本身。这些resource通常是最常用的，
-    因此需要最高程度的一致性和架构严密性。对于第一层和第二层中的resource，治理是最大的。
-</li>
-<li><b>Clinical Resources Clinical Resources</b>: Layer 3 includes the resources that are clinical in nature but are also very common across many use cases. This
-includes resources for clinical observations, clinical treatment, care provision, and medications. These resources can be used by themselves, but
-typically build on the resources in layer two. For example, an observation resource will reference the patient resource from layer two. These resources
-are also frequently contextualized when they are referenced by resources in layers three, four and five.
-    第3层包括在本质上是Clinical Resources，但在许多用例中也是非常常见的。这包括临床观察、临床治疗、护理和药物的resource。这些resource可以自己使用，但通常建立在第二层的resource之上。
-    例如，observation resource将引用第二层的patient resource。当这些resoruce被第三层、第四层和第五层中的resoruce引用时，它们也经常被上下文化.
+        第1级由基础资源组成。这些通常是资源图的叶节点。换句话说，它们经常被其他资源引用，但通常不引用其他资源。这些资源是最常用的，
+        因此需要最高程度的一致性和最缜密的架构。对第1级和第2级中的资源管理是最严的。
+    </li>
+    <li>
+        <b>临床资源 - Clinical Resources</b>: 
+        第3级包含属于临床范围的资源，它们在许多场景下都很常用。这些资源包括临床观测、临床治疗、护理和药物。
+        这些资源可以独立使用，但通常会以第2级的资源作为基础。
+        例如，观测资源将引用第2级的患者资源。当这些资源被第3、4、5级的资源引用时，它们经常在特定场景中被赋予特定的意义.
+    </li>
+<li><b>财务资源 - Financial Resources</b>:
 
+    第4级专注财务相关的资源。从逻辑上讲，财务资源以临床资源和基础资源作为基础。
+    例如，账单资源会引用临床事件和活动以及像患者这样的基础资源。
 </li>
-<li><b>Financial Resources Financial Resources</b>: Layer four is dedicated to financial resources. Logically, financial resources build on clinical and base resources.
-For example, a billing resource will reference clinical events and activities as well as base resources like a patient.
-
-    第四层专门用于Financial Resources。从逻辑上讲，Financial Resources建立在clinical resource和base resource之上。
-    例如，billing resource将引用临床事件和活动以及患者等基础资源。
+<li>
+    <b>专业资源 - Specialized Resources</b>: 
+    在第4级中，是一些不太常用的专业资源。这些资源几乎总会引用更低层级的资源。
+    由于FHIR优先满足常见用例，这一层级的资源相对较少。
 </li>
-<li><b>Specialized Resources Specialized Resources</b>: In layer five, we find more specialized resources for less common use cases. These resources almost always reference
- resources in lower layers. Given that FHIR places priority on satisfying the most common use cases, there are fewer resources in this layer.
+<li>
+    <b>资源上下文 - Resource Contextualization</b>:
 
-    在第五层中，我们为不太常见的用例找到了更专门的resources。这些resources几乎总是引用
-    下层resources。考虑到fhir优先满足最常见的用例，这一层的resources就更少了。
+    第6级不包含资源。但正是它扩展了由前五级资源组成的框架结构。
+    第6层包括配置和资源图。为达到特定目的，可利用配置对资源进行扩展、约束或让其在特定的上下文中使用。
+    资源图是包含自身属性的资源组合或资源网组合。
 </li>
- <li><b>Resource Contextualization Resource 上下文化</b>: Layer 6 does not contain resources. However, it does extend the composition framework made up by the first
-  five layers of resources. Layer 6 includes profiles and graphs. Profiles are used to extend, constrain, or otherwise contextualize resources for
-  a given purpose. Graphs are compositions of resources, or webs of resource, that contain attributes of their own.
-
-     第6层不包含resources。但是，它确实扩展了上面的
-     五层资源。第6层包括外形和图形。配置文件用于扩展、约束或以其他方式将资源上下文化
-     一个既定的目的。图是包含其自身属性的资源或资源网的组合。
- </li>
 </ol>
 <p>
 <img src="framework-2.png" style="float: none"/>
 </p>
 <p>
-The complete set of FHIR resources organized against this framework is found on the <a href="resourcelist.html">Resources page </a>.
-    根据框架组织的FHIR resource在<a href="resourcelist.html">resource页</a>上
+    根据以上框架组织的全套FHIR资源可以在<a href="resourcelist.html">资源页面</a>上找到。
+  
 </p>
 <p>
-The framework serves three primary purposes: 这个框架的三个目的是：
+这个框架主要为以下三个目的服务：
 </p>
 <ol>
- <li>Organize resource for navigation and identification
-     为导航和识别组织resource
+ <li>
+    为了方便的导航并找到资源而对它进行组织排列
  </li>
  <li>Classify resources into categories based on common sense groupings or patterns describing expected structures and/or behaviors amongst resources in the same category
 
