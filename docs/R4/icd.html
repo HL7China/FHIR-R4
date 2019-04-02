@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-  <title>Icd - FHIR v4.0.0</title>
+    <title>ICD-X - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -34,22 +34,7 @@
 
 </head>
 <body>
-	<div id="segment-header" class="segment">  <!-- segment-header -->	
-		<div class="container">  <!-- container -->
-			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir"/> </a>
-			<div id="hl7-status">
-				<b>FHIR R4</b>
-			</div>       	
-			
-			<div id="hl7-nav">
-				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org">
-					<img src="./assets/images/hl7-logo.png" width="42" alt="visit the hl7 website" height="50"/>
-				</a> 
-			</div>       	
-			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./assets/images/search.png" alt="Search FHIR"/></a></div> 
-		</div>
-		<div class="container">  <!-- container -->
-	</div></div>  <!-- /segment-header -->	
+	    <div id="segment-header" class="segment"></div> <!-- /segment-header -->	
 
 
 	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
@@ -65,18 +50,8 @@
 						<span class="icon-bar"> </span>
 					</button>
 					<a href="index.html" class="navbar-brand hidden">FHIR</a>
-					<div class="nav-collapse collapse navbar-inverse-collapse">
-						<ul class="nav navbar-nav">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./modules.html">Getting Started</a></li>
-              <li><a href="./documentation.html">Documentation</a></li>
-              <li><a href="./resourcelist.html">Resources</a></li>
-              <li><a href="./profilelist.html">Profiles</a></li>
-              <li><a href="./extensibility-registry.html">Extensions</a></li>
-              <li><a href="./operationslist.html">Operations</a></li>
-              <li><a href="./terminologies-systems.html">Terminologies</a></li>
-						</ul>
-					</div>  <!-- /.nav-collapse -->
+					
+    <div class="nav-collapse collapse navbar-inverse-collapse"  id="nav-content"></div>  <!-- /.nav-collapse -->
 				</div>  <!-- /.container -->
 			</nav>  <!-- /.navbar -->
       		
@@ -88,9 +63,10 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="terminology-module.html"><img src="terminology.png"/> Terminology</a></li>
-        <li><a href="terminologies-systems.html">Code Systems</a></li>
-        <li><b>ICD-X</b></li>          <!-- icd.html / page / -->
+        <li><img src="terminology.png"/> <b> 当前位置：</b><a href="terminology-module.html">术语</a></li>
+        <li><a href="terminologies-systems.html">代码系统</a></li>
+        <li>ICD-X</li>
+        <!-- icd.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -109,8 +85,8 @@
 <ul class="nav nav-tabs"><li class="active"><a href="#">Using Codes</a></li><li><a href="terminologies-systems.html">Code Systems</a></li><li><a href="terminologies-valuesets.html">Value Sets</a></li><li><a href="terminologies-conceptmaps.html">Concept Maps</a></li><li><a href="identifier-registry.html">Identifier Systems</a></li></ul>
 
 
-<h2 class="self-link-parent"><span class="sectioncount">4.3.11<a name="4.3.11"> </a></span> Using ICD-[X] Codes with FHIR <a href="icd.html#4.3.11" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
-<table class="colstu"><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/Vocab/index.cfm" _target="blank">Vocabulary <img src="external.png" style="text-align: baseline"/></a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<h2 class="self-link-parent"><span class="sectioncount">4.3.11<a name="4.3.11"> </a></span> Using ICD-[X] Codes with FHIR <a href="icd.html#4.3.11" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<table class="colstu"><tr><td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/Vocab/index.cfm" _target="blank">Vocabulary <img src="external.png" style="text-align: baseline"/></a></td><td id="fmm"><a href="versions.html#maturity">成熟度</a>: 2</td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
 ICD is a family of code systems maintained by <a href="http://www.who.int/classifications/icd/en/">WHO <img src="external.png" style="text-align: baseline"/></a>, with many countries 
@@ -120,7 +96,7 @@ publishing their own variants.
 There are two principal revisions of ICD in use - ICD-10 and ICD-9 (note that while US usage has recently updated to ICD-10, there is still a lot of legacy data coded in ICD-9). Though these can be referred to as different versions of ICD, they are entirely distinct sets of codes, with significant differences in organization and coding rules.  Plus, if period ('.') characters are disregarded (as occurs in some systems), a few of the codes are overlapping between ICD-9 and ICD-10.  Given these considerations, ICD-9 and ICD-10 are represented as entirely separate code systems.  The next revision, ICD-11, is scheduled for release in 2017.
 </p>
 
-<h3 class="self-link-parent"><span class="sectioncount">4.3.11.1<a name="4.3.11.1"> </a></span> Summary <a href="icd.html#4.3.11.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.3.11.1<a name="4.3.11.1"> </a></span> Summary <a href="icd.html#4.3.11.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="grid">
  <tr>
@@ -170,7 +146,7 @@ There are two principal revisions of ICD in use - ICD-10 and ICD-9 (note that wh
 </table>
 
 <a name="variants"></a>
-<h3 class="self-link-parent"><span class="sectioncount">4.3.11.2</span> ICD-10 variants <a href="icd.html#variants" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.3.11.2</span> ICD-10 variants <a href="icd.html#variants" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 Variants (other variants exist which are not listed here):
 </p>
@@ -193,8 +169,8 @@ Variants (other variants exist which are not listed here):
 </table>
 
 <a name="multiple-coding"></a>
-<h3 class="self-link-parent"><span class="sectioncount">4.3.11.3</span> Multiple Coding <a href="icd.html#multiple-coding" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-<h4 class="self-link-parent"><span class="sectioncount">4.3.11.3.1<a name="4.3.11.3.1"> </a></span> Dual Coding (“dagger and asterisk” system) <a href="icd.html#4.3.11.3.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h3 class="self-link-parent"><span class="sectioncount">4.3.11.3</span> Multiple Coding <a href="icd.html#multiple-coding" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h4 class="self-link-parent"><span class="sectioncount">4.3.11.3.1<a name="4.3.11.3.1"> </a></span> Dual Coding (“dagger and asterisk” system) <a href="icd.html#4.3.11.3.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
 For dual ("two code", “dagger and asterisk”) coding see volume 2 <a href="http://www.who.int/entity/classifications/icd/ICD-10_2nd_ed_volume2.pdf">ICD-10 Manual <img src="external.png" style="text-align: baseline"/></a>), section 3.1.3 <i>Two codes for certain conditions</i>.  In cases where two codes are required, the primary recommendation for representing this coding in FHIR (in Coding.code) is to simply use the two ICD-10 codes separated by a space, e.g. "J21.8 B95.6", as the code value (string).  This is a simple form of post-coordination syntax.  Alternatively, another possible syntax that may be used (which may be desirable or required in some situations) is to include the characters of the dagger (represented as † or +) for the primary code and the asterisk (*) for the secondary code as part of the post-coordinated code value, e.g. "J21.8+ B95.6*".  In either case, it is recommended that the primary (+) code for the underlying generalized disease is listed first, followed by the secondary (*) code for the specific manifestation in a particular organ or site.
 </p>
@@ -233,7 +209,7 @@ or, with the + and * characters included:
 </pre>
 </p>
 
-<h4 class="self-link-parent"><span class="sectioncount">4.3.11.3.2<a name="4.3.11.3.2"> </a></span> Additional Characters <a href="icd.html#4.3.11.3.2" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">4.3.11.3.2<a name="4.3.11.3.2"> </a></span> Additional Characters <a href="icd.html#4.3.11.3.2" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
 Some jurisdictions (e.g. Germany) have additional coding requirements that go beyond the dual coding “dagger and asterisk” coding approach (syntax).  In ICD-10-GM used in Germany the ! character is used to indicate a secondary diagnosis.
 </p>
@@ -260,7 +236,7 @@ The recommended syntax for representing these combinations of codes in FHIR (in 
 </pre>
 </p>
 
-<h4 class="self-link-parent"><span class="sectioncount">4.3.11.3.3<a name="4.3.11.3.3"> </a></span> Three or More Codes <a href="icd.html#4.3.11.3.3" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">4.3.11.3.3<a name="4.3.11.3.3"> </a></span> Three or More Codes <a href="icd.html#4.3.11.3.3" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>The coding also may require three or sometimes more codes for a complete representation of the intended meaning.  A further German coding example (from the <i>Deutsche Kodierrichtlinien</i> manual) includes an additional secondary diagnosis and a monitoring code.
 </p>
 <p>
@@ -284,13 +260,13 @@ A proper interpretation of this extended example is: "A patient is admitted to h
 Other jurisdictions may have similar needs for multiple coding but with different specific coding requirements.  In those cases local coding manuals and authorities should be consulted to determine the recommended or expected syntax to use in a FHIR Coding instance. 
 </p>
 
-<h3 class="self-link-parent"><span class="sectioncount">4.3.11.4<a name="4.3.11.4"> </a></span> Copyright/License Issues <a href="icd.html#4.3.11.4" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.3.11.4<a name="4.3.11.4"> </a></span> Copyright/License Issues <a href="icd.html#4.3.11.4" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
 ICD-10 is &copy;Copyright World Health Organization (WHO).  WHO licenses its published material widely, in order to encourage maximum use and dissemination. See <a href="http://www.who.int/about/licensing/classifications/en/">Licensing WHO classifications <img src="external.png" style="text-align: baseline"/></a> for details.  The ICD variants have their own separate copyright and licensing (refer to the documentation for the particular variant for details).
 </p>
 
-<h3 class="self-link-parent"><span class="sectioncount">4.3.11.5<a name="4.3.11.5"> </a></span> ICD-X Filter Properties <a href="icd.html#4.3.11.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.3.11.5<a name="4.3.11.5"> </a></span> ICD-X Filter Properties <a href="icd.html#4.3.11.5" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 
 <a name="filters"></a>
@@ -299,7 +275,7 @@ No need for filters identified yet.
 </p>
 
 
-<h3 class="self-link-parent"><span class="sectioncount">4.3.11.6<a name="4.3.11.6"> </a></span> Implicit Value Sets <a href="icd.html#4.3.11.6" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.3.11.6<a name="4.3.11.6"> </a></span> Implicit Value Sets <a href="icd.html#4.3.11.6" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
 No need for implicit value sets identified yet.
@@ -314,26 +290,7 @@ No need for implicit value sets identified yet.
         
     </div>  <!-- /segment-content -->
 
-
-	<div id="segment-footer" class="segment">  <!-- segment-footer -->
-		<div class="container">  <!-- container -->
-			<div class="inner-wrapper">
-				<p>
-        &reg;&copy; HL7.org 2011+. FHIR Release 4 (v4.0.0) generated on Thu, Dec 27, 2018. <a style="color: #ffffff" href="qa.html">QA Page</a>
-        <br/>
-        <span style="color: #FFFF77">
-        Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search <img src="external.png" style="text-align: baseline"/></a> | 
-               <a style="color: #b8dcf9" href="history.html">Version History</a> | 
-               <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
-               <a style="color: #b8dcf9" href="credits.html">Credits</a> | 
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Ficd.html&amp;doc2=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Ficd.html">Compare to R3 <img src="external.png" style="text-align: baseline"/></a> |                
-               <a rel="license" style="color: #b8dcf9" href="license.html"><img src="cc0.png" alt="CC0" style="border-style: none;"/></a> | 
-               <a style="color: #b8dcf9" href="http://hl7.org/fhir-issues" target="_blank">Propose a change <img src="external.png" style="text-align: baseline"/></a>   
-        </span>
-        </p>
-			</div>  <!-- /inner-wrapper -->
-		</div>  <!-- /container -->
-	</div>  <!-- /segment-footer -->
+        <div id="segment-footer" class="segment"></div>  <!-- /segment-footer -->
   <!-- disqus thread -->
   <!-- disqus -->
   <!-- end disqus -->        
@@ -355,7 +312,17 @@ No need for implicit value sets identified yet.
 
   <!-- Analytics Below
 ================================================== -->
-
+        <script src="./assets/js/template-web.js"></script>
+        <script src="./assets/js/nav.js"></script>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?351f802705b09ff497ed83d498777ee1";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
     
 </body>
 </html>
