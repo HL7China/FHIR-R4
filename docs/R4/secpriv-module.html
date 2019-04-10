@@ -89,7 +89,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><b><img src="secpriv.jpg"/> Security and Privacy安全和隐私</b></li>          <!-- secpriv-module.html / page / -->
+        <li><b><img src="secpriv.jpg"/> Security and Privacy</b></li>          <!-- secpriv-module.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -104,127 +104,110 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 
 <div class="col-12">
-<table class="colsi"><tr><td id="wg">Work Group <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">
-FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> &amp; 
-<a href="http://www.hl7.org/Special/committees/secure/index.cfm" _target="blank">Security FHIR基础设施与安全工作组
-<img src="external.png" style="text-align: baseline"/></a> </td><td id="ballot">
-<a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative标准状态：信息性</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Work Group <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> &amp; <a href="http://www.hl7.org/Special/committees/secure/index.cfm" _target="blank">Security <img src="external.png" style="text-align: baseline"/></a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
-<h2 class="self-link-parent"><span class="sectioncount">6.0<a name="6.0"> </a></span> Security and Privacy Module安全和隐私组件
- <a href="secpriv-module.html#6.0" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20">
- <path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 
- 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-
- 146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 
- 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 
- 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 
- 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88
- 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">6.0<a name="6.0"> </a></span> Security and Privacy Module <a href="secpriv-module.html#6.0" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <a name="intro"></a>
-<h3 class="self-link-parent"><span class="sectioncount">6.0.1</span> Introduction 简介<a href="secpriv-module.html#intro" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">6.0.1</span> Introduction <a href="secpriv-module.html#intro" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 The Security and Privacy Module describes how to protect a FHIR server (through
 access control and authorization), how to document what permissions a user has
 granted (consent), and how to keep records about what events have been
 performed (audit logging and provenance). FHIR does not mandate a single
 technical approach to security and privacy; rather, the specification provides
-a set of building blocks that can be applied to create secure, private systems.<br/>
-安全和隐私模块描述了如何保护FHIR服务器（通过访问控制和授权），如何记录用户授予的权限（同意），以及如何记录已执行的事件
-（审计日志记录和来源） 。FHIR并未强制要求采用单一技术方法来保护安全和隐私; 相反，该规范提供了一组构建块，可用于创建安全的私有系统。
+a set of building blocks that can be applied to create secure, private systems.
 </p>
 
 <a name="index"></a>
-<h3 class="self-link-parent"><span class="sectioncount">6.0.2</span> Index索引 <a href="secpriv-module.html#index" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">6.0.2</span> Index <a href="secpriv-module.html#index" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 The Security and Privacy module includes the following materials:
-安全和隐私模块包括以下材料：
 </p>
 
 <table class="none">
  <tr>
-   <td><b>Resources资源</b></td>
-   <td><b>Datatypes数据类型</b></td>
-   <td><b>Implementation Guidance and Principles实施指南和原则</b></td>
+   <td><b>Resources</b></td>
+   <td><b>Datatypes</b></td>
+   <td><b>Implementation Guidance and Principles</b></td>
   </tr>
  <tr>
    <td>
 <ul>
 <li>
-  <a href="consent.html">Consent同意</a>
+  <a href="consent.html">Consent</a>
 </li>
 <li>
-  <a href="provenance.html">Provenance来源</a>
+  <a href="provenance.html">Provenance</a>
 </li>
 <li>
-  <a href="auditevent.html">Audit Event审计事件</a>
-</li>
-</ul>
-   </td>
-   <td>
-<ul>
-<li>
-  <a href="datatypes.html#signature">Signature签名</a>
+  <a href="auditevent.html">Audit Event</a>
 </li>
 </ul>
    </td>
    <td>
 <ul>
 <li>
-  <a href="security.html">Security Principles安全原则</a>
+  <a href="datatypes.html#signature">Signature</a>
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+<li>
+  <a href="security.html">Security Principles</a>
 </li>
 <li>
-  <a href="security-labels.html">Security Labels安全标签</a>
+  <a href="security-labels.html">Security Labels</a>
 </li>
 <li>
-  <a href="signatures.html">Signatures签名</a>
+  <a href="signatures.html">Signatures</a>
 </li>
 </ul>
    </td>
   </tr>
 </table>
 <p>
-The following common use-cases are elaborated below:下面详细介绍了以下常见用例：
+The following common use-cases are elaborated below:
 <ul>
-<li><a href="#security">Security</a> and <a href="#privacy">Privacy</a>安全和隐私</li>
-<li><a href="#authorization">Authorization and Access Control授权和访问控制</a></li>
-<li><a href="#query-parameters">Authorization considerations with Query Parameters查询参数的授权注意事项</a></li>
-<li><a href="#user">User Identity and Access Context用户身份和访问上下文</a></li>
-<li><a href="#audit">Security and Privacy Audit Logging安全和隐私审计日志</a></li>
-<li><a href="#AoD">Accounting of Disclosures and Access Reports披露和访问报告的会计处理</a></li>
-<li><a href="#privacy-consent">Privacy Consent隐私同意</a></li>
-<li><a href="#provenance">Provenance来源</a></li>
-<li><a href="#signature">Digital and Electronic Signatures数字和电子签名</a></li>
-<li><a href="#deId">De-Identification, Anonymization, and Pseudonymization去识别，匿名化和假名</a></li>
-<li><a href="#testData">Security Considerations on Test Data测试数据的安全注意事项</a></li>
+<li><a href="#security">Security</a> and <a href="#privacy">Privacy</a></li>
+<li><a href="#authorization">Authorization and Access Control</a></li>
+<li><a href="#query-parameters">Authorization considerations with Query Parameters</a></li>
+<li><a href="#user">User Identity and Access Context</a></li>
+<li><a href="#audit">Security and Privacy Audit Logging</a></li>
+<li><a href="#AoD">Accounting of Disclosures and Access Reports</a></li>
+<li><a href="#privacy-consent">Privacy Consent</a></li>
+<li><a href="#provenance">Provenance</a></li>
+<li><a href="#signature">Digital and Electronic Signatures</a></li>
+<li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
+<li><a href="#testData">Security Considerations on Test Data</a></li>
 </ul>
 </p>
 
 
 <a name="security"></a>
-<h3 class="self-link-parent"><span class="sectioncount">6.0.3</span> Security 安全性<a href="secpriv-module.html#security" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">6.0.3</span> Security <a href="secpriv-module.html#security" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 FHIR is focused on the data access methods and encoding leveraging existing Security solutions.
 Security in FHIR needs to focus on the set of considerations required to ensure that
 data can be discovered, accessed, or altered only in accordance with
 expectations and policies.  
-Implementation should leverage existing security standards and implementations to ensure that:<br/>
-fhir专注于利用现有安全解决方案的数据访问方法和编码。fhir中的安全性需要关注一系列需要考虑的事项，
-以确保数据只能根据预期和策略被发现、访问或更改。实施应利用现有的安全标准和实施来确保：
+Implementation should leverage existing security standards and implementations to ensure that:
 </p>
 
 <ul>
 <li>
-All communications can be encrypted to prevent unauthorized access. 所有通信都可以加密，以防止未经授权的访问。
+All communications can be encrypted to prevent unauthorized access. 
 </li>
 <li>
-No information leaks when errors occur发生错误时无信息泄漏
+No information leaks when errors occur
 </li>
 <li>
-No active script content can be injected into narrative resources没有活动的脚本内容可以注入到叙述资源中
+No active script content can be injected into narrative resources
 </li>
 <li>
-Full audit trails can be constructed and used to detect anomalous access patterns可以构建完整的审计跟踪，并用于检测异常访问模式
+Full audit trails can be constructed and used to detect anomalous access patterns
 </li></ul>
 <p>
 For general security considerations and principles, see <a href="security.html">Security</a>.
