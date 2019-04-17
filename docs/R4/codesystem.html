@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>CodeSystem - FHIR v4.0.0</title>
+  <title>编码系统 CodeSystem - FHIR v4.0.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -120,92 +120,128 @@
 <a name="scope"></a>
 <h2 class="self-link-parent"><span class="sectioncount">4.8.1</span> Scope and Usage <a href="codesystem.html#scope" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>
-The FHIR terminology specification is based on two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles <img src="external.png" style="text-align: baseline"/></a>:
+   
+    FHIR术语规范基于两个源自
+    <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 核心原理 <img src="external.png" style="text-align: baseline" /></a>
+    的关键概念：
 </p>
 <ul>
-<li> <b>code system</b> - declares the existence of and describes a code system or code system supplement and its key properties, and optionally defines a part or all of its content. Also known as Ontology, Terminology, or Enumeration</li>
-<li> <b>value set</b> - specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between <code>CodeSystem</code> definitions and their use in <a href="terminologies.html">coded elements</a></li>
+    <li>
+        <b>编码系统 code system</b>：
+        编码系统资源用于声明一个编码系统或编码系统附录及其关键属性的存在，并对其进行描述。对于它的部分或全部内容是否要定义在此资源中是可选的。也称为本体论、术语或枚举。
+          </li>
+    <li>
+        <b>值集 value set</b>：
+        用于特定上下文的一组编码，其中每个编码都是从一个或多个编码系统中提取的。
+        值集将<code>CodeSystem</code>的定义与<a href="terminologies.html">编码元素的使用</a>联系在一起。
+      
+    </li>
 </ul>
 <p>
-Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets 
-select a set of codes from one or more code systems to specify which codes can be used in a particular context.
+    Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets
+    select a set of codes from one or more code systems to specify which codes can be used in a particular context.
+    编码系统定义存在哪些编码（符号和/或表达式），以及如何理解它们。
+    值集从一个或多个编码系统中选择一组编码，以便在特定上下文中使用。
 </p>
 <p>
-The CodeSystem resource is used to declare the existence of a code system, and its key properties:
+    编码系统资源用于声明一个编码系统或编码系统附录及其关键属性的存在，包括:
 </p>
 <ul>
- <li>Identifying URL and version</li>
- <li>Description, Copyright, publication date, and other metadata</li>
- <li>Some key properties of the code system itself - e.g. whether it exhibits concept permanence, whether it defines a compositional grammar, and whether the codes that it defines are case sensitive</li>
- <li>What filters can be used in value sets that use the code system in a ValueSet.compose element</li> 
- <li>What concept properties are defined by the code system</li>
+   
+    <li>标识URL和版本</li>
+    <li>说明、版权、发布日期和其他元数据</li>
+    <li>编码系统本身的一些关键属性。例如，它是否表现出概念持久性，它是否定义了组合语法，以及它定义的编码是否区分大小写</li>
+    <li>
+       在值集的ValueSet.compose 元素中可以使用编码系统的哪些筛选器
+    </li>
+    <li>编码系统定义了什么概念属性</li>
 </ul>
 <p>
-In addition, the CodeSystem resource may list some or all of the concepts in the code system, along with
-their basic properties (code, display, definition), designations, and additional properties. Code
-System resources may also be used to define supplements, which extend an existing code system with 
-additional designations and properties.
+
+    另外，CodeSystem资源可以列出编码系统中的部分或全部概念，以及它们的基本属性（code, display, definition）、名称和附加属性。
+    编码系统资源也可用来定义附录，它用附加的名称和属性来扩展现有的编码系统。
 </p>
 <p>
-The CodeSystem resource is not intended to support the process of maintaining code systems. 
-Instead, the focus is on publishing the properties and optionally the content of a code 
-system for use throughout the FHIR eco-system, such as to support value set expansion and 
-validation. 
-Note that the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc.) 
-all have their own maintenance systems and distribution formats, and CodeSystem is generally
-not an efficient way to distribute their content, though it is used as one way of 
-declaring the filters and properties associated with those code systems. 
+
+    CodeSystem资源不支持维护编码系统的过程。
+    相反，重点是发布编码系统的属性和可选内容，以便在整个FHIR生态系统中使用，例如为支持值集扩展和验证的属性和内容。
+    请注意，目前主流的（大型）编码系统（SNOMED CT, LOINC, RxNorm, ICD系列等）都有自己的维护系统和分发格式，
+    而CodeSystem通常不是分发内容的有效方法，尽管可以用它来声明与这些编码系统相关联的过滤器和属性。
+   
 </p>
 </div>
 <div>
 <a name="relationships"></a>
-<h2 class="self-link-parent"><span class="sectioncount">4.8.2</span> Boundaries and Relationships <a href="codesystem.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">4.8.2</span> 边界与关系 <a href="codesystem.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <ul>
- <li>Code systems are used in <a href="valueset.html">ValueSet</a> resources</li>
- <li>The <a href="datatypes.html#Coding">Coding</a> data type refers to CodeSystem resources by their canonical URL</li>
- <li>The CodeSystem resource design is based, in part, on the code system functionality described in 
-     the <a href="http://www.omg.org/spec/CTS2/1.0/">HL7 CTS 2 <img src="external.png" style="text-align: baseline"/></a> specification. 
-     A CTS2 server can be used to maintain code systems which are then published using the CodeSystem resource</li>
- <li>The CodeSystem resource documents the inherent structure and capabilities of code system, whereas 
-   the <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource documents what a server hosting the code system is capable of</li>
+
+    <li>编码系统在值集<a href="valueset.html">ValueSet</a> 资源中使用</li>
+    <li><a href="datatypes.html#Coding">Coding</a> 数据类型通过编码系统的规范URL引用CodeSystem资源</li>
+    <li>
+        从某种程度上说，CodeSystem资源是根据
+        <a href="http://www.omg.org/spec/CTS2/1.0/">
+            HL7 CTS 2 <img src="external.png" style="text-align: baseline" />
+        </a>
+        规范所述编码系统功能来设计的。
+        CTS2服务器可用于维护编码系统，然后使用CodeSystem资源发布编码系统。
+      
+    </li>
+    <li>
+        CodeSystem资源记录了编码系统的固有结构和功能，而术语能力
+        <a href="terminologycapabilities.html">TerminologyCapabilities</a>
+        资源以文档形式描述了承载编码系统的服务器（术语服务器）的能力
+    </li>
 </ul>
 
 <p>
-The <code>CodeSystem</code> resource declares the existence of a code system and its key properties including its preferred identifier.
-The <code>NamingSystem</code> resource identifies the existence of a code or identifier system, and its possible and preferred identifiers. 
-The key difference between the resources is who creates and manages them - <code>CodeSystem</code> resources are managed
-by the owner or publisher of the code system, who can properly define the code system features and content.
-<code>NamingSystem</code> resources, on the other hand, are frequently defined by 3rd parties that encounter the
-code system in use, and need to describe the use, but do not have the authority to define the features and content. 
-Additionally, there may be multiple authoritative <code>NamingSystem</code> resources for a code system, but ideally there
-would be only one authoritative <code>CodeSystem</code> resource (identified by its canonical URL) that is provided by the code system publisher, with multiple copies distributed on additional FHIR servers or elsewhere and used where needed.
+
+    编码系统<code>CodeSystem</code>资源声明编码系统的存在，以及包括其首选标识符在内的关键属性。
+    命名系统<code>NamingSystem</code>资源标识编码系统或标识符系统的存在，以及其可能的和首选的标识符。
+    两者之间的关键区别在于谁创建和管理它们。
+    <code>CodeSystem</code>资源由编码系统的所有者或发布者管理，他们可以正确地定义编码系统功能和内容。
+    而<code>NamingSystem</code>资源通常由会用到编码系统的第三方定义，并需要对其使用情况进行说明，但无权定义功能和内容。
+    此外，编码系统可能有多个授权的<code>NamingSystem</code>资源，
+    但在理想情况下，只有一个由编码系统发布者提供的授权 <code>CodeSystem</code>资源（由其规范URL标识），
+    这个官方资源的多个副本分布在其它FHIR服务器或别处，并在需要时使用。
+
 </p>
 <p>
-Both Code System supplements and <a href="conceptmap.html">Concept Maps</a> may be used to define relationships between concepts 
-in different systems. ConceptMaps are assertions of the relationships between different concepts 
-that are associated with particular contexts of use, while CodeSystem supplements are used to 
-define inherent properties and semantics of the concepts in the code system
+    编码系统附录和<a href="conceptmap.html">概念图 Concept Maps</a>都可以用来定义概念在不同系统中之间的关系。
+    概念图ConceptMaps明确的指出了在不同的使用场景中，概念之间关系，而编码系统附录用于定义编码系统中概念的固有属性和语义。
 </p>
 </div>
 
 <div>
 <a name="context"></a>
-<h2 class="self-link-parent"><span class="sectioncount">4.8.3</span> Background and Context <a href="codesystem.html#context" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">4.8.3</span> 背景与场景 <a href="codesystem.html#context" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <p>
-When using code systems and value sets, proper differentiation between a code system and a value set is important. 
-This is one very common area where significant clinical safety risks occur in practice. Implementers
-should be familiar with the content in <a href="terminologies.html">Using Codes in Resources</a>.
+   
+    在使用编码系统和值集时，正确区分编码系统和值集非常重要。在实践中，常常由此造成重大临床安全风险。
+    实施者应该对<a href="terminologies.html">资源中使用编码</a>的内容很熟悉。
 </p>
 
 <a name="ident"></a>
-<h3 class="self-link-parent"><span class="sectioncount">4.8.3.1</span> CodeSystem Identification <a href="codesystem.html#ident" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.8.3.1</span> CodeSystem的标识符 <a href="codesystem.html#ident" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-A code system has three identifiers. The first two can be used to reference the code system in the FHIR context:
+    A code system has three identifiers. The first two can be used to reference the code system in the FHIR context:
+    代码系统有三种标识符。前两个可用于在FHIR上下文中引用代码系统：
 </p>
 <ul>
- <li><code>CodeSystem.id</code>: The <a href="resource.html#id">logical id</a> on the system that holds the CodeSystem resource instance - this typically is expected to change as the resource moves from server to server. The location URI is constructed by appending the logical id to the server base address where the instance is found and the resource type. This URI should be a resolvable URL by which the resource instance may be retrieved, usually from a FHIR server, and it may be a relative reference typically to the server base URL.
- </li>
+    <li>
+        <code>CodeSystem.id</code>:
+        系统中CodeSystem资源实例的<a href="resource.html#id">
+            逻辑ID
+        </a>,——这通常会随着资源在不同服务器之间移动而变化。
+
+        The location URI is constructed by appending the logical id to the server base address
+        where the instance is found and the resource type.
+        This URI should be a resolvable URL by which the resource instance may be retrieved,
+        usually from a FHIR server, and it may be a relative reference typically to the server base URL.
+        位置URI是通过将逻辑ID附加到找到实例的服务器基地址和资源类型来构造的。
+        这个URI应该是一个可解析的URL，通过它可以检索资源实例，通常是从一个fhir服务器，它可能是一个相对引用，
+        通常是对服务器基URL的引用。
+    </li>
  <li><code>CodeSystem.url</code>: The canonical URL that never changes for this code system - it is the same in every copy. The element is named <code>url</code> rather than <code>uri</code> for legacy reasons and to strongly encourage providing a resolvable URL as the identifier whenever possible.  This canonical URL is used to refer to all instances of this particular code system across all servers and systems. Ideally, this URI should be a URL which resolves to the location of the master version of the code system, though this is not always possible.
  </li>
 </ul>
