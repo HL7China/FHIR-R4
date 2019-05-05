@@ -108,7 +108,9 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 <a name="root"></a>
 <h2 class="self-link-parent"><span class="sectioncount">5.0<a name="5.0"> </a></span> Conformance Module <a href="conformance-module.html#5.0" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
-<p>The Conformance Module represents metadata about the datatypes, resources and API features of the FHIR specification and can be used to create derived specifications.</p>
+<p>
+    符合性组件用于表示FHIR规范中数据类型、资源和API功能的元数据，并且可以通过继承原规范来创建扩展规范。
+</p>
 
 <a name="index"></a>
 <table width="100%" style="table-layout: fixed">
@@ -139,39 +141,57 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 <a name="intro"></a>
 <h3 class="self-link-parent"><span class="sectioncount">5.0.1</span> Introduction <a href="conformance-module.html#intro" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-    <p>The core FHIR specification describes a set of resources, frameworks and APIs that are
-        used in many different contexts in healthcare. However, there is wide variability between
-        jurisdictions and across the healthcare ecosystem around practices, requirements,
-        regulations, education and what actions are feasible and/or beneficial.</p>
-    <p>For this reason, the FHIR specification is a "platform specification" - it creates
-        a common platform or foundation on which a variety of different solutions are implemented.
-        As a consequence, this specification usually requires further adaptation to particular
-        contexts of use. </p>
-    <p>Typically, these adaptations specify:</p>
+<p>
+    FHIR核心规范描述了在多种不同卫生健康场景使用的一系列资源、框架和API。然而，贯穿于整个卫生健康生态系统中的实践、需求、法规、教育以及可行性、效益等在不同的国家和地区都存在很大差异。
+   
+</p>
+
+    
+<p>
+  
+    由此看来，FHIR规范是一个“平台规范”——它创建了一个通用平台或基础框架，并在该平台框架上实现了各种不同的解决方案。
+    因此，为了适应特定的使用场景境，通常需要对本规范作进一步适应性配置。
+
+</p>
+<p>通常，这些配置将指定：:</p>
     <ul>
-        <li>Rules about which resource elements are or are not used, and what additional elements
-            are added that are not part of the base specification</li>
-        <li>Rules about which of FHIR's RESTful API, messaging and document features are used, and how</li>
-        <li>Rules about which terminologies are used in particular elements</li>
-        <li>Descriptions of how the Resource elements and API features map to local requirements
-            and/or implementations</li>
+        <li>
+           
+            关于元素的规则：使用或不使用哪些资源元素以及添加哪些不属于基本规范的附加元素。
+        </li>
+        <li>
+              关于交互的规则：使用何种交互方式（RESTful API、消息、文档交换）以及如何使用。
+        </li>
+        <li>
+            关于术语的规则：在特定元素中使用什么术语。
+        </li>
+        <li>
+            关于映射的说明：描述资源元素和API功能如何映射到本地需求与实现
+        </li>
     </ul>
-    <p>Note that because of the nature of the healthcare ecosystem, there may be multiple
+    <p>
+        Note that because of the nature of the healthcare ecosystem, there may be multiple
         overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by
-        vendor/implementation.</p>
-    <p>FHIR provides a set of resources that can be used to represent and share the adaptations
-        listed above in a computable fashion. These resources are collectively called the
-            <em>conformance resources</em>. Although these conformance resources can be used in
-        isolation they are typically used in the context of an <em>Implementation Guide</em> or a
-            <em>Capability Statement</em>:</p>
+        vendor/implementation.
+        请注意，由于卫生健康生态系统的特殊性，从不同角度来配置符合性可能存在多个重叠的配置集合：卫生健康领域、国家、机构、实施厂商。
+    </p>
+    <p>
+      
+        FHIR提供了一组资源，以计算机能理解的方式来表示和共享上述适应性配置。
+        这些资源统称为<em>符合性资源</em>。尽管这些符合性资源可以单独使用，但用于<em>实施指南</em>或<em>能力声明</em>的上下文中更为常见：
+    </p>
     <ul>
-        <li><em>Implementation Guides</em> are documents published by a domain, institution or
+        <li>
+            实施指南<em>Implementation Guides</em> are documents published by a domain, institution or
             vendor that describe how FHIR is adapted to support a certain use case (or set of
             use cases). An implementation guide combines a set of conformance resources and
-            supporting narrative into a document for use by implementers.</li>
-        <li>A <em>capability statements</em> use the conformance resources to document how a
+            supporting narrative into a document for use by implementers.
+        </li>
+        <li>
+            能力声明<em>capability statements</em> use the conformance resources to document how a
             client or server has implemented FHIR, i.e. which aspects of the specification and API
-            are implemented and how. </li>
+            are implemented and how.
+        </li>
     </ul>
 
 <a name="contents"></a>
