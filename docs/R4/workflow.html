@@ -129,7 +129,7 @@ in order to support consistent definitions for schema and UML derived code. --><
         <h2 class="self-link-parent"><span class="sectioncount">12.5<a name="12.5"> </a></span> 工作流简介 <a href="workflow.html#12.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
         <p>
-            工作流是卫生健康领域的一个重要组成部分——医嘱、健康管理方案、转诊是医院住院场景和社区卫生的主要活动，这此活动驱动着工作流。
+            工作流是卫生健康领域的一个重要组成部分——医嘱、健康管理方案、转诊是医院住院场景和社区卫生的主要活动，这些活动驱动着工作流。
             当需要共享有关工作流状态或关联关系时，当需要协调或驱动跨系统工作流的执行时，以及当需要定义操作授权、依赖关系统和工作前提时，都涉到FHIR的及工作流。
         </p>
         <p><b>工作流状态与关联关系</b></p>
@@ -149,39 +149,48 @@ in order to support consistent definitions for schema and UML derived code. --><
             在某些情况下，可能不用核心元素而用扩展来实现功能，在这种情况下，给定资源的模式功能被视为“不常用，但仍然相关”。
         </p>
         <p>
-            A full description of the patterns and their interrelationships can be found in the <a href="#respatterns">Workflow Resource Patterns</a> section of this page.
-        </p>
-        <p><b>Workflow execution</b></p>
+            模式及其相互关系将在本页的<a href="#respatterns">
+    工作流资源模式</a>章节详细介绍。
+   
+</p>
+        <p><b>工作流执行</b></p>
         <p>
-            In addition to defining patterns for resources used in workflow processes, FHIR supports the execution of those processes as well. However, FHIR does not define a "one size fits all" solution for workflow architecture. FHIR supports a variety of interoperability
-            paradigms and most of them (<a href="http.html">REST</a>,
-            <a href="messaging.html">Messaging</a> and <a href="services.html">Services</a>) provide support for driving workflow execution. (The <a href="documents.html">Document</a> paradigm does not directly support driving behavior, though it can
-            be combined with one of the other patterns to do so.) In addition, several of these paradigms allow multiple approaches to supporting workflow, depending on the context and needs of the workflow process.
+            除了为工作流过程中使用的资源定义模式外，FHIR还支持这些过程的执行。但FHIR并没有为工作流架构定义“一刀切”的解决方案。
+            FHIR支持各种互操作性范式，其中大多数（<a href="http.html">REST</a>、<a href="messaging.html">消息传递</a>和<a href="services.html">
+                服务</a>）都能驱动工作流执行。（<a href="documents.html">文档 Document</a>范式可以与其他模式结合使用，但不直接驱动工作流执行。）
+            此外，根据工作流过程的场景和需求，其中一些范式允许多种方法来支持工作流。
         </p>
-        <p>The <a href="workflow-communications.html">Workflow Execution and Communication Patterns</a> section describes many options for workflow execution, summarizes their respective pros and cons and makes recommendations for the circumstances in which
-            they might best be used.</p>
-        <p><b>Workflow definition</b></p>
         <p>
-            The definition of protocols, order sets, guidelines and other structures that define what sorts of activities should occur, what order they should occur on, what dependencies they have, in what circumstances they should start or end, etc. is handled by
-            a pair of resources:
+            <a href="workflow-communications.html">
+                工作流执行和通信模式</a>部分描述了工作流执行的许多选项，总结了它们各自的优缺点，并给出了建议的最佳使用场景。
+         
+</p>
+        <p><b>工作流定义</b></p>
+        <p>
+           
+            医疗方案、医嘱组集、指南和其他结构（包括对应发生的活动类型、应发生的顺序、相关依赖性、在什么情况下应开始或结束等的定义）的定义由一对资源来实现：
         </p>
         <ul>
-            <li><a href="plandefinition.html">PlanDefinition</a> defines the interrelationships of steps and the rules around their execution</li>
-            <li><a href="activitydefinition.html">ActivityDefinition</a> defines an activity to be performed as a single step</li>
+            <li><a href="plandefinition.html">方案定义 PlanDefinition</a> 定义步骤及其执行规则之间的相互关系</li>
+            <li><a href="activitydefinition.html">活动定义 ActivityDefinition</a>定义了作为单个步骤来执行的活动</li>
         </ul>
         <p>
-            The use of these two artifacts is discussed <a href="clinicalreasoning-topics-definitional-resources.html">here</a>.
+          
+            这对资源的使用将在<a href="clinicalreasoning-topics-definitional-resources.html">此处</a>讨论。
         </p>
 
         <a name="respatterns"></a>
-        <h3 class="self-link-parent"><span class="sectioncount">12.5.1</span> Workflow Resource Patterns <a href="workflow.html#respatterns" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-        <p>Not all resources in FHIR are related to workflow - many are used to describe entities and roles (patients, medications, etc.) or infrastructure (structure definitions, value sets, etc.). However, a large proportion of the FHIR resources are devoted
-            to the description of activities in one fashion or another and almost all of these fall into the realm of workflow - they describe things that can be done (definitions), are desired to be done (requests) or that have been done (events). The
-            table below summarizes the list of workflow-relevant resources:</p>
+        <h3 class="self-link-parent"><span class="sectioncount">12.5.1</span> 工作流资源模式 <a href="workflow.html#respatterns" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+        <p>
+       
+            并不是FHIR中的所有资源都与工作流相关——许多资源用于描述实体和角色（患者、药物等）或基础框架（结构定义、值集等）。
+            然而，大部分的FHIR资源都以某种方式用于对活动的描述，这些资源几乎都参与到工作流领域中——它们描述了可以完成（定义）、需要完成（请求）或已经完成（事件）的事情。
+            下表汇总了与工作流相关的资源：
+        </p>
 
         <a name="list"></a>
-        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.1</span> Workflow resources <a href="workflow.html#list" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
-        <table calss="grid">
+        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.1</span>工作流资源 <a href="workflow.html#list" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+        <table border="1">
             <tbody>
                 <tr>
                     <th><a href="definition.html">Definitions</a></th>
