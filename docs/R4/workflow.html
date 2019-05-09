@@ -193,8 +193,11 @@ in order to support consistent definitions for schema and UML derived code. --><
         <table border="1">
             <tbody>
                 <tr>
-                    <th><a href="definition.html">Definitions</a></th>
-                    <td colspan="3">Resources that define something that can potentially happen in a patient and time-independent manner</td>
+                    <th><a href="definition.html">定义</a></th>
+                    <td colspan="3">
+
+                        此类资源用于定义与患者相关但与时间无关的某种可能发生的事件。
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -220,8 +223,11 @@ in order to support consistent definitions for schema and UML derived code. --><
                     </td>
                 </tr>
                 <tr>
-                    <th><a href="request.html">Requests</a></th>
-                    <td colspan="3">Resources that ask for or express a desire/intention for something to be done</td>
+                    <th><a href="request.html">请求</a></th>
+                    <td colspan="3">
+                     
+                        此类资源用于请求或表达对要做的事情的愿望和意图。
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -258,8 +264,11 @@ in order to support consistent definitions for schema and UML derived code. --><
                     </td>
                 </tr>
                 <tr>
-                    <th><a href="event.html">Events</a></th>
-                    <td colspan="3">Resources that express that something has been done and which can potentially be done because of a request</td>
+                    <th><a href="event.html">事件</a></th>
+                    <td colspan="3">
+                   
+                        此类资源用于表示某些已经完成的事件和由于某个请求的发起而将会完成的事件
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -321,42 +330,56 @@ in order to support consistent definitions for schema and UML derived code. --><
             <tbody>
                 <tr>
                     <td><sup>*</sup></td>
-                    <td>The <a href="appointment.html">Appointment</a> and <a href="appointmentresponse.html">AppointmentResponse</a> resources do not follow the same sort of request/response pattern as the other resources. Their design is based on iCal conventions,
-                        so their model won't align with the pattern as strictly as most other resources. They are included here for completeness.</td>
+                    <td>
+
+                        <a href="appointment.html">Appointment</a> 和 <a href="appointmentresponse.html">AppointmentResponse</a>资源不遵循与其他资源相同的请求/响应模式。
+                        它们的设计基于iCal标准（又称iCalendar,一种标准的互联网日历格式），因此它们不会像大多数其他资源那样严格地遵循模式。
+                        为了完整的汇总与流程相关的资源，此列表才将它们包含在内。
+                    </td>
                 </tr>
                 <tr>
                     <td><sup>‡</sup></td>
-                    <td>The <a href="task.html">Task</a> resource takes on characteristics of both "requests" and "events" and thus shares characteristics from both patterns</td>
+                    <td>
+                        <a href="task.html">Task</a>资源同时具有“请求”和“事件”的特性，所以将期同时放入此列表的这两个分类中。
+                                         </td>
                 </tr>
             </tbody>
         </table>
 
         <p>
-            Note that requests, events and definitions don't exist in a 1:1:1 relationship. Some requests and events have obvious pairings. For example, a
-            <a href="supplyrequest.html">SupplyRequest</a> will generally always pair with a <a href="supplydelivery.html">SupplyDelivery</a>. The same goes for
-            <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc. On the other hand, for other resources there isn't a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
-            be responded to by an <a href="encounter.html">Encounter</a>,
-            <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="servicerequest.html">ServiceRequest</a>.
-            The set of common linkages should be asserted in their respective resources. The specific types of responses for a given request will be governed by the Request.code, any workflow definitions/protocols referenced and local convention.
+            注意：请求、事件和定义不是1:1:1的关系。一些请求和事件有明显的成对关系。例如，<a href="supplyrequest.html">SupplyRequest</a> 通常会与<a href="supplydelivery.html">SupplyDelivery</a>.配对。
+            <a href="enrollmentrequest.html">EnrollmentRequest</a>与<a href="enrollmentresponse.html">EnrollmentResponse</a>等也是如此。
+            然而，另一些资源却没有严格的成对关系。<a href="servicerequest.html">
+                ServiceRequest
+            </a>可能由 <a href="diagnosticreport.html">DiagnosticReport</a>、 <a href="procedure.html">Procedure</a>、<a href="riskassessment.html">RiskAssessment</a>等资源来响应。
+            类似的，<a href="procedure.html">Procedure</a>也可以由 <a href="servicerequest.html">ServiceRequest</a>触发。
+            应该在这些资源中声明一组通用链接。请求由哪种资源来响应受三个因素控制：Request.code、引用的相关工作流定义/医疗方案、本地约定。
         </p>
 
         <a name="relationships"></a>
-        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.2</span> Workflow Resource Relationships <a href="workflow.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.2</span> 工作流资源的关系 <a href="workflow.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            These three patterns of resources have a standard set of relationships, both with themselves, as well as with each other.
+            资源的这三种模式有一套标准的关系，既自相关，又彼此相关。
         </p>
-        <img src="workflow-relations.png" width="624" alt="Workflow relationships diagram showing Request, Event and Definition and their relationships to themselves and each other" height="421"/>
+        <img src="workflow-relations.png" width="624" alt="工作流关系图，展示了请求、事件和定义及其相互之间的关系" height="421"/>
         <p>
-            Specifically:
+            具体而言:
         </p>
         <ul>
-            <li>requests, events and definitions can point to their respective definitions</li>
-            <li>events and requests can point to the proposals, plans or orders they are based on</li>
-            <li>events and definitions can be organized into parent-child relationships of parents and components</li>
-            <li>definitions and requests can both replace prior versions of the same type of artifact</li>
+            <li>请求、事件和定义可以指向它们各自的定义  
+            </li>
+            <li>
+                事件和请求可以指向它们所基于的医疗方案、计划或医嘱
+            </li>
+            <li>
+                事件和定义可以组织成父模块和子模块的父子关系
+            </li>
+            <li>
+                定义和请求都可以替换其老版本的定义。
+            </li>
         </ul>
-        <p>
-            This list of relationships is not exhaustive, but covers those that are "standardized" as part of the patterns. Further description and guidance on these relationships can be found in the <a href="request.html">Request</a>, <a href="event.html">Event</a>            and <a href="definition.html">Definition</a> logical patterns.
+        <p> 此表中列出的关系并不完整，但涵盖了那些作为模式组成部分的“标准关系”。
+            有关这些关系的进一步描述和指南可以在<a href="request.html">请求</a>、<a href="event.html">事件</a>和<a href="definition.html">定义</a>的逻辑模型中找到。
         </p>
 
         <a name="request"></a>
