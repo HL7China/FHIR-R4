@@ -127,28 +127,55 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 
         <a name="root"></a>
-        <h2 class="self-link-parent"><span class="sectioncount">12.6<a name="12.6"> </a></span> Workflow Execution and Communication Patterns <a href="workflow-communications.html#12.6" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+        <h2 class="self-link-parent">
+            <span class="sectioncount">12.6<a name="12.6"> </a></span>
+            工作流程执行与通信模式 <a href="workflow-communications.html#12.6" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a>
+        </h2>
 
         <p>
-            As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there are several mechanisms available. In addition to
-            managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource patterns</a> in an ad-hoc
-            fashion. In deciding how best to interoperate around workflow with FHIR, there are several considerations:
+
+            如前几节所述，有很多FHIR资源可以直接独立的用于工作流中，而不须使用FHIR来管理工作流的执行。
+            当我们想使用FHIR来管理工作流的执行时，有几种可用的机制。
+            除了用FHIR来管理工作流，还有一些情况并不需要管理工作流的执行，而只需简单的以“点对点”(ad-hoc)的方式使用<a href="workflow.html#respatterns">
+                资源模型
+            </a>来支持工作流。在选择FHIR工作流的交互模式时，为了达到最佳效果，需要考虑以下几个方面：
         </p>
         <ul>
-            <li>Is sharing of the state of the workflow necessary among the participants?</li>
-            <li>Which paradigm do you want to use (REST, messaging, services, a mix)?</li>
-            <li>Who owns/manages the various resources involved in the workflow (placer, filler, another participant)?</li>
-            <li>Is there infrastructure in place to support polling, push notifications via subscriptions or both?</li>
-            <li>Is there a need for confirmation that the desired performer agrees to act, or can that be presumed?</li>
-            <li>Is there a need to negotiate whether/how the requested action will be performed?</li>
-            <li>Can the requesting and performing system communicate directly? Are they able to post to each other's servers (if using REST)?</li>
-            <li>Is there an ability/need to have a queue server to facilitate workflow execution?</li>
-            <li>How many potential actors are involved?</li>
-            <li>Will the workflow always be directed or is there a pool of potential performers who could choose to perform the requested action?</li>
+            <li>
+            是否有必要在参与者之间共享工作流的状态？
+            </li>
+            <li>
+            你要使用哪处范式？（REST、消息、服务、混合）？
+            </li>
+            <li>
+                
+                涉及在工作流中的各种资源是属于谁？或由谁管理(placer、 filler、 或其它参与者)?
+            </li>
+            <li>  是否有正在运行的基础架构，支持通过订阅实现“推”或/和“拉”的通信机制？
+            </li>
+            <li>是否需要确认期望的执行者同意执行，或假设可以执行？
+            </li>
+            <li>
+           
+                对于请求动作执行与否或如何执行，是否需要协商？
+            </li>
+            <li>
+            请求系统与执行系统是否直接通迅？如果使用REST范式，它们是否可以提交到对方的服务器？
+            </li>
+            <li>
+            是否有必需或有能力搭建一个队列服务器以方便工作流的执行？
+            </li>
+            <li>
+            涉及多少潜在的参与者？
+            </li>
+            <li>
+            工作流是否有总是被管理？或者有一个潜在的执行者“池”，池中的执行者可以选择性的执行请求？
+            </li>
         </ul>
         <p>
-            The answers to these (and other) questions will guide the selection of communication patterns to be used for a specific interoperability use case. It is recommended that domain workgroups analyze the support for workflow execution within their domains
-            and provide recommendations for an appropriate subset of patterns, with a discussion on where and how to use them. Implementation guides, by their nature, should prescribe which patterns to use for workflow execution management.
+                回答以上问题，可以指导您为特定的交互用例选择合适的通讯模式。
+            建议领域工作组根据他们的业务领域分析可以支持哪些工作流，并通过讨论在哪使用和怎么使用工作流，
+            就其性质而言，实施指南还应对通信模式作出规定，通信模式用于工作流程执行管理。
         </p>
         <a name="commpatternsoverview"></a>
         <h3 class="self-link-parent"><span class="sectioncount">12.6.1</span> Communication Patterns Conventions <a href="workflow-communications.html#commpatternsoverview" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>

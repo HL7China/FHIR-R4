@@ -144,25 +144,25 @@ in order to support consistent definitions for schema and UML derived code. --><
         <p>
 
           FHIR定义了参与活动的三类资源——<a href="#request">请求</a>、<a href="#event">事件</a>和<a href="#definition">定义</a>。
-            每个类别都有一个与之相关联的“模式”。属于同一类别的资源者鼓励遵守各自的模式。这些模式为每个类别的大多数资源提供了典型的标准元素。
-            由于工作组并希望典型的领域行为脱离实际的需求，这些需求比“期望的”架构模式更具权威性，所以并不要求严格的遵守这些模式。
-            在某些情况下，可能不用核心元素而用扩展来实现功能，在这种情况下，给定资源的模式功能被视为“不常用，但仍然相关”。
+            每个类别都有一个与之相关联的“模型”。属于同一类别的资源者鼓励遵守各自的模型。这些模型为每个类别的大多数资源提供了典型的标准元素。
+            由于工作组并希望典型的领域行为脱离实际的需求，这些需求比“期望的”架构模型更具权威性，所以并不要求严格的遵守这些模型。
+            在某些情况下，可能不用核心元素而用扩展来实现功能，在这种情况下，给定资源的模型功能被视为“不常用，但仍然相关”。
         </p>
         <p>
-            模式及其相互关系将在本页的<a href="#respatterns">
-    工作流资源模式</a>章节详细介绍。
+            模型及其相互关系将在本页的<a href="#respatterns">
+    工作流资源模型</a>章节详细介绍。
    
 </p>
         <p><b>工作流执行</b></p>
         <p>
-            除了为工作流过程中使用的资源定义模式外，FHIR还支持这些过程的执行。但FHIR并没有为工作流架构定义“一刀切”的解决方案。
+            除了为工作流过程中使用的资源定义模型外，FHIR还支持这些过程的执行。但FHIR并没有为工作流架构定义“一刀切”的解决方案。
             FHIR支持各种互操作性范式，其中大多数（<a href="http.html">REST</a>、<a href="messaging.html">消息传递</a>和<a href="services.html">
-                服务</a>）都能驱动工作流执行。（<a href="documents.html">文档 Document</a>范式可以与其他模式结合使用，但不直接驱动工作流执行。）
+                服务</a>）都能驱动工作流执行。（<a href="documents.html">文档 Document</a>范式可以与其他模型结合使用，但不直接驱动工作流执行。）
             此外，根据工作流过程的场景和需求，其中一些范式允许多种方法来支持工作流。
         </p>
         <p>
             <a href="workflow-communications.html">
-                工作流执行和通信模式</a>部分描述了工作流执行的许多选项，总结了它们各自的优缺点，并给出了建议的最佳使用场景。
+                工作流执行和通信模型</a>部分描述了工作流执行的许多选项，总结了它们各自的优缺点，并给出了建议的最佳使用场景。
          
 </p>
         <p><b>工作流定义</b></p>
@@ -180,7 +180,7 @@ in order to support consistent definitions for schema and UML derived code. --><
         </p>
 
         <a name="respatterns"></a>
-        <h3 class="self-link-parent"><span class="sectioncount">12.5.1</span> 工作流资源模式 <a href="workflow.html#respatterns" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+        <h3 class="self-link-parent"><span class="sectioncount">12.5.1</span> 工作流资源模型 <a href="workflow.html#respatterns" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
         <p>
        
             并不是FHIR中的所有资源都与工作流相关——许多资源用于描述实体和角色（患者、药物等）或基础框架（结构定义、值集等）。
@@ -332,8 +332,8 @@ in order to support consistent definitions for schema and UML derived code. --><
                     <td><sup>*</sup></td>
                     <td>
 
-                        <a href="appointment.html">Appointment</a> 和 <a href="appointmentresponse.html">AppointmentResponse</a>资源不遵循与其他资源相同的请求/响应模式。
-                        它们的设计基于iCal标准（又称iCalendar,一种标准的互联网日历格式），因此它们不会像大多数其他资源那样严格地遵循模式。
+                        <a href="appointment.html">Appointment</a> 和 <a href="appointmentresponse.html">AppointmentResponse</a>资源不遵循与其他资源相同的请求/响应模型。
+                        它们的设计基于iCal标准（又称iCalendar,一种标准的互联网日历格式），因此它们不会像大多数其他资源那样严格地遵循模型。
                         为了完整的汇总与流程相关的资源，此列表才将它们包含在内。
                     </td>
                 </tr>
@@ -359,7 +359,7 @@ in order to support consistent definitions for schema and UML derived code. --><
         <a name="relationships"></a>
         <h4 class="self-link-parent"><span class="sectioncount">12.5.1.2</span> 工作流资源的关系 <a href="workflow.html#relationships" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            资源的这三种模式有一套标准的关系，既自相关，又彼此相关。
+            资源的这三种模型有一套标准的关系，既自相关，又彼此相关。
         </p>
         <img src="workflow-relations.png" width="624" alt="工作流关系图，展示了请求、事件和定义及其相互之间的关系" height="421"/>
         <p>
@@ -378,41 +378,83 @@ in order to support consistent definitions for schema and UML derived code. --><
                 定义和请求都可以替换其老版本的定义。
             </li>
         </ul>
-        <p> 此表中列出的关系并不完整，但涵盖了那些作为模式组成部分的“标准关系”。
+        <p> 此表中列出的关系并不完整，但涵盖了那些作为模型组成部分的“标准关系”。
             有关这些关系的进一步描述和指南可以在<a href="request.html">请求</a>、<a href="event.html">事件</a>和<a href="definition.html">定义</a>的逻辑模型中找到。
         </p>
 
         <a name="request"></a>
-        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.3</span> Request Resource Pattern <a href="workflow.html#request" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.3</span> 请求资源模型 <a href="workflow.html#request" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            Requests are resources that represent the proposal, plan or order for an activity to occur. A <a href="request.html">Request pattern</a> defines the common elements typically present on all request resources.
+            
+            此处的请求是指发起某项活动时表示医疗方案、计划或医嘱的资源。
+            <a href="request.html">请求模型</a> 为所有与请求相关资源定义了一些典型的通用元素。
         </p>
         <p>
-            The amount of information needed for a Request to be actionable can vary by circumstance. Some request instances might not be "fully specified" - additional information from protocol, patient preference and/or professional decision-making may be necessary
-            before the authorized action can occur. For example, a <a href="medicationrequest.html">MedicationRequest</a> might be specified without indicating a strength or route in situations where the pharmacy (or even nursing station)
-            has the authority to determine those parameters. A <a href="visionprescription.html">VisionPrescription</a> might not be actionable until frames have been chosen and the necessary measurements of the patient's face have been taken to allow
+            为执行请求所需的大量信息在不同的场景下会有很大区别。
+            Some request instances might not be "fully specified" -
+            additional information from protocol,
+            patient preference and/or professional decision-making may be necessary
+            before the authorized action can occur.
+            一些请求实例不会提供模型所需的所有信息
+            ——在发起已授权的活动以响应请求之前可能需要从医疗方案、患者偏好、决策支持处获取额外的信息。
+            For example, a <a href="medicationrequest.html">MedicationRequest</a>
+            might be specified without indicating a strength or route in situations
+            where the pharmacy (or even nursing station)
+            has the authority to determine those parameters.
+            比如：<a href="medicationrequest.html">MedicationRequest</a>资源可能不会提供用药的强度与周期，因为只有药房（或护士站）才有权提供这些参数信息。
+            A <a href="visionprescription.html">VisionPrescription</a>
+            might not be actionable until frames have been chosen and the
+            necessary measurements of the patient's face have been taken to allow
             the lenses to be positioned appropriately within the frames.
+            又如，<a href="visionprescription.html">VisionPrescription</a>资源在可执行之前需满足两个条件：
+            一是确定眼镜框的选择，二是对患者面部作必要的测量，使镜片固定在镜框的适当位置。
         </p>
         <p>
-            All requests with an intent of "order" authorize something. Whether what is authorized is sufficient to be immediately actionable depends on who is fulfilling the order and the context in which the fulfillment request is made. The determination of whether
-            a given "request" is actionable may be made by the systems involved or the humans being asked to act.
+            All requests with an intent of "order" authorize something.
+            Whether what is authorized is sufficient to be immediately actionable depends on
+            who is fulfilling the order and the context in which the fulfillment request is made.
+                        The determination of whether
+            a given "request" is actionable may be made by the systems involved or
+            the humans being asked to act.
+            所有以“医嘱”为目的的请求都是在进行某种授权。
+            至于授权的内容是否足以让活动立即执行就要看是由谁来执行和执行所需的条件了。
+            对某个“请求”是否可执行，是由所涉及的系统和要求执行人所决定的。
         </p>
         <p>
-            As well, the existence of a "Request" instance doesn't necessarily imply that fulfillment will be requested immediately - or even ever. The decision to request fulfillment may be delegated to the patient or to down-stream practitioners. Such fulfilling
+            As well, the existence of a "Request" instance doesn't necessarily imply that
+            fulfillment will be requested immediately - or even ever. 
+            The decision to request fulfillment may be delegated to the patient or
+            to down-stream practitioners. 
+            Such fulfilling
             practitioners may need to capture additional information prior to executing the fulfillment.
+            同样，“请求”实例的存在并不就意味着就会立即执行以满足请求——甚至可能永远都不会执行。
+            是否会满足请求依赖于患者或下游的参与者。此类参与者可能需要先获取到额外信息以执行请求。
         </p>
 
         <a name="event"></a>
-        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.4</span> Event Resource Pattern <a href="workflow.html#event" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.4</span> 事件资源模型 <a href="workflow.html#event" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            Events are resources that represent the ongoing or completed execution of some activity or observation. For example, a clinical procedure, a financial transaction, the recording of a diagnosis, etc. An <a href="event.html">Event pattern</a>            defines the common elements typically present on all event resources.
+            Events are resources that represent the ongoing or completed execution of some activity or
+            observation.
+
+            For example, a clinical procedure, a financial transaction, the recording of a diagnosis, etc.
+            An <a href="event.html">Event pattern</a>
+            defines the common elements typically present on all event resources.
+
+            事件是指那些表示正在进行或已经完成的某些活动或观测的资源。
+            例如：临床手术、财务交易、下诊断等。
+            <a href="event.html">事件模型</a>为所有与事件相关资源定义了一些典型的通用元素。
         </p>
 
         <a name="definition"></a>
-        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.5</span> Definition Resource Pattern <a href="workflow.html#definition" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+        <h4 class="self-link-parent"><span class="sectioncount">12.5.1.5</span> 定义资源模型 <a href="workflow.html#definition" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            Definitions are resources that represent activities that could be performed in a time and subject-independent manner such as a protocol, order set, clinical guideline, etc. A <a href="definition.html">Definition pattern</a> defines the common
+            Definitions are resources that represent activities
+            that could be performed in a time and subject-independent manner such as a protocol, order set,
+            clinical guideline, etc. A <a href="definition.html">Definition pattern</a> defines the common
             elements typically present on all definition resources.
+            定义是指那些代表活动的资源，这些活动可以在某个时间执行，它们和对象无关，比如医疗方案、医嘱组集、临床指南等。
+            <a href="definition.html">定义模型</a>为所有与定义相关的资源提供了一些典型的通用元素。
         </p>
 
 
