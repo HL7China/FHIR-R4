@@ -178,27 +178,41 @@ in order to support consistent definitions for schema and UML derived code. --><
             就其性质而言，实施指南还应对通信模式作出规定，通信模式用于工作流程执行管理。
         </p>
         <a name="commpatternsoverview"></a>
-        <h3 class="self-link-parent"><span class="sectioncount">12.6.1</span> Communication Patterns Conventions <a href="workflow-communications.html#commpatternsoverview" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+        <h3 class="self-link-parent"><span class="sectioncount">12.6.1</span> 通信模式的约定 <a href="workflow-communications.html#commpatternsoverview" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
         <p>
-            This section highlights some of the more common patterns and identifies their characteristics and limitations and provides recommendations on when each approach may be most useful or relevant. Please note that this list of patterns is not exhaustive.
-            Patterns can be combined in various ways and there are likely some possibilities we haven't thought about yet (feel free to submit additional patterns using the 'submit a change' link at the bottom of the page). As well, the recommendations
-            given here are just that - recommendations. Implementers are free to choose which patterns they wish to support. Because of this, tight interoperability around workflow execution (as with any other tight interoperability using FHIR) will depend
-            on communicating participants doing some up-front negotiation around how they plan to support workflow execution or all communicating partners will need to adhere to an implementation guide that sets out clear interoperability expectations.
+
+            本节重点介绍一些更常见的模式，并指出它们的特点和局限性，并就何时使用哪个种模式最有效提供建议。
+            请注意，这个模式列表并不详尽。模式可以以各种方式组合，并且可能存在一些我们还没有想到的可能性。
+            此外，这些建议仅仅是建议而非指南。实现者可以自由选择他们愿意支持的模式。
+            因此，围绕工作流执行的紧密互操作性（与使用FHIR的任何其他紧密互操作性一样）
+            将依靠参与的各方围绕如何支持工作流执行进行一些事先协商，
+            或者所有参与方都遵守的实施指南需要明确互操作性的相关要求。
+
         </p>
         <p>
-            Prior to reviewing this list of options, readers are encouraged to be familiar with the following pages and resources: <a href="http.html">REST</a>,
-            <a href="messaging.html">messaging</a>, <a href="operations.html">operations</a>, <a href="services.html">services</a> and the <a href="subscription.html">Subscription</a> resource.
+            在查看此可选方案的列表之前，鼓励读者熟悉以下页面和资源：
+            <a href="http.html">REST</a>,
+            <a href="messaging.html">消息</a>, <a href="operations.html">
+                操作
+            </a>, <a href="services.html">服务</a> 和<a href="subscription.html">订阅</a>资源。
         </p>
         <p>
-            The scenarios used to illustrate the patterns below make use of a few conventions:
-        </p>
+            本页稍后介绍的“模式”会用场景来说明，这些场景都使用了以下约定：
+                   </p>
         <ul>
-            <li>The focus here is on a "request" and the actioning of that request. Almost all workflows can be broken down to a sequence of these steps, though the responsibilities of the different parties may shift for each interaction and there can be
-                more than two parties involved in the overall workflow</li>
-            <li>The request could be as simple as "please look at this information" and the response could be as simple as an implicit "it's been looked at" or the request could be for some more involved action that may include reporting back multiple interim
-                and final steps</li>
-            <li>The requester is referred to as the "placer" and the performer is referred to as the "filler", which are often seen as order-specific terms. However, in this context, the terms hold whether the request is expressed as a proposal, plan or full-blown
-                order
+            <li>
+                这里关注的是“请求”和该请求的执行。几乎所有的工作流都可以分解成一系列有序的步骤，
+                整个工作流中可能有两个以上参与方，各方的职责可能因每次交互而转换。
+            </li>
+            <li>
+                
+                请求可以像“请查看此信息”一样简单，响应也可以像隐式的“已查看”一样简单，
+                请求也可以是一些更复杂的操作，包括回执多个中间步骤和最终步骤。
+            </li>
+            <li>
+
+                请求者被称为“placer”，执行者被称为“filler”，这通常被视为特定医嘱术语。
+                然而，在这种情况下，术语决定了请求是表示医疗方案、计划还是完整的医嘱。
             </li>
             <li>Each of the patterns defines the set of steps involved in processing the request, lists some of the benefits and limitations associated with the approach, provides a scenario to illustrate the use of the pattern, and then makes recommendations
                 about when the pattern is most appropriate</li>

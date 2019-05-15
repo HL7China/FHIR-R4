@@ -387,74 +387,48 @@ in order to support consistent definitions for schema and UML derived code. --><
         <p>
             
             此处的请求是指发起某项活动时表示医疗方案、计划或医嘱的资源。
-            <a href="request.html">请求模型</a> 为所有与请求相关资源定义了一些典型的通用元素。
+            <a href="request.html">请求模型</a> 为所有与请求相关资源定义了一些典型的公用元素。
         </p>
         <p>
             为执行请求所需的大量信息在不同的场景下会有很大区别。
-            Some request instances might not be "fully specified" -
-            additional information from protocol,
-            patient preference and/or professional decision-making may be necessary
-            before the authorized action can occur.
+
             一些请求实例不会提供模型所需的所有信息
-            ——在发起已授权的活动以响应请求之前可能需要从医疗方案、患者偏好、决策支持处获取额外的信息。
-            For example, a <a href="medicationrequest.html">MedicationRequest</a>
-            might be specified without indicating a strength or route in situations
-            where the pharmacy (or even nursing station)
-            has the authority to determine those parameters.
-            比如：<a href="medicationrequest.html">MedicationRequest</a>资源可能不会提供用药的强度与周期，因为只有药房（或护士站）才有权提供这些参数信息。
-            A <a href="visionprescription.html">VisionPrescription</a>
-            might not be actionable until frames have been chosen and the
-            necessary measurements of the patient's face have been taken to allow
-            the lenses to be positioned appropriately within the frames.
-            又如，<a href="visionprescription.html">VisionPrescription</a>资源在可执行之前需满足两个条件：
-            一是确定眼镜框的选择，二是对患者面部作必要的测量，使镜片固定在镜框的适当位置。
+            ——在授权发起活动以响应请求之前可能需要从医疗方案、患者偏好、决策支持处获取额外的信息。
+            比如：在药房（甚至护士站）有权提供用药的强度与途径的情况下，<a href="medicationrequest.html">
+                MedicationRequest
+            </a>资源可以不提供这些参数信息。
+            又如，只有在选择了镜框并对患者面部进行了必要的测量，以使镜片能够在镜框中正确定位后，<a href="visionprescription.html">
+            VisionPrescription</a>资源才可以执行。
+            
         </p>
         <p>
-            All requests with an intent of "order" authorize something.
-            Whether what is authorized is sufficient to be immediately actionable depends on
-            who is fulfilling the order and the context in which the fulfillment request is made.
-                        The determination of whether
-            a given "request" is actionable may be made by the systems involved or
-            the humans being asked to act.
+          
             所有以“医嘱”为目的的请求都是在进行某种授权。
-            至于授权的内容是否足以让活动立即执行就要看是由谁来执行和执行所需的条件了。
-            对某个“请求”是否可执行，是由所涉及的系统和要求执行人所决定的。
+            授权的内容是否足以让活动立即执行取决于由谁来执行和执行所需的条件了。
+            对某个“请求”是否可执行，是由所涉及的系统和被要求采取行动的人所决定的。
         </p>
         <p>
-            As well, the existence of a "Request" instance doesn't necessarily imply that
-            fulfillment will be requested immediately - or even ever. 
-            The decision to request fulfillment may be delegated to the patient or
-            to down-stream practitioners. 
-            Such fulfilling
-            practitioners may need to capture additional information prior to executing the fulfillment.
-            同样，“请求”实例的存在并不就意味着就会立即执行以满足请求——甚至可能永远都不会执行。
-            是否会满足请求依赖于患者或下游的参与者。此类参与者可能需要先获取到额外信息以执行请求。
+           
+            另外，存在“请求”实例并不就意味着就会立即执行以满足请求——甚至可能永远都不会执行。
+            请求履行的决定可以委托给患者或下游的参与者。此类参与者可能需要先获取到额外信息以执行请求。
         </p>
 
         <a name="event"></a>
         <h4 class="self-link-parent"><span class="sectioncount">12.5.1.4</span> 事件资源模型 <a href="workflow.html#event" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            Events are resources that represent the ongoing or completed execution of some activity or
-            observation.
-
-            For example, a clinical procedure, a financial transaction, the recording of a diagnosis, etc.
-            An <a href="event.html">Event pattern</a>
-            defines the common elements typically present on all event resources.
+           
 
             事件是指那些表示正在进行或已经完成的某些活动或观测的资源。
             例如：临床手术、财务交易、下诊断等。
-            <a href="event.html">事件模型</a>为所有与事件相关资源定义了一些典型的通用元素。
+            <a href="event.html">事件模型</a>为所有与事件相关资源定义了一些典型的公用元素。
         </p>
 
         <a name="definition"></a>
         <h4 class="self-link-parent"><span class="sectioncount">12.5.1.5</span> 定义资源模型 <a href="workflow.html#definition" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
         <p>
-            Definitions are resources that represent activities
-            that could be performed in a time and subject-independent manner such as a protocol, order set,
-            clinical guideline, etc. A <a href="definition.html">Definition pattern</a> defines the common
-            elements typically present on all definition resources.
+          
             定义是指那些代表活动的资源，这些活动可以在某个时间执行，它们和对象无关，比如医疗方案、医嘱组集、临床指南等。
-            <a href="definition.html">定义模型</a>为所有与定义相关的资源提供了一些典型的通用元素。
+            <a href="definition.html">定义模型</a>为所有与定义相关的资源提供了一些典型的公用元素。
         </p>
 
 
