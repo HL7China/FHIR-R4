@@ -107,14 +107,12 @@
     <li>
         <b>值集 value set</b>：
         用于特定上下文的一组编码，其中每个编码都是从一个或多个编码系统中提取的。
-        值集将<code>CodeSystem</code>的定义与<a href="terminologies.html">编码元素的使用</a>联系在一起。
+        值集将<code>CodeSystem</code>中的定义与<a href="terminologies.html">如何在编码元素中使用这些定义</a>联系在一起。
       
     </li>
 </ul>
 <p>
-    Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets
-    select a set of codes from one or more code systems to specify which codes can be used in a particular context.
-    编码系统定义存在哪些编码（符号和/或表达式），以及如何理解它们。
+   编码系统定义了有哪些编码（符号、表达式），以及如何理解它们。
     值集从一个或多个编码系统中选择一组编码，以便在特定上下文中使用。
 </p>
 <p>
@@ -126,14 +124,14 @@
     <li>说明、版权、发布日期和其他元数据</li>
     <li>编码系统本身的一些关键属性。例如，它是否表现出概念持久性，它是否定义了组合语法，以及它定义的编码是否区分大小写</li>
     <li>
-       在值集的ValueSet.compose 元素中可以使用编码系统的哪些筛选器
+        在ValueSet.compose元素中使用此编码系统的值集可以使用哪些筛选器
     </li>
     <li>编码系统定义了什么概念属性</li>
 </ul>
 <p>
 
     另外，CodeSystem资源可以列出编码系统中的部分或全部概念，以及它们的基本属性（code, display, definition）、名称和附加属性。
-    编码系统资源也可用来定义附录，它用附加的名称和属性来扩展现有的编码系统。
+    编码系统资源也可用来定义附录——用附加的名称和属性来扩展现有的编码系统。
 </p>
 <p>
 
@@ -170,7 +168,7 @@
 <p>
 
     编码系统<code>CodeSystem</code>资源声明编码系统的存在，以及包括其首选标识符在内的关键属性。
-    命名系统<code>NamingSystem</code>资源标识编码系统或标识符系统的存在，以及其可能的和首选的标识符。
+    命名系统<code>NamingSystem</code>资源标识编码系统或标识符系统的存在，并尽可能的列出其所有的标识符和首选项。
     两者之间的关键区别在于谁创建和管理它们。
     <code>CodeSystem</code>资源由编码系统的所有者或发布者管理，他们可以正确地定义编码系统功能和内容。
     而<code>NamingSystem</code>资源通常由会用到编码系统的第三方定义，并需要对其使用情况进行说明，但无权定义功能和内容。
@@ -180,8 +178,8 @@
 
 </p>
 <p>
-    编码系统附录和<a href="conceptmap.html">概念图 Concept Maps</a>都可以用来定义概念在不同系统中之间的关系。
-    概念图ConceptMaps明确的指出了在不同的使用场景中，概念之间关系，而编码系统附录用于定义编码系统中概念的固有属性和语义。
+    编码系统附录 CodeSystem.supplements 和<a href="conceptmap.html">概念映射 Concept Maps</a>都可以用来定义概念在不同系统中之间的关系。
+    概念映射ConceptMaps明确的指出了在不同的使用场景中，概念之间关系，而编码系统附录CodeSystem.supplements 用于定义编码系统中概念的固有属性和语义。
 </p>
 </div>
 
@@ -198,8 +196,8 @@
 <a name="ident"></a>
 <h3 class="self-link-parent"><span class="sectioncount">4.8.3.1</span> CodeSystem的标识符 <a href="codesystem.html#ident" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-    A code system has three identifiers. The first two can be used to reference the code system in the FHIR context:
-    代码系统有三种标识符。前两个可用于在FHIR上下文中引用代码系统：
+
+    代码系统有三种标识符。在FHIR上下文中可以使用<code>CodeSystem.id</code>和<code>CodeSystem.url</code>来引用代码系统：
 </p>
 <ul>
     <li>
@@ -208,41 +206,54 @@
             逻辑ID
         </a>,——这通常会随着资源在不同服务器之间移动而变化。
 
-        The location URI is constructed by appending the logical id to the server base address
-        where the instance is found and the resource type.
-        This URI should be a resolvable URL by which the resource instance may be retrieved,
-        usually from a FHIR server, and it may be a relative reference typically to the server base URL.
-        位置URI是通过将逻辑ID附加到找到实例的服务器基地址和资源类型来构造的。
-        这个URI应该是一个可解析的URL，通过它可以检索资源实例，通常是从一个fhir服务器，它可能是一个相对引用，
-        通常是对服务器基URL的引用。
+   
+        URI地址是为“实例服务器基地址+资源类型+逻辑ID”构成的。
+        这个URI应该是一个可解析的URL，通过它可以从一个FHIR服务器上检索资源实例，它可能是一个服务器基URL的相对引用。
+
     </li>
- <li><code>CodeSystem.url</code>: The canonical URL that never changes for this code system - it is the same in every copy. The element is named <code>url</code> rather than <code>uri</code> for legacy reasons and to strongly encourage providing a resolvable URL as the identifier whenever possible.  This canonical URL is used to refer to all instances of this particular code system across all servers and systems. Ideally, this URI should be a URL which resolves to the location of the master version of the code system, though this is not always possible.
- </li>
+    <li>
+        <code>CodeSystem.url</code>:
+ 
+        代码系统的规范URL-它永远不会变更，且在每个副本中都是相同的。
+        由于遗留的历史因素，元素被命名为<code>url</code>而非<code>
+            uri
+        </code>，强烈建议尽可能提供可解析的URL作为标识符。
+        此规范URL指向此特定代码系统的所有实例，可以跨所有服务器和系统使用。
+        理想情况下，这个URI应该是一个URL，它可以解析到代码系统主版本的位置，尽管这并不总是可能的。
+    </li>
 </ul>
 <blockquote>
-<p>
-For example, the code systems published as part of the FHIR specification all have a location ("literal") URI which is the URL where they may be accessed in the FHIR specification itself. However, while a new version of the FHIR specification is being prepared, code systems that are published in the drafts will not be found in the current FHIR specification version. 
-</p>
+    <p>
+        例如，作为FHIR规范的一部分发布的代码系统都有一个（“文字的”）URI地址，
+        在FHIR规范本身中可以通过作为URL来访问它们。
+        然而，虽然正在准备新版本的FHIR规范，但在当前的FHIR规范版本中找不到草稿中发布的代码系统。
+    </p>
 </blockquote>
 <p>
-Because it is common practice to copy (cache) code systems locally, most 
-references to code systems can use either the canonical URL or the location ("literal") URL. 
+  
+    因为在本地复制（缓存）代码系统是常见的做法，
+    所以大多数对代码系统的引用既可以使用规范URL也可以用（“文字的”）URL地址。
 </p>
 <p>
-The third code system identifier is used typically for external references to the code system outside of FHIR:
+     第三个代码系统标识符通常用于对FHIR之外的代码系统的外部引用：
 </p>
  <ul>
- <li><code>CodeSystem.identifier</code>: A system/value pair that is used to identify the code system in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3 <img src="external.png" style="text-align: baseline"/></a> specification)</li>
+     <li>
+         <code>CodeSystem.identifier</code>:
+         一对由“系统”和“值”（system/value）组织的标识符，用于在其他上下文（如HL7 v3规范中的OID）中标识代码系统。
+         </li>
 </ul>
-<p>
-For further information regarding resource identification, see <a href="resource.html#id">Resource Identity</a>.
-</p>
+ <p>
+     有关资源标识的更多信息，请参阅<a href="resource.html#id">
+    资源标识</a>。
+    </p>
 
-<p>
-This means that each code system has 2 different URIs that can be used to reference it - 
-its canonical URL (the <code>url</code> element), and its local location from which it may be retrieved (which includes the <code>id</code> element). Because it is common practice to copy (cache) code systems locally, most references to 
-code systems use the canonical URL. 
-</p>
+ <p>
+     
+     这意味着每个代码系统都有两个不同的URI，都可以用来引用它：一是规范的URL（<code>url</code>元素），
+     二是含有<code>id</code>元素的本地位置（可以检索到它）。
+     因为通常会在本地复制（缓存）代码系统，所以对代码系统的大多数引用都使用规范的URL。
+ </p>
 <p>
 Alternatively, the <code>identifier</code> and <code>version</code> elements may be used to reference this code system in a 
 design, a profile, a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA <img src="external.png" style="text-align: baseline"/></a> template 
