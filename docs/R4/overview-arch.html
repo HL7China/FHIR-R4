@@ -246,76 +246,65 @@ well established or proven. See the section below on Outstanding Issues for deta
     成熟的或被证实的。有关详细信息，请参阅下面有关未解决问题的部分。
 </p>
 <a name="decomposition"></a>
-<h3 class="self-link-parent"><span class="sectioncount">2.16.3</span> FHIR Decomposition FHIR结构解析<a href="overview-arch.html#decomposition" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.16.3</span> FHIR 结构分解
+    <a href="overview-arch.html#decomposition" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-As discussed, FHIR’s principal components are resources and RESTful APIs. However, there is more to the FHIR specification including the components depicted below.
-    如前所述，fhir的主要组件是resources和RESTfulAPI。但是，fhir规范中还有更多内容，包括下面描述的组件。
+     如前所述，FHIR的主要构件是资源和RESTfulAPI。但是，FHIR规范还有很多其它构件，包括下：
 </p>
 <blockquote>
-<p>
-NOTE: The term “component” is used loosely to mean a part of something and does not intend to carry the specific meanings for this term
-provided by rigorous ontologies, modeling frameworks, or other architectural and organizational constructs. Diagrammatically, the components
-below are depicted below as UML classes. This is done purely to take advantage of the semantics afforded using this notation. FHIR is neither
-objected oriented in its modeling approach nor are the components that make up the FHIR specification UML classes or objects in the formal sense.
-Likewise, the UML packages shown below are notional and used for organizational purposes only.
-
-    注：术语“组成部分”用于表示某事物的一部分并不太准确，并不带有该术语由严格的本体论、建模框架或其他体系结构和组织结构规定的特定含义。
-    图形化表示上，下方图示中的组件
-    描述为UML类，这样做纯粹是为了利用使用这个符号所提供的语义。FHIR既不是
-    面向对象的建模方法，也不是组成fhir规范的UML类或对象的组件。
-    同样，下面显示的UML包是概念性的，仅用于展示目的。
-</p>
+    <p>
+        注：上述“构件”这个术语仅用于粗略的表示某事物的一部分，
+        并不是为严格本体、建模框架或其他架构和组织结构表示特定含义的术语。
+        下面的构件以UML类图来说明，这仅仅是为了利用它使用符号解释语义的优点。
+        FHIR在建模时并没有采用面向对象法，在FHIR规范中那些形如UML类或对象的构件也和面向对象无关。
+        同样，下面显示的UML包是概念性的，仅用于组织目的。
+    </p>
 </blockquote>
 <p>
-As shown in the diagram below, it is convenient to think of the FHIR specification as having components that address the following:
-    如下图所示，可以很方便地将fhir规范视为具有处理以下问题的组件：
+如下图所示，可以简单地将FHIR规范视为下列组件：
 </p>
 <ul>
 <li>
-Information Model – the components of FHIR related to the creation of FHIR resources
-    信息模型——与创建fhir资源相关的fhir组件
+    信息模型——此组件与创建FHIR资源相关
 </li>
 <li>
-Constraints – the components of FHIR addressing constraints and validity
-    约束——fhir处理约束和有效性的组成部分
+    约束——此FHIR组件处理约束和符合性问题
 </li>
 <li>
-Terminology – the components of FHIR related to clinical terminologies and ontologies
-    术语——与临床术语和本体相关的fhir的组成部分
+    术语——此FHIR组件与临床术语和本体相关
 </li>
 <li>
-Usage – the component of FHIR addressing the use of FHIR in a run-time capacity
-    用途——处理运行时容量中使用fhir的fhir组件
+   
+    使用——此FHIR组件负责在运行时中使用FHIR的能力
 </li>
 </ul>
 <p>
 <img src="layout.png" width="600" style="float: none" height="460"/>
 </p>
 <p>
-Component definitions:
-    组件定义：
+各组件的描述：
 </p>
 <ul>
-  <li>FHIR Information Model FHIR信息模型
+  <li>FHIR信息模型
     <ul>
-      <li>Base Classes:基础类： <a href="element.html">Element</a> and <a href="resource.html">Resource</a></li>
-      <li>Definitions for Base Classes:基础类的定义： <a href="elementdefinition.html">ElementDefinition</a> and <a href="structuredefinition.html">StructureDefinition</a></li>
-      <li><a href="datatypes.html">Data Types 数据类型</a></li>
+      <li>基础类： <a href="element.html">元素</a> 与 <a href="resource.html">资源</a></li>
+      <li>对基础类的定义： <a href="elementdefinition.html">元素定义</a> 与 <a href="structuredefinition.html">结构定义</a></li>
+      <li><a href="datatypes.html">数据类型</a></li>
     </ul>
   </li>
-  <li>FHIR Conformance Model FHIR一致性原则
+  <li>FHIR 符合性模型
     <ul>
-      <li><a href="capabilitystatement.html">Capability Statement</a></li>
-      <li><a href="profiling.html">Profile</a></li>
+      <li><a href="capabilitystatement.html">能力声明</a></li>
+      <li><a href="profiling.html">配置</a></li>
     </ul>
   </li>
-  <li>FHIR Terminology FHIR术语
+  <li>FHIR术语
     <ul>
-      <li><a href="codesystem.html">Code System</a></li>
-      <li><a href="valueset.html">Value Set</a></li>
+      <li><a href="codesystem.html">代码系统</a></li>
+      <li><a href="valueset.html">值集</a></li>
     </ul>
   </li>
-  <li>FHIR Usage FHIR用法
+  <li>FHIR的使用
     <ul>
       <li><a href="http.html">REST API</a></li>
     </ul>
