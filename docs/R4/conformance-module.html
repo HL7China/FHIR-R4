@@ -81,7 +81,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 <table class="colsi"><tr><td id="wg">工作组:  <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> </td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
-<h2 class="self-link-parent"><span class="sectioncount">5.0<a name="5.0"> </a></span> Conformance Module <a href="conformance-module.html#5.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">5.0<a name="5.0"> </a></span> 符合性组件 <a href="conformance-module.html#5.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>
     符合性组件用于表示FHIR规范中数据类型、资源和API功能的元数据，并且可以通过继承原规范来创建扩展规范。
 </p>
@@ -114,7 +114,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 </table>
 
 <a name="intro"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.0.1</span> Introduction <a href="conformance-module.html#intro" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.0.1</span> 简介 <a href="conformance-module.html#intro" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
     FHIR核心规范描述了在多种不同卫生健康场景使用的一系列资源、框架和API。然而，贯穿于整个卫生健康生态系统中的实践、需求、法规、教育以及可行性、效益等在不同的国家和地区都存在很大差异。
    
@@ -144,10 +144,7 @@ in order to support consistent definitions for schema and UML derived code. --><
         </li>
     </ul>
     <p>
-        Note that because of the nature of the healthcare ecosystem, there may be multiple
-        overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by
-        vendor/implementation.
-        请注意，由于卫生健康生态系统的特殊性，从不同角度来配置符合性可能存在多个重叠的配置集合：卫生健康领域、国家、机构、实施厂商。
+         请注意，由于卫生健康生态系统的特性，从不同角度来配置符合性可能存在多个重叠的配置集合：卫生健康领域、国家、机构、实施厂商。
     </p>
     <p>
       
@@ -156,15 +153,11 @@ in order to support consistent definitions for schema and UML derived code. --><
     </p>
     <ul>
         <li>
-            实施指南<em>Implementation Guides</em> are documents published by a domain, institution or
-            vendor that describe how FHIR is adapted to support a certain use case (or set of
-            use cases). An implementation guide combines a set of conformance resources and
-            supporting narrative into a document for use by implementers.
+            实施指南<em>Implementation Guides</em>是由一个域、机构或供应商发布的文档，它描述了FHIR如何支持特定用例（或一组用例）。
+            实施指南将一组符合性资源和支持性叙述结合到文档中，以供实施者使用。
         </li>
         <li>
-            能力声明<em>capability statements</em> use the conformance resources to document how a
-            client or server has implemented FHIR, i.e. which aspects of the specification and API
-            are implemented and how.
+            能力声明<em>capability statements</em>使用符合性资源来说明客户端或服务器如何实现FHIR，即实现了规范和API的哪些方面，以及如何实现的。
         </li>
     </ul>
 
@@ -177,13 +170,22 @@ in order to support consistent definitions for schema and UML derived code. --><
 		the first just describing the capabilities of a system, while the latter is the set of all conformance resources, including:</p>
 
     <ul>
-        <li>The <a href="structuredefinition.html">StructureDefinition</a>
-            defines how a particular structure (Resource, Extension or Data Type) is used to:<ul>
-                <li>Describe how existing elements in resources and/or data types are used and identify existing elements that are not used. Exact rules on how to do this can be found in the section on <a href="conformance-rules.html">conformance rules</a>
-				</li>
-                <li>Define <a href="extensibility.html">extensions</a> that can be used in resources or data types.</li>
-				<li>Reference the <a href="valueset.html">Value Sets</a> that specify the content of coded elements, see the <a href="terminology-module.html">terminology module</a> for more details.
-				</li>
+        <li>
+            <a href="structuredefinition.html">结构定义</a>（StructureDefinition）
+            定义了特定的结构（资源、扩展或数据类型）是如何用于：<ul>
+               
+                请参考值集，有关详细信息，。
+                <li>
+                    描述如何使用资源和数据类型中的现有元素，并标识未使用的现有元素。
+                    详见<a href="conformance-rules.html">符合性规则</a>
+                </li>
+                <li>
+                    定义可在资源或数据类型中使用的<a href="extensibility.html">扩展</a>。
+                </li>
+                <li>
+                    对指定编码元素内容的<a href="valueset.html">值集</a>（Value Sets）进行引用。
+                    请参阅 <a href="terminology-module.html">术语模块</a>.
+                </li>
             </ul>
         </li>
         <li>The <a href="messagedefinition.html">MessageDefinition</a>
