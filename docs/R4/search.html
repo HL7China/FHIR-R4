@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>概要 - HL7 FHIR 中国</title>
+    <title>搜索 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -65,7 +65,7 @@
 			<ul class="breadcrumb">
         <li><img src="exchange.png"/><b> 当前位置：</b><a href="exchange-module.html"> 交换</a></li>
         <li><a href="http.html">RESTful API</a></li>
-        <li>概要</li>         <!-- search.html / page / -->
+        <li>搜索</li>         <!-- search.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -82,35 +82,32 @@
 <div class="col-12">
 
 <a name="base"></a>
-<h2 class="self-link-parent"><span class="sectioncount">3.1.1<a name="3.1.1"> </a></span> Search <a href="search.html#3.1.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">3.1.1<a name="3.1.1"> </a></span> 搜索 <a href="search.html#3.1.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <table class="colsn"><tr><td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a></td><td id="fmm"><a href="versions.html#maturity">成熟度</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 
 <p>
-Searching for resources is fundamental to the mechanics of FHIR.
-Search operations traverse through an existing set of resources filtering by
-parameters supplied to the search operation. The text below describes
-the FHIR search framework, starting with simple cases moving to the more complex.
-Implementers need only implement the amount of
-complexity that they require for their implementations.
+    
+    对资源进行搜索是FHIR机制的基础。搜索操作通过提供的参数过滤现有的一组资源。
+    下面由浅入深的对FHIR搜索框架进行介绍。实施者可根据实际需求的复杂程度来选择实现的内容。
 </p>
 
 <a name="Summary"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.1.1</span> Summary Table <a href="search.html#Summary" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.1.1</span> 汇总表 <a href="search.html#Summary" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="grid">
-<tr><td><b>Search Parameter Types</b></td><td><b>Parameters for all resources</b></td><td><b>Search result parameters</b></td></tr>
+<tr><td><b>搜索参数类型</b></td><td><b>适用于所有资源的参数</b></td><td><b>作用于搜索结果的参数</b></td></tr>
 <tr>
 <td>
-<a href="#number">Number</a><br/>
-<a href="#date">Date/DateTime</a><br/>
-<a href="#string">String</a><br/>
-<a href="#token">Token</a><br/>
-<a href="#reference">Reference</a><br/>
-<a href="#composite">Composite</a><br/>
-<a href="#quantity">Quantity</a><br/>
-<a href="#uri">URI</a><br/>
-<a href="#special">Special</a><br/>
+<a href="#number">数字（Number）</a><br/>
+<a href="#date">日期与时间（Date/DateTime）</a><br/>
+<a href="#string">字符串（String）</a><br/>
+<a href="#token">令牌（Token）</a><br/>
+<a href="#reference">引用（Reference）</a><br/>
+<a href="#composite">组合（Composite）</a><br/>
+<a href="#quantity">数量（Quantity）</a><br/>
+<a href="#uri">统一资源标识(URI)</a><br/>
+<a href="#special">专业（Special）</a><br/>
 
 </td>
 <td>
@@ -139,21 +136,26 @@ complexity that they require for their implementations.
 </tr>
 </table>
 <p>
-In addition, there is a special search parameters <a href="#query"><code>_query</code></a> and <a href="#filter"><code>_filter</code></a> that allow for an alternative method of searching,
-and the parameters <code>_format</code> and <code>_pretty</code> <a href="http.html#parameters">defined for all interactions</a>.
+    
+    另外，还有一个特殊的<a href="#query"><code>_query</code></a>搜索参数和<a href="#filter">
+        <code>_filter</code>
+    </a>过滤器，它提供了另一种搜索方式。
+    以及为所有RESTful API交互定义的<code>_format</code> and <code>_pretty</code> <a href="http.html#parameters">
+       通用参数
+    </a>。
 </p>
 <p>
-Also, there is a single page that lists <a href="searchparameter-registry.html">all the search parameters</a>.
-Note that search parameter names are case sensitive, though this specification never defines different
-parameters with names that differ only in case. Clients SHOULD use correct case, and servers SHALL
-not define additional parameters with different meanings with names that only differ in case.
+   
+    此外，还有一个单独的页面落列了<a href="searchparameter-registry.html">所有搜索参数</a>。
+    请注意，搜索参数名称区分大小写，虽然此规范中没有名称相同但大小写不同的参数。
+    客户端<b>应该</b>使用正确的大小写，服务器<b>不能</b>额外定义名称相同但大小写不同的参数。
 </p>
 <p>
-There are <a href="safety.html#search">several safety issues</a> associated with the implementation of searching that implementers should always keep in mind.
+       有几个与搜索相关的<a href="safety.html#search">安全问题</a>，实施者应该始终牢记在心。
 </p>
 
 <a name="Introduction"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.1.2</span> Introduction <a href="search.html#Introduction" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.1.2</span> 介绍 <a href="search.html#Introduction" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 In the simplest case, a search is executed by performing a <code>GET</code> operation
 in the RESTful framework:
@@ -1586,57 +1588,67 @@ Technically, the <code>_type</code> parameter is a token parameter on the
 </p>
 
 <a name="return"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.1.5</span> Managing Returned Resources <a href="search.html#return" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.1.5</span> 管理返回的资源 <a href="search.html#return" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <a name="sort"></a>
 <a name="_sort"></a>
 
-<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.1</span> Sorting <a href="search.html#_sort" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.1</span> 排序 <a href="search.html#_sort" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-The client can indicate which order to return the results by
-using the parameter <code>_sort</code>, which can contain a
-comma-separated list of sort rules in priority order:
+ 
+    客户端可以使用<code>_sort</code>参数指定返回结果的顺序，该参数可以使用逗号分隔列表来指定排序规则的优先级：
 </p>
 <pre>
 GET [base]/Observation?_sort=status,-date,category
 </pre>
 <p>
-Each item in the comma separated list is a search parameter,
-optionally with a '-' prefix. The prefix indicates decreasing
-order; in its absence, the parameter is applied in increasing order.
+   
+    逗号分隔列表中的每一项都是一个搜索参数,默认按升序排列,可以选择使用“-”前缀来表示降序。
 </p>
 <p>
-Notes:
+注:
 </p>
 <ul>
- <li>When sorting, the actual sort value used is not returned explicitly by
-     the server for each resource, just the resource contents.</li>
- <li>To sort by relevance, use <code>_score</code>.</li>
- <li>The server returns the sort it performs as part of the returned
-     search parameters (see <a href="#conformance">below</a>).</li>
- <li>A search parameter can refer to an element that repeats, and therefore
-     there can be multiple values for a given search parameter for a single
-     resource. In this case, the sort is based on the item in the set of
-     multiple parameters that comes earliest in the specified sort order
-     when ordering the returned resources.</li>
-  <li>When sorting on string search parameters, sorting SHOULD be performed
-     on a case-insensitive basis. Accents may either be ignored or sorted as
-     per realm convention.</li>
-  <li>This specification does not specify exacts rules for consistency of sorting
-     across servers. In general, this is deemed to be not as essential as
-     consistency of filtering (though even that is a little variable). The
-     purpose of sorting is to provide data in a "reasonable" order for end-users.
-    "Reasonable" may vary by use case and realm, particularly for accented characters.</li>
+    <li>
+        排序时，服务器只会返回资源内容，而不会显式的返回资源使用的排序值。
+ </li>
+    <li>
+     
+        要按相关性排序，请使用<code>_score</code>参数。
+    </li>
+    <li>
+      
+        服务器将排序作为搜索参数的一部份返回<a href="#conformance">请参见下文</a>。
+    </li>
+    <li>
+        搜索参数可以引用重复的元素，因此单个资源的给定搜索参数可以有多个值。
+        在这种情况下，排序基于多个参数的集合中最早出现的项，以指定的排序顺序对返回资源进行排序。
+       In this case, the sort is based on the item in the set of
+        multiple parameters that comes earliest in the specified sort order
+        when ordering the returned resources.
+
+    </li>
+    <li>
+        在对字符串搜索参数进行排序时，应在不区分大小写的基础上执行排序。
+        重音符号可以被忽略，也可以根据领域约定进行排序。
+    </li>
+    <li>
+        此规范没有为跨服务器排序的符合性指定严格的规则。
+        一般来说，这并不像过滤（filtering）的符合性那样重要（尽管那只是一个小变量）。
+        排序的目的是以“合理”的顺序为最终用户提供数据。“合理”可能因用例和领域而异，特别对于重音字符来说尤为明显。
+    </li>
 </ul>
 
 <div class="trial-content">
-<p>
-The _total parameter has the status <a href="versions.html#std-process" title="Trial Content" class="draft-flag">trial-use</a> 
-pending real world experience of it's use.
-</p>
+    <p>
+        “ _total”参数处于<a href="versions.html#std-process" title="Trial Content" class="draft-flag">
+    试用
+</a>状态，等待真实场景使用的经验。
+    
+    </p>
 
 <a name="total"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.2</span> Total number of matching resources <a href="search.html#total" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.2</span> 匹配资源的总数<a href="search.html#total" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
 The return <a href="bundle.html">Bundle</a> has an element <code>total</code>
 which is the number of resources that match the search parameters. 
