@@ -1650,142 +1650,150 @@ GET [base]/Observation?_sort=status,-date,category
 <a name="total"></a>
 <h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.2</span> 匹配资源的总数<a href="search.html#total" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-The return <a href="bundle.html">Bundle</a> has an element <code>total</code>
-which is the number of resources that match the search parameters. 
+   
+    返回的<a href="bundle.html">资源捆束</a>（Bundle）带有一个<code>total</code>元素，它表示符合搜索参数要求的资源总数。
+   
+    </p>
+<p>
+    注意<code>Bundle.total</code>表示匹配的总数，而不是在特定响应中返回的资源数（请参见接下来介绍的<a href="#count">分页</a>）。
+
 </p>
 <p>
-Note that <code>Bundle.total</code> represents the total 
-number of matches, not how many resources are returned in 
-a particular response (see <a href="#count">paging</a>, immediately below).
-</p>
-<p>
-Providing a precise number of matching resources may be onerous for the 
-server, depending on how the server is designed. To help reduce the server 
-load, a client can provide the parameter <code>_total</code> to indicate
-it's preference with regard to the total, which can have one of the 
-following values:
+    根据服务器的设计方式，为服务器提供精确数量的匹配资源可能非常困难。为了帮助减少服务器负载，客户端可以提供<code>_total</code>参数来
+    表示它对总数的需求，此参数可以使用下表中的值：
+
 </p>
 <table class="codes">
- <tr><td>none</td><td>There is no need to populate the total count; the client will not use it</td></tr>
- <tr><td>estimate</td><td>A rough estimate of the number of matching resources is sufficient</td></tr>
- <tr><td>accurate</td><td>The client requests that the server provide an exact total of the number of matching resources</td></tr>
+ <tr><td>none</td><td>
+    不需要返回总数，客户端不会使用。
+    
+</td></tr>
+ <tr><td>estimate</td><td>
+    对匹配资源的数量进行粗略估计就足够了
+  
+</td></tr>
+ <tr><td>accurate</td><td>
+    客户端请求服务器提供精确的匹配资源总数
+   
+</td></tr>
 </table>
 <p>
-The <code>Bundle.total</code> element is still optional, and the servers can ignore the <code>_total</code> 
-parameter: it is just an optimization hint, that might possibly save the server some work.
+    <code>Bundle.total</code>元素仍然是可选的，服务器可以忽略<code>_total</code>参数：
+    它只是一个优化提示，可能会使服务器节省一些工作。
+   
 </p>
 </div>
 
 <a name="count"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.3</span> Page Count <a href="search.html#count" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.3</span> 分页计数 <a href="search.html#count" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 
 <p>
-In order to keep the load on clients, servers and the network
-minimized, the server may choose to return the results in
-a series of pages. The search result set contains the URLs
-that the client uses to request additional pages from the
-search set. For a simple RESTful search, the page links are
-<a href="http.html#paging">contained in the returned bundle as links</a>.
+    为了使客户端、服务器和网络的负载最小化，服务器可以使用分页来返回结果。
+    搜索结果集含有一些用于客户端请求其分页的URL，其中包含了所需的搜索参数集。
+    对于简单的RESTful搜索，页面链接<a href="http.html#paging">包含在返回的bundle的link元素中</a>.
 </p>
-<p>
-Typically, a server will provide its own parameters in the links
-that it uses to manage the state of the search as pages are
-retrieved. These parameters do not need to be understood
-or processed by the client.
+<p>    通常，服务器在获取页面时会在链接里提供自己的参数，用于管理搜索的状态。
+   客户端不需要理解或处理这些参数。
 </p>
 
 <p>
-The parameter <code>_count</code> is defined as an instruction to the server
-regarding how many resources should be returned in a
-single page. Servers SHALL NOT return more resources than
-requested, even if they don't support paging, but may
-return less than the client requested. The server should repeat
-the original <code>_count</code> parameter in its returned page links so that
-subsequent paging requests honor the original <code>_count</code>.  Note:
-It is at the discretion of the search engine as to how to
-handle ongoing updates to the resources while the search
-is proceeding.
+   
+    <code>_count</code>参数被定义为一条关于在单个页面中应该返回多少资源的指令。
+    服务器返回的资源<b>不能</b>超过请求的数量，即使它们不支持分页，但返回的资源可能少于客户端请求的数量。
+    服务器应该在其返回的页面链接中重复原始的<code>_count</code>参数，以便后续的分页请求遵守原始的<code>_count</code>。
+    注意：如何在搜索过程中处理资源的持续更新由搜索引擎自行决定。
 </p>
 
 <p>
-Note: The combination of <code>_sort</code> and <code>_count</code> can be used to return
-only the latest resource that meets a particular criteria - set the
-criteria, and then sort by date in descending order, with <code>_count=1</code>.
-This way, the last matching resource will be returned.
+  
+    注意：<code>_sort</code> 与 <code>_count
+          </code>的组合只能返回满足特定条件的最新资源
+    ——设置条件，再按日期降序排列，并将<code>_count</code>设为1，这样，将返回最后一个匹配的资源。
 </p>
 
 <p>
-if <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
-server returns a bundle that reports the total number of resources that match in Bundle.total,
-but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
-include the total number of matching resources. It does not count extra resources such as
-<a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
-In the same way, the _count parameter only applies to resources with <code>entry.search.mode = search</code>, and does not include 
-included resources or operation outcomes.
+
+    如果<code>_count</code>的值为0，则应将其视为与参数<code>
+        _summary=count
+    </code>的作用一样:服务器返回一个带有<code>Bundle.total</code>元素的资源捆束，这个元素值即为匹配的资源总数。这个资源捆束里没有任何条目，也没有“上一页”、“下一页”、“最后一页”的链接。
+    注意<code>Bundle.total</code>只包含匹配资源的总数。
+    它不会对诸如<a href="operationoutcome.html">
+        操作结果
+    </a>这样的额外资源计数，也不会对可能返回的<a href="#include">包含资源</a>（included resources）计数。
+    同样地，<code>_count</code>参数只适用于<code>
+        entry.search.mode = search
+    </code>的资源，不包括<a href="#include">包含资源</a>或<a href="operationoutcome.html">
+    操作结果
+</a>资源。
 </p>
 <p>
-The _count parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total 
-number of matches, not how many are returned in a single Bundle response.
+   
+    <code>_count</code>参数对 <code>
+        Bundle.total
+    </code>的值没有影响，因为后者表示匹配的总数，而前者是单次响应的资源捆束返回的总数。
 </p>
 
 <a name="include"></a>
 <a name="revinclude"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.4</span> Including other resources in result (<code>_include</code> and <code>_revinclude</code>) <a href="search.html#revinclude" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.4</span> 在结果中包含其它资源(“包含资源”<code>_include</code> 与“反向包含” <code>_revinclude</code>) <a href="search.html#revinclude" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-Clients may request that the engine return resources related to the search results, in order to reduce
-the overall network delay of repeated retrievals of related resources. This is useful when the client
-is searching on a clinical resource, but for every such resource returned, the client will also need
-the subject (patient) resource that the clinical resource refers to. The client can use the
-<code>_include</code> parameter to indicate that the subject resources be included in the results.
-An alternative scenario is where the client wishes to fetch a particular resource, and any resources
-that refer to it. For example, the client may wish to fetch a MedicationRequest, and any provenance
-resources that refer to the prescription. This is known as a reverse include, and is specified by
-providing a <code>_revinclude</code> parameter.
+
+    客户端可以请求引擎返回与搜索结果相关的资源，以减少相关资源重复检索的总体网络延迟。这叫做“包含资源”，它在客户端搜索临床资源时很有用，但对于返回的“包含资源”，客户端还需要临床资源引用到的目标（患者）资源。
+    客户端可以使用<code>_include</code>参数指示在结果中包含目标资源。
+    另一种情况是，客户端希望获取特定资源以及引用该资源的任何资源。
+    例如，客户端可能希望获取一个药品处方资源（MedicationRequest），以及引用处方的所有出处（Provenance）资源。
+    这被称为“反向包含”，可以通过<code>_revinclude</code> 参数来实现。
 </p>
 <p>
-Both <code>_include</code> and <code>_revinclude</code> are based on search parameters, rather than
-paths in the resource, since joins, such as <a href="#chaining">chaining</a>, are already done by
-search parameter.
+   
+    <code>_include</code> 和 <code>
+        _revinclude
+    </code>都基于搜索参数，而不是资源中的路径，因为连接工作（joins），比如<a href="#chaining">链接（chaining）</a>已经由搜索参数完成。
+    
 </p>
 <p>
-Each <code>_include</code> parameter specifies a search parameter to join on:
+   
+    每个<code>_include</code>参数都要指定一个要与之连接的搜索参数：
 </p>
 <pre>
  GET [base]/MedicationRequest?_include=MedicationRequest:patient
  GET [base]/MedicationRequest?_revinclude=Provenance:target
 </pre>
 <p>
-The first search requests all matching MedicationRequests, to include
-any patient that the medication prescriptions in the result set refer to.
-The second search requests all matching prescriptions, return all
-the provenance resources that refer to them.
+
+    第一个搜索请求所有符合匹配条件的药品处方资源（MedicationRequest），并包含结果集中药品处方所指向（引用）的所有患者（Patient）资源。
+    第二个搜索请求所有符合匹配条件的药品处方资源（MedicationRequest），并返回引用它们的所有出处（Provenance）资源。
 </p>
 <p>
-Parameter values for both <code>_include</code> and <code>_revinclude</code> have three parts, separated by a <code>:</code> character:
+    <code>_include</code> 和 <code>_revinclude</code>的参数值由“<code>:</code>”字符分隔的三部分组成:
 </p>
 <ol>
- <li>The name of the source resource from which the join comes</li>
- <li>The name of the search parameter which must be of type <i>reference</i></li>
- <li>(Optional) A specific of type of target resource (for when the search parameter refers to multiple possible target types)</li>
+    <li>
+        源资源的名称,连接（join）来自的此源资源。
+        
+    </li>
+    <li>
+    
+        搜索参数的名称， 此参数必须为<i>引用类型</i>。
+</li>
+    <li>
+        （可选）特定的目标资源类型（当搜索参数引用多个可能的目标类型时）
+      
+    </li>
 </ol>
 <p>
-<code>_include</code> and <code>_revinclude</code> parameters do not include multiple values. Instead, the
-parameters are repeated for each different include criteria.
+    <code>_include</code> 和 <code>_revinclude</code> 参数不能以包含多个值的方式来指定不同的包含条件，而是以重复这些参数来实现的。
 </p>
 <p>
-For each returned resource, the server identifies the resources that meet
-the criteria expressed in the join, and adds to the results,
-with the <a href="bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode</a>
-set to "include" (in some searches, it is not obvious which resources are
-matches, and which are includes). If there is no reference, or no matching resource, the resource
-cannot be retrieved (e.g. on a different server), then the resource is omitted, and no
-error is returned.
+      对于每个返回的资源，服务器会对符合连接表达式条件的资源进行标识，并将<a href="bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode
+        </a>设置为“include”（在某些搜索中，不清楚哪些资源匹配，哪些资源包含）。
+    如果没有引用或没有匹配的资源，则无法包含该资源（例如在其他服务器上），服务器会将其忽略该并不会返回任何错误。
 </p>
 <p>
-The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
-For example, this search returns all <a href="medicationrequest.html">Medication
-Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
-for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
+    当且仅当包含<code>:iterate</code>修饰符时，包含过程可以是迭代的。
+    例如，接下来的这个搜索返回符合<a href="medicationdispense.html">发药（Medication Dispense）</a>资源条件的所有 <a href="medicationrequest.html">
+        药品处方（MedicationRequest）
+    </a>资源及其处方<a href="practitioner.html">从业者（Practitioner）</a>资源：
 </p>
 <pre>
 GET [base]/MedicationDispense?_include=MedicationDispense:prescription
