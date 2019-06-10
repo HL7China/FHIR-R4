@@ -1685,7 +1685,7 @@ GET [base]/Observation?_sort=status,-date,category
 </div>
 
 <a name="count"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.3</span> 分页计数 <a href="search.html#count" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.3</span> 页面计数 <a href="search.html#count" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 
 <p>
     为了使客户端、服务器和网络的负载最小化，服务器可以使用分页来返回结果。
@@ -1812,31 +1812,31 @@ GET [base]/Observation?_include=Observation:hasMember&amp;criteria...
 GET [base]/Observation?_include:iterate=Observation:hasMember&amp;criteria...
 </pre>
 <p>
-Both <code>_include</code> and <code>_revinclude</code> use the wild card "*" for the search parameter
-name, indicating that any search parameter of type=reference be included.  Though
-both clients and servers need to take care not to request or return too many resources
-when doing this. Most notably, using iterative wildcards inclusions might lead to the retrieval of the
-full patient's record, or even more than that: resources are organized into an interlinked network
-and broad <code>_include</code> paths may eventually traverse all possible paths on the server. For
-servers, these iterative and wildcard <code>_include</code>s are demanding and may slow the search
-response time significantly.
+   
+    <code>_include</code> 和 <code>
+        _revinclude
+    </code>都可以使用通配符“*”作为搜索参数名称，表示将搜索目标资源所包含的所有<i>引用类型</i>（type=reference)都作为搜索参数。
+    但客户端和服务器在执行此操作时都需要注意不要请求或返回太多的资源。
+    最值得注意的是，使用迭代通配符包含可能会获取完整的患者记录，甚至更多信息：
+    资源被组织到一个相互连接的网络中，广泛的<code>_include</code>路径最终可能会跨越服务器上的所有可能路径。
+    使用迭代和<code>_include</code>通配符对服务器的要求很高，可能会显著降低搜索性能。
 </p>
 <p>
-It is at the server's discretion how deep to iteratively evaluate the inclusions.
-Servers are expected to limit the number of iterations done to an appropriate level
-and are not obliged to honor requests to include additional resources in the search results.
-Because iterative search is generally resource intensive, it is not the default behavior.
+    包含的迭代计算深度由服务器决定。
+    服务器应该将迭代计算次数限制在适当的级别，并且没有义务满足在搜索结果中包含附加资源的请求。
+    因为迭代搜索通常是资源密集型的，所以它不是默认行为。
 </p>
 <p>
-When search results are paged, each page of search results should include
-the matching includes for the resources in each page, so that each page stands
-alone as a coherent package.
-</p>
+
+    当搜索结果被分页时，搜索结果的每一页都应该含有匹配的“包含资源”的内容，这样每个分页的内部资源是连贯一致的，可以作为一个独立的包来使用。
+    </p>
 <p>
-Note: when considering using _include and _revinclude, implementers
-should also consider whether using <a href="graphql.html">GraphQL</a> and/or 
-<a href="graphdefinition.html">GraphDefinition</a> are more appropriate 
-approaches in their context.
+   
+    注意：在考虑使用_include和_revienclude参数时，实施者还应该考虑使用<a href="graphql.html">
+        GraphQL（图谱查询语言）
+    </a> 或
+    <a href="graphdefinition.html">（GraphDefinition）</a> 是否更合适其使用场景。
+
 </p>
 
 <a name="contained"></a>
@@ -1969,12 +1969,11 @@ results for the convenience of the client.
 </p>
 
 <a name="Paging"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.7</span> Paging <a href="search.html#Paging" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.1.5.7</span> 分页 <a href="search.html#Paging" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-When returning paged results for a search with <code>_include</code> resources, all <code>_include</code> resources that are
-related to the primary resources returned for the page SHOULD also be returned as part of that
-same page, even if some of those resource instances have previously been returned on previous
-pages.  This approach allows both sender and receiver to avoid caching results of other pages.
+  
+    当搜索“包含资源”返回分页结果时，与主资源相关的所有“包含资源”也<b>应该</b>作为分页的一部分返回，即使其中一些资源实例之前已返回到以前的一些分页。
+    这种方法允许发送方和接收方避免缓存其他页面的结果。
 </p>
 
 <a name="summary"></a>
