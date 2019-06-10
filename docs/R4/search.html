@@ -1800,16 +1800,16 @@ GET [base]/MedicationDispense?_include=MedicationDispense:prescription
     &amp;_include:iterate=MedicationRequest:performer&amp;criteria...
 </pre>
 <p>
-This technique applies to circular relationships as well. For example,
-the first of these two searches includes any related observations to the
-target relationships, but only those directly related. The second search
-asks for the <code>_include</code> based on <code>related</code> parameter to be executed
-iteratively, so it will retrieve observations that are directly related, and
-also any related observations to any other included observation.
+    这种技术也适用于循环关系。
+    例如下面的两个对观测资源的搜索：
+    第一个包括 <code>hasMember</code>元素引用的所有相关的观测资源，但仅包括直接引用的成员。
+    第二个搜索要求<code>_include</code>参数基于 <code>hasMember
+         </code>元素迭代执行来实现包含，因此除了直接引用的成员外，还包含所有引用成员下引用的观测资源，逐层迭代。
+  
 </p>
 <pre>
-GET [base]/Observation?_include=Observation:related-target&amp;criteria...
-GET [base]/Observation?_include:iterate=Observation:related-target&amp;criteria...
+GET [base]/Observation?_include=Observation:hasMember&amp;criteria...
+GET [base]/Observation?_include:iterate=Observation:hasMember&amp;criteria...
 </pre>
 <p>
 Both <code>_include</code> and <code>_revinclude</code> use the wild card "*" for the search parameter
