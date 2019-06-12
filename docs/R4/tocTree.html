@@ -46,7 +46,8 @@
                 }
             },
             view: {
-                addDiyDom: addDiyDom
+                addDiyDom: addDiyDom,
+				txtSelectedEnable: true
             }
         };
         IDMark_A = "_a";
@@ -58,6 +59,10 @@
             if(treeNode.subtitle){
                 let editStr = "<span class='diyBtn_subtitle'>"+treeNode.subtitle+"</span>";
                 aObj.after(editStr);
+            }
+			if(treeNode.fineTitle){
+                      let editStr = "<span class='diyBtn_subtitle'>"+treeNode.fineTitle+"</span>";
+                      aObj.after(editStr);
             }
             if(treeNode.thickTitle){
                 let editStr = "<span class='diyBtn_thickTitle'>"+treeNode.thickTitle+"</span>";
