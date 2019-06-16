@@ -1,7 +1,7 @@
 //herder
 
 document.write('<script id="header-temp" type="text/html">'+
-    ' <div class="container"><a no-external="true" id="logo" href="http://hl7fhir.cn/R4"><img src="./assets/images/fhir-logo-www.png"/> </a><div id="hl7-status"><b>FHIR R4 快速卫生信息交互资源</b></div>'+
+    ' <div class="container"><a no-external="true" id="logo" href="http://hl7fhir.cn/R4"><img src="./assets/images/fhir-logo-www.png" height="60" width="249" alt="FHIR中国"/> </a><div id="hl7-status"><b>FHIR中国 R4（第四版）<b></div>'+
     '<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://www.hl7.org"><img src="./assets/images/hl7-logo.png" width="42"  height="50" alt="访问 hl7官网"/></a></div>'+
     '<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="toc.html"><img src="./assets/ico/fhirIndex.png" alt="FHIR 目录" width="42" height="50" /></a></div>'+
     '<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./assets/images/search.png" alt="FHIR官网搜索" /></a></div>'+
@@ -20,7 +20,7 @@ document.write('<script id="foot-temp" type="text/html"><div class="container"><
     '</span></p></div></div></script>');
 
 var navData = {
-    text: ['主页', '开始学习', '文档', '资源', '配置', '扩展', '操作', '术语'],
+    text: ['主页', '入门', '文档', '资源', '配置', '扩展', '操作', '术语'],
     link: ['./index.html', '././modules.html', './documentation.html', './resourcelist.html', "./profilelist.html", './extensibility-registry.html', './operationslist.html', './terminologies-systems.html' ]
 };
 

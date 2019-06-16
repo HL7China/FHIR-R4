@@ -14,7 +14,8 @@ var zNodes =[
 			
         ]},
     { id:2, pId:0, name:" 2 Foundation Module", thickTitle:"基础组件", open:false,iconSkin:"pIcon01",url:"foundation-module.html", target:"_self",
-        children:[
+        children: [
+            { id: 20, name: " 2.0 Documentation", fineTitle: "", iconSkin: "pIcon01", url: "documentation.html", target: "_blank" },
 			{id:21, name:" 2.1 Conformance",fineTitle:"标准符合性",iconSkin:"icon01",url:"conformance-rules.html",target:"_blank"},
 			{id:22, name:" 2.2 FHIR Life Cycle Page",iconSkin:"pIcon01",url:"lifecycle.html",target:"_blank"},
 			{id:23, name:" 2.3 Resource References",iconSkin:"icon01",url:"references.html",target:"_blank"},
