@@ -2,7 +2,7 @@
   <!-- These elements SHALL always appear in this order. These basic elements shared by all resources come first
 in order to support consistent definitions for schema and UML derived code. --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>临床总结 - HL7 FHIR 中国</title>
+    <title>临床组件 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -63,7 +63,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><b><img src="clinical.png"/>当前位置： 临床总结</b></li>          <!-- clinicalsummary-module.html / page / -->
+        <li><b><img src="clinical.png"/>当前位置： 临床摘要组件</b></li>          <!-- clinicalsummary-module.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -81,67 +81,85 @@ in order to support consistent definitions for schema and UML derived code. --><
 <table class="colsi"><tr><td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/patientcare/index.cfm" _target="blank">Patient Care <img src="external.png" style="text-align: baseline"/></a> </td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
-<h2 class="self-link-parent"><span class="sectioncount">9.0<a name="9.0"> </a></span> Clinical Module <a href="clinicalsummary-module.html#9.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">9.0<a name="9.0"> </a></span> 临床摘要模块 <a href="clinicalsummary-module.html#9.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <a name="intro"></a>
-<h3 class="self-link-parent"><span class="sectioncount">9.0.1</span> Introduction <a href="clinicalsummary-module.html#intro" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">9.0.1</span> 简介 <a href="clinicalsummary-module.html#intro" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-This Clinical Module focuses on the FHIR Resources that represent core clinical
-information for a patient. The information contained in these Resources are those
-frequently documented, created or retrieved by healthcare providers during the course
-of clinical care. Resources generated during the course of diagnostic studies can be
-found in the <a href="diagnostics-module.html">Diagnostics Module</a>, whereas the
-Resources related to medication ordering and administration process can be found
-in the <a href="medications-module.html">Medications Module</a>.
+    临床摘要模块（Clinical Summary Module）集中关注的是那些表示患者之核心临床信息的FHIR资源。
+    这些资源之中所包含的是医疗服务人员在临床医疗/照护服务过程中所经常记载、创建或获取的信息。
+    诊断学检查（diagnostic studies）过程中所产生的资源属于<a href="diagnostics-module.html">诊断组件（Diagnostics Module）</a>，
+    而与药物的医嘱/处方开立和施用过程相关的资源则属于<a href="medications-module.html">药物组件（Medications Module）</a>。
 </p>
 <p>
-As an introduction to FHIR APIs and Resources, please see the
-<a href="overview-dev.html">Developer's Introduction</a> or
-<a href="overview-clinical.html">Clinical Introduction</a> in the
-Overview section of the <a href="foundation-module.html">Foundation Module</a>.
+    
+    关于FHIR APIs和资源的入门介绍，请参阅<a href="foundation-module.html">
+        基础组件（Foundation Module）
+    </a>概述章节里的写给开发人员, 写给医护人员 , 和 写给架构师
+    <a href="overview-dev.html">开发人员入门</a> 或
+    <a href="overview-clinical.html">临床人员入门</a>。
 </p>
 
 <a name="index"></a>
-<h3 class="self-link-parent"><span class="sectioncount">9.0.2</span> Index <a href="clinicalsummary-module.html#index" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">9.0.2</span> 索引 <a href="clinicalsummary-module.html#index" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The Clinical Module covers the following resources:
+ 
+    本临床模块涵盖了下列资源：
 </p>
 <table class="none"><tr>
  <td><ul>
-  <li><a href="allergyintolerance.html" title="Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.">AllergyIntolerance</a></li>
-  <li><a href="condition.html" title="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.">Condition</a> (Problem)</li>
-  <li><a href="procedure.html" title="An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.">Procedure</a></li>
-  <li><a href="familymemberhistory.html" title="Significant health conditions for a person related to the patient relevant in the context of care for the patient.">FamilyMemberHistory</a></li>
+  <li><a href="allergyintolerance.html"
+   title="Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.">
+    AllergyIntolerance 过敏和不耐受
+</a></li>
+  <li><a href="condition.html" title="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.">
+    Condition 病症与诊断
+</a> (问题)</li>
+  <li><a href="procedure.html" title="An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.">
+      Procedure 治疗</a></li>
+  <li><a href="familymemberhistory.html" title="Significant health conditions for a person related to the patient relevant in the context of care for the patient.">
+    FamilyMemberHistory 家族史
+</a></li>
  </ul></td><td><ul>
-  <li><a href="careplan.html" title="Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.">CarePlan</a></li>
-  <li><a href="goal.html" title="Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.">Goal</a></li>
-  <li><a href="careteam.html" title="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.">CareTeam</a></li>
-  <li><a href="clinicalimpression.html" title="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score.">ClinicalImpression</a></li>
+  <li><a href="careplan.html" title="Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.">
+      CarePlan 照护计划</a></li>
+  <li><a href="goal.html" title="Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.">
+      Goal 目标</a></li>
+  <li><a href="careteam.html" title="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.">
+    CareTeam 医疗/照护团队
+</a></li>
+  <li><a href="clinicalimpression.html" title="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score.">
+    ClinicalImpression 临床评估
+</a></li>
  </ul></td><td><ul>
-  <li><a href="adverseevent.html" title="Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.">AdverseEvent</a></li>
-  <li><a href="detectedissue.html" title="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.">DetectedIssue</a></li>
-  <li><a href="riskassessment.html" title="An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.">RiskAssessment</a></li>
+  <li><a href="adverseevent.html" title="Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.">
+    AdverseEvent 不良事件
+</a></li>
+  <li><a href="detectedissue.html" title="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.">
+    DetectedIssue 已知问题
+</a></li>
+  <li><a href="riskassessment.html" title="An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.">
+      RiskAssessment 风险评估</a></li>
 
  </ul></td>
 </tr></table>
 <p>
-FHIR Resources have a low, moderate or high levels of complexity with respect to the number
-of primary and child elements as well as the number of referenced Resources, found in this
-module and others. To better understand the relationships between Resources, we recommend
-beginning with the lower complexity, core Resources such as
-<a href="patient.html">Patient</a>,
-<a href="condition.html">Condition</a>, and
-<a href="familymemberhistory.html">FamilyMemberHistory</a> before addressing a high
-complexity Resource such as <a href="careplan.html">CarePlan</a>.
+   
+    从FHIR资源之中主元素和子元素的数量，以及所引用资源的数量上来说，此组件和其他FHIR组件之中的FHIR资源分别会有着不同的复杂程度（低、中、高）。
+    为了更好地了解和认识资源之间的关系，我们建议在处理<a href="careplan.html">
+        照护计划
+    </a>资源之类高度复杂的资源之前，先从那些复杂程度较低的核心资源着手，如:<a href="patient.html">患者
+        </a>资源、<a href="condition.html">病症与诊断
+            </a>资源<a href="familymemberhistory.html">家族史</a>资源。
 </p>
 
 <a name="secpriv"></a>
-<h3 class="self-link-parent"><span class="sectioncount">9.0.3</span> Security and Privacy <a href="clinicalsummary-module.html#secpriv" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">9.0.3</span> 安全与隐私 <a href="clinicalsummary-module.html#secpriv" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The clinical resources often represent patient-related data, and as such are
-susceptible to data breaching. Necessary privacy and security provision must be
-in place for searching and fetching this information. For more general considerations,
-see the <a href="secpriv-module.html">Security and Privacy module</a>.
+    临床资源往往表示的是与患者相关的数据，而正因为如此，它们也易于发生数据泄漏，或者说遭受数据安全突防行为侵害。
+    对于此类信息的搜索和获取，必须采取和落实必要的隐私与安全规定和防范措施。
+    关于更为通用的安全考虑，请参阅<a href="secpriv-module.html">隐私与安全组件（Security and Privacy module）</a>。
+    
 </p>
 
 <a name="uses"></a>
