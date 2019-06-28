@@ -89,10 +89,10 @@
 <p>
 <a href="http.html">RESTful API</a>定义了一组通用的交互动作（读取，更新，搜索等）可以操作储存库中已知类型的资源。
 这些交互遵循RESTful范式，通过对一组已定义资源的<b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete 动作来管理状态。
-虽然这种方法解决了许多用例，但是使用类似RPC的范式可以使用输入和输出（<b>E</b>xecute）执行命名操作来更有效地满足某些功能。
+虽然这种方法解决了许多用例，但是使用类似RPC的范式可以使用输入和输出（<b>E</b>xecute）执行命令操作来更有效地满足某些功能。
  </p>
 <p>
-在以下情况使用操作应适度：
+在以下情况适合于用“操作”：
 </p>
 <ul>
  <li>
@@ -100,17 +100,17 @@
 
  </li>
  <li>
-预期目的是引起副作用，例如修改现有资源或创建新资源，或者超出RESTful接口范围的其他更改（例如合并患者记录）
-</li>
+     预期目的是引起副作用（side effects），例如修改现有资源或创建新资源，或者超出RESTful接口范围的其他更改（例如合并患者记录）
+ </li>
  <li>
  该任务涉及跨多个不同资源和/或强制执行的业务规则
  </li>
- <li>任务涉及以协同的方式更新多个资源（注意：这也可以通过<a href="http.html#transaction">事务</a>来完成，但单个操作可以更专注于任务。
+ <li>任务涉及以协同的方式更新多个资源（注意：这也可以通过<a href="http.html#transaction">事务</a>来完成，但单个操作可以更专注于任务。）
  </li>
 </ul>
 <p> 
 该规范描述了一个轻量级的操作框架，可以无缝扩展RESTful API。
-该框架涵盖了如何执行本页涉及的操作（本页）以及如何 <a href="operationdefinition.html">定义操作</a>。
+该框架涵盖了如何执行本页涉及的操作以及如何 <a href="operationdefinition.html">定义操作</a>。
 </p>
 <p>
 操作具有以下通用属性：
@@ -118,8 +118,8 @@
 <ul>
  <li>每个操作都有一个名称
 </li>
- <li>每个操作都有一个'in'和'out'(输入输出)参数列表</li>
- <li>参数是资源、数据类型或搜索参数</li>
+ <li>每个操作都有一个参数列表，包含了输入输出的参数</li>
+ <li>参数可以是资源、数据类型或搜索参数</li>
  <li>
     和对RESTful API的要求一样，操作受安全约束</li>
  <li>
@@ -133,22 +133,27 @@
 <h3 class="self-link-parent"><span class="sectioncount">3.2.0.1</span> 执行操作 <a href="operations.html#executing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-Operations are executed using a URL derived from the FHIR endpoint, where the name of the operation is prefixed by a "dollar sign" ('$') character. For example:
+    用从FHIR终结点派生的URL来执行操作，在操作的名称之前以“美元符号”（“$”字符）为前缀。例如：
+   
 </p>
 <pre>
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-When an operation has affectsState = false, and the parameters are all primitive data types with no extensions
-(as is the case with the example above), it may be invoked using GET as well. (Note: A HEAD request can also be used - see <a href="http.html#head">Support for HEAD</a>).
+    当一个操作的affectsState=false，并且参数都是不带扩展名的基本数据类型（如上例所示）时，也可以使用“GET”动作来调用。
+（注意：也可以使用HEAD头来请求-参见<a href="http.html#head">HEAD头的支持</a>）。
+   
 </p>
 <p>
-Operations can be invoked on four types of FHIR endpoints:
+    可以在四类FHIR终结点上使用“操作”：
 </p>
 <ul>
- <li>The "base" FHIR service endpoint (e.g. http://fhir.someserver.org/fhir): These are operations that operate on the full scale of the server. For example, "return me all extensions known by this server"</li>
- <li>A Resource type (e.g. http://fhir.someserver.org/fhir/Patient): These are operations that operate across all instances of a given resource type</li>
- <li>A Resource instance (e.g. http://fhir.someserver.org/fhir/Patient/1): These are operations that involve only a single instance of a Resource, like the $everything operation above does</li>
+    <li>
+        FHIR服务基地址上的终结点(如：http://fhir.someserver.org/fhir):
+        这些操作是可以作用于整个服务器的范围。例如，“返回此服务器上所有的已知扩展”
+       </li>
+ <li>某种资源类型(如：http://fhir.someserver.org/fhir/Patient): These are operations that operate across all instances of a given resource type</li>
+ <li>某个资源实例(如：http://fhir.someserver.org/fhir/Patient/1): These are operations that involve only a single instance of a Resource, like the $everything operation above does</li>
   <!-- see task GF#
  <li>A specific version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4): These operations involve only a specific version of a single instance of a FHIR Resource and exists only to allow manipulation of profile and tag metadata of past versions</li> -->
 </ul>
