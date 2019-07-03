@@ -145,59 +145,78 @@
    
 </p>
 <p>
-    可以在四类FHIR终结点上使用“操作”：
+    可以在三类FHIR终结点上使用“操作”：
 </p>
 <ul>
     <li>
         FHIR服务基地址上的终结点(如：http://fhir.someserver.org/fhir):
         这些操作是可以作用于整个服务器的范围。例如，“返回此服务器上所有的已知扩展”
        </li>
- <li>某种资源类型(如：http://fhir.someserver.org/fhir/Patient): These are operations that operate across all instances of a given resource type</li>
- <li>某个资源实例(如：http://fhir.someserver.org/fhir/Patient/1): These are operations that involve only a single instance of a Resource, like the $everything operation above does</li>
+    <li>
+        某种资源类型(如：http://fhir.someserver.org/fhir/Patient):
+        这些操作可以作用于指定资源类型的所有实例
+   
+    </li>
+    <li>
+        某个资源实例(如：http://fhir.someserver.org/fhir/Patient/1):
+        这些操作仅针对某个单独的资源实例，如上面的$everything操作
+           </li>
   <!-- see task GF#
  <li>A specific version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4): These operations involve only a specific version of a single instance of a FHIR Resource and exists only to allow manipulation of profile and tag metadata of past versions</li> -->
 </ul>
 <p>
-The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,
-which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any
-primitive or complex datatype or even a full Resource. It may also include strings
-formatted as search parameter types.
+
+    请求的body消息体包含一个<a href="parameters.html">参数资源(Parameters)</a>的特殊基础资源，
+    参数资源是一个用<key，value>键值对来表示一个命名参数的集合，其中的value值可以是所有的基本元数据类型或复杂数据类型，甚至是完整的资源。它还可以包括搜索参数类型格式的字符串。
 </p>
 <p>
-Upon completion, the operation returns another <code>Parameters</code> resource, containing one or
-more output parameters. This means that a FHIR operation can take a set of zero or more parameters <i>in</i> and return a set of zero or more
-result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource.
-</p>
+    请求完成后，该操作返回另一个<a href="parameters.html">
+        参数资源(Parameters)
+    </a>，其中包含一个或多个输出参数。这意味着FHIR操作可以接收一组零到多个<i>
+        输入
+    </i>参数，并返回一组零到多个<i>输出</i>参数。POST的body消息体和返回的结果通常都是一个资源。
+   </p>
 <p>
-Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
+    当<b>同时</b>满足下列条件时，可以使用<code>GET</code>动作并以HTTP URL参数作为入参来调用操作：
+  
 </p>
 <ol>
- <li>there are only simple input parameters - i.e. no complex datatypes like 'Identifier' or 'Reference', and</li>
- <li>and the operation does not <a href="operationdefinition-definitions.html#OperationDefinition.affectsState">affect the state of the server</a></li>
+    <li>
+        只有简单的输入参数，即没有像'identifier'或'reference'这样复杂的数据类型
+       
+    </li>
+    <li>此操作不会<a href="operationdefinition-definitions.html#OperationDefinition.affectsState">
+        影响服务器的状态</a></li>
 </ol>
 <p>
-If there is a single output parameter named 'return' then the response MAY be the resource that is the return value, with no Parameters resource.
-These kinds of usage are discussed further below.
+    如果只返回了一个名为“return”的输出参数，那么响应的<b>可能</b>是一个不带<a href="parameters.html">
+        参数资源(Parameters)
+    </a>的返回值。此类用法将在后面进一步讨论。
+  
 </p>
 <p>
-If the response is a <a href="bundle.html">Bundle</a>, the correct <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> is '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', unless it has <a href="http.html#search">search semantics</a>, such as 
-matching resource counts, and <a href="http.html#paging">page links (next etc)</a>.
+    如果返回的是一个<a href="bundle.html">资源捆束(Bundle)</a>，其<a href="bundle-definitions.html#Bundle.type">
+        Bundle.type
+    </a>应该是“<a href="codesystem-bundle-type.html#bundle-type-collection">
+        collection
+    </a>”，除非它具有<a href="http.html#search">
+        搜索语义
+    </a>，例如匹配的资源计数和<a href="http.html#paging">
+        页面链接（“下一页”等）
+    </a>。
 </p>
 
 
 <a name="executing"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.2.0.1.1</span> Operations with no parameters <a href="operations.html#executing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.2.0.1.1</span> 不带参数的操作 <a href="operations.html#executing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-Executing operations without any parameters is a special case. For an operation that doesn't cause 
-any state change, the operation is invoked in a straight forward fashion:
-</p>
+    执行操作时不带任何参数是一种特例。对于不会导致任何状态更改的操作，可以直接调用：
+   </p>
 <pre class="http">
 GET [base]/Composition/example/$document
 </pre>
 <p>
-For operations that call state changes, they must be invoked by a POST. There is no parameters 
-resource in this case because a parameters resource cannot be empty. So the operation is invoked
-with a POST with an empty body:
+    如果调用的操作会引起状态变更，则必须用POST来调用。当不传参数资源时，POST的body消息体留空即可:
 </p>
 <pre class="http">
 POST [base]/Claim/example/$submit
@@ -208,9 +227,9 @@ Content-Length: 0
 
 
 <a name="defined"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.2.0.2</span> FHIR defined Operations <a href="operations.html#defined" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.2.0.2</span> FHIR 已定义的操作 <a href="operations.html#defined" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-See <a href="operationslist.html">the list of defined operations</a>.
+请参见 <a href="operationslist.html">已定义的操作清单</a>.
 </p>
 
 <a name="extensibility"></a>
