@@ -1,4 +1,4 @@
-//herder
+﻿//herder
 
 document.write('<script id="header-temp" type="text/html">'+
     ' <div class="container"><a no-external="true" id="logo" href="http://hl7fhir.cn/R4"><img src="./assets/images/fhir-logo-www.png" height="60" width="249" alt="FHIR中国"/> </a><div id="hl7-status"><b>FHIR中国 R4（第四版）<b></div>'+
@@ -26,7 +26,7 @@ var navData = {
 
 
 var footerData = {
-    text: ['搜索', '历史版本', '目录', '供献', 'License', '提出建议', '联系我们:contact@hl7fhir.cn'],
+    text: ['搜索', '历史版本', '目录', '贡献', 'License', '提出建议', '联系我们:contact@hl7fhir.cn'],
     link: ['http://hl7.org/fhir/search.cfm', 'history.html', 'toc.html', 'credits.html', "license.html",   'http://hl7.org/fhir-issues', 'mailto:contact@hl7fhir.cn']
 };
 
