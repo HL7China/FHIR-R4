@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
   <!-- template-operations.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>操作 - HL7 FHIR 中国</title>
+    <title>操作-GraphQL - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -60,13 +60,16 @@
 	
 
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
-		<div class="container">  <!-- container -->	
-			<ul class="breadcrumb">
-        <li><img src="foundation.png"/><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>        <li><a href="resource.html">资源</a></li>        
-        <li>操作</li>         <!-- resource.html / res-Operations / Operation Definition -->
+        <div class="container">
+            <!-- container -->
+            <ul class="breadcrumb">
+                <li><img src="foundation.png" /><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>
+                <li><a href="resource.html">资源</a></li>
+                <li><a href="operationslist.html">操作</a></li>
+                <li>GraphQL(<a href="http://hl7.org/fhir/resource-operation-graphql.html" target="_blank" title="英语官方页面">原文链接</a>)</li> <!-- resource.html / res-Operations / Operation Definition -->
 
-			</ul>	
-		</div>  <!-- /container -->
+            </ul>
+        </div>  <!-- /container -->
 	</div>  <!-- /segment-breadcrumb -->
 	
 
@@ -79,33 +82,59 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="resource.html">Content</a></li><li><a href="resource-definitions.html">Detailed Descriptions</a></li><li><a href="resource-operations.html">Operations</a></li><li><a href="resource-version-maps.html">R3 Conversions</a></li></ul>
-
-<h3 class="self-link-parent"><span class="sectioncount">2.26.6.6<a name="2.26.6.6"> </a></span> Operation $graphql on Resource <a href="resource-operation-graphql.html#2.26.6.6" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.26.6.6<a name="2.26.6.6"> </a></span> 资源的GraphQL操作（$graphql） <a href="resource-operation-graphql.html#2.26.6.6" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="colstu"><tr><td>工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a></td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">成熟度</a>: 1</td><td><a href="versions.html#std-process">试用</a></td>  <!-- !ns! --><td><a href="compartmentdefinition.html">隔间</a>: N/A</td></tr></table>
 
 
 
-<p>Execute a graphql statement on a since resource or against the entire system. See the <a href="graphql.html">Using GraphQL with FHIR</a> page for further details.</p>
-<p>For the purposes of graphQL compatibility, this operation can also be invoked using a POST with the graphQL as the body, or a JSON body (see <a href="http://graphql.org/">graphQL spec <img src="external.png" style="text-align: baseline"/></a> for details).</p>
+<p>
+    对单个资源或整个系统执行GraphQL语句。详见<a href="graphql.html">在FHIR中使用GraphQL</a> 。
+  
+</p>
+<p>
+    为了与GraphQL兼容，可以用GraphQL语句作为body消息体或JSON格式，使用POST动作调用此操作（详见<a href="http://graphql.org/">graphQL 规范 <img src="external.png" style="text-align: baseline" /></a>）。
+</p>
 
-<p>The official URL for this operation definition is</p>
+    <p>此操作的官方定义URL是</p>
 <pre> http://hl7.org/fhir/OperationDefinition/Resource-graphql</pre>
-<p><a href="operation-resource-graphql.html">Formal Definition</a> (as a <a href="operationdefinition.html">OperationDefinition</a>).</p>
+<p>
+
+    此<a href="operation-resource-validate.html">
+        正式定义
+    </a>是一个<a href="operationdefinition.html">
+        操作定义资源（OperationDefinition）
+    </a>
+</p>
 <p>URL: [base]/$graphql</p>
 <p>URL: [base]/[Resource]/[id]/$graphql</p>
-<p>This is an idempotent operation</p>
+<p>这是一个等幂等操作</p>
 <table class="grid">
-<tr><td colspan="6"><b>In Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>query</td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td></td></tr><tr><td colspan="6"><b>Out Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>result</td><td>1..1</td><td><a href="binary.html">Binary</a></td><td></td><td></td><td><p>The content is always returned as application/json; this SHOULD be specified in the Accept header</p>
-</td></tr></table>
+    <tr>
+    <tr><td colspan="4"><b>输入参数:</b></td></tr>
+    <tr><td><b>名称</b></td><td><b>基数</b></td><td><b>类型</b></td><td><b>说明</b></td></tr>
+    <tr><td>query</td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td></td>
+    </tr>
+    <tr><td colspan="4"><b>输出参数:</b></td></tr>
+    <tr><td><b>名称</b></td><td><b>基数</b></td><td><b>类型</b></td><td><b>说明</b></td></tr>
+
+    <tr>
+        <td>result</td>
+        <td>1..1</td>
+        <td><a href="binary.html">Binary</a></td>
+        
+        <td>
+            返回内容的格式通常为application/json，这<b>应该</b>在Accept头中指定。
+        
+        </td>
+    </tr>
+</table>
 
 <p>&nbsp;</p>
 
 <p>
-For more information about operations, including how they are invoked, see <a href="operations.html">Operations</a>.
+    有关操作的更多信息，包括如何调用操作，请参阅<a href="operations.html">Operations</a>。
+
 </p>
 
 </div>

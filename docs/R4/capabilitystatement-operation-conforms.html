@@ -106,13 +106,20 @@
 
 <ul class="nav nav-tabs"><li><a href="capabilitystatement.html">Content</a></li><li><a href="capabilitystatement-examples.html">Examples</a></li><li><a href="capabilitystatement-definitions.html">Detailed Descriptions</a></li><li><a href="capabilitystatement-mappings.html">Mappings</a></li><li><a href="capabilitystatement-profiles.html">Profiles &amp; Extensions</a></li><li><a href="capabilitystatement-operations.html">Operations</a></li><li><a href="capabilitystatement-version-maps.html">R3 Conversions</a></li></ul>
 
-<h3 class="self-link-parent"><span class="sectioncount">5.2.10.3<a name="5.2.10.3"> </a></span> Operation $conforms on CapabilityStatement <a href="capabilitystatement-operation-conforms.html#5.2.10.3" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.2.10.3<a name="5.2.10.3"> </a></span>
+    能力声明对比操作（$conforms） <a href="capabilitystatement-operation-conforms.html#5.2.10.3" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> Work Group</td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">Maturity Level</a>: 5</td><td><a href="versions.html#std-process">Trial Use</a></td>  <!-- !ns! --><td><a href="compartmentdefinition.html">Compartments</a>: N/A</td></tr></table>
 
 
 
-<p>This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server.</p>
+<p>
+
+
+    此操作要求服务器检查它是否实现了客户端在其能力声明中提供的所有资源、交互、搜索参数和操作。
+
+    客户端通过引用提供这两个能力声明，并且必须确保所有引用的资源对符合性服务器来说都是可用的。
+</p>
 
 <p>The official URL for this operation definition is</p>
 <pre> http://hl7.org/fhir/OperationDefinition/CapabilityStatement-conforms</pre>
@@ -129,9 +136,21 @@
 </td></tr><tr><td>union</td><td>0..1</td><td><a href="capabilitystatement.html">CapabilityStatement</a></td><td></td><td></td><td><p>The intersection of the functionality described by the CapabilityStatement resources</p>
 </td></tr><tr><td>intersection</td><td>0..1</td><td><a href="capabilitystatement.html">CapabilityStatement</a></td><td></td><td></td><td><p>The union of the functionality described by the CapabilityStatement resources</p>
 </td></tr></table>
-<p>The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps.</p>
-<p>The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate</p>
-<p>If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</p>
+<p>
+    该操作对两个能力声明所描述的功能进行了全面的比较，包括它们引用的配置、值集、概念映射和结构映射。
+    </p>
+<p>
+    此操作的完整执行仍然是一个研究问题，但它的目的是支持系统的比较，以查看它们是否可进行互操作。
+    
+</p>
+<p>
+    如果能力声明对比成功，则返回值为200 OK，返回的操作结果资源会将重合、关联的能力声明随带返回。
+    操作结果资源可能用错误提示来说明能力声明之间的差异。
+    如果由于找不到依赖项而无法对能力声明进行比较，则返回值为4xx错误，且返回的操作结果资源的<code>issue</code>元素中至少有一个的<code>
+        severity
+    </code>属性值&gt;=error。
+   
+</p>
 
 <a name="examples"> </a>
 <h4 class="self-link-parent"><span class="sectioncount">5.2.10.3.1</span> Examples <a href="capabilitystatement-operation-conforms.html#examples" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>

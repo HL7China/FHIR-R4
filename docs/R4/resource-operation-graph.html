@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
   <!-- template-operations.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>操作 - HL7 FHIR 中国</title>
+    <title>操作-图谱 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -60,13 +60,16 @@
 	
 
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
-		<div class="container">  <!-- container -->	
-			<ul class="breadcrumb">
-        <li><img src="foundation.png"/><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>        <li><a href="resource.html">资源</a></li>        
-        <li>操作</li>        <!-- resource.html / res-Operations / Operation Definition -->
+        <div class="container">
+            <!-- container -->
+            <ul class="breadcrumb">
+                <li><img src="foundation.png" /><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>
+                <li><a href="resource.html">资源</a></li>
+                <li><a href="operationslist.html">操作</a></li>
+                <li>图谱(<a href="http://hl7.org/fhir/resource-operation-graph.html" target="_blank" title="英语官方页面">原文链接</a>)</li> <!-- resource.html / res-Operations / Operation Definition -->
 
-			</ul>	
-		</div>  <!-- /container -->
+            </ul>
+        </div>  <!-- /container -->
 	</div>  <!-- /segment-breadcrumb -->
 	
 
@@ -79,34 +82,70 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="resource.html">Content</a></li><li><a href="resource-definitions.html">Detailed Descriptions</a></li><li><a href="resource-operations.html">Operations</a></li><li><a href="resource-version-maps.html">R3 Conversions</a></li></ul>
 
-<h3 class="self-link-parent"><span class="sectioncount">2.26.6.7<a name="2.26.6.7"> </a></span> Operation $graph on Resource <a href="resource-operation-graph.html#2.26.6.7" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+    <h3 class="self-link-parent">
+        <span class="sectioncount">2.26.6.7<a name="2.26.6.7"> </a></span>
+        资源的图谱操作（$graph） <a href="resource-operation-graph.html#2.26.6.7" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a>
+    </h3>
 
 <table class="colstu"><tr><td>工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a></td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">成熟度</a>: 1</td><td><a href="versions.html#std-process">试用</a></td>  <!-- !ns! --><td><a href="compartmentdefinition.html">隔间</a>: N/A</td></tr></table>
 
 
 
-<p>Return an entire graph of resources based on a <a href="graphdefinition.html">GraphDefinition</a>. The operation is invoked on a specific instance of a resource, and the graph definition tells the server what other resources to return in the same packaage.</p>
-
-<p>The official URL for this operation definition is</p>
-<pre> http://hl7.org/fhir/OperationDefinition/Resource-graph</pre>
-<p><a href="operation-resource-graph.html">Formal Definition</a> (as a <a href="operationdefinition.html">OperationDefinition</a>).</p>
-<p>URL: [base]/[Resource]/[id]/$graph</p>
-<p>This is an idempotent operation</p>
-<table class="grid">
-<tr><td colspan="6"><b>In Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>graph</td><td>1..1</td><td><a href="datatypes.html#uri">uri</a></td><td></td><td></td><td><p>Servers MAY choose to allow any graph definition to be specified, but MAY require that the client choose a graph definition from a specific list of known supported definitions. The server is not required to support a formal definition of the graph on the end point</p>
-</td></tr><tr><td colspan="6"><b>Out Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>result</td><td>1..1</td><td><a href="bundle.html">Bundle</a></td><td></td><td></td><td><p>The set of resources that were in the graph based on the provided definition</p>
-</td></tr></table>
-
-<p>&nbsp;</p>
-
 <p>
-For more information about operations, including how they are invoked, see <a href="operations.html">Operations</a>.
+    基于 <a href="graphdefinition.html">
+        图谱定义（GraphDefinition）
+    </a>返回整个资源图。在资源的特定实例上调用该操作，图谱定义告诉服务器将哪些其他资源返回在同一个包中。
+
 </p>
 
+    <p>此操作的官方定义URL是</p>
+<pre> http://hl7.org/fhir/OperationDefinition/Resource-graph</pre>
+
+<p>
+
+    此<a href="operation-resource-validate.html">
+        正式定义
+    </a>是一个<a href="operationdefinition.html">
+        操作定义资源（OperationDefinition）
+    </a>
+</p>
+           <p>URL: [base]/[Resource]/[id]/$graph</p>
+<p>这是一个等幂等操作</p>
+<table class="grid">
+    <tr>
+    <tr><td colspan="4"><b>输入参数:</b></td></tr>
+    <tr><td><b>名称</b></td><td><b>基数</b></td><td><b>类型</b></td><td><b>说明</b></td></tr>
+    <tr>
+        <td>graph</td>
+        <td>1..1</td>
+        <td><a href="datatypes.html#uri">uri</a></td>
+
+        <td>
+            服务器<b>可能</b>允许指定任意的图谱定义，但<b>
+                可能
+            </b>要求客户端从指定列表中选择支持的已知图谱定义。服务器不需要在终结点上支持图谱的正式定义。
+            
+        </td>
+    </tr>
+    <tr><td colspan="4"><b>输出参数:</b></td></tr>
+    <tr><td><b>名称</b></td><td><b>基数</b></td><td><b>类型</b></td><td><b>说明</b></td></tr>
+    <tr>
+        <td>result</td>
+        <td>1..1</td>
+        <td><a href="bundle.html">Bundle</a></td>
+     
+        <td>
+            图谱中的一组资源（基于提供的定义）。
+        
+        </td>
+    </tr>
+</table>
+
+<p>
+    有关操作的更多信息，包括如何调用操作，请参阅<a href="operations.html">Operations</a>。
+
+</p>
 </div>
 
 

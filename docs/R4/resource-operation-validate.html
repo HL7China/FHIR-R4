@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
   <!-- template-operations.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>操作 - HL7 FHIR 中国</title>
+    <title>操作-验证 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -61,11 +61,13 @@
 
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
-			<ul class="breadcrumb">
-        <li><img src="foundation.png"/><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>        <li><a href="resource.html">资源</a></li>       
-        <li>操作</li>       <!-- resource.html / res-Operations / Operation Definition -->
+            <ul class="breadcrumb">
+                <li><img src="foundation.png" /><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>
+                <li><a href="resource.html">资源</a></li>
+                <li><a href="operationslist.html">操作</a></li>
+                <li>验证(<a href="http://hl7.org/fhir/resource-operation-validate.html" target="_blank" title="英语官方页面">原文链接</a>)</li> <!-- resource.html / res-Operations / Operation Definition -->
 
-			</ul>	
+            </ul>	
 		</div>  <!-- /container -->
 	</div>  <!-- /segment-breadcrumb -->
 	
@@ -79,47 +81,110 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="resource.html">Content</a></li><li><a href="resource-definitions.html">Detailed Descriptions</a></li><li><a href="resource-operations.html">Operations</a></li><li><a href="resource-version-maps.html">R3 Conversions</a></li></ul>
-
-<h3 class="self-link-parent"><span class="sectioncount">2.26.6.1<a name="2.26.6.1"> </a></span> Operation $validate on Resource <a href="resource-operation-validate.html#2.26.6.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.26.6.1<a name="2.26.6.1"> </a></span> 资源的验证操作（$validate） <a href="resource-operation-validate.html#2.26.6.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="colsn"><tr><td>工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a></td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">成熟度</a>: <a href="versions.html#std-process">N</a></td><td><a href="versions.html#std-process">标准状态</a> (from v4.0.0)</td>  <!-- !ns! --><td><a href="compartmentdefinition.html">隔间</a>: N/A</td></tr></table>
 
 
 
-<p>The validate operation checks whether the attached content would be acceptable either generally, as a create, an update or as a delete to an existing resource.  The action the server takes depends on the mode parameter:</p>
+<p>
+    验证（validate）操作用于检查服务端是否支持对已有资源内容的创建、更新或者删除。服务器返回的内容取决于模式参数：
+</p>
 <ul>
-<li>[mode not provided]: The server checks the content of the resource against any schema, constraint rules, and other general terminology rules</li>
-<li>create: The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints)</li>
-<li>update: The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate)</li>
-<li>delete: The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)</li>
+    <li>
+        [未指定模式]：服务器根据schema、约束规则和其他通用术语规则检查资源的内容
+          </li>
+    <li>
+        创建：服务器检查提交的内容是否可接受为新建的内容（例如，内容不会违反任何唯一性约束）
+      
+    </li>
+    <li>
+        更新：服务器检查提交的内容是否可接受它作为对指定资源的更新（例如，服务器不允许更改的固定字段没有更改，并检查版本的完整性）。
+      
+    </li>
+    <li>
+        删除：服务器忽略提交的内容，并检查是否允许删除指定的资源（例如，检查引用完整性规则）
+         </li>
 </ul>
-<p>Modes update and delete can only be used when the operation is invoked at the resource instance level.   The return from this operation is an <a href="operationoutcome.html">OperationOutcome</a></p>
-<p>Note that this operation is not the only way to validate resources - see <a href="validation.html">Validating Resources</a> for further information.</p>
+<p>
+    更新和删除模式仅在资源实例层级调用操作时适用。操作的返回是一个<a href="operationoutcome.html">
+    操作结果资源（OperationOutcome)</a>
+   
+</p>
+<p>请注意，此操作不是验证资源的唯一方法，理多详情请参阅。<a href="validation.html">验证资源</a></p>
 
-<p>The official URL for this operation definition is</p>
-<pre> http://hl7.org/fhir/OperationDefinition/Resource-validate</pre>
-<p><a href="operation-resource-validate.html">Formal Definition</a> (as a <a href="operationdefinition.html">OperationDefinition</a>).</p>
+<p>此操作的官方定义URL是</p>
+<pre> http://hl7.org/fhir/OperationDefinition/Resource-validate (待修正)</pre>
+<p>
+ 
+    此<a href="operation-resource-validate.html">正式定义
+        </a>是一个<a href="operationdefinition.html">
+    操作定义资源（OperationDefinition）</a>
+</p>
 <p>URL: [base]/[Resource]/$validate</p>
 <p>URL: [base]/[Resource]/[id]/$validate</p>
-<p>This is an idempotent operation</p>
+<p>这是一个等幂等操作</p>
 <table class="grid">
-<tr><td colspan="6"><b>In Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>resource</td><td>0..1</td><td><a href="resource.html">Resource</a></td><td></td><td></td><td><p>Must be present unless the mode is "delete"</p>
-</td></tr><tr><td>mode</td><td>0..1</td><td><a href="datatypes.html#code">code</a></td><td><a href="valueset-resource-validation-mode.html">ResourceValidationMode</a> (<a href="terminologies.html#required">Required</a>)</td><td></td><td><p>Default is 'no action'; (e.g. general validation)</p>
-</td></tr><tr><td>profile</td><td>0..1</td><td><a href="datatypes.html#uri">uri</a></td><td></td><td></td><td><p>If this is nominated, then the resource is validated against this specific profile. If a profile is nominated, and the server cannot validate against the nominated profile, it SHALL return an error</p>
-</td></tr><tr><td colspan="6"><b>Out Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>return</td><td>1..1</td><td><a href="operationoutcome.html">OperationOutcome</a></td><td></td><td></td><td><p>If the operation outcome does not list any errors, and a mode was specified, then this is an indication that the operation would be expected to succeed (excepting for transactional integrity issues, see below)</p>
-<p>Note: as this is the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p></td></tr></table>
-<p>This operation may be used during design and development to validate application design. It can also be used at run-time. One possible use might be that a client asks the server whether a proposed update is valid as the user is editing a dialog and displays an updated error to the user. The operation can be used as part of a light-weight two phase commit protocol but there is no expectation that the server will hold the content of the resource after this operation is used, or that the server guarantees to successfully perform an actual create, update or delete after the validation operation completes.</p>
-<p>This operation returns a 200 OK whether or not the resource is valid. A 4xx or 5xx error means that the validation itself could not be performed, and it is unknown whether the resource is valid or not.</p>
-<p>Note: the correct behaviour of validation with regard to language (especially for Coding.display) is currently undefined, and further development and testing may lead to specific requirements or recommendations in subsequent releases</p>
-<p>Future versions of this specifcation may add additional validation parameters. A candidate list is maintained with the <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">FHIR Validator Documentation <img src="external.png" style="text-align: baseline"/></a></p>
+<tr><td colspan="6"><b>输入参数:</b></td></tr>
+<tr>
+    <td><b>名称</b></td>
+    <td><b>基数</b></td>
+    <td><b>类型</b></td>
+    <td><b>绑定</b></td>
+    <td><b>说明</b></td>
+</tr>
+ <tr><td>resource</td><td>0..1</td><td><a href="resource.html">Resource</a></td><td></td><td>
+        <p>除非为“删除模式”，否则必需提供</p>
+</td>
+ </tr>
+    <tr><td>mode</td><td>0..1</td><td><a href="datatypes.html#code">code</a></td>
+    <td><a href="valueset-resource-validation-mode.html">ResourceValidationMode
+        </a> (<a href="terminologies.html#required">必填</a>)</td><td><p>默认值为 'no action'; (如，一般验证)</p>
+</td>
+        </tr>
+    <tr><td>profile</td><td>0..1</td><td><a href="datatypes.html#uri">uri</a></td>
+    <td></td>
+                                                                                 
+    <td>
+     如果提供了此参数，则根据此特定配置验证资源。如果指定了一个配置，但服务器不能根据它来进行验证，那么<b>必须</b>返回一个错误。
+</td>
+    </tr>
+    <tr><td colspan="6"><b>输出参数:</b></td></tr>
+   <tr><td><b>名称</b></td><td><b>基数</b></td><td><b>类型</b></td><td><b>绑定</b></td><td><b>说明</b></td></tr>
+    <tr><td>return</td><td>1..1</td><td><a href="operationoutcome.html">OperationOutcome</a></td><td></td><td>
+    如果操作结果没有列出任何错误，并且指定了模式，则可视为该操作已成功（事务完整性问题除外，见下）。
+    <br /> 注意：由于这是唯一的输出参数，它是一个资源，并且它的名称为'return'，因此操作的结果直接作为一个资源返回。
+
+
+</td></tr>
+</table>
+
+
+<p>
+    此操作可在设计和开发期间用于验证应用程序的设计。它也可以在运行时使用。
+    例如，当用户编辑对话框时，客户端询问服务器提交的更新是否有效并向用户显示更新的错误。
+    该操作可以用作轻量级的两阶段提交协议（two phase commit protocol，2PC）的一部分，但在使用该操作后服务器将不会保留资源的内容，服务器也不保证在验证操作完成后就能成功执行实际的创建、更新或删除操作。
+</p>
+<p>
+    无论资源是否通过验证，此操作都是返回200 OK。
+    如果返回 4xx 或 5xx 错误意味着验证操作本身无法执行，并且不知道资源是否有效。
+   </p>
+<p>
+    注：关于语言（尤其是Coding.display）的正确验证行为目前尚未定义，进一步的开发和测试可能导致后续版本中出现特定的要求或建议。
+   
+</p>
+<p>
+    此规范的未来版本可能会添加其他验证参数。候选名单由<a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">
+    FHIR Validator Documentation <img src="external.png" style="text-align: baseline" /></a>维护。
+    
+</p>
 
 <a name="examples"> </a>
-<h4 class="self-link-parent"><span class="sectioncount">2.26.6.1.1</span> Examples <a href="resource-operation-validate.html#examples" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
-<p><p>Request: Validate a Patient against the DAF patient profile using POST directly.</p>
+<h4 class="self-link-parent"><span class="sectioncount">2.26.6.1.1</span> 示例 <a href="resource-operation-validate.html#examples" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<p>
+    请求：请求验证提交的患者实例是否符合DAF患者配置。本例直接在POST的地址中使用参数。
 </p>
+
 <pre>
 POST /open/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/daf-patient
 [other headers]
@@ -245,8 +310,11 @@ POST /open/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/daf
 	&lt;/address&gt;
 &lt;/Patient&gt;
 </pre>
-<p><p>Request: Validate a proposed patient update - and for this example, using the Parameters syntax</p>
+<p>
+    请求：对提交的患者更新进行验证。本例使用参数语法。
+
 </p>
+
 <pre>
 
 POST /open/Patient/example/$validate
@@ -423,7 +491,8 @@ POST /open/Patient/example/$validate
 &lt;/Parameters&gt;
 </pre>
 <hr/>
-<p><p>Response: Returned when the resource is valid</p>
+<p>
+    响应：当资源通过验证时返回
 </p>
 <pre>
 
@@ -448,7 +517,8 @@ HTTP/1.1 200 OK
  &lt;/issue&gt;
 &lt;/OperationOutcome&gt;
 </pre>
-<p><p>Response: Returned when the resource is not valid</p>
+<p>
+    响应：当资源未通过验证时返回
 </p>
 <pre>
 
@@ -475,10 +545,11 @@ HTTP/1.1 200 OK
   &lt;/issue&gt;
 &lt;/OperationOutcome&gt;
 </pre>
-<p>&nbsp;</p>
+
 
 <p>
-For more information about operations, including how they are invoked, see <a href="operations.html">Operations</a>.
+    有关操作的更多信息，包括如何调用操作，请参阅<a href="operations.html">Operations</a>。
+   
 </p>
 
 </div>

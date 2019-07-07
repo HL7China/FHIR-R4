@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
   <!-- template-operations.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>操作 - HL7 FHIR 中国</title>
+    <title>操作-元数据 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -62,11 +62,13 @@
 
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
-			<ul class="breadcrumb">
-        <li><img src="foundation.png"/><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>        <li><a href="resource.html">资源</a></li>        
-        <li>操作</li>        <!-- resource.html / res-Operations / Operation Definition -->
+            <ul class="breadcrumb">
+                <li><img src="foundation.png" /><b>当前位置：</b><a href="foundation-module.html"> 基础</a></li>
+                <li><a href="resource.html">资源</a></li>
+                <li><a href="operationslist.html">操作</a></li>
+                <li>获取资源元数据(<a href="http://hl7.org/fhir/resource-operation-meta.html" target="_blank" title="英语官方页面">原文链接</a>)</li> <!-- resource.html / res-Operations / Operation Definition -->
 
-			</ul>	
+            </ul>	
 		</div>  <!-- /container -->
 	</div>  <!-- /segment-breadcrumb -->
 	
@@ -80,32 +82,52 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="resource.html">Content</a></li><li><a href="resource-definitions.html">Detailed Descriptions</a></li><li><a href="resource-operations.html">Operations</a></li><li><a href="resource-version-maps.html">R3 Conversions</a></li></ul>
-
-<h3 class="self-link-parent"><span class="sectioncount">2.26.6.2<a name="2.26.6.2"> </a></span> Operation $meta on Resource <a href="resource-operation-meta.html#2.26.6.2" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+    <h3 class="self-link-parent"><span class="sectioncount">2.26.6.2<a name="2.26.6.2"> </a></span> 获取资源元数据的操作（$meta）<a href="resource-operation-meta.html#2.26.6.2" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="colstu"><tr><td>工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> </td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">成熟度</a>: 3</td><td><a href="versions.html#std-process">试用</a></td>  <!-- !ns! --><td><a href="compartmentdefinition.html">隔间</a>: N/A</td></tr></table>
 
 
 
-<p>This operation retrieves a summary of the profiles, tags, and security labels for the given scope; e.g. for each scope:</p>
+<p>
+    此操作用于获取指定范围的配置、标签和安全信息的摘要：
+</p>
 <ul>
-<li>system-wide: a list of all profiles, tags and security labels in use by the system</li>
-<li>resource-type level: A list of all profiles, tags, and security labels for the resource type</li>
-<li>individual resource level: A list of all profiles, tags, and security labels for the current version of the resource.  Also, as a special case, this operation (and other meta operations) can be performed on a historical version of a resource).</li>
+    <li>系统范围：系统使用的所有配置、标签和安全信息的列表</li>
+    <li>资源类型层级：资源类型的所有配置、标签和安全信息的列表</li>
+    <li>
+        单个资源实例级别：资源实例当前版本的所有配置、标签和安全信息的列表。
+        此外，作为特殊情况，此操作（和其他获取资源元数据的操作）可以在资源的历史版本上执行。
+
+    </li>
 </ul>
 
-<p>The official URL for this operation definition is</p>
+<p>此操作的官方定义URL是</p>
 <pre> http://hl7.org/fhir/OperationDefinition/Resource-meta</pre>
-<p><a href="operation-resource-meta.html">Formal Definition</a> (as a <a href="operationdefinition.html">OperationDefinition</a>).</p>
+<p>
+
+    此<a href="operation-resource-validate.html">
+        正式定义
+    </a>是一个<a href="operationdefinition.html">
+        操作定义资源（OperationDefinition）
+    </a>
+</p>
 <p>URL: [base]/$meta</p>
 <p>URL: [base]/[Resource]/$meta</p>
 <p>URL: [base]/[Resource]/[id]/$meta</p>
-<p>This is an idempotent operation</p>
+<p>这是一个等幂等操作</p>
 <table class="grid">
-<tr><td colspan="6"><b>Out Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>return</td><td>1..1</td><td><a href="resource.html#Meta">Meta</a></td><td></td><td></td><td><p>The meta returned by the operation</p>
-</td></tr></table>
+    <tr><td colspan="4"><b>输出参数:</b></td></tr>
+    <tr><td><b>名称</b></td><td><b>基数</b></td><td><b>类型</b></td><td><b>说明</b></td></tr>
+    <tr>
+        <td>return</td>
+        <td>1..1</td>
+        <td><a href="resource.html#Meta">Meta</a></td>
+      
+        <td>
+            <p>操作返回的元数据</p>
+        </td>
+    </tr>
+</table>
 <p>At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principal use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don't). At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons</p>
 
 <a name="examples"> </a>
