@@ -282,6 +282,20 @@ body {
 .breadcrumb a {
   color: #555555;
 }
+
+.breadcrumbRight {
+    float: right;
+}
+
+ .breadcrumbRight ul li {
+        display: inline-block;
+    }
+
+.breadcrumbRight ul > li + li:before {
+    content: "|";
+    padding: 0 5px;
+    color: #cccccc;
+}
 .nav-listing {
   overflow: hidden;
 }
