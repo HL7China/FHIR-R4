@@ -167,6 +167,10 @@
             display: inline-block;
             margin-right: 10px;
         }
+        .left_panel{
+            float: left;
+            margin-right: 50px;
+        }
         /*复选框*/
         .label_box{
             display: inline-block;
@@ -175,7 +179,7 @@
         .label_box>label {
             display:block;
             float:left;
-            padding:0 10px 15px 0;
+            padding:20px 30px 15px 0;
             position:relative;
             overflow:hidden;
         }
@@ -185,13 +189,13 @@
             left:-20px;
         }
         .label_box>label>div {
-            width:40px;
+            width:60px;
             text-align:center;
             border:#dddddd solid 1px;
-            height:23px;
+            height:30px;
             font-size: 12px;
             font-family: verdana;
-            line-height:20px;
+            line-height:30px;
             color:#666666;
             user-select:none;
             overflow:hidden;
@@ -199,8 +203,8 @@
             cursor: pointer;
         }
         .label_box>label>input:checked + div {
-            border:#d51917 solid 1px;
-            color:#d51917;
+            border: 1px solid #d51917;
+            color: #606266;
         }
         .label_box>label>input:checked + div:after {
             content:'';
@@ -229,13 +233,17 @@
         }
         .label_box>label>input:checked:after {
             content: attr(data-before);
-            display:block;
-            font-size: 10px;
-            color: #d51917;
-            position:absolute;
-            bottom:-20px;
-            left:50px;
-            z-index:999;
+            padding: 0 6px;
+            position: absolute;
+            text-align: center;
+            bottom: -8px;
+            display: block;
+            font-size: 12px;
+            background-color: #f56c6c;
+            border-radius: 10px;
+            color: #fff;
+            left: 65px;
+            z-index: 999;
         }
 
     </style>
@@ -295,54 +303,56 @@
 
                 <div class="col-12">
 
-                    <h2 class="self-link-parent"><span class="sectioncount">1.0<a name="1.0"> </a></span> 完整目录内容 <a
-                            href="toc.html#1.0" title="link to here" class="self-link">
-                        <svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20">
-                            <path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z"
-                                  fill="navy"></path>
-                        </svg>
-                    </a></h2>
+                    <!--<h2 class="self-link-parent"><span class="sectioncount">1.0<a name="1.0"> </a></span> 完整目录内容 <a-->
+                            <!--href="toc.html#1.0" title="link to here" class="self-link">-->
+                        <!--<svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20">-->
+                            <!--<path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z"-->
+                                  <!--fill="navy"></path>-->
+                        <!--</svg>-->
+                    <!--</a></h2>-->
 
-                    <table class="colsi">
-                        <tbody>
-                        <tr>
-                            <td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">
-                                FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> Work
-                                Group
-                            </td>
-                            <td id="fmm"><a href="versions.html#maturity">成熟度</a>: N/A</td>
-                            <td id="ballot"><a href="versions.html#std-process">标准状态</a>:
-                                <!-- !ns! --><a href="versions.html#std-process">Informative(信息)</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <!--<table class="colsi">-->
+                        <!--<tbody>-->
+                        <!--<tr>-->
+                            <!--<td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">-->
+                                <!--FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> Work-->
+                                <!--Group-->
+                            <!--</td>-->
+                            <!--<td id="fmm"><a href="versions.html#maturity">成熟度</a>: N/A</td>-->
+                            <!--<td id="ballot"><a href="versions.html#std-process">标准状态</a>:-->
+                                <!--&lt;!&ndash; !ns! &ndash;&gt;<a href="versions.html#std-process">Informative(信息)</a></td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
 
-                    <p>
-                        FHIR规范还在不断完善中，下表中每项内容标记的颜色代表其成熟度：
-                    </p>
-                    <ul class="specification">
-                        <li class="radioImg" icon="icon01"><img src="icon_page_n.gif"/>: 正式规范</li>
-                        <li class="radioImg" icon="pIcon01"><img src="icon-page.png"/>: 非正式 (试用, 外部信息)</li>
-                        <!--<li class="radioImg" icon="icon02"><img src="icon-page-update.png"/>: 修改 (试用, 外部信息)</li>-->
-                    </ul>
+                    <div class="left_panel">
+                        
+                            FHIR规范还在不断完善中，下表中每项内容标记的颜色代表其成熟度：
+                        
+                        <img src="icon_page_n.gif"/>: 正式规范
+                            <img src="icon-page.png"/>: 非正式 (试用, 外部信息)
+                    </div>
                     <div class="label_box">
                         <label style="font-size: 14px; font-family: verdana;font-weight: normal">
                             筛选:
                         </label>
                         <label>
                             <input type="checkbox" name="hobby">
-                            <div value="fineTitle">翻译</div>
+                            <div value="fineTitle">部分翻译</div>
                         </label>
                         <label>
                             <input type="checkbox" name="hobby">
-                            <div value="thickTitle">完成</div>
+                            <div value="thickTitle">全部翻译</div>
                         </label>
                         <label>
                             <input type="checkbox" name="hobby">
                             <div value="subtitle">勘误</div>
                         </label>
                     </div>
-                    <ul id="treeDemo" class="ztree"></ul>
+                    <div style="width: 100%">
+                        <ul id="treeDemo" class="ztree"></ul>
+                    </div>
+
                 </div>
             </div>  <!-- /inner-wrapper -->
         </div>  <!-- /row -->
