@@ -42,7 +42,23 @@ var zNodes =[
 			{id:223, name:" 2.23 Appendix: The Role of Informatics in the Shift from Reactive to Proactive Healthcare",iconSkin:"pIcon01",url:"change.html",target:"_blank"},
 			{id:224, name:" 2.24 Data Types",iconSkin:"icon01",url:"datatypes.html",target:"_blank"},
 			{id:225, name:" 2.25 MetaData Types",iconSkin:"icon01",url:"metadatatypes.html",target:"_blank"},
-			{id:226, name:" 2.26 Base Resource Definitions",iconSkin:"icon01",url:"resource.html",target:"_blank"},
+			{id:226, name:" 2.26 Base Resource Definitions",iconSkin:"icon01",url:"resource.html",target:"_blank",
+				children:[
+					{id:2261, name:"2.26.6 Resource Resource - Operations",iconSkin:"pIcon01",url:"resource-operations.html",target:"_blank",
+						children:[
+						{id:22611, name:" 2.26.6.1 Operation $validate on Resource",thickTitle:"资源的验证操作(官方定义URL错误)",iconSkin:"icon01",url:"resource-operation-validate.html",target:"_blank"},
+						{id:22612, name:" 2.26.6.2 Operation $meta on Resource",fineTitle:"获取资源元数据的操作(多了一个“）”；other meta operations是指什么)",iconSkin:"pIcon01",url:"resource-operation-meta.html",target:"_blank"},
+						{id:22613, name:" 2.26.6.3 Operation $meta-add on Resource",fineTitle:"添加资源元数据的操作",iconSkin:"pIcon01",url:"resource-operation-meta-add.html",target:"_blank"},
+						{id:22614, name:" 2.26.6.4 Operation $meta-delete on Resource",fineTitle:"删除资源元数据的操作",iconSkin:"pIcon01",url:"resource-operation-meta-delete.html",target:"_blank"},
+						
+						{id:22615, name:" 2.26.6.5 Operation $convert on Resource",fineTitle:"资源的格式转换操作（e.g.前多了“（”）",iconSkin:"pIcon01",url:"resource-operation-convert.html",target:"_blank"},
+						{id:22616, name:" 2.26.6.6 Operation $graphql on Resource",thickTitle:"资源的GraphQL操作（since资源应该是single资源）",iconSkin:"pIcon01",url:"resource-operation-graphql.html",target:"_blank"},
+						{id:22614, name:" 2.26.6.7 Operation $graph on Resource",thickTitle:"资源的图谱操作(packaage笔误)",iconSkin:"pIcon01",url:"resource-operation-graph.html",target:"_blank"},
+						]
+					},
+				]
+			
+			},
 			{id:227, name:" 2.27 DomainResource Resource",iconSkin:"icon01",url:"domainresource.html",target:"_blank"},
 			{id:228, name:" 2.28 Element",iconSkin:"icon01",url:"element.html",target:"_blank"},
 			{id:229, name:" 2.29 BackboneElement",iconSkin:"icon01",url:"backboneelement.html",target:"_blank"},
@@ -84,7 +100,19 @@ var zNodes =[
             {id:45, name:" 4.5 Mappings between Value Sets Defined in FHIR",iconSkin:"pIcon01",url:"terminologies-conceptmaps.html", target:"_blank"},
             {id:46, name:" 4.6 Known Identifier Systems",iconSkin:"pIcon01",url:"identifier-registry.html", target:"_blank"},
             {id:47, name:" 4.7 Terminology Service",iconSkin:"pIcon01",url:"terminology-service.html", target:"_blank"},
-            {id:48, name:" 4.8 Resource CodeSystem - Content",iconSkin:"icon01",url:"codesystem.html", target:"_blank"},
+            {id:48, name:" 4.8 Resource CodeSystem - Content",iconSkin:"icon01",url:"codesystem.html", target:"_blank",
+				children:[
+					 {id:4821, name:" 4.8.21 Resource CodeSystem - Operations",iconSkin:"pIcon01",url:"codesystem-operations.html", target:"_blank",
+						children:[
+							 {id:48211, name:" 4.8.21.1 Operation $lookup on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-lookup.html", target:"_blank"},
+							 {id:48212, name:" 4.8.21.2 Operation $validate-code on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-validate-code.html", target:"_blank"},
+							 {id:48213, name:" 4.8.21.3 Operation $subsumes on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-subsumes.html", target:"_blank"},
+							 {id:48214, name:" 4.8.21.4 Operation $find-matches on CodeSystem",iconSkin:"pIcon01",url:"codesystem-operation-find-matches.html", target:"_blank"},
+						]
+					 },
+					 
+				]
+			},
 			{id:49, name:" 4.9 Resource ValueSet - Content",fineTitle:"值集资源简介 (4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank"},
             {id:410, name:" 4.10 Resource ConceptMap - Content",iconSkin:"pIcon01",url:"conceptmap.html", target:"_blank"},
             {id:411, name:" 4.11 Resource NamingSystem - Content",iconSkin:"pIcon01",url:"namingsystem.html", target:"_blank"},
@@ -93,7 +121,18 @@ var zNodes =[
 	{ id:5, pId:0, name:" 5 Conformance Module ", open:false, iconSkin:"pIcon01",url:"conformance-module.html", target:"_self",
         children:[
             {id:51, name:" 5.1 Profiling FHIR",iconSkin:"icon01",url:"profiling.html", target:"_blank"},
-            {id:52, name:" 5.2 Resource CapabilityStatement - Content",iconSkin:"icon01",url:"capabilitystatement.html", target:"_blank"},
+            {id:52, name:" 5.2 Resource CapabilityStatement - Content",iconSkin:"icon01",url:"capabilitystatement.html", target:"_blank",
+				children:[
+				   {id:5210, name:" 5.2.10 Resource CapabilityStatement - Operations",iconSkin:"pIcon01",url:"capabilitystatement-operations.html", target:"_blank",
+						children:[
+							{id:52101, name:" 5.2.10.1 Operation $subset on CapabilityStatement",iconSkin:"pIcon01",url:"capabilitystatement-operation-subset.html", target:"_blank"},
+							{id:52102, name:" 5.2.10.2 Operation $implements on CapabilityStatement",fineTitle:"能力声明的实现测试操作（$implements）",iconSkin:"pIcon01",url:"capabilitystatement-operation-implements.html", target:"_blank"},
+							{id:52103, name:" 5.2.10.3 Operation $conforms on CapabilityStatement",fineTitle:"能力声明对比操作（$conforms）",iconSkin:"pIcon01",url:"capabilitystatement-operation-conforms.html", target:"_blank"},
+							{id:52104, name:" 5.2.10.4 Operation $versions on CapabilityStatement",iconSkin:"pIcon01",url:"capabilitystatement-operation-versions.html", target:"_blank"},
+						]
+				   },
+				]
+			},
             {id:53, name:" 5.3 Resource StructureDefinition - Content",iconSkin:"icon01",url:"structuredefinition.html", target:"_blank"},
             {id:54, name:" 5.4 Resource OperationDefinition - Content",iconSkin:"icon01",url:"operationdefinition.html", target:"_blank"},
             {id:55, name:" 5.5 Resource SearchParameter - Content",iconSkin:"pIcon01",url:"searchparameter.html", target:"_blank"},
@@ -159,7 +198,16 @@ var zNodes =[
             {id:823, name:" 8.23 Resource ResearchSubject - Content",iconSkin:"pIcon01",url:"researchsubject.html", target:"_blank"},
             {id:824, name:" 8.24 Resource ChargeItem - Content",iconSkin:"pIcon01",url:"chargeitem.html", target:"_blank"},
 
-			{id:825, name:" 8.25 Resource ChargeItemDefinition - Content",iconSkin:"pIcon01",url:"chargeitemdefinition.html", target:"_blank"},
+			{id:825, name:" 8.25 Resource ChargeItemDefinition - Content",iconSkin:"pIcon01",url:"chargeitemdefinition.html", target:"_blank",
+				children:[
+					 {id:8251, name:" 8.25.9 Resource ChargeItemDefinition - Operations",iconSkin:"pIcon01",url:"chargeitemdefinition-operations.html", target:"_blank",
+						children:[
+							 {id:82511, name:" 8.25.9.1 Operation $apply on ChargeItemDefinition",fineTitle:"（错误的介绍了应用ActivityDefinition）",iconSkin:"pIcon01",url:"chargeitemdefinition-operation-apply.html", target:"_blank"},
+						]
+					 },
+				]
+			
+			},
             {id:826, name:" 8.26 Resource ObservationDefinition - Content",iconSkin:"pIcon01",url:"observationdefinition.html", target:"_blank"},
             {id:828, name:" 8.28 Resource CatalogEntry - Content",iconSkin:"pIcon01",url:"catalogentry.html", target:"_blank"},
             {id:829, name:" 8.29 Resource Invoice - Content",iconSkin:"pIcon01",url:"invoice.html", target:"_blank"},
@@ -262,7 +310,16 @@ var zNodes =[
             {id:1215, name:" 12.15 Resource NutritionOrder - Content",iconSkin:"pIcon01",url:"nutritionorder.html", target:"_blank"},
             {id:1216, name:" 12.16 Resource VisionPrescription - Content",iconSkin:"pIcon01",url:"visionprescription.html", target:"_blank"},
 
-			{id:1217, name:" 12.17 Resource ActivityDefinition - Content",iconSkin:"pIcon01",url:"activitydefinition.html", target:"_blank"},
+			{id:1217, name:" 12.17 Resource ActivityDefinition - Content",iconSkin:"pIcon01",url:"activitydefinition.html", target:"_blank",
+				children:[
+					{id:12171, name:" 12.17.9 Resource ActivityDefinition - Operations",iconSkin:"pIcon01",url:"activitydefinition-operations.html", target:"_blank",
+						children:[
+							{id:121711, name:" 12.17.9.1 Operation $apply on ActivityDefinition",iconSkin:"pIcon01",url:"activitydefinition-operation-apply.html", target:"_blank"},
+							{id:121712, name:" 12.17.9.2 Operation $data-requirements on ActivityDefinition",iconSkin:"pIcon01",url:"activitydefinition-operation-data-requirements.html", target:"_blank"},
+						]
+					},
+					]	
+			},
             {id:1218, name:" 12.18 Resource PlanDefinition - Content",iconSkin:"pIcon01",url:"plandefinition.html", target:"_blank"},
             {id:1219, name:" 12.19 Resource DeviceRequest - Content",iconSkin:"pIcon01",url:"devicerequest.html", target:"_blank"},
 
@@ -280,7 +337,15 @@ var zNodes =[
             {id:134, name:" 13.4 Resource EnrollmentRequest - Content" ,iconSkin:"pIcon01",url:"enrollmentrequest.html", target:"_blank"},
             {id:135, name:" 13.5 Resource EnrollmentResponse - Content" ,iconSkin:"pIcon01",url:"enrollmentresponse.html", target:"_blank"},
 			
-            {id:136, name:" 13.6 Resource Claim - Content" ,iconSkin:"pIcon01",url:"claim.html", target:"_blank"},
+            {id:136, name:" 13.6 Resource Claim - Content" ,iconSkin:"pIcon01",url:"claim.html", target:"_blank",
+				children:[
+					 {id:1361, name:" 13.6.9 Resource Claim - Operations" ,iconSkin:"pIcon01",url:"claim-operations.html", target:"_blank",
+						children:[
+							{id:13611, name:" 13.6.9.1 Operation $submit on Claim" ,iconSkin:"pIcon01",url:"claim-operation-submit.html", target:"_blank"},
+						]
+					 },
+				]
+			},
             {id:137, name:" 13.7 Resource ClaimResponse - Content" ,iconSkin:"pIcon01",url:"claimresponse.html", target:"_blank"},
             {id:138, name:" 13.8 Resource PaymentNotice - Content" ,iconSkin:"pIcon01",url:"paymentnotice.html", target:"_blank"},
 
