@@ -70,14 +70,38 @@ var zNodes =[
 			{id:236, name:" 2.36 Resource Bundle - Content",iconSkin:"icon01",url:"bundle.html",target:"_blank"},
 			{id:237, name:" 2.37 Resource Questionnaire - Content",iconSkin:"pIcon01",url:"questionnaire.html",target:"_blank"},
 			{id:238, name:" 2.38 Resource QuestionnaireResponse - Content",iconSkin:"pIcon01",url:"questionnaireresponse.html",target:"_blank"},
-			{id:239, name:" 2.39 Resource List - Content",iconSkin:"pIcon01",url:"list.html",target:"_blank"},
-			{id:241, name:" 2.41 Resource Composition - Content",iconSkin:"pIcon01",url:"composition.html",target:"_blank"},
+			{id:239, name:" 2.39 Resource List - Content",iconSkin:"pIcon01",url:"list.html",target:"_blank",
+				children:[
+					{id:2391, name:" 2.39.15 Resource List - Operations",iconSkin:"pIcon01",url:"list-operations.html",target:"_blank",
+						children:[
+							{id:23911, name:" 2.39.15.1 Operation $find on List",iconSkin:"pIcon01",url:"list-operation-find.html",target:"_blank"},
+						]
+					},
+				]
+			},
+			{id:241, name:" 2.41 Resource Composition - Content",iconSkin:"pIcon01",url:"composition.html",target:"_blank",
+				children:[
+					{id:2411, name:" 2.41.12 Resource Composition - Operations",iconSkin:"pIcon01",url:"composition-operations.html",target:"_blank",
+						children:[
+							{id:24111, name:" 2.41.12.1 Operation $document on Composition",iconSkin:"pIcon01",url:"composition-operation-document.html",target:"_blank"},
+						]
+					},
+				]
+			},
 			{id:242, name:" 2.42 Resource DocumentReference - Content",iconSkin:"pIcon01",url:"documentreference.html",target:"_blank"},
 			{id:243, name:" 2.43 Resource DocumentManifest - Content",fineTitle:"文档清单资源简介",iconSkin:"pIcon01",url:"documentmanifest.html",target:"_blank"},
 			{id:244, name:" 2.44 Resource OperationOutcome - Content",iconSkin:"icon01",url:"operationoutcome.html",target:"_blank"},
 			{id:245, name:" 2.45 Resource Parameters - Content",iconSkin:"icon01",url:"parameters.html",target:"_blank"},
             {id:246, name:" 2.46 Resource Subscription - Content",iconSkin:"pIcon01",url:"subscription.html",target:"_blank"},
-			{id:247, name:" 2.47 Resource MessageHeader - Content",iconSkin:"pIcon01",url:"messageheader.html",target:"_blank"},
+			{id:247, name:" 2.47 Resource MessageHeader - Content",iconSkin:"pIcon01",url:"messageheader.html",target:"_blank",
+				children:[
+					{id:2471, name:" 2.47.9 Resource MessageHeader - Operations",iconSkin:"pIcon01",url:"messageheader-operations.html",target:"_blank",
+						children:[
+							{id:24711, name:" 2.47.9.1 Operation $process-message on MessageHeader",iconSkin:"pIcon01",url:"messageheader-operation-process-message.html",target:"_blank"},
+						]
+					},
+				]
+			},
 			{id:248, name:" 2.48 Resource MessageDefinition - Content",iconSkin:"pIcon01",url:"messagedefinition.html",target:"_blank"},
 			]},
 	{ id:3, pId:0, name:" 3 FHIR Exchange Module", open:false, iconSkin:"pIcon01",url:"exchange-module.html", target:"_self",
@@ -113,9 +137,35 @@ var zNodes =[
 					 
 				]
 			},
-			{id:49, name:" 4.9 Resource ValueSet - Content",fineTitle:"值集资源简介 (4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank"},
-            {id:410, name:" 4.10 Resource ConceptMap - Content",iconSkin:"pIcon01",url:"conceptmap.html", target:"_blank"},
-            {id:411, name:" 4.11 Resource NamingSystem - Content",iconSkin:"pIcon01",url:"namingsystem.html", target:"_blank"},
+			{id:49, name:" 4.9 Resource ValueSet - Content",fineTitle:"值集资源简介 (4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank",
+				children:[
+					{id:491, name:" 4.9.15 Resource ValueSet - Operations",iconSkin:"pIcon01",url:"valueset-operations.html", target:"_blank",
+						children:[
+							{id:4911, name:" 4.9.15.1 Operation $expand on ValueSet",iconSkin:"icon01",url:"valueset-operation-expand.html", target:"_blank"},
+							{id:4912, name:" 4.9.15.2 Operation $validate-code on ValueSet",iconSkin:"icon01",url:"valueset-operation-validate-code.html", target:"_blank"},
+						]
+					},
+				]
+			},
+            {id:410, name:" 4.10 Resource ConceptMap - Content",iconSkin:"pIcon01",url:"conceptmap.html", target:"_blank",
+				children:[
+					{id:411, name:" 4.10.15 Resource ConceptMap - Operations",iconSkin:"pIcon01",url:"conceptmap-operations.html", target:"_blank",
+						children:[
+							 {id:4111, name:" 4.10.15.1 Operation $translate on ConceptMap",iconSkin:"pIcon01",url:"conceptmap-operation-translate.html", target:"_blank"},
+							 {id:4112, name:" 4.10.15.2 Operation $closure on ConceptMap",iconSkin:"pIcon01",url:"conceptmap-operation-closure.html", target:"_blank"},
+						]
+					},
+				]
+			},
+            {id:411, name:" 4.11 Resource NamingSystem - Content",iconSkin:"pIcon01",url:"namingsystem.html", target:"_blank",
+				children:[
+					{id:4111, name:" 4.11.10 Resource NamingSystem - Operations",iconSkin:"pIcon01",url:"namingsystem-operations.html", target:"_blank",
+						children:[
+							{id:41111, name:" 4.11.10.1 Operation $preferred-id on NamingSystem",iconSkin:"pIcon01",url:"namingsystem-operation-preferred-id.html", target:"_blank"},
+						]
+					},
+				]
+			},
 			{id:412, name:" 4.12 Resource TerminologyCapabilities - Content",iconSkin:"pIcon01",url:"terminologycapabilities.html", target:"_blank"},
 		]},
 	{ id:5, pId:0, name:" 5 Conformance Module ", open:false, iconSkin:"pIcon01",url:"conformance-module.html", target:"_self",
@@ -133,7 +183,16 @@ var zNodes =[
 				   },
 				]
 			},
-            {id:53, name:" 5.3 Resource StructureDefinition - Content",iconSkin:"icon01",url:"structuredefinition.html", target:"_blank"},
+            {id:53, name:" 5.3 Resource StructureDefinition - Content",iconSkin:"icon01",url:"structuredefinition.html", target:"_blank",
+				children:[
+					{id:531, name:" 5.3.11 Resource StructureDefinition - Operations",iconSkin:"pIcon01",url:"structuredefinition-operations.html", target:"_blank",
+						children:[
+							{id:5311, name:" 5.3.11.1 Operation $questionnaire on StructureDefinition",iconSkin:"pIcon01",url:"structuredefinition-operation-questionnaire.html", target:"_blank"},
+							{id:5312, name:" 5.3.11.2 Operation $snapshot on StructureDefinition",iconSkin:"pIcon01",url:"structuredefinition-operation-snapshot.html", target:"_blank"},
+						]
+					},
+				]
+			},
             {id:54, name:" 5.4 Resource OperationDefinition - Content",iconSkin:"icon01",url:"operationdefinition.html", target:"_blank"},
             {id:55, name:" 5.5 Resource SearchParameter - Content",iconSkin:"pIcon01",url:"searchparameter.html", target:"_blank"},
             {id:58, name:" 5.8 Resource ImplementationGuide - Content",iconSkin:"pIcon01",url:"implementationguide.html", target:"_blank"},
@@ -155,7 +214,15 @@ var zNodes =[
 			{id:75, name:" 7.5 Validating Resources",iconSkin:"pIcon01",url:"validation.html", target:"_blank"},
             {id:76, name:" 7.6 Mappings to Other Standards",iconSkin:"pIcon01",url:"mappings.html", target:"_blank"},
             {id:77, name:" 7.7 FHIR Mapping Language",iconSkin:"pIcon01",url:"mapping-language.html", target:"_blank"},
-            {id:78, name:" 7.8 Resource StructureMap - Content",iconSkin:"pIcon01",url:"structuremap.html", target:"_blank"},		
+            {id:78, name:" 7.8 Resource StructureMap - Content",iconSkin:"pIcon01",url:"structuremap.html", target:"_blank",
+				children:[
+					{id:781, name:" 7.8.10 Resource StructureMap - Operations",iconSkin:"pIcon01",url:"structuremap-operations.html", target:"_blank",
+						children:[
+							{id:7811, name:" 7.8.10.1 Operation $transform on StructureMap",iconSkin:"pIcon01",url:"structuremap-operation-transform.html", target:"_blank"},
+						]
+					},
+				]
+			},		
 			{id:79, name:" 7.9 Common Example Scenarios in FHIR",iconSkin:"pIcon01",url:"usecases.html", target:"_blank"},
             {id:710, name:" 7.10 Clinical Safety",iconSkin:"pIcon01",url:"safety.html", target:"_blank"},
             {id:711, name:" 7.11 Appendix: HL7 EHR System Functional Model and FHIR",iconSkin:"pIcon01",url:"ehr-fm.html", target:"_blank"},
@@ -168,9 +235,26 @@ var zNodes =[
 		]},
 	{ id:8, pId:0, name:" 8 Administration Module", open:false, iconSkin:"pIcon01",url:"administration-module.html", target:"_self",
         children:[
-            {id:81, name:" 8.1 Resource Patient - Content",iconSkin:"icon01",url:"patient.html", target:"_blank"},
+            {id:81, name:" 8.1 Resource Patient - Content",iconSkin:"icon01",url:"patient.html", target:"_blank",
+				children:[
+					{id:811, name:" 8.1.17 Resource Patient - Operations",iconSkin:"pIcon01",url:"patient-operations.html", target:"_blank",
+						children:[
+							{id:8111, name:" 8.1.17.1 Operation $match on Patient",iconSkin:"pIcon01",url:"patient-operation-match.html", target:"_blank"},	
+							{id:8112, name:" 8.1.17.2 Operation $everything on Patient",iconSkin:"pIcon01",url:"patient-operation-everything.html", target:"_blank"},	
+						]
+					},	
+				]
+			},
             {id:82, name:" 8.2 Resource RelatedPerson - Content",iconSkin:"pIcon01",url:"relatedperson.html", target:"_blank"},
-            {id:83, name:" 8.3 Resource Group - Content",iconSkin:"pIcon01",url:"group.html", target:"_blank"},
+            {id:83, name:" 8.3 Resource Group - Content",iconSkin:"pIcon01",url:"group.html", target:"_blank",
+				children:[
+					{id:831, name:" 8.3.9 Resource Group - Operations",iconSkin:"pIcon01",url:"group-operations.html", target:"_blank",
+						children:[
+							{id:8311, name:" 8.3.9.1 Operation $everything on Group",iconSkin:"pIcon01",url:"group-operation-everything.html", target:"_blank"},
+						]
+					},
+				]
+			},
             {id:84, name:" 8.4 Resource Practitioner - Content",iconSkin:"pIcon01",url:"practitioner.html", target:"_blank"},
 			
 		    {id:85, name:" 8.5 Resource PractitionerRole - Content",iconSkin:"pIcon01",url:"practitionerrole.html", target:"_blank"},
@@ -180,7 +264,15 @@ var zNodes =[
 
 		    {id:89, name:" 8.9 Resource Endpoint - Content",iconSkin:"pIcon01",url:"endpoint.html", target:"_blank"},
             {id:810, name:" 8.10 Resource EpisodeOfCare - Content",iconSkin:"pIcon01",url:"episodeofcare.html", target:"_blank"},
-            {id:811, name:" 8.11 Resource Encounter - Content",iconSkin:"pIcon01",url:"encounter.html", target:"_blank"},
+            {id:811, name:" 8.11 Resource Encounter - Content",iconSkin:"pIcon01",url:"encounter.html", target:"_blank",
+				children:[
+					{id:8111, name:" 8.11.11 Resource Encounter - Operations",iconSkin:"pIcon01",url:"encounter-operations.html", target:"_blank",
+						children:[
+							{id:81111, name:" 8.11.11.1 Operation $everything on Encounter",iconSkin:"pIcon01",url:"encounter-operation-everything.html", target:"_blank"},
+						]
+					},
+				]
+			},
             {id:812, name:" 8.12 Resource Account - Content",iconSkin:"pIcon01",url:"account.html", target:"_blank"},
 
 			{id:813, name:" 8.13 Resource Flag - Content",iconSkin:"pIcon01",url:"flag.html", target:"_blank"},
@@ -236,7 +328,16 @@ var zNodes =[
 			]},
 	{ id:10, pId:0, name:" 10 Diagnostic Medicine Module", open:false, iconSkin:"pIcon01",url:"diagnostics-module.html", target:"_self",
         children:[
-            {id:101, name:" 10.1 Resource Observation - Content",iconSkin:"icon01",url:"observation.html", target:"_blank"},
+            {id:101, name:" 10.1 Resource Observation - Content",iconSkin:"icon01",url:"observation.html", target:"_blank",
+				children:[
+					{id:1011, name:" 10.1.11 Resource Observation - Operations",iconSkin:"pIcon01",url:"observation-operations.html", target:"_blank",
+						children:[
+							{id:10111, name:" 10.1.11.1 Operation $stats on Observation",iconSkin:"pIcon01",url:"observation-operation-stats.html", target:"_blank"},
+							{id:10112, name:" 10.1.11.2 Operation $lastn on Observation",iconSkin:"pIcon01",url:"observation-operation-lastn.html", target:"_blank"},
+						]
+					},
+				]
+			},
             {id:102, name:" 10.2 Resource Media - Content",iconSkin:"pIcon01",url:"media.html", target:"_blank"},
             {id:103, name:" 10.3 Resource DiagnosticReport - Content",fineTitle:"诊断报告资源简介(删除10.3.5.4节的ImageObjectStudy这是STU2的内容)",iconSkin:"pIcon01",url:"diagnosticreport.html", target:"_blank"},
             {id:104, name:" 10.4 Resource ImagingStudy - Content",iconSkin:"pIcon01",url:"imagingstudy.html", target:"_blank"},
@@ -264,7 +365,15 @@ var zNodes =[
 
 			{id:119, name:" 11.9 Resource ImmunizationRecommendation - Content",iconSkin:"pIcon01",url:"immunizationrecommendation.html", target:"_blank"},
             {id:1110, name:" 11.10 Dosage",iconSkin:"pIcon01",url:"dosage.html", target:"_blank"},
-            {id:1111, name:" 11.11 Resource MedicinalProduct - Content",iconSkin:"pIcon01",url:"medicinalproduct.html", target:"_blank"},
+            {id:1111, name:" 11.11 Resource MedicinalProduct - Content",iconSkin:"pIcon01",url:"medicinalproduct.html", target:"_blank",
+				children:[
+					{id:11111, name:" 11.11.8 Resource MedicinalProduct - Operations",iconSkin:"pIcon01",url:"medicinalproduct-operations.html", target:"_blank",
+						children:[
+							{id:111111, name:" 11.11.8.1 Operation $everything on MedicinalProduct",iconSkin:"pIcon01",url:"medicinalproduct-operation-everything.html", target:"_blank"},
+						]
+					},
+				]
+			},
 
 			{id:1112, name:" 11.12 Resource MedicinalProductAuthorization - Content",iconSkin:"pIcon01",url:"medicinalproductauthorization.html", target:"_blank"},
             {id:1113, name:" 11.13 Resource MedicinalProductContraindication - Content",iconSkin:"pIcon01",url:"medicinalproductcontraindication.html", target:"_blank"},
@@ -320,7 +429,16 @@ var zNodes =[
 					},
 					]	
 			},
-            {id:1218, name:" 12.18 Resource PlanDefinition - Content",iconSkin:"pIcon01",url:"plandefinition.html", target:"_blank"},
+            {id:1218, name:" 12.18 Resource PlanDefinition - Content",iconSkin:"pIcon01",url:"plandefinition.html", target:"_blank",
+				children:[
+					{id:12181, name:" 12.18.9 Resource PlanDefinition - Operations",iconSkin:"pIcon01",url:"plandefinition-operations.html", target:"_blank",
+						children:[
+							{id:121811, name:" 12.18.9.1 Operation $apply on PlanDefinition",iconSkin:"pIcon01",url:"plandefinition-operation-apply.html", target:"_blank"},
+							{id:121812, name:" 12.18.9.2 Operation $data-requirements on PlanDefinition",iconSkin:"pIcon01",url:"plandefinition-operation-data-requirements.html", target:"_blank"},
+						]
+					},
+				]
+			},
             {id:1219, name:" 12.19 Resource DeviceRequest - Content",iconSkin:"pIcon01",url:"devicerequest.html", target:"_blank"},
 
 			{id:1220, name:" 12.20 Resource DeviceUseStatement - Content",iconSkin:"pIcon01",url:"deviceusestatement.html", target:"_blank"},
@@ -332,7 +450,15 @@ var zNodes =[
 	{ id:13, pId:0, name:" 13 Financial Module" , open:false, iconSkin:"pIcon01",url:"financial-module.html", target:"_self",
         children:[
             {id:131, name:" 13.1 Resource Coverage - Content",iconSkin:"pIcon01",url:"coverage.html", target:"_blank"},
-            {id:132, name:" 13.2 Resource CoverageEligibilityRequest - Content" ,iconSkin:"pIcon01",url:"coverageeligibilityrequest.html", target:"_blank"},
+            {id:132, name:" 13.2 Resource CoverageEligibilityRequest - Content" ,iconSkin:"pIcon01",url:"coverageeligibilityrequest.html", target:"_blank",
+				children:[
+					{id:1321, name:" 13.2.9 Resource CoverageEligibilityRequest - Operations",iconSkin:"pIcon01",url:"coverageeligibilityrequest-operations.html", target:"_blank",
+						children:[
+							{id:13211, name:" 13.2.9.1 Operation $submit on CoverageEligibilityRequest",iconSkin:"pIcon01",url:"coverageeligibilityrequest-operation-submit.html", target:"_blank"},
+						]
+					},
+				]
+			},
             {id:133, name:" 13.3 Resource CoverageEligibilityResponse - Content" ,iconSkin:"pIcon01",url:"coverageeligibilityresponse.html", target:"_blank"},
             {id:134, name:" 13.4 Resource EnrollmentRequest - Content" ,iconSkin:"pIcon01",url:"enrollmentrequest.html", target:"_blank"},
             {id:135, name:" 13.5 Resource EnrollmentResponse - Content" ,iconSkin:"pIcon01",url:"enrollmentresponse.html", target:"_blank"},
@@ -368,11 +494,31 @@ var zNodes =[
 
 			{id:149, name:" 14.9 Resource Evidence - Content" ,iconSkin:"pIcon01",url:"evidence.html", target:"_blank"},
             {id:1410, name:" 14.10 Resource EvidenceVariable - Content" ,iconSkin:"pIcon01",url:"evidencevariable.html", target:"_blank"},
-            {id:1411, name:" 14.11 Resource Library - Content" ,iconSkin:"pIcon01",url:"library.html", target:"_blank"},
+            {id:1411, name:" 14.11 Resource Library - Content" ,iconSkin:"pIcon01",url:"library.html", target:"_blank",
+				children:[
+					{id:14111, name:" 14.11.9 Resource Library - Operations" ,iconSkin:"pIcon01",url:"library-operations.html", target:"_blank",
+						children:[
+							{id:141111, name:" 14.11.9.1 Operation $data-requirements on Library" ,iconSkin:"pIcon01",url:"library-operation-data-requirements.html", target:"_blank"},
+						]
+					},
+				]
+			},
 
             {id:1412, name:" 14.12 Resource GuidanceResponse - Content" ,iconSkin:"pIcon01",url:"guidanceresponse.html", target:"_blank"},
             {id:1413, name:" 14.13 Resource RequestGroup - Content" ,iconSkin:"pIcon01",url:"requestgroup.html", target:"_blank"},
-            {id:1414, name:" 14.14 Resource Measure - Content" ,iconSkin:"pIcon01",url:"measure.html", target:"_blank"},
+            {id:1414, name:" 14.14 Resource Measure - Content" ,iconSkin:"pIcon01",url:"measure.html", target:"_blank",
+				children:[
+					{id:14141, name:"14.14.9 Resource Measure - Operations" ,iconSkin:"pIcon01",url:"measure-operations.html", target:"_blank",
+						children:[
+							{id:141411, name:" 14.14.9.1 Operation $evaluate-measure on Measure" ,iconSkin:"pIcon01",url:"measure-operation-evaluate-measure.html", target:"_blank"},
+							{id:141412, name:" 14.14.9.2 Operation $data-requirements on Measure" ,iconSkin:"pIcon01",url:"measure-operation-data-requirements.html", target:"_blank"},
+							{id:141413, name:" 14.14.9.3 Operation $submit-data on Measure" ,iconSkin:"pIcon01",url:"measure-operation-submit-data.html", target:"_blank"},
+							{id:141414, name:" 14.14.9.4 Operation $collect-data on Measure" ,iconSkin:"pIcon01",url:"measure-operation-collect-data.html", target:"_blank"},
+							{id:141415, name:" 14.14.9.5 Operation $care-gaps on Measure" ,iconSkin:"pIcon01",url:"measure-operation-care-gaps.html", target:"_blank"},
+						]
+					},
+				]
+			},
 
 			{id:1415, name:" 14.15 Resource MeasureReport - Content" ,iconSkin:"pIcon01",url:"measurereport.html", target:"_blank"},
             {id:1416, name:" 14.16 Resource ResearchDefinition - Content" ,iconSkin:"pIcon01",url:"researchdefinition.html", target:"_blank"},
