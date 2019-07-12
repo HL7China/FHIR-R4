@@ -250,7 +250,9 @@ var zNodes =[
 				children:[
 					{id:831, name:" 8.3.9 Resource Group - Operations",iconSkin:"pIcon01",url:"group-operations.html", target:"_blank",
 						children:[
-							{id:8311, name:" 8.3.9.1 Operation $everything on Group",iconSkin:"pIcon01",url:"group-operation-everything.html", target:"_blank"},
+                            {
+                                id: 8311, name: " 8.3.9.1 Operation $everything on Group",fineTitle: "对群组的$everything操作",subtitle: "（US-Core的链接多了一个f）", iconSkin: "pIcon01", url: "group-operation-everything.html", target: "_blank"
+                            },
 						]
 					},
 				]
