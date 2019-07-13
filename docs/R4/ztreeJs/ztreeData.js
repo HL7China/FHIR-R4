@@ -8,7 +8,7 @@ var zNodes =[
             {id:13, name:" 1.3 Profiles defined as part of FHIR",fineTitle:"FHIR内置的配置",iconSkin:"pIcon01",url:"profilelist.html",target:"_blank"},
             {id:14, name:" 1.4 FHIR Core-defined Extension Registry",fineTitle:"FHIR核心扩展注册表",iconSkin:"pIcon01",url:"extensibility-registry.html",target:"_blank"},
             {
-                id: 15, name: " 1.5 Defined RESTful API Operations ", fineTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
+                id: 15, name: " 1.5 Defined RESTful API Operations ", fineTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复;test operations & apply两处重复;Fetch Preferred it应为id)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
             {id:16, name:" 1.7 Namespaces defined by FHIR",iconSkin:"pIcon01",url:"ns.html",target:"_blank"},
 			{id:17, name:" 1.8 FHIR Workgroup List Report",iconSkin:"pIcon01",url:"wglist.html",target:"_blank"},
 			{id:18, name:" 1.9 Getting Started with FHIR",iconSkin:"pIcon01",url:"modules.html",target:"_blank"},
@@ -97,7 +97,11 @@ var zNodes =[
 				children:[
 					{id:2471, name:" 2.47.9 Resource MessageHeader - Operations",iconSkin:"pIcon01",url:"messageheader-operations.html",target:"_blank",
 						children:[
-							{id:24711, name:" 2.47.9.1 Operation $process-message on MessageHeader",iconSkin:"pIcon01",url:"messageheader-operation-process-message.html",target:"_blank"},
+                            {
+                                id: 24711, name: " 2.47.9.1 Operation $process-message on MessageHeader",
+                                fineTitle: "对消息头的消息处理操作（$process-message）",
+                                subtitle: "（<br/>不应转义）", iconSkin: "pIcon01", url: "messageheader-operation-process-message.html", target: "_blank"
+                            },
 						]
 					},
 				]

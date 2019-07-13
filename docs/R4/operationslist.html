@@ -64,7 +64,16 @@
 			<ul class="breadcrumb">
         <li><img src="index.png"/><b>当前位置：</b><a href="toc.html">目录</a></li>
         <li>操作功能列表</li>          <!-- operationslist.html / page / -->
+        <div class="breadcrumbRight">
+            <ul>
+                <li>
+                    <a href="http://hl7.org/fhir/operationslist.html" target="_blank" title="英语官方页面">
+                        切换到英文
+                    </a>
 
+            </ul>
+
+        </div>
 			</ul>	
 		</div>  <!-- /container -->
 	</div>  <!-- /segment-breadcrumb -->
@@ -188,7 +197,22 @@
         获取药品的所有相关资源</a></td>
     <td>[基地址]/MedicinalProduct/$everything | [基地址]/MedicinalProduct/[id]/$everything</td></tr>
     <tr><td><a href="messageheader-operation-process-message.html">
-        Process Message处理信息</a></td><td>[基地址]/$process-message</td></tr><tr><td><a href="namingsystem-operation-preferred-id.html">Fetch Preferred it获取首选 </a></td><td>[基地址]/NamingSystem/$preferred-id</td></tr><tr><td><a href="observation-operation-stats.html">Observation Statistics观察数据</a></td><td>[基地址]/Observation/$stats</td></tr><tr><td><a href="observation-operation-lastn.html">Last N Observations Query最后几个观察查询</a></td><td>[基地址]/Observation/$lastn</td></tr><tr><td><a href="patient-operation-match.html">Find patient matches using MPI based logic使用基于MPI的逻辑查找患者匹配项</a></td><td>[基地址]/Patient/$match</td></tr><tr><td><a href="patient-operation-everything.html">Fetch Patient Record获取病人记录</a></td><td>[基地址]/Patient/$everything | [基地址]/Patient/[id]/$everything</td></tr><tr><td><a href="plandefinition-operation-apply.html">Apply运用</a></td><td>[基地址]/PlanDefinition/$apply | [基地址]/PlanDefinition/[id]/$apply</td></tr><tr><td><a href="plandefinition-operation-data-requirements.html">Data Requirements数据要求</a></td><td>[基地址]/PlanDefinition/[id]/$data-requirements</td></tr><tr><td><a href="structuredefinition-operation-questionnaire.html">Build Questionnaire创建问卷表</a></td><td>[基地址]/StructureDefinition/$questionnaire | [基地址]/StructureDefinition/[id]/$questionnaire</td></tr><tr><td><a href="structuredefinition-operation-snapshot.html">Generate Snapshot生成快照</a></td><td>[基地址]/StructureDefinition/$snapshot | [基地址]/StructureDefinition/[id]/$snapshot</td></tr><tr><td><a href="structuremap-operation-transform.html">Model Instance Transformation模型转换</a></td><td>[基地址]/StructureMap/$transform | [基地址]/StructureMap/[id]/$transform</td></tr><tr><td><a href="valueset-operation-expand.html">Value Set Expansion值集扩展</a></td><td>[基地址]/ValueSet/$expand | [基地址]/ValueSet/[id]/$expand</td></tr><tr><td><a href="valueset-operation-validate-code.html">Value Set based Validation值集验证</a></td><td>[基地址]/ValueSet/$validate-code | [基地址]/ValueSet/[id]/$validate-code</td></tr></table>
+        处理消息</a></td><td>[基地址]/$process-message</td></tr>
+    <tr><td><a href="namingsystem-operation-preferred-id.html">
+        获取首选id </a></td><td>[基地址]/NamingSystem/$preferred-id</td></tr>
+    <tr><td><a href="observation-operation-stats.html">
+        观测数据统计</a></td><td>[基地址]/Observation/$stats</td></tr>
+    <tr><td><a href="observation-operation-lastn.html">查询最近几条观测数据</a></td>
+    <td>[基地址]/Observation/$lastn</td></tr>
+    <tr><td><a href="patient-operation-match.html">使用患者主索引(MPI)查找匹配的患者
+   </a></td><td>[基地址]/Patient/$match</td></tr>
+    <tr><td><a href="patient-operation-everything.html">
+       获取某患者所有相关记录</a></td><td>[基地址]/Patient/$everything | [基地址]/Patient/[id]/$everything</td></tr>
+    <tr><td><a href="plandefinition-operation-apply.html">应用方案定义</a>
+        </td><td>[基地址]/PlanDefinition/$apply | [基地址]/PlanDefinition/[id]/$apply</td></tr>
+    <tr><td><a href="plandefinition-operation-data-requirements.html">
+        方案定义的数据要求</a></td><td>[基地址]/PlanDefinition/[id]/$data-requirements</td></tr>
+    <tr><td><a href="structuredefinition-operation-questionnaire.html">Build Questionnaire创建问卷表</a></td><td>[基地址]/StructureDefinition/$questionnaire | [基地址]/StructureDefinition/[id]/$questionnaire</td></tr><tr><td><a href="structuredefinition-operation-snapshot.html">Generate Snapshot生成快照</a></td><td>[基地址]/StructureDefinition/$snapshot | [基地址]/StructureDefinition/[id]/$snapshot</td></tr><tr><td><a href="structuremap-operation-transform.html">Model Instance Transformation模型转换</a></td><td>[基地址]/StructureMap/$transform | [基地址]/StructureMap/[id]/$transform</td></tr><tr><td><a href="valueset-operation-expand.html">Value Set Expansion值集扩展</a></td><td>[基地址]/ValueSet/$expand | [基地址]/ValueSet/[id]/$expand</td></tr><tr><td><a href="valueset-operation-validate-code.html">Value Set based Validation值集验证</a></td><td>[基地址]/ValueSet/$validate-code | [基地址]/ValueSet/[id]/$validate-code</td></tr></table>
 <p>
     注意：
 </p>
