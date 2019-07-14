@@ -2,13 +2,17 @@
 //iconSkin属性控制图标，icon01是正式规范  pIcon01是非正式规范    open是否展开  url链接地址   target用于设置 页面跳转的窗口目标:_self当前窗口  _blank新窗口  subtitle副标题 thickTitle粗标题 fineTitle细标题
 var zNodes =[
     { id:1, pId:0, name:" 1 Welcome to FHIR® ",thickTitle:"欢迎使用 FHIR®", subtitle:"（部分资源重复，如：ImagingStudy）", open:false, iconSkin:"pIcon01",url:"index.html", target:"_self",
-        children:[
-            {id:11, name:" 1.1 Table Of Contents",thickTitle:"目录",iconSkin:"pIcon01",url:"toc.html",subtitle:"（删除了成熟度描述，以图标颜色为准：因部分内容不符，如将Informative写成Trial Use）", target:"_blank"},
+        children: [
+            {
+                id: 10, name: " 1.0 Table Of Contents", fineTitle: "原始目录", iconSkin: "pIcon01",
+                url: "toc_bak.html", subtitle: "（某些目录缺失，编号不正确。删除了成熟度描述，以图标颜色为准：因部分内容不符，如将Informative写成Trial Use）", target: "_blank"
+            },
+
+            { id: 11, name: " 1.1 Documentation Index", fineTitle: "文档索引", iconSkin: "pIcon01", url:"documentation.html", target:"_blank"},
             {id:12, name:" 1.2 Resource Index",thickTitle:"资源索引",iconSkin:"pIcon01",url:"resourcelist.html",subtitle:"（修正Architect's Overview链接为：overview-arch.html#frameworks）", target:"_blank"},
             {id:13, name:" 1.3 Profiles defined as part of FHIR",fineTitle:"FHIR内置的配置",iconSkin:"pIcon01",url:"profilelist.html",target:"_blank"},
             {id:14, name:" 1.4 FHIR Core-defined Extension Registry",fineTitle:"FHIR核心扩展注册表",iconSkin:"pIcon01",url:"extensibility-registry.html",target:"_blank"},
-            {
-                id: 15, name: " 1.5 Defined RESTful API Operations ", fineTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复;test operations & apply两处重复;Fetch Preferred it应为id)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
+            {id: 15, name: " 1.5 Defined RESTful API Operations ", thickTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复;test operations & apply两处重复;Fetch Preferred it应为id)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
             {id:16, name:" 1.7 Namespaces defined by FHIR",iconSkin:"pIcon01",url:"ns.html",target:"_blank"},
 			{id:17, name:" 1.8 FHIR Workgroup List Report",iconSkin:"pIcon01",url:"wglist.html",target:"_blank"},
 			{id:18, name:" 1.9 Getting Started with FHIR",iconSkin:"pIcon01",url:"modules.html",target:"_blank"},
@@ -27,7 +31,10 @@ var zNodes =[
 			{id:28, name:" 2.8 Managing Multiple FHIR Versions",iconSkin:"pIcon01",url:"versioning.html",target:"_blank"},
 			{id:29, name:" 2.9 FHIRPath",iconSkin:"pIcon01",url:"fhirpath.html",target:"_blank"},
 			{id:210, name:" 2.10 Version History since DSTU #1",iconSkin:"pIcon01",url:"history.html",target:"_blank"},
-			{id:211, name:" 2.11 Differences from Release 3",iconSkin:"pIcon01",url:"diff.html",target:"_blank"},
+            {
+                id: 211, name: " 2.11 Differences from Release 3", findTitle: "与第3版的区别",
+                subtitle: "(导航条为DSTU2,应为R3)", iconSkin: "pIcon01", url: "diff.html", target: "_blank"
+            },
 			{id:212, name:" 2.12 Transforms between DSTU 3 and STU 4",iconSkin:"pIcon01",url:"r3maps.html",target:"_blank"},
 			{id:213, name:" 2.13 FHIR Overview",iconSkin:"pIcon01",url:"overview.html",target:"_blank"},
 			{id:214, name:" 2.14 FHIR Overview - Developers",iconSkin:"pIcon01",url:"overview-dev.html",target:"_blank"},
@@ -38,7 +45,9 @@ var zNodes =[
 			{id:219, name:" 2.19 Language Glossary",iconSkin:"pIcon01",url:"glossary.html",target:"_blank"},
 			{id:220, name:" 2.20 License and Legal Terms",iconSkin:"pIcon01",url:"license.html",target:"_blank"},
 			{id:221, name:" 2.21 Community and Credits",iconSkin:"pIcon01",url:"credits.html",target:"_blank"},
-  			{id:222, name:" 2.22 Outstanding Issues",iconSkin:"pIcon01",url:"todo.html",target:"_blank"},
+            {
+                id: 222, name: " 2.22 Outstanding Issues", findTitle: "待解决的问题",
+                subtitle: "(third round of trial use,应为1st Normative Content + Trial Use Developments)", iconSkin:"pIcon01",url:"todo.html",target:"_blank"},
 			{id:223, name:" 2.23 Appendix: The Role of Informatics in the Shift from Reactive to Proactive Healthcare",iconSkin:"pIcon01",url:"change.html",target:"_blank"},
 			{id:224, name:" 2.24 Data Types",iconSkin:"icon01",url:"datatypes.html",target:"_blank"},
 			{id:225, name:" 2.25 MetaData Types",iconSkin:"icon01",url:"metadatatypes.html",target:"_blank"},
