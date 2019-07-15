@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
   <!-- template-operations.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>操作 - HL7 FHIR 中国</title>
+    <title>操作-消息处理 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -81,14 +81,24 @@
 
 <ul class="nav nav-tabs"><li><a href="messageheader.html">Content</a></li><li><a href="messageheader-examples.html">Examples</a></li><li><a href="messageheader-definitions.html">Detailed Descriptions</a></li><li><a href="messageheader-mappings.html">Mappings</a></li><li><a href="messageheader-profiles.html">Profiles &amp; Extensions</a></li><li><a href="messageheader-operations.html">Operations</a></li><li><a href="messageheader-version-maps.html">R3 Conversions</a></li></ul>
 
-<h3 class="self-link-parent"><span class="sectioncount">2.47.9.1<a name="2.47.9.1"> </a></span> Operation $process-message on MessageHeader <a href="messageheader-operation-process-message.html#2.47.9.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent">
+    <span class="sectioncount">2.47.9.1<a name="2.47.9.1"> </a></span>
+    对消息头的消息处理操作（$process-message）
+    <a href="messageheader-operation-process-message.html#2.47.9.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a>
+</h3>
 
 <table class="colstu"><tr><td>工作组:<a href="http://www.hl7.org/special/committees/inm/index.cfm">Infrastructure And Messaging <img src="external.png" style="text-align: baseline"/></a></td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">成熟度</a>: 4</td><td><a href="versions.html#std-process">试用</a></td>  <!-- !ns! --><td><a href="compartmentdefinition.html">隔间</a>: N/A</td></tr></table>
 
 
 
-<p>This operation accepts a message, processes it according to the definition of the event in the message header, and returns one or more response messages.</p>
-<p>In addition to processing the message event, a server may choose to retain all or some the resources and make them available on a RESTful interface, but is not required to do so.</p>
+<p>
+    此操作用来接收消息，根据消息头中的事件定义对其进行处理，并返回一条或多条响应消息。
+  
+</p>
+<p>
+    除了处理消息事件之外，服务器还可以选择保留所有或部分资源，并使它们在RESTful接口上可用，但没要求这样做。
+
+</p>
 
 <p>The official URL for this operation definition is</p>
 <pre> http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message</pre>
@@ -109,7 +119,8 @@
 <li><strong>200 OK</strong>: Indicates that the message has been fully processed.  If an application-level response is expected for the submitted message, that response SHALL be returned as the body of the 200 response.</li>
 <li><strong>202 Accepted</strong>: Indicates that the receiving system has accepted custody of the message</li>
 <li><strong>204 No Content</strong>: Indicates that the message has been fully processed and would normally have had an application-level response, but because of instructions from the sender (e.g. the <a href="extension-messageheader-response-request.html">messageheader-response-request</a> extension), no response is being provided</li>
-<li><strong>300+</strong>: Indicates that the message was not successfully processed.  The server MAY return an <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD do so if the response code is 400 or greater.&lt;br/&gt;
+<li><strong>300+</strong>: Indicates that the message was not successfully processed.  The server MAY return an <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD do so if the response code is 400 or greater.
+<br />
 The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered message, and a 5xx response to indicate an unexpected error occurred on the part of the server, with the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result in a duplicate message response. Repeated failures indicate either a fatal problem with the submission or a problem with the receiving application.</li>
 </ul>
 <p>The following rules apply when using $process-message:</p>
