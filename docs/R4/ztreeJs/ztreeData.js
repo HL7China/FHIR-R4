@@ -132,10 +132,10 @@ var zNodes =[
         children:[
             {id:41, name:" 4.1 Using Codes in Resources",fineTitle:"在资源中使用编码",iconSkin:"icon01",url:"terminologies.html", target:"_blank"},
             {id:42, name:" 4.2 Terminology Binding Examples",iconSkin:"pIcon01",url:"terminologies-binding-examples.html", target:"_blank"},
-            {id:43, name:" 4.3 Code Systems",iconSkin:"pIcon01",url:"terminologies-systems.html", target:"_blank"},
+            { id: 43, name: " 4.3 Code Systems", fineTitle: "已知编码系统",iconSkin:"pIcon01",url:"terminologies-systems.html", target:"_blank"},
             {id:44, name:" 4.4 Value Sets Defined in FHIR",iconSkin:"pIcon01",url:"terminologies-valuesets.html", target:"_blank"},
             {id:45, name:" 4.5 Mappings between Value Sets Defined in FHIR",iconSkin:"pIcon01",url:"terminologies-conceptmaps.html", target:"_blank"},
-            {id:46, name:" 4.6 Known Identifier Systems",iconSkin:"pIcon01",url:"identifier-registry.html", target:"_blank"},
+            { id: 46, name: " 4.6 Known Identifier Systems", fineTitle: "已知标识系统",iconSkin:"pIcon01",url:"identifier-registry.html", target:"_blank"},
             {id:47, name:" 4.7 Terminology Service",iconSkin:"pIcon01",url:"terminology-service.html", target:"_blank"},
             {id:48, name:" 4.8 Resource CodeSystem - Content",iconSkin:"icon01",url:"codesystem.html", target:"_blank",
 				children:[

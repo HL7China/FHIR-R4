@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>代码系统 - HL7 FHIR 中国</title>
+    <title>术语之编码系统 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -64,7 +64,7 @@
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
         <li><img src="terminology.png"/><b> 当前位置：</b><a href="terminology-module.html"> 术语</a></li>
-        <li>代码系统</li>        <!-- terminologies-systems.html / page / -->
+        <li>编码系统</li>        <!-- terminologies-systems.html / page / -->
         <div class="breadcrumbRight">
             <ul>
                 <li>
@@ -89,27 +89,41 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="terminologies.html">Using Codes</a></li><li class="active"><a href="#">Code Systems</a></li><li><a href="terminologies-valuesets.html">Value Sets</a></li><li><a href="terminologies-conceptmaps.html">Concept Maps</a></li><li><a href="identifier-registry.html">Identifier Systems</a></li></ul>
+    <ul class="nav nav-tabs">
+        <li><a href="#">使用编码</a></li>
+        <li  class="active"><a href="terminologies-systems.html">编码系统</a></li>
+        <li>
+            <a href="terminologies-valuesets.html">值集</a>
+        </li>
+        <li><a href="terminologies-conceptmaps.html">概念映射</a></li>
+        <li><a href="identifier-registry.html">标识系统</a></li>
+    </ul>
 
-
-<h2 class="self-link-parent"><span class="sectioncount">4.3.0<a name="4.3.0"> </a></span> Code Systems <a href="terminologies-systems.html#4.3.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+    <h2 class="self-link-parent"><span class="sectioncount">4.3.0<a name="4.3.0"> </a></span> 术语之编码系统 <a href="terminologies-systems.html#4.3.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <table class="colstu"><tr><td id="wg">工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">Vocabulary <img src="external.png" style="text-align: baseline"/></a></td><td id="fmm"><a href="versions.html#maturity">成熟度</a>: 3</td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> data type.
-If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms. If a code system is not listed
-here, the correct URI may be determined by working through the following list, in order:
+    在<a href="datatypes.html#Coding">Coding</a>数据类型的<i>system</i>元素中可以使用下表中的名称（URI）。
+  相对于其它标识机制，应该优先使用此处定义的URI。如果没有在这里列出，则可以按以下顺序来确定URI：
+  
 </p>
 <ul>
- <li>the HL7 OID Registry</li>
- <li>the documentation associated with the code system</li>
- <li>consulting the owner of the code system</li>
- <li>asking on the HL7 vocabulary mailing list</li>
+ <li>HL7注册的OID</li>
+ <li>
+     与编码系统相关的文档
+ </li>
+ <li>咨询编码系统的所有者</li>
+ <li>在HL7词汇邮件列表中查询</li>
 </ul>
 
 <p>
-See also the <a href="identifier-registry.html">list of known identifier systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> data type.
-Additional identifier systems may be registered on the HL7 FHIR registry at <a href="http://hl7.org/fhir/registry">http://hl7.org/fhir/registry <img src="external.png" style="text-align: baseline"/></a>.
+    另请参见可在<a href="datatypes.html#Identifier">Identifier</a>数据类型的<i>system</i>元素中使用的<a href="identifier-registry.html">
+        已知标识系统列表
+    </a> 。其他标识系统可在<a href="http://hl7.org/fhir/registry">
+    HL7 FHIR注册处
+    <img src="external.png" style="text-align: baseline" />
+</a>注册。
+
 </p>
 <p>
 <b>Important Notes:</b>
