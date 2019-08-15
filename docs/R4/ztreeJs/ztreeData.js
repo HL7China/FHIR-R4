@@ -119,7 +119,7 @@ var zNodes =[
 			]},
 	{ id:3, pId:0, name:" 3 FHIR Exchange Module", open:false, iconSkin:"pIcon01",url:"exchange-module.html", target:"_self",
         children:[
-            {id:31, name:" 3.1 RESTful API ",fineTitle:"REST风格微服务",iconSkin:"icon01",url:"http.html", target:"_blank"},
+            { id: 31, name: " 3.1 RESTful API ", fineTitle: "REST风格微服务", subtitle: "（3.1.0.9 “the return”文字重复；3.1.1.2“/Patient/[id]”应为“/[Compartment]/[id]”）",iconSkin:"icon01",url:"http.html", target:"_blank"},
             { id: 32, name: " 3.2 Extended Operations on the RESTful API", fineTitle: "RESTful API 的扩展操作", subtitle: "（3.2.0.1 “四类FHIR终结点”更正为“三类”）",iconSkin:"icon01",url:"operations.html", target:"_blank"},
             {id:33, name:" 3.3 FHIR Documents",iconSkin:"pIcon01",url:"documents.html", target:"_blank"},
             {id:34, name:" 3.4 Messaging using FHIR Resources ",iconSkin:"pIcon01",url:"messaging.html", target:"_blank"},
