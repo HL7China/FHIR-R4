@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>http - HL7 FHIR 中国</title>
+    <title>RESTful API - HL7 FHIR 中国</title>
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -169,7 +169,7 @@
 </p>
 
 <pre>
-  VERB [base]/[type]/[id] {?_format=[mime-type]}
+  VERB [基地址]/[资源类型]/[id] {?_format=[mime-type]}
 </pre>
 <ul>
  <li>The first word is the HTTP verb used for the interaction 前面第一个单词就是fhir指定的几种http的方式</li>
@@ -683,7 +683,7 @@ use the _pretty parameter:
     使用_pretty参数：
 </p>
 <pre>
-GET [base]/Patient/example?_pretty=true
+GET [基地址]/Patient/example?_pretty=true
 </pre>
 <p>
 Value values are <code>true</code> and <code>false</code>. Since pretty printed
@@ -762,7 +762,7 @@ is performed by an HTTP <code>GET</code> command as shown:
         由http<code>get</code>command执行，如图所示：
 </p>
 <pre class="http">
-  GET [base]/[type]/[id] {?_format=[mime-type]}
+  GET [基地址]/[资源类型]/[id] {?_format=[mime-type]}
 </pre>
 <p>
 This returns a single instance with the content specified for the resource type.
@@ -800,7 +800,7 @@ In addition, the search parameter <code>_summary</code> can be used when reading
     此外，在读取资源时，可以使用搜索参数<code>>summary</code>
 </p>
 <pre class="http">
-  GET [base]/[type]/[id] {?_summary=text}
+  GET [基地址]/[资源类型]/[id] {?_summary=text}
 </pre>
 <p>
 This requests that only a subset of the resource content be returned,
@@ -841,7 +841,7 @@ The <code>vread</code> interaction performs a version specific read of the resou
 
 </p>
 <pre>
-  GET [base]/[type]/[id]/_history/[vid] {?_format=[mime-type]}
+  GET [基地址]/[资源类型]/[id]/_history/[vid] {?_format=[mime-type]}
 </pre>
 <p>
 This returns a single instance with the content specified for the resource type for that
@@ -905,7 +905,7 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
 
 </p>
 <pre class="http">
-  PUT [base]/[type]/[id] {?_format=[mime-type]}
+  PUT [基地址]/[资源类型]/[id] {?_format=[mime-type]}
 </pre>
 <p>
 The request body SHALL be a <a href="resource.html">Resource</a> with an <code>id</code> element
@@ -1088,7 +1088,7 @@ rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this,
     而不是通过<a href="resource.html#meta">logical id</a>来实现。要完成此操作，客户端将发出一个<code>put</code>
 </p>
 <pre class="http">
-  PUT [base]/[type]?[search parameters]
+  PUT [基地址]/[资源类型]?[search parameters]
 </pre>
 <p>
 When the server processes this update, it performs a search using its standard
@@ -1245,7 +1245,7 @@ interaction is performed by an HTTP <code>PATCH</code> command as shown:
     交互由http<code>patch</code>command执行，如图所示
 </p>
 <pre class="http">
-  PATCH [base]/[type]/[id] {?_format=[mime-type]}
+  PATCH [基地址]/[资源类型]/[id] {?_format=[mime-type]}
 </pre>
 <p>
 The body of a PATCH operation SHALL be either:
@@ -1358,7 +1358,7 @@ is performed by an HTTP <code>DELETE</code> command as shown:
     <code>DELETE</code>交互将删除现有资源。交互由HTTP<code>DELETE</code>命令执行，如图所示
 </p>
 <pre>
-  DELETE [base]/[type]/[id]
+  DELETE [基地址]/[资源类型]/[id]
 </pre>
 <p>
 The request body SHALL be empty.
@@ -1456,7 +1456,7 @@ rather than by a specific <a href="resource.html#meta">logical id</a>. To accomp
     而不是通过特定的逻辑ID。为此，客户机发出一个http<code>delete</code>
 </p>
 <pre class="http">
-  DELETE [base]/[type]/?[search parameters]
+  DELETE [基地址]/[资源类型]/?[search parameters]
 </pre>
 <p>
 When the server processes this delete, it performs a search as specified using the standard
@@ -1513,7 +1513,7 @@ interaction instead. The <code>create</code> interaction is performed by an HTTP
         。通过http<code>post</code>之上的<code>create</code>interaction，如图所示：
 </p>
 <pre class="http">
-  POST [base]/[type] {?_format=[mime-type]}
+  POST [基地址]/[资源类型] {?_format=[mime-type]}
 </pre>
 <p>
 The request body SHALL be a FHIR Resource. The resource does not need to have an <code>id</code> element (this is
@@ -1551,17 +1551,17 @@ the created resource version:
     创建的资源版本：
 </p>
 <pre class="http">
-  Location: [base]/[type]/[id]/_history/[vid]
+  Location: [基地址]/[资源类型]/[id]/_history/[vid]
 </pre>
 <p>
 where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version.
 The Location header should be as specific as possible - if the server understands versioning, the version is
-included. If a server does not track versions, the Location header will just contain [base]/[type]/[id]. The
+included. If a server does not track versions, the Location header will just contain [基地址]/[资源类型]/[id]. The
 Location MAY be an absolute or relative URL.
 
     其中<code>[id]</code>and<code>[vid]</code>为新建的id和版本id.
     位置头应尽可能具体-如果服务器了解版本控制，则版本为
-    包括。如果服务器不跟踪版本，则位置头将只包含[base]/[type]/[id]。这个
+    包括。如果服务器不跟踪版本，则位置头将只包含[基地址]/[资源类型]/[id]。这个
     位置可以是绝对或相对URL
 </p>
 <p>
@@ -1689,196 +1689,166 @@ update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="
 </div>
 
 <a name="search"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.0.9</span> search 搜索<a href="http.html#search" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.0.9</span> 搜索<a href="http.html#search" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP commands.
 
-    此交互根据某些筛选条件搜索一组资源。交互可以由几个不同的HTTP命令执行。
+    此交互根据某些筛选条件搜索一组资源。交互可以由几个不同的HTTP动作执行。
 </p>
 <pre class="http">
-  GET [base]/[type]{?[parameters]{&amp;_format=[mime-type]}}
+  GET [基地址]/[资源类型]{?[参数]{&amp;_format=[mime-type]}}
 </pre>
 <p>
-This searches all resources of a particular type using the criteria represented in the parameters.
-
-    这将使用参数中表示的条件搜索特定类型的所有resource。
+此语法通过参数中提供的条件搜索指定类型的所有资源。
 </p>
 <p>
-Because of the way that some user agents and proxies treat <code>GET</code> and <code>POST</code> requests, in addition
-to the get based search method above, servers that support <i>search</i> SHALL also support a <code>POST</code> based search:
 
-    因为有些用户代理和代理处理<code>get</code>和<code>post</code>的方式，另外
-    对于上述基于get的搜索方法，支持<i>search</i> 的服务器也应支持a<code>post</code>based search:
+    因为有些用户除了使用上述基于GET的搜索方法之外，还用代理的方式处理<code>GET</code>和<code>POST</code>请求，
+    所以支持<i>搜索</i> 的服务器<b>必须</b>支持基于<code>POST</code>的搜索:
 </p>
 <pre class="http">
-POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
+POST  [基地址]/[资源类型]/_search{?[参数]{&amp;_format=[mime-type]}}
 Content-Type: application/x-www-form-urlencoded
 
-param1=value&amp;param2=value
+参数1=值&amp;参数2=值
 </pre>
 <p>
-This has exactly the same semantics as the equivalent <code>GET</code> command. Note that in the POST variant,
-parameters may appear in both the URL and the body. Parameters have the same meaning in either place. Since
-parameters can repeat, putting them in both places is the same as repeating them (which is valid for some
-parameters and not for others).
-    这与等效的<code>get</code>command具有完全相同的语义。注意，在post变量中，
-    参数可能同时出现在URL和正文中。参数在任何地方都有相同的含义。自从
-    参数可以重复，将它们放在两个位置与重复它们相同（这对某些
-    参数而不是其他参数）。
+    这与等效的<code>GET</code>动作具有完全相同的语义。
+    注意，在POST变量中，参数可能同时出现在URL和body消息体中。参数在任何地方都有相同的含义。
+    既然参数可以重复，将它们放在两个地方和重复使用效果相同（这对某些参数来说是合法的，其他一些参数则不合法）。
 </p>
 <p>
-Note: Supporting <code>GET</code> means that PHI (Personal health information) might appear in search
-parameters, and therefore in HTTP logs. For this reason logs should be regarded as being as sensitive
-as the resources themselves. This is a general requirement irrespective of the use of <code>GET</code>
-- see the <a href="security.html#audit">security page</a> for further commentary.
-
-    注意：支持<code>get</code>意味着phi（个人健康信息）可能出现在搜索中。
-    参数，因此在HTTP日志中。因此，应将日志视为敏感日志。
-    作为资源本身。这是一项一般要求，与使用<code>get</code>无关
-    -有关进一步的说明，请参阅 <a href="security.html#audit">security page</a>。
+       注意：支持<code>GET</code>意味着PHI（个人健康信息）可能出现在搜索参数和HTTP日志中。
+    因此，应将日志的敏感性视为与资源本身一致。这是一项一般要求，与使用<code>GET</code>无关
+    -有关进一步的说明，请参阅 <a href="security.html#audit">安全</a>。
 </p>
 
 <p>
-All these search interactions take a series of parameters that
-are a series of <code>name=value</code> pairs encoded in the URL (or as an <code>application/x-www-form-urlencoded</code> (<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">Specification <img src="external.png" style="text-align: baseline"/></a>) submission for a <code>POST</code>).
-(See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms <img src="external.png" style="text-align: baseline"/></a>).
 
-    所有这些搜索交互都采用一系列参数，
-    是在URL中编码的一系列<code>name=value</code>pairs（或作为<code>application/x-www-form-urlencoded</code>（<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">specification<img src=“external.png”style=“text-align:baseline”/></a>）submission for a<code>post</code>）。
-    （请参见<a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">w3c html forms<img src="external.png" style="text-align: baseline"/></a>）
+    所有这些搜索交互都采用一系列编码在URL中的成对 name=[value]参数，
+    或者通过<code>POST</code>动作以 <code>application/x-www-form-urlencoded</code>格式的Body消息体提交。
+    (<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">
+        使用POST提交的规范<img src="external.png"
+                        style="text-align: baseline" />
+    </a>，详见 <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">
+        W3C HTML表单
+        <img src="external.png" style="text-align: baseline" />
+    </a>)
 </p>
 <blockquote>
-<p>
-Note: <code>application/x-www-form-urlencoded</code> is supported for <code>POST</code> so that invoking a search by <code>GET</code> or <code>POST</code> can be
-done from HTML forms in a browser (though considerable active content might be required in the browser), although
-this is not the main usage.
-    注意：<code>application/x-www-form-urlencoded</code>is supported for<code>post</code>so that invoking a search by<code>get</code>or<code>post</code>can be
-    从浏览器中的HTML表单完成（尽管浏览器中可能需要相当多的活动内容），但是
-    这不是主要用途。
-</p>
+    <p>
+     
+        注意：<code>POST</code>支持<code>application/x-www-form-urlencoded</code> ，
+        因此用<code>GET</code> 或 <code>
+            POST
+        </code>来调用搜索可以通过浏览器中的HTML表单来完成（尽管浏览器中可能需要相当多的活动内容），尽管这不是其主要用途。
+    </p>
 </blockquote>
 <p>
-A HEAD request can also be used - <a href="#head">see below</a>.
-    也可以用HEAD请求- <a href="#head">如下</a>
+
+    也可以用HEAD请求- <a href="#head">详见下</a>。
 </p>
 <p>
-Searches are processed as specified for the <a href="search.html">Search handling mechanism</a>.
-
+  
     搜索将按照指定的<a href="search.html">搜索处理机制</a>进行处理。
 </p>
 <p>
-If the search succeeds, the server SHALL return a 200 OK HTTP status code and the return content SHALL be a <a href="bundle.html">Bundle</a>
-with <a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> containing the results of the search as a collection of
-zero or more resources in a defined order. Note that resources returned in the search bundle MAY be located
-on the another server than the one that performs
-    the search (i.e. the <a href="bundle-definitions.html#Bundle.entry.fullUrl">Bundle.entry.fullUrl</a> may be different
-    to the <code>[base]</code> from the search URL).
 
-    如果搜索成功，服务器应返回200 OK HTTP状态码，返回内容应为<a href="bundle.html">bundle</a>
-    使用<a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> 包含搜索结果的
-    按定义的顺序零个或多个资源。请注意，搜索包中返回的资源可能位于
-    在另一台服务器上执行
-    搜索（即<a href="bundle-definitions.html#Bundle.entry.fullUrl">bundle.entry.fullURL</a>可能不同
-    从搜索URL发送到<code>[base]</code>。
+    如果搜索成功，服务器<b>必须</b>返回200 OK HTTP状态码，返回内容<b>
+        必须
+    </b>是<a href="bundle-definitions.html#Bundle.type"> Bundle.type</a> = <code>searchset</code>的
+    <a href="bundle.html">资源捆束</a>，此搜索结果按照定义的顺序包含了零到多个资源。
+
+    请注意，搜索返回的资源捆束中的资源<b>可能</b>位于另一台服务器上，而不是在执行搜索的服务器上。
+   （即<a href="bundle-definitions.html#Bundle.entry.fullUrl">
+        Bundle.entry.fullUrl
+    </a>可能与搜索URL的<code>[基地址]</code>不同）。
 </p>
 <p>
-The result collection can be long, so servers may use paging. If they do, they SHALL use the method
-<a href="#paging">described below</a> (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving <img src="external.png" style="text-align: baseline"/></a>)
-for breaking the collection into pages if appropriate. The server MAY also return an <a href="operationoutcome.html">OperationOutcome</a> resource
-within the <code>searchset</code> Bundle entries that contains additional information about the search; if one is sent it SHALL NOT include any
-issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-severity.html">severity</a>, and it SHALL be marked with a
-<a href="valueset-search-entry-mode.html">Bundle.entry.search.mode</a> of <code>outcome</code>.
-
-
-    结果集合可能很长，因此服务器可能使用分页。如果他们这样做，他们应该使用这种方法
-    <a href="#paging">如下所述</a>（引用至 <a href="https://tools.ietf.org/html/rfc5005">rfc 5005（feed paging and archiving<img src="external.png" style="text-align: baseline"/></a>）
-        如果合适的话，将集合拆分为页面。服务器还可能返回一个 <a href="operationoutcome.html">operationoutcome</a>resource
-            在包含有关搜索的附加信息的<code>searchset</code>bundle条目中；如果发送了搜索，则不应包含任何
-                带有<code>致命性的</code>或<code>错误</code><a href="valueset-issue-severity.html">severity</a>，并且应使用
-        <a href="valueset-search-entry-mode.html">Bundle.entry.search.mode</a>的<code>outcome</code>
+       
+    搜索结果集合可能很长，因此服务器可能使用分页。如果分页，<b>必须</b>使用<a href="#paging">下述</a>方法
+    （采用 <a href="https://tools.ietf.org/html/rfc5005">
+        rfc 5005 - feed paging and archiving<img src="external.png" style="text-align: baseline" />
+    </a>标准）来将集合拆分为多个页面。服务器返回的<code>
+        searchset
+    </code>类型资源捆束条目中
+    还<b>可能</b>包含一个有关搜索的额外信息的<a href="operationoutcome.html">
+        操作结果
+    </a>资源；如果返回的资源捆束中含有操作结果资源，则OperationOutcome.issues.severity的编码值<b>不能</b>是<code>
+        fatal
+    </code> 或 <code>
+        error
+    </code>，并且<a href="valueset-search-entry-mode.html">
+        Bundle.entry.search.mode
+    </a>的编码值<b>必须</b>是<code>outcome</code>。
 </p>
 <p>
-If the search fails (cannot be executed, not that there are no matches), the return value
-return value SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
-    如果搜索失败（不能执行，不是没有匹配项），返回值
-    返回值应为状态代码4xx或5xx，带有<a href="operationoutcome.html">operationoutcome</a>
+        如果搜索失败（不能执行，不是没有匹配项），
+    返回值<b>必须</b>是状态代码4xx或5xx，并返回一个<a href="operationoutcome.html">操作结果</a>资源。
 </p>
 <p>
-Common HTTP Status codes returned on FHIR-related errors
-    (in addition to normal HTTP errors related to security, header and content type negotiation issues):
-
-    在与fhir相关的错误上返回的常见HTTP状态代码
-    （除了与安全性、头和内容类型协商问题相关的正常HTTP错误之外）：
+    
+    与FHIR相关的错误返回的常见HTTP状态代码如下（与安全性、头和内容类型协商相关的常见HTTP错误除外）：
 </p>
 <ul>
- <li><b><code>400</code> Bad Request</b> - search could not be processed or failed basic FHIR validation rules
-     无法处理搜索或基本fhir验证规则失败
- </li>
- <li><b><code>401</code> Not Authorized</b> - authorization is required for the interaction that was attempted
-     尝试的交互需要授权
- </li>
- <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point
-     不支持资源类型，或不是fhir接入点
+    <li>
+        <b><code>400</code> Bad Request</b> 错误的请求 - 搜索无法处理或未能通过FHIR基本验证规则
+    </li>
+    <li>
+        <b><code>401</code> Not Authorized</b> 未授权 - 尝试的交互需要授权
+    </li>
+ <li><b><code>404</code> Not Found</b> 未找到 - 不支持请求的资源类型，或不是FHIR终结点
  </li>
 </ul>
 
 <a name="vsearch"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.0.9.1</span> Variant Searches 变量搜索<a href="http.html#vsearch" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.0.9.1</span> 多种搜索形式<a href="http.html#vsearch" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-To search a <a href="compartmentdefinition.html">compartment</a>, for either all possible resources or for a particular resource type, respectively:
-
-    搜索 <a href="compartmentdefinition.html">compartment</a>，要么所有可能的资源或一个特定的resource类型，分别为：
+  搜索所有可能的资源的<a href="compartmentdefinition.html">逻辑区块</a>或某个特定的资源类型的<a href="compartmentdefinition.html">逻辑区块</a>，分别为：
 </p>
 <pre class="http">
-  GET [base]/[Compartment]/[id]/*{?[parameters]{&amp;_format=[mime-type]}}
-  GET [base]/[Compartment]/[id]/[type]{?[parameters]{&amp;_format=[mime-type]}}
+  GET [基地址]/[逻辑区块]/[id]/*{?[参数]{&amp;_format=[mime-type]}}
+  GET [基地址]/[逻辑区块]/[id]/[type]{?[参数]{&amp;_format=[mime-type]}}
 </pre>
 <p>
-In the first URL the character "<code>*</code>" appears in the URL as a literal to mean 'all types'.
-    So, for example, to retrieve all the observation resources for a particular LOINC code associated with a particular encounter:
 
-    在第一个URL中，字符"<code>>*.</code>"以文字形式出现在URL中，表示“all types”。
-    因此，例如，要检索与特定遭遇相关联的特定loinc代码的所有观察资源：
+    在第一个URL中，字符"<code>*</code>"以文字形式出现在URL中，用来表示“所有类型”。
+    因此，例如，检索与id为23423445的医疗活动资源相关的LOINC编码为2951-2的所有观察资源：
 </p>
 <pre>
-  GET [base]/Encounter/23423445/Observation?code=2951-2  {&amp;_format=[mime-type]}
+  GET [基地址]/Encounter/23423445/Observation?code=2951-2  {&amp;_format=[mime-type]}
 </pre>
 <p>
-Note that there are specific operations defined to support fetching <a href="patient-operation-everything.html">an entire patient record</a>
-or <a href="encounter-operation-everything.html">all record for an encounter</a>.
-
-    请注意，定义了特定的操作来支持提取<a href="patient-operation-everything.html">整个患者记录</a>
-    或<a href="encounter-operation-everything.html">all record for an experience</a>。
+ 
+    请注意，FHIR定义了专用的“everything操作”以支持获取<a href="patient-operation-everything.html">某个患者的所有相关记录</a>或<a href="encounter-operation-everything.html">
+        某个医疗活动的所有相关记录
+    </a>。
 </p>
 <p>
-It is also possible to search across multiple resource types:
-    还可以搜索多种资源类型
-</p>
-<pre class="http">
-  GET [base]?_type=Condition,Observation&amp;[parameters]{&amp;_format=[mime-type]}
-</pre>
-<p>
-This is a request to search on both Condition and Observation. In this case,
-the only parameters that can be used are those defined for both Condition and Observation
-(using <a href="searchparameter-definitions.html#SearchParameter.base">SearchParameter.base</a> - see <a href="searchparameter-registry.html#common">Cross-resource Search Parameters</a>),
-or the <a href="resource.html#search">parameters defined for all resources</a>. If a search lists types not listed in <code>SearchParameter.base</code>
-for any of the parameters, this is an error, and a server SHOULD return a 400 status. It is also possible to search on all types at once:
-
-    这是一个搜索条件和观察的请求。在这种情况下，
-    唯一可以使用的参数是为条件和观测定义的参数。
-    （使用<a href="searchparameter-definitions.html#SearchParameter.base">SearchParameter.base</a>--参见<a href="searchparameter-registry.html#common">Cross-resource Search Parameters</a>），
-    或者为所有资源定义的参数。如果搜索列出了<code>searchParameter.base</code>中未列出的类型
-        对于任何参数，这都是一个错误，服务器应该返回400状态。也可以同时搜索所有类型：
+  
+    还可以跨多种资源类型进行搜索：
 </p>
 <pre class="http">
-  GET [base]?[parameters]{&amp;_format=[mime-type]}
+  GET [基地址]?_type=Condition,Observation&amp;[参数]{&amp;_format=[mime-type]}
 </pre>
 <p>
-When searching all resources at once, the only search parameters that be can
-    be used in global search like this are the <a href="resource.html#search">base parameters that apply to all resources</a>.
 
-    一次搜索所有资源时，只能搜索
-    在全局搜索中使用，这是适用于所有 <a href="resource.html#search">资源的基础参数</a>
+    这是一个搜索Condition和Observation资源的请求。
+    在这种情况下，只能使用那些同时定义给Condition和Observation资源的参数 (使用 <a href="searchparameter-definitions.html#SearchParameter.base">
+        SearchParameter.base
+    </a> - 参见 <a href="searchparameter-registry.html#common">跨资源的搜索参数</a>),或为所有资源定义的参数。
+    如果搜索参数中所需的类型没有在<code>SearchParameter.base</code>中列出，就会出错，服务器应该返回一个400状态码。
+    
+</p>
+<p>
+    也可以一次性搜索所有类型：
+</p>
+<pre class="http">
+  GET [基地址]?[参数]{&amp;_format=[mime-type]}
+</pre>
+<p>
+
+    一次搜索所有资源时，只能使用全局性搜索参数，即：<a href="resource.html#search">适用于所有资源的基础参数</a>
+
 </p>
 
 <a name="capabilities"></a>
@@ -1891,7 +1861,7 @@ The interaction is performed by an HTTP <code>GET</code> command as shown:
         交互由http<code>get</code>command执行，如图所示
 </p>
 <pre class="http">
-  GET [base]/metadata{?mode=[mode]} {&amp;_format=[mime-type]}
+  GET [基地址]/metadata{?mode=[mode]} {&amp;_format=[mime-type]}
 </pre>
 <p>
 Applications SHALL return a resource that describes the functionality of the server end-point. The information returned depends
@@ -2036,7 +2006,7 @@ A <code>batch</code> or <code>transaction</code> interaction is performed by an 
      <code>批处理</code> or <code>事务处理</code> 交互是通过HTTP <code>POST</code> 进行的，如下:
 </p>
 <pre class="http">
-  POST [base] {?_format=[mime-type]}
+  POST [基地址] {?_format=[mime-type]}
 </pre>
 <p>
 The content of the post submission is a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> = <code><a href="valueset-bundle-type.html#batch">batch</a></code> or <code><a href="valueset-bundle-type.html#transaction">transaction</a></code>.
@@ -2261,12 +2231,12 @@ by a search URI that describes how to find the correct reference:
 </pre>
 </div>
 <p>
-The search URI is relative to the server's [base] path, and always starts with
+The search URI is relative to the server's [基地址] path, and always starts with
 a resource type: <code>[type]?parameters...</code>. Only filtering parameters
 are allowed; none of the parameters that control the return of resources
 are relevant.
 
-    搜索URI相对于服务器的[base]路径，并且始终以开头
+    搜索URI相对于服务器的[基地址]路径，并且始终以开头
     资源类型：<code>[type]?parameters...</code>。仅筛选参数
     不允许；没有控制资源返回的参数
     是相关的。
@@ -2321,9 +2291,9 @@ may be included in the entry, as specified by the <a href="#prefer">Prefer</a> h
 <h4 class="self-link-parent"><span class="sectioncount">3.1.0.11.4</span> Accepting other Bundle types 其他的Bundle类型<a href="http.html#other-bundles" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 
 <p>
-A server may choose to accept bundle types other than <code>batch</code> or <code>transaction</code> when <code>POST</code>ed to the [base] URL.
+A server may choose to accept bundle types other than <code>batch</code> or <code>transaction</code> when <code>POST</code>ed to the [基地址] URL.
 
-    服务器可以选择接受bundle类型，而不是接受<code>batch</code>或<code>transaction</code>当<code>post</code>ed to the[base]url
+    服务器可以选择接受bundle类型，而不是接受<code>batch</code>或<code>transaction</code>当<code>post</code>ed to the[基地址]url
 </p>
 <p>
 Bundles of type <code>history</code> inherently have the same structure as a <code>transaction</code>, and
@@ -2374,9 +2344,9 @@ interaction are performed by HTTP <code>GET</code> command as shown:
     交互由http<code>get</code>command执行，如图所示
 </p>
 <pre>
-  GET [base]/[type]/[id]/_history{?[parameters]&amp;_format=[mime-type]}
-  GET [base]/[type]/_history{?[parameters]&amp;_format=[mime-type]}
-  GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
+  GET [基地址]/[资源类型]/[id]/_history{?[参数]&amp;_format=[mime-type]}
+  GET [基地址]/[资源类型]/_history{?[参数]&amp;_format=[mime-type]}
+  GET [基地址]/_history{?[参数]&amp;_format=[mime-type]}
 </pre>
 <p>
 The return content is a <a href="bundle.html">Bundle</a> with
