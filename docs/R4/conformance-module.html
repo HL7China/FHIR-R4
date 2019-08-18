@@ -2,7 +2,7 @@
   <!-- These elements SHALL always appear in this order. These basic elements shared by all resources come first
 in order to support consistent definitions for schema and UML derived code. --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>符合性 - HL7 FHIR 中国</title>
+    <title>符合性组件 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -63,7 +63,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><img src="conformance.jpg"/><b> 当前位置：</b> 符合性</b></li>          <!-- conformance-module.html / page / -->
+        <li><img src="conformance.jpg"/><b> 当前位置：</b> 符合性组件</b></li>          <!-- conformance-module.html / page / -->
         <div class="breadcrumbRight">
             <ul>
                 <li>
@@ -171,16 +171,16 @@ in order to support consistent definitions for schema and UML derived code. --><
     </ul>
 
 <a name="contents"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.0.2</span> Contents <a href="conformance-module.html#contents" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-    <p>The content of an Implementation Guide is described using the <a href="implementationguide.html">ImplementationGuide</a> resource,
-        while the capability statement is represented by the <a href="capabilitystatement.html">CapabilityStatement</a> resource. These two resources
-        make use of the complete set of conformance resources to fully capture the set of
-        adaptations they represent.  Note that the CapabilityStatement resource is one of the <em>conformance resources</em>,
-		the first just describing the capabilities of a system, while the latter is the set of all conformance resources, including:</p>
+<h3 class="self-link-parent"><span class="sectioncount">5.0.2</span> 内容 <a href="conformance-module.html#contents" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+    <p>
+		实施指南的内容是用<a href="implementationguide.html"> ImplementationGuide 资源</a>来说明的， 而<a href="capabilitystatement.html"> CapabilityStatement 资源</a>则用于表示能力声明。
+        这两种资源利用完整的符合性资源集可以完整的表示它们所采用的标准。
+        请注意，实施指南资源ImplementationGuide只是描述系统的功能，而能力声明资源CapabilityStatement作为<em>符合性资源</em>，是所有符合性资源的集合，它包含了：
+    </p>
 
     <ul>
         <li>
-            <a href="structuredefinition.html">结构定义</a>（StructureDefinition）
+            <a href="structuredefinition.html">结构定义资源（StructureDefinition）</a>
             定义了特定的结构（资源、扩展或数据类型）是如何用于：<ul>
 
                 <li>
@@ -196,19 +196,26 @@ in order to support consistent definitions for schema and UML derived code. --><
                 </li>
             </ul>
         </li>
-        <li>The <a href="messagedefinition.html">MessageDefinition</a>
-            describes messages that can be sent and received, including the driving event, contents to be exchanged and responsibilities on receipt.</li>
-        <li>The <a href="operationdefinition.html">OperationDefinition</a>
-            describes additional operations in addition to <a href="operations.html">those in the base specification</a>.</li>
-        <li>The <a href="searchparameter.html">SearchParameter</a> describes
-            additional search capabilities in addition to those in the base specification </li>
-        <li>The <a href="compartmentdefinition.html">CompartmentDefinition</a>
-            describes a logical grouping for resources, used in access control or search</li>
+        <li> <a href="messagedefinition.html">消息定义资源（MessageDefinition）</a>
+            描述了可以发送和接收的消息，包括驱动事件、要交换的内容和接收时的责任。
+          </li>
+        <li> <a href="operationdefinition.html">操作定义资源（OperationDefinition）</a>
+            描述了除<a href="operations.html">基础规范中规定的操作</a>之外的其他操作。
+            </li>
+        <li>The <a href="searchparameter.html">搜索参数资源（SearchParameter）</a>
+            描述了除<a href="search.html">基础规范中的搜索功能</a>之外的其他搜索功能。
+          </li>
+        <li>The <a href="compartmentdefinition.html">逻辑区块定义资源（CompartmentDefinition）</a>
+            描述了资源的逻辑分组，它用于访问控制或搜索。
+      </li>
     </ul>
 
-	    <p>Conformance resources may be used independently, not just within the context of an ImplementationGuide resource or capability statement. See the section <a href="#uses">Common use cases</a> for examples of such uses.</p>
+	    <p>
+            <em>符合性资源</em>可以独立使用，而不仅仅是用于实施指南资源或能力声明资源的上下文中。
+            有关此类使用的示例，请参见<a href="#uses">常见用例</a>小节。
+</p>
 
-    <p>The conformance resources and their relationships are shown below:</p>
+    <p><em>符合性资源</em>及其相互关系见下图:</p>
     <p><img src="conformance-module-resources.png" alt="Image showing the conformance resources" width="800px" style="float: none"/></p>
     <p>
         虚线框中的资源将在本规范的其它章节介绍：
