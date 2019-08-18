@@ -181,7 +181,7 @@ var zNodes =[
 			},
 			{id:412, name:" 4.12 Resource TerminologyCapabilities - Content",iconSkin:"pIcon01",url:"terminologycapabilities.html", target:"_blank"},
 		]},
-	{ id:5, pId:0, name:" 5 Conformance Module ", open:false, iconSkin:"pIcon01",url:"conformance-module.html", target:"_self",
+	{ id:5, pId:0, name:" 5 Conformance Module ", open:false, iconSkin:"pIcon01",url:"conformance-module.html",fineTitle:"符合性组件", target:"_self",
         children:[
             {id:51, name:" 5.1 Profiling FHIR",iconSkin:"icon01",url:"profiling.html", target:"_blank"},
             {id:52, name:" 5.2 Resource CapabilityStatement - Content",iconSkin:"icon01",url:"capabilitystatement.html", target:"_blank",
@@ -341,7 +341,7 @@ var zNodes =[
             {id:911, name:" 9.11 Resource RiskAssessment - Content",iconSkin:"pIcon01",url:"riskassessment.html", target:"_blank"},
 
 			]},
-	{ id:10, pId:0, name:" 10 Diagnostic Medicine Module", open:false, iconSkin:"pIcon01",url:"diagnostics-module.html", target:"_self",
+	{ id:10, pId:0, name:" 10 Diagnostic Medicine Module", open:false, iconSkin:"pIcon01",url:"diagnostics-module.html",fineTitle:"辅助诊断组件", target:"_self",
         children:[
             {id:101, name:" 10.1 Resource Observation - Content",iconSkin:"icon01",url:"observation.html", target:"_blank",
 				children:[

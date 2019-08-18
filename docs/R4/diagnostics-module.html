@@ -2,7 +2,7 @@
   <!-- These elements SHALL always appear in this order. These basic elements shared by all resources come first
 in order to support consistent definitions for schema and UML derived code. --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>诊断学 - HL7 FHIR 中国</title>
+    <title>辅助诊断组件 - HL7 FHIR 中国</title>
 
 
   
@@ -64,7 +64,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><b><img src="diagnostics.jpg"/> 诊断学</b></li>          <!-- diagnostics-module.html / page / -->
+        <li><b><img src="diagnostics.jpg"/> 辅助诊断组件</b></li>          <!-- diagnostics-module.html / page / -->
         <div class="breadcrumbRight">
             <ul>
                 <li>
@@ -91,107 +91,135 @@ in order to support consistent definitions for schema and UML derived code. --><
 <table class="colsi"><tr><td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/orders/index.cfm" _target="blank">Orders and Observations <img src="external.png" style="text-align: baseline"/></a> &amp; <a href="http://www.hl7.org/Special/committees/clingenomics/index.cfm" _target="blank">Clinical Genomics <img src="external.png" style="text-align: baseline"/></a> </td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
-<h2 class="self-link-parent"><span class="sectioncount">10.0<a name="10.0"> </a></span> Diagnostic Medicine Module <a href="diagnostics-module.html#10.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<h2 class="self-link-parent"><span class="sectioncount">10.0<a name="10.0"> </a></span> 辅助诊断组件 <a href="diagnostics-module.html#10.0" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <a name="intro"></a>
-<h3 class="self-link-parent"><span class="sectioncount">10.0.1</span> Introduction <a href="diagnostics-module.html#intro" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">10.0.1</span> 简介 <a href="diagnostics-module.html#intro" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The Diagnostics Module provides an overview and guide to the FHIR content that addresses ordering and reporting of clinical diagnostics including laboratory testing, imaging and genomics.</p>
+    辅助诊断组件提供了FHIR中涉及临床诊断的医嘱和报告的相关内容与指南，包括实验室检验、影像检查和基因检测。</p>
 
 <a name="index"></a>
-<h3 class="self-link-parent"><span class="sectioncount">10.0.2</span> Index <a href="diagnostics-module.html#index" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-<p>The Diagnostics module covers the following resources:</p>
+<h3 class="self-link-parent"><span class="sectioncount">10.0.2</span> 索引 <a href="diagnostics-module.html#index" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>辅助诊断组件包含了下列资源:</p>
 
 <table width="100%" style="table-layout: fixed">
  <tr>
  <td width="33%">
 <ul>
-<li><a href="observation.html">Observation</a></li>
-<li><a href="diagnosticreport.html">DiagnosticReport</a></li>
-<li><a href="servicerequest.html">ServiceRequest</a></li>
+<li><a href="observation.html">观测<br/>Observation</a></li>
+<li><a href="diagnosticreport.html">诊断报告<br/>DiagnosticReport</a></li>
+<li><a href="servicerequest.html">服务申请<br/>ServiceRequest</a></li>
   </ul>
 </td>
  <td width="33%">
 <ul>
-<li><a href="media.html">Media</a></li>
-<li><a href="imagingstudy.html">ImagingStudy</a></li>
-<li><a href="molecularsequence.html">MolecularSequence</a></li>
+<li><a href="media.html">多媒体<br/>Media</a></li>
+<li><a href="imagingstudy.html">成像研究<br/>ImagingStudy</a></li>
+<li><a href="molecularsequence.html">分子序列<br/>MolecularSequence</a></li>
 </ul>
 </td>
  <td width="33%">
 <ul>
- <li><a href="specimen.html">Specimen</a></li>
- <li><a href="bodystructure.html">BodyStructure</a></li>
+ <li><a href="specimen.html">标本<br/>Specimen</a></li>
+ <li><a href="bodystructure.html">人体结构<br/>BodyStructure</a></li>
  </ul>
 </td>
 </tr>
 </table>
 
-   <p>The diagnostic resources and their relationships are shown below.  The arrows represent the direction of the references between resources (for example, DiagnosticReport references ServiceRequest). See the <a href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as ordering and fulfilling of diagnostics.</p>
-    <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="800px"/>
+   <p>
+       辅助诊断资源及其关系如下所示。箭头表示资源之间引用的方向（例如，诊断报告资源DiagnosticReport引用服务申请资源ServiceRequest）。
+       欲了解活动协作的相关信息，如辅助诊断的申请与完成，请参阅<a href="workflow-module.html">工作流组件</a>。
+   </p>
 
-<blockquote><p> <b>Implementation Note:</b> 
-See the <a href="genomics.html">Genomics Implementation Guidance</a> for additional information about how to use the Diagnostic resources for Clinical Genomic Reporting and Analysis.
+    <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" />
+
+<blockquote><p>
+    <b>实施说明：</b>有关如何使用辅助诊断资源进行临床基因组报告和分析的更多信息，请参阅<a href="genomics.html">基因组学实施指南</a>。
+
 </p></blockquote>
 
     <table class="bare">
-        <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-        <tr bgcolor="#EFEFEF"><td><a href="observation.html">Observation</a></td><td>Vital Signs, Measurement, Results</td><td>Measurements and simple assertions made about a patient, device or other subject.</td></tr>
+        <tr><td><b>名称</b></td><td><b>其它称谓</b></td><td><b>描述</b></td></tr>
+        <tr bgcolor="#EFEFEF"><td><a href="observation.html">Observation</a></td><td>生命体征、测量、结果</td><td>
+            关于患者、设备或其他目标的测量和简洁断言</td></tr>
 
-        <tr bgcolor="#FFFFFF"><td><a href="diagnosticreport.html">DiagnosticReport</a></td><td>Report, Test, Result, Results, Labs</td><td>The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.</td></tr>
+        <tr bgcolor="#FFFFFF"><td><a href="diagnosticreport.html">DiagnosticReport</a></td><td>报告、检测、结果、试验</td>
+            <td>对患者、患者组、设备、位置或从中提取的标本进行的诊断试验的结果和解释。此报告包括了临床场景（如申请单、提供者信息），有些报告将单项指标结果、图像、文本和带编码的解释、以及带格式的诊断报告混合在一起。</td></tr>
 
-        <tr bgcolor="#EFEFEF"><td><a href="servicerequest.html">ServiceRequest</a></td><td>diagnostic request, referral, referral request</td><td>A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.</td></tr>
+        <tr bgcolor="#EFEFEF"><td><a href="servicerequest.html">ServiceRequest</a></td>
+            <td>诊断申请、转诊、转诊申请</td>
+            <td>服务申请的记录，如诊断循症、治疗或要执行的操作。</td></tr>
 
-        <tr bgcolor="#FFFFFF"><td><a href="media.html">Media</a></td><td></td><td>A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.</td></tr>
+        <tr bgcolor="#FFFFFF"><td><a href="media.html">Media</a></td><td></td>
+            <td>在卫生健康领域获取或使用的照片、视频或音频记录。实际内容可以是内置的，也可以由直接引用提供。 </td></tr>
 
-        <tr bgcolor="#EFEFEF"><td><a href="imagingstudy.html">ImagingStudy</a></td><td></td><td>Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.</td></tr>
+        <tr bgcolor="#EFEFEF"><td><a href="imagingstudy.html">ImagingStudy</a></td><td></td>
+            <td>
+                对DICOM成像研究中产生内容的表示。成像研究资源ImagingStudy包括一组序列，其中每个序列又包含一组在通用场景中获取或生成的实例（SOP实例：图像或其他数据），每个实例都是成对出现的服务与对象。一个序列只有一种形式（如X光、CT、MR、超声波），但一个ImagingStudy可能有多个不同的形式的序列。
+               </td></tr>
 
-        <tr bgcolor="#FFFFFF"><td><a href="molecularsequence.html">MolecularSequence</a></td><td></td><td>Raw data describing a biological sequence.</td></tr>
+        <tr bgcolor="#FFFFFF"><td><a href="molecularsequence.html">MolecularSequence</a></td><td></td>
+            <td>描述生物序列的原始数据。</td></tr>
 
-        <tr bgcolor="#EFEFEF"><td><a href="specimen.html">Specimen</a></td><td></td><td>A sample to be used for analysis.</td></tr>
+        <tr bgcolor="#EFEFEF"><td><a href="specimen.html">Specimen</a></td><td></td>
+            <td>用于分析的样本。</td></tr>
 
-        <tr bgcolor="#FFFFFF"><td><a href="bodystructure.html">BodyStructure</a></td><td>anatomical location</td><td>Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.</td></tr>
+        <tr bgcolor="#FFFFFF"><td><a href="bodystructure.html">BodyStructure</a></td><td>解剖部位</td>
+            <td>记录有关解剖结构的详细信息。没有编码概念可以为用例提供所需的必要细节时，可以使用此资源。</td></tr>
 
     </table>
 
 <a name="secpriv"></a>
-<h3 class="self-link-parent"><span class="sectioncount">10.0.3</span> Security and Privacy <a href="diagnostics-module.html#secpriv" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">10.0.3</span> 安全与隐私 <a href="diagnostics-module.html#secpriv" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The diagnostic resources often represent patient-specific data, and as such are susceptible to data breaching.  Necessary privacy and security provisions must be in place when searching and fetching this information.  For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+    辅助诊断资源通常代表特定于患者的数据，因此容易受到数据破坏的影响。在搜索和获取此信息时，必须制定必要的隐私和安全规定。
+    有关更一般的注意事项，请参阅<a href="secpriv-module.html">安全与隐私组件</a>。
+
 </p>
 
 <a name="uses"></a>
-<h3 class="self-link-parent"><span class="sectioncount">10.0.4</span> Common Use Cases <a href="diagnostics-module.html#uses" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">10.0.4</span> 常见用例 <a href="diagnostics-module.html#uses" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-Diagnostic resources are commonly used to plan, recommend, order and report clinical diagnostics:
+
+    辅助诊断资源通常用于计划、推荐、下达和报告临床诊断：
 </p>
 <ul>
-<li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a></li>
-<li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
-<li>Ordering a Laboratory Test such as a <a href="servicerequest-example-lipid.html">lipid panel</a></li>
-<li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
-<li>Ordering an imaging study such as a <a href="servicerequest-example-di.html">CT study</a></li>
-<li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
-<li>Ordering a genetic test such as a <a href="servicerequest-genetics-example-1.html">gene mutation analysis </a></li>
-<li>Reporting a genetic test such as <a href="diagnosticreport-hla-genetics-results-example.html">HLA genotyping</a></li>
+<li>
+    计划一个诊断测试，见<a href="careplan-example-f203-sepsis.html">照护计划示例</a></li>
+<li>
+    诊断意见，如通过临床决策支持工具给出建议的诊断。有关更多信息，请参阅<a href="clinicalreasoning-module.html">临床推理组件</a>。
+   </li>
+<li>
+    下达检验申请，如<a href="servicerequest-example-lipid.html">血脂全项检测</a></li>
+<li>报告实验室检验结果，如 <a href="diagnosticreport-example-lipids.html">血脂全项报告</a></li>
+<li>下达影像检查，如<a href="servicerequest-example-di.html">CT 检查</a></li>
+<li>报告影像检查结果，如 <a href="imagingstudy-example.html">CT 报告</a></li>
+<li>下达基因检测申请，如 <a href="servicerequest-genetics-example-1.html">基因突变分析 </a></li>
+<li>报告基因检测结果，如 <a href="diagnosticreport-hla-genetics-results-example.html">HLA（人类白细胞抗原）基因分析结果</a></li>
 </ul>
-<p>
-There are many ways to use these resources independently as well.  The Observation resource, in particular, is central to capturing many measurements and events in healthcare and is often used outside the context of diagnostic orders and reports.
+<p>有很多方法可以独立地使用这些资源。特别是观测资源，在卫生健康领域中，许多测量和事件都是围绕着它来进行的，观测资源还常用于辅助诊断医嘱和报告之外的场境。
+
 </p>
 <ul>
-<li>recording vital signs such as <a href="observation-example-f202-temperature.html">temperature</a></li>
-<li>recording other observations of a patient's social history such as tobacco use</li>
-<li>recording other characteristics of a patient such as pregnancy status (note: The Condition resource may be used to represent these as well)</li>
-<li>recording clinical assessment tool scores such as an <a href="observation-example-5minute-apgar-score.html">Apgar score</a>.</li>
-<li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a href="bodystructure-example-tumor.html">body site</a></li>
+<li>记录生命体征，如 <a href="observation-example-f202-temperature.html">体温</a></li>
+<li>记录患者社会史的其他观测结果，如吸烟史</li>
+<li>
+    记录患者的其他特征，如妊娠状态（注：也可用病症情况资源Condition来表示）
+   </li>
+<li>记录临床评估工具评分，如。<a href="observation-example-5minute-apgar-score.html">Apgar 评分</a>.</li>
+<li>识别和描述 <a href="specimen-example-serum.html">标本</a> 或 <a href="bodystructure-example-tumor.html">身体部位</a></li>
 </ul>
 
 <a name="related"></a>
-<h3 class="self-link-parent"><span class="sectioncount">10.0.5</span> Related Resources and Modules <a href="diagnostics-module.html#related" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-<p> The resources that represent the basic information about a patient and a clinical encounter can be found in the <a href="administration-module.html">Administration Module</a>. Other resources that represent core clinical information generated by healthcare providers during the course of a patient encounter are detailed in the <a href="clinicalsummary-module.html">Clinical Summary Module</a> and the <a href="medications-module.html">Medications Module</a>.</p>
+<h3 class="self-link-parent"><span class="sectioncount">10.0.5</span> 相关的资源与组件 <a href="diagnostics-module.html#related" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+    在<a href="administration-module.html">管理组件</a>中可以找到代表患者基本信息和临床就诊信息的资源。
+    其他代表卫生健康提供者在患者就诊过程中产生的核心临床信息的资源在 <a href="clinicalsummary-module.html">临床摘要组件</a>和<a href="medications-module.html">药物组件</a>中详细介绍。
+    </p>
 
 <a name="roadmap"></a>
-<h3 class="self-link-parent"><span class="sectioncount">10.0.6</span> Developmental Roadmap <a href="diagnostics-module.html#roadmap" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">10.0.6</span> 开发路线图 <a href="diagnostics-module.html#roadmap" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 
 
