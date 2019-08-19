@@ -39,8 +39,8 @@ var zNodes =[
 			{id:213, name:" 2.13 FHIR Overview",iconSkin:"pIcon01",url:"overview.html",target:"_blank"},
 			{id:214, name:" 2.14 FHIR Overview - Developers",iconSkin:"pIcon01",url:"overview-dev.html",target:"_blank"},
 			{id:215, name:" 2.15 FHIR Overview - Clinicians",iconSkin:"pIcon01",url:"overview-clinical.html",target:"_blank"},
-			{id:216, name:" 2.16 FHIR Overview - Architects",fineTitle:"FHIR概述-写给架构师 (2.16.5 FHIR框架结构子类更新)",iconSkin:"pIcon01",url:"overview-arch.html",target:"_blank"},
-			{id:217, name:" 2.17 Introducing HL7 FHIR ",thickTitle:"HL7 FHIR 简介 (补充：在2.17.4里加入已发布正式版信息)",iconSkin:"pIcon01",url:"summary.html",target:"_blank"},
+            { id: 216, name: " 2.16 FHIR Overview - Architects", fineTitle: "FHIR概述-写给架构师", subtitle: "(2.16.5 FHIR框架结构子类更新)",iconSkin:"pIcon01",url:"overview-arch.html",target:"_blank"},
+            { id: 217, name: " 2.17 Introducing HL7 FHIR ", thickTitle: "HL7 FHIR 简介", subtitle: "(补充：在2.17.4里加入已发布正式版信息)",iconSkin:"pIcon01",url:"summary.html",target:"_blank"},
 			{id:218, name:" 2.18 Glossary",iconSkin:"pIcon01",url:"help.html",target:"_blank"},
 			{id:219, name:" 2.19 Language Glossary",iconSkin:"pIcon01",url:"glossary.html",target:"_blank"},
 			{id:220, name:" 2.20 License and Legal Terms",iconSkin:"pIcon01",url:"license.html",target:"_blank"},
@@ -55,14 +55,15 @@ var zNodes =[
 				children:[
 					{id:2261, name:"2.26.6 Resource Resource - Operations",iconSkin:"pIcon01",url:"resource-operations.html",target:"_blank",
 						children:[
-						{id:22611, name:" 2.26.6.1 Operation $validate on Resource",thickTitle:"资源的验证操作(官方定义URL错误)",iconSkin:"icon01",url:"resource-operation-validate.html",target:"_blank"},
-						{id:22612, name:" 2.26.6.2 Operation $meta on Resource",fineTitle:"获取资源元数据的操作(多了一个“）”；other meta operations是指什么)",iconSkin:"pIcon01",url:"resource-operation-meta.html",target:"_blank"},
+                            {
+                                id: 22611, name: " 2.26.6.1 Operation $validate on Resource", thickTitle: "资源的验证操作",subtitle: "(官方定义URL错误)",iconSkin:"icon01",url:"resource-operation-validate.html",target:"_blank"},
+                            { id: 22612, name: " 2.26.6.2 Operation $meta on Resource", fineTitle: "获取资源元数据的操作", subtitle: "(多了一个“）”；other meta operations是指什么)",iconSkin:"pIcon01",url:"resource-operation-meta.html",target:"_blank"},
 						{id:22613, name:" 2.26.6.3 Operation $meta-add on Resource",fineTitle:"添加资源元数据的操作",iconSkin:"pIcon01",url:"resource-operation-meta-add.html",target:"_blank"},
 						{id:22614, name:" 2.26.6.4 Operation $meta-delete on Resource",fineTitle:"删除资源元数据的操作",iconSkin:"pIcon01",url:"resource-operation-meta-delete.html",target:"_blank"},
 						
-						{id:22615, name:" 2.26.6.5 Operation $convert on Resource",fineTitle:"资源的格式转换操作（e.g.前多了“（”）",iconSkin:"pIcon01",url:"resource-operation-convert.html",target:"_blank"},
-						{id:22616, name:" 2.26.6.6 Operation $graphql on Resource",thickTitle:"资源的GraphQL操作（since资源应该是single资源）",iconSkin:"pIcon01",url:"resource-operation-graphql.html",target:"_blank"},
-						{id:22614, name:" 2.26.6.7 Operation $graph on Resource",thickTitle:"资源的图谱操作(packaage笔误)",iconSkin:"pIcon01",url:"resource-operation-graph.html",target:"_blank"},
+                            { id: 22615, name: " 2.26.6.5 Operation $convert on Resource", fineTitle: "资源的格式转换操作", subtitle: "（e.g.前多了“（”）",iconSkin:"pIcon01",url:"resource-operation-convert.html",target:"_blank"},
+                            { id: 22616, name: " 2.26.6.6 Operation $graphql on Resource", thickTitle: "资源的GraphQL操作", subtitle: "（since资源应该是single资源）",iconSkin:"pIcon01",url:"resource-operation-graphql.html",target:"_blank"},
+                            { id: 22614, name: " 2.26.6.7 Operation $graph on Resource", thickTitle: "资源的图谱操作",subtitle: "(packaage笔误)",iconSkin:"pIcon01",url:"resource-operation-graph.html",target:"_blank"},
 						]
 					},
 				]
@@ -144,20 +145,20 @@ var zNodes =[
 							 {id:48211, name:" 4.8.21.1 Operation $lookup on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-lookup.html", target:"_blank"},
 							 {id:48212, name:" 4.8.21.2 Operation $validate-code on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-validate-code.html", target:"_blank"},
 							 {id:48213, name:" 4.8.21.3 Operation $subsumes on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-subsumes.html", target:"_blank"},
-							 {id:48214, name:" 4.8.21.4 Operation $find-matches on CodeSystem",iconSkin:"pIcon01",url:"codesystem-operation-find-matches.html", target:"_blank"},
+							 {id:48214, name:" 4.8.21.4 Operation $find-matches on CodeSystem",iconSkin:"pIcon01",url:"codesystem-operation-find-matches.html", target:"_blank"}
 						]
-					 },
-					 
+					 }	 
 				]
 			},
-			{id:49, name:" 4.9 Resource ValueSet - Content",fineTitle:"值集资源简介 (4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank",
+            {
+                id: 49, name: " 4.9 Resource ValueSet - Content", fineTitle: "值集资源简介", subtitle: "(4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank",
 				children:[
 					{id:491, name:" 4.9.15 Resource ValueSet - Operations",iconSkin:"pIcon01",url:"valueset-operations.html", target:"_blank",
 						children:[
 							{id:4911, name:" 4.9.15.1 Operation $expand on ValueSet",iconSkin:"icon01",url:"valueset-operation-expand.html", target:"_blank"},
 							{id:4912, name:" 4.9.15.2 Operation $validate-code on ValueSet",iconSkin:"icon01",url:"valueset-operation-validate-code.html", target:"_blank"},
 						]
-					},
+					}
 				]
 			},
             {id:410, name:" 4.10 Resource ConceptMap - Content",iconSkin:"pIcon01",url:"conceptmap.html", target:"_blank",
@@ -165,9 +166,9 @@ var zNodes =[
 					{id:411, name:" 4.10.15 Resource ConceptMap - Operations",iconSkin:"pIcon01",url:"conceptmap-operations.html", target:"_blank",
 						children:[
 							 {id:4111, name:" 4.10.15.1 Operation $translate on ConceptMap",iconSkin:"pIcon01",url:"conceptmap-operation-translate.html", target:"_blank"},
-							 {id:4112, name:" 4.10.15.2 Operation $closure on ConceptMap",iconSkin:"pIcon01",url:"conceptmap-operation-closure.html", target:"_blank"},
+							 {id:4112, name:" 4.10.15.2 Operation $closure on ConceptMap",iconSkin:"pIcon01",url:"conceptmap-operation-closure.html", target:"_blank"}
 						]
-					},
+					}
 				]
 			},
             {id:411, name:" 4.11 Resource NamingSystem - Content",iconSkin:"pIcon01",url:"namingsystem.html", target:"_blank",
@@ -309,9 +310,14 @@ var zNodes =[
 				children:[
 					 {id:8251, name:" 8.25.9 Resource ChargeItemDefinition - Operations",iconSkin:"pIcon01",url:"chargeitemdefinition-operations.html", target:"_blank",
 						children:[
-							 {id:82511, name:" 8.25.9.1 Operation $apply on ChargeItemDefinition",fineTitle:"（错误的介绍了应用ActivityDefinition）",iconSkin:"pIcon01",url:"chargeitemdefinition-operation-apply.html", target:"_blank"},
+                            {
+                                id: 82511, name: " 8.25.9.1 Operation $apply on ChargeItemDefinition",
+                                fineTitle: "操作：应用收费项目定义",
+                                subtitle: "（内容张冠李戴到ActivityDefinition的操作介绍）",
+                                iconSkin: "pIcon01", url: "chargeitemdefinition-operation-apply.html", target: "_blank"
+                            }
 						]
-					 },
+					 }
 				]
 			
 			},
@@ -341,7 +347,8 @@ var zNodes =[
             {id:911, name:" 9.11 Resource RiskAssessment - Content",iconSkin:"pIcon01",url:"riskassessment.html", target:"_blank"},
 
 			]},
-	{ id:10, pId:0, name:" 10 Diagnostic Medicine Module", open:false, iconSkin:"pIcon01",url:"diagnostics-module.html",fineTitle:"辅助诊断组件", target:"_self",
+    {
+        id: 10, pId: 0, name: " 10 Diagnostic Medicine Module", open: false, iconSkin: "pIcon01", url: "diagnostics-module.html", fineTitle: "辅助诊断组件", subtitle: "（资源关系图中的Sequence应为MolecularSequence）", target:"_self",
         children:[
             {id:101, name:" 10.1 Resource Observation - Content",iconSkin:"icon01",url:"observation.html", target:"_blank",
 				children:[
@@ -354,7 +361,8 @@ var zNodes =[
 				]
 			},
             {id:102, name:" 10.2 Resource Media - Content",iconSkin:"pIcon01",url:"media.html", target:"_blank"},
-            {id:103, name:" 10.3 Resource DiagnosticReport - Content",fineTitle:"诊断报告资源简介(删除10.3.5.4节的ImageObjectStudy这是STU2的内容)",iconSkin:"pIcon01",url:"diagnosticreport.html", target:"_blank"},
+            {
+                id: 103, name: " 10.3 Resource DiagnosticReport - Content", fineTitle: "诊断报告资源简介",subtitle: "(删除10.3.5.4节的ImageObjectStudy这是STU2的内容)",iconSkin:"pIcon01",url:"diagnosticreport.html", target:"_blank"},
             {id:104, name:" 10.4 Resource ImagingStudy - Content",iconSkin:"pIcon01",url:"imagingstudy.html", target:"_blank"},
 			
             {id:106, name:" 10.6 Resource MolecularSequence - Content",iconSkin:"pIcon01",url:"molecularsequence.html", target:"_blank"},
