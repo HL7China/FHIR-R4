@@ -64,7 +64,7 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><img src="foundation.png"/><b>当前位置：</b><a href="foundation-module.html"> 基础板块</a></li>
+        <li><img src="foundation.png"/><b>当前位置：</b><a href="foundation-module.html"> 基础组件</a></li>
         <li>FHIR概述--写给架构师</li>        <!-- overview-arch.html / page / -->
         <div class="breadcrumbRight">
             <ul>
@@ -97,163 +97,110 @@
 
 
 <p>
-At its core, FHIR contains two primary components:FHIR核心包括两部分
+FHIR包括两部分核心内容：
 </p>
 <ol>
- <li>Resources - a collection of information models that define the data elements, constraints and relationships for the “business objects” most relevant to healthcare. From a model-driven architecture perspective, FHIR resources are notionally equivalent to a physical model implemented in XML or JSON. See <a href="resource.html">the formal definition</a>.Resources--定义医疗行业相关的“业务对象”的数据元素、约束和关系的信息模型集合。从模型驱动的体系结构的角度来看，fhir资源在概念上等同于XML或JSON中实现的物理模型。<a href="resource.html">参见定义</a>。</li>
-    <li>APIs – a collection of well-defined interfaces for interoperating between two applications. Although not required, the FHIR specification targets RESTful interfaces for API implementation. See <a href="http.html">details on FHIR RESTful interfaces</a>.APIS--定义良好的接口集合，用于两个应用程序之间的互操作。尽管不是必需的，但是fhir规范针对的是用于API实现的RESTful接口。<a href="http.html">请参阅有关fhir restful接口的详细信息。</a>></li>
+ <li>
+
+资源（Resources）：与卫生健康相关的信息模型集合，它为“业务对象”定义了数据元素、约束和关系。
+从模型驱动架构的角度来看，FHIR资源在概念上等同于XML或JSON中实现的物理模型。请参见<a href="resource.html">资源定义</a>。
+</li>
+    <li>
+接口（API）：用于两个应用程序之间互操作的标准预定义接口集合。虽然没强制要求使用RESTful API, 但FHIR规范中的API是这样实现接口的。
+详情请参阅<a href="http.html"> FHIR RESTful接口</a>。</li>
 </ol>
 <p>
-In the healthcare domain, the set of “business objects” is not universally defined, but there is a notional and ongoing evolutionary,
-consensus-based process for standardizing on a core set of common business objects including things like “a patient”, “a procedure”,
-“an observation”, “an order”, etc. (see <a href="resourcelist.html">a list of defined resources</a>). The FHIR specification provides
-a framework for defining these healthcare business objects (“resources”), for relating them together in a compositional manner, for
-implementing them in a computable form, and for sharing them across well-defined interfaces. The framework contains a verifiable and
-testable syntax, a set of rules and constraints, methods and interface signatures for “FHIR-aware” APIs, and specifications for the
-implementation of a server capable of requesting and delivering FHIR business objects.
-    在医疗领域，“业务对象”的集合没有一种统一定义，但有一个概念性的和持续改进的基于共识的标准化核心业务对象集的定义，
-    包括“患者”、“过程”，
-    “观测”、“顺序”等（请参见<a href="resourcelist.html">已经定义的resources列表</a>）。fhir规范
-    定义这些医疗保健业务对象（“资源”）的框架，用组合的方式将它们关联在一起，
-    以可计算的形式实现它们，并在定义良好的接口之间共享它们。框架包含可验证的和
-    可测试语法、“fhir-aware”API的一组规则和约束、方法和接口签名，以及
-    能够请求和传递fhir业务对象的服务器的实现。
+
+    在卫生健康领域，“业务对象”的集合没有一种统一定义。FHIR理论的形成是基于共识对包括“患者”、“手术”、“观测”、“医嘱”等在内的一些核心通用业务对象标准化持续改进的过程。
+    请参见（<a href="resourcelist.html">已经定义的资源列表</a>）。
+FHIR规范提供了一个的框架用来:<ol>
+    <li>
+        定义卫生健康领域的业务对象（“资源”）；</li>
+    <li>
+    以组合的方式关联资源；
+    </li> <li>
+    以可计算的形式实现资源
+</li><li>
+    在标准预定义接口之间共享资源。
+</li></ol>
+    此框架为“FHIR式”API提供了一组规则和约束、方法和接口签名，并且还内置了验证和测试语法，以及服务器请求和传输FHIR业务对象的能力说明。
 </p>
 <p>
-From an operational perspective, HL7’s internal standards development and governance processes determine what constitutes a
-resource and which resources exist. In addition, the FHIR specification also provides a mechanism for contextualizing resources for
-specific needs within specific bounds (see <a href="profiling.html">Profiling Resources</a>).
 
-    从操作的角度来看，HL7的内部标准开发和治理过程决定了什么构成了
-    资源和哪些资源应该保留。此外，fhir规范提供了一种为特定需求定义特定resources的机制（请参阅<a href="profiling.html">资源定义一览</a>）。
+    从运营角度来看，资源的构成与去留是由HL7的内部标准研制和治理流程决定的。
+    但FHIR规范还提供了一种机制，用于在特定范围内针对特定需求对资源进行场景化配置，（请参阅<a href="profiling.html">资源的配置</a>）。
 </p>
 <a name="frameworks"></a>
-<h3 class="self-link-parent"><span class="sectioncount">2.16.1</span> Architecture Frameworks and FHIR Alignment FHIR适应了架构思想<a href="overview-arch.html#frameworks" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.16.1</span> 架构框架与FHIR对标<a href="overview-arch.html#frameworks" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-FHIR resources fit firmly within the information architecture domain and the FHIR APIs for data exchange
-address aspects of application architecture.
-    FHIR resources在信息体系结构领域和用于数据交换的fhir API中比较好地适应了应用程序架构体系的某些方面。
-</p>
-<table class="none">
-<tr>
-<td>
-<p>
-From a <a href="http://www.opengroup.org/subjectareas/enterprise/togaf">TOGAF perspective <img src="external.png" style="text-align: baseline"/></a>, FHIR addresses aspects of architecture
-views related to information model definition and data exchange, which are described in the Information Systems Architectures portion 
-of the TOGAF Architecture Development Method.
 
-    从<a href=“http://www.opengroup.org/subjectareas/enterprise/togaf”>TOGAF 架构<img src="external.png" style="text-align: baseline"/></a>，FHIR符合
-    “信息系统体系结构”部分中描述的
-    TOGAF架构开发方法的信息模型中定义和数据交换相关的视图
+    FHIR资源完全适用于信息架构域，而用于数据交换的FHIR API则与应用程序架构的各方面相对应。
 </p>
-</td>
-<td>
-<p>
-<img src="togaf.png" width="235" height="300"/>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<p>
-With regards to the <a href="https://www.zachman.com">Zachman Framework <img src="external.png" style="text-align: baseline"/></a>, FHIR fits
-within the What and the How dimensions of the Architect, Engineer and Technician Perspectives
+    <p>
 
-    从<a href="https://www.zachman.com">Zachman 架构  <img src="external.png" style="text-align: baseline"/></a>的角度, FHIR的设计符合Architect，Engineer，Technician中的what,how维度
+        从TOGAF的角度来看，fhir处理与信息模型定义和数据交换相关的体系结构视图的各个方面，这些方面在TOGAF体系结构开发方法的信息系统体系结构部分中进行了描述。
+        从<a href=“http://www.opengroup.org/subjectareas/enterprise/togaf”>TOGAF（开放组体系结构框架）的角度看<img src="external.png" style="text-align: baseline"/>
+    </a>，FHIR的架构视图与TOGAF架构开发方法中的信息模型定义和数据交换一致， 这在其“信息系统架构”部分有所描述，见图一。
+
+    </p>
+    <img src="togaf.png" />
+    <p>
+
+        从<a href="https://www.zachman.com">Zachman框架  <img src="external.png" style="text-align: baseline"/>
+    </a>的角度看, FHIR的设计与其架构视角、工程视角和技术视角中的数据与功能维度相对应，见图二。
+
+    </p>
+    <img src="zachman.png" />
+    <p>
+
+        从 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3">HL7服务互操作框架(SAIF) <img src="external.png" style="text-align: baseline"/>
+    </a>的角度 ，FHIR资源和RESTFUL API分别代表的平台规划层中信息模型的“物理模型”和行为模型的“接口实现”。
+
+    </p>
+    <img src="saif.png"/>
 
 
-</p>
-</td>
-<td>
-<p>
-<img src="zachman.png" width="392" height="376"/>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<p>
-When considering the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3">HL7 Services Aware Interoperability Framework (SAIF) <img src="external.png" style="text-align: baseline"/></a>,
-FHIR resources and RESTful APIs represent the “Physical Models” and “Interface Implementations” within the Platform Specific Specifications layer of the
-Information Models and the Behavioral Models Viewpoints, respectively.
-    从 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3">HL7服务框架</a>的角度 ，FHIR resources和RESTFUL API分别代表的信息模型中的物理模型和行为模型中的接口
-    实现
-</p>
-</td>
-<td>
-<p>
-<img src="saif.png" width="461" height="202"/>
-</p>
-</td>
-</tr>
-</table>
+
+
+    <a name="principles"></a>
 <a name="principles"></a>
-<h3 class="self-link-parent"><span class="sectioncount">2.16.2</span> FHIR and Architectural Principles  FHIR和架构原则<a href="overview-arch.html#principles" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.16.2</span> FHIR和架构原则<a href="overview-arch.html#principles" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-FHIR’s primary purpose is to address interoperability with well-structured, expressive data models and simple, efficient data exchange mechanisms.
-In addition, FHIR aligns to the following architectural principles:
-    fhir的主要目的是解决与结构良好、具有表现力的数据模型和简单、高效的数据交换机制之间的互操作性。
-    此外，fhir符合以下架构原则：
+
+FHIR的主要目的是使用结构化、可视化的数据模型和简单高效的数据交换机制来解决互操作性问题。
+    此外，FHIR符合以下架构原则：
 </p>
 <ol>
 <li>
-Reuse and Composability – FHIR resources are designed with the 80/20 rule in mind – focus
-on the 20% of requirements that satisfy 80% of the interoperability needs. To this end,
-resources are designed to meet the general or common data requirements of many use cases
-to avoid the proliferation of numerous, overlapping and redundant resources. Extension and customizations exist
-(see <a href="profiling.html">FHIR Profiles</a>) to allow common, somewhat generic resources to be adopted
-and adapted as needed for specific use case requirements. In addition, FHIR resources are highly composable
-in that resources commonly refer to other resources. This further promotes reuse and allows for complex structures
-to be built from more atomic resources.
-
-    重用和可组合性——fhir资源的设计遵循了二八定律——20%重要的部分满足其他80%的互操作需求。
-    为此，资源被设计为满足许多用例的一般或通用数据需求，以避免大量、重叠和冗余资源的扩散。存在扩展和定制（参见<a href="profiling.html">fhir概要文件</a>），以允许根据特定用例需求采用和调整通用的资源。
-    此外，fhir资源具有很高的可组合性，通常指的是其他资源。这进一步促进了重用，并允许从更多的原子资源构建复杂的结构。
+    重用和可组合性：FHIR资源的设计遵循了二八定律——聚集20%重要的部分满足其他80%的互操作需求。
+    为此，资源被设计为满足多数用例的通用或常用数据需求，以避免大量重叠和冗余资源。
+    提供扩展和定制（参见<a href="profiling.html">配置FHIR</a>），以允许根据特定用例需求采用和调整通用的资源。
+    此外，FHIR资源是高度可组合的，因为资源经常引用其他资源。这进一步促进了重用，并允许从更多的原子资源构建复杂的结构。
 </li>
 <li>
-Scalability – Aligning FHIR APIs to the REST architectural style ensure that all transactions are stateless which
-reduces memory usage, eliminates the needs for “sticky” sessions within a server farm and therefore supports horizontal scalability.
-
-    可伸缩性——将fhir API与REST体系结构风格相协调，确保所有事务都是无状态的
-    减少内存使用，消除了服务器集群中同步会话的需要，因此支持水平扩展。
+    可伸缩性：FHIR API使用REST架构风格来确保所有事务都是无状态的，这就减少内存使用，服务器集群不再需要sessions会话，因此支持水平扩展。
 </li>
 <li>
-Performance – FHIR resources are lean and suitable for exchange across the network. Highly optimized formats are available, which has the potential to
-    improve performance in complex transactions across multiple systems connected via a shared and finite network, though most implementers find the standard
-    JSON / XML formats adequate.
-    性能-FHIR resource比较适合在网络上进行交换。高度优化的可用格式，这为
-    提高通过共享和有限网络连接的多个系统之间复杂事务的性能提供了前提，大多数实现人员发现
-    JSON/XML格式标准足够满足数据交换的需求。
+    性能：FHIR资源体积小、适合在网络上进行交换。
+    通过共享和限制网络相连的多个系统，可以利用高度优化的数据格式来提高跨系统的复杂事务的性能，尽管大多数实施者认为使用标准的JSON/XML格式就可以办到。
+    高度优化的可用格式，这为提高通过共享和有限网络连接的多个系统之间复杂事务的性能提供了前提，大多数实现人员发现
+
 </li>
 <li>
-Usability – FHIR resources are understood by technical experts and non-technical people alike. Even if the details of
-XML or JSON syntax are not understood, non-technical people can view these in any browser or text reader and understand the contents within them.
-
-    可用性——技术专家和非技术人员都能理解FHIR resource。即使对
-    XML或JSON语法的细节不太理解，他们可以在任何浏览器或文本阅读器中查看这些语法，并理解其中的内容。
+    可用性：技术专家和非技术人员都能理解FHIR资源。非技术人员即使对XML或JSON语法的细节不太理解，他们仍可以在任何浏览器或文本阅读器中查看并理解其中的内容。
 </li>
 <li>
-Data Fidelity – FHIR is strongly typed and has mechanisms built in for clinical terminology linkage and validation. In addition,
-XML and JSON documents can be validated syntactically as well as against a defined set of business rules. This promotes high data
-fidelity and goes a long way towards using FHIR to achieve semantic interoperability.
 
-    数据保真度——fhir是强类型的，具有内置的临床术语链接和验证机制。此外，
-    XML和JSON文档可以在语法上以及根据一组定义的业务规则进行验证。这促进了高数据
-    准确性，但是使用fhir来实现语义互操作性还有很长距离。
+    数据准确性：FHIR是强类型的，具有内置的临床术语链接和验证机制。此外，
+    XML和JSON文档可以在语法上预定义的业务规则来进行验证。这促进了数据的高度准确性，但是使用FHIR来实现语义级互操作性还有很长的路要走。
 </li>
 <li>
-Implementability – One of the driving forces for FHIR is the need to create a standard with high adoption across disparate developer communities.
-FHIR is easily understood and readily implemented using industry standards and common mark-up and data exchange technologies.
 
-    可实现性——FHIR的动力之一是在不同的开发人员社区中创建一个高度可用的标准。
-    使用行业标准、通用标记和数据交换技术，很容易理解和实现FHIR。
+    可实现性：FHIR的驱动力之一是需要在不同的开发人员社区中创建一个高度统一的标准。使用行业标准、通用标记和数据交换技术很容易理解和实现FHIR。
 </li>
 </ol>
 <p>
-There are additional architecture principles related to consistency, granularity, referential integrity, and others that are not as
-well established or proven. See the section below on Outstanding Issues for details.
-    还有一些与一致性、粒度、引用完整性相关的附加体系结构原则，以及其他与
-    成熟的或被证实的。有关详细信息，请参阅下面有关未解决问题的部分。
+    还有一些与一致性、粒度、引用完整性以及其他尚未建立或验证的架构原则可请参阅下面“已知问题”小节。
 </p>
 <a name="decomposition"></a>
 <h3 class="self-link-parent"><span class="sectioncount">2.16.3</span> FHIR 结构分解
@@ -271,28 +218,28 @@ well established or proven. See the section below on Outstanding Issues for deta
     </p>
 </blockquote>
 <p>
-如下图所示，可以简单地将FHIR规范视为下列组件：
+如图四所示，可以简单地将FHIR规范视为下列构件：
 </p>
 <ul>
 <li>
     信息模型——此组件与创建FHIR资源相关
 </li>
 <li>
-    约束——此FHIR组件处理约束和符合性问题
+    约束——此FHIR构件处理约束和符合性问题
 </li>
 <li>
-    术语——此FHIR组件与临床术语和本体相关
+    术语——此FHIR构件与临床术语和本体相关
 </li>
 <li>
    
-    使用——此FHIR组件负责在运行时中使用FHIR的能力
+    使用——此FHIR构件负责在运行时中使用FHIR的能力
 </li>
 </ul>
 <p>
-<img src="layout.png" width="600" style="float: none" height="460"/>
+<img src="layout.png" style="float: none" >
 </p>
 <p>
-各组件的描述：
+上述各构件的描述：
 </p>
 <ul>
   <li>FHIR信息模型
@@ -322,60 +269,55 @@ well established or proven. See the section below on Outstanding Issues for deta
 </ul>
 
 <a name="creating"></a>
-<h3 class="self-link-parent"><span class="sectioncount">2.16.4</span> Creating Resources – Architectural Considerations 创建资源--架构考虑<a href="overview-arch.html#creating" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.16.4</span> 创建资源--架构上的考虑<a href="overview-arch.html#creating" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-The following list provides general guidelines that apply when FHIR resources are defined. Most of these items are not enforced programmatically
-requiring human due diligence and governance to ensure adherence.
-    以下列表提供了定义fhir Resources时适用的一般准则,这些项目中的大多数不是以编程方式强制执行的
-    需要人们遵守以下规则达到规范的目的。
+
+    以下列表提供了定义FHIR资源时适用的一般准则,它们大多数不是以编程方式强制执行的，需要人们遵守以下规则达到规范的目的。
 </p>
 <ul>
-<li>Resources should have a clear boundary; one that matches one or more logical transaction scopes
-    Resources应该有一个清晰的边界；与一个或多个逻辑事务范围相匹配的边界</li>
-<li>Resources should differ from each other in meaning, not just in usage (e.g., each different way to use a lab report should not result in a different resource)
+<li>
+    资源应该有一个清晰的边界：与一个或多个逻辑事务范围相匹配的边界</li>
+<li>
+    不同的资源的含义应不同，而不仅仅是在使用上不同（例如，使用实验室报告的每种不同方法不应该产生不同的资源）
+</li>
+<li>资源需要具有一个自然本体
+</li>
+<li>
+    大多数资源应该很常见，并用于许多不同的业务事务中
+</li>
+<li>
 
-    Resources应该在含义上彼此不同，而不仅仅是在使用上（例如，使用实验室报告的每种不同方法不应该导致不同的资源）
+    资源不应该过于具体或详细，否则将缩小其支持业务交易的范围
 </li>
-<li>Resources need to have a natural identity
-
-
-    Resources需要具有自然特性
+<li>
+    资源应该是互斥的，这是一个非常重要的考虑因素，有助于减少冗余和避免歧义
 </li>
-<li>Most resources should be very common and used in many different business transactions
-    大多数resources应该非常常见，并在许多不同的业务事务中使用
+<li>
+    资源应该使用其他资源，但它们应该不仅仅是其他资源的组成部分；每个资源都应该引入新的内容
 </li>
-<li>Resources should not be specific or detailed enough to preclude support for a wide range of business transactions
-
-    Resources太足够具体或详细，将会缺失对广泛业务交易的支持
+<li>
+    资源应该基于共性及其所链接的内容，织成一个逻辑框架（见下面的资源框架）。
 </li>
-<li>Resources should be mutually exclusive [this is a very important consideration that helps to reduce redundancy and ambiguity]
-    Resources应该相互排斥[这是一个非常重要的考虑因素，有助于减少冗余和模糊性]
+<li>
+    资源应该要足够大才能提供有意义的上下文，仅包含少数属性的资源就可能太小以至于无法提供有意义的业务价值。
 </li>
-<li>Resources should use other resources, but they should be more than just compositions of other resources; each resource should introduce novel content
-    Resources应该使用其他资源，但它们应该不仅仅是其他资源的组成部分；每个资源都应该引入新的内容
-</li>
-<li>Resources should be organized into a logical framework based on the commonality of the resource and what it links to (see resource framework below)
-    Resources应该根据共性及其所链接的内容，织成一个逻辑框架（见下面的资源框架）。
-</li>
-<li>Resources should be large enough to provide meaningful context; resources that contain only a few attributes are likely too small to provide meaningful business value
-    Resources应足够大，以提供有意义的上下文；仅包含少数属性的资源可能太小，无法提供有意义的业务价值。
-</li>
-<li>Resources should reflect general usage:
-    资源应反映一般用途：
+<li>
+    资源应能反映通用使用场景：
   <ul>
 
-<li>if most systems treat something as a single concept, that suggests a single resource; if most systems treat something as distinct concepts, then that suggests multiple resources
-    如果大多数系统将某个事物视为一个概念，这意味着单个resource；如果大多数系统将某个事物视为不同的概念，那么这意味着多个resource
+<li>
+    如果大多数系统将某个事物视为一个独立的概念，则建议用单个资源；
+    如果大多数系统将某个事物视为不同的概念，则建议用多个资源
 
 </li>
-<li>if two different uses of a "resource" would result in wildly different interpretations of what constitutes "core" then that suggests two resources might be appropriate.
-    如果对“resource”的两种不同使用会导致对“核心”的不同解释，那么这就意味着两种资源可能是合适的。
+<li>
+    如果对“资源”的两种不同使用会导致对“核心”的解释完全不同，则建议用两种资源可能更合适。
 </li>
   </ul>
 </li>
-<li>There is a bias towards fewer resources rather than more
-    人们倾向于减少资源而不是增加资源
+<li>
+    倾向于减少资源而不是增加资源
 </li>
 </ul>
 
@@ -447,14 +389,13 @@ requiring human due diligence and governance to ensure adherence.
  <li>
     为了方便的导航并找到资源而对它进行组织排列
  </li>
- <li>Classify resources into categories based on common sense groupings or patterns describing expected structures and/or behaviors amongst resources in the same category
-
-     根据常识分组或模式将resource分类，描述同一类别中resources之间的预期结构和/或行为。
+ <li>
+     根据常识分组将资源分类或描述同一类别资源之间预期结构和行为的模式。
 
  </li>
- <li>Disseminate resources across layers to stratify relative common-ness with the most common resources in the top layers
+ <li>
+     跨层传播资源，以将相对公用的最常见的资源分到顶部层级
 
-     跨层传播resources，以将相对公共性与顶层最常见的resources分层
  </li>
 </ol>
 
@@ -474,34 +415,15 @@ will provide the greatest value across the largest number of use cases and stake
 to say that the business transactions needed for the higher layers are not important, it’s just that
 they are not as common across the whole healthcare space.
 
-    目的2和3为未来的架构的严谨和resource治理奠定了基础，
-    未来新资源或提炼资源的一致性、完整性和可预测性。实际规则
-    模式将在未来的fhir版本中被定义和完善。然而，需要说的是有一个一般性的指导方针：
-    resource通常引用同一层或更高层的resource。换言之，
-    第4层资源通常只引用第4、3、2或1层中的资源。没有
-    禁止第4层资源引用第5层资源，但这种情况实际并不常见。
-    根据该指南，可以确定最常见的resource
-    跨用例，因此需要比较高的一致性和治理。此外，
-    框架帮助确定创建新的fhir resources是最高优先级的领域，
-    一般来说，它在更高层（第1层、第2层和第3层）中创建fhir资源的优先级高于
-    它是在较低的层（第4层和第5层）中创建fhir resources，因为较高的层resources
-    将在最大数量的用例和涉众中提供最大的价值。这不是
-    说高层所需的业务事务并不重要，只是
-    它们在整个医疗保健领域并不常见。
 </p>
 <p>
 The 6th layer of the framework are not actually resources. Profiles and Graphs are extensions of resources
 or resource compositions that continue the progression through the FHIR Composition Framework. They provide
 additional contextualization required to satisfy certain use cases.
 
-    框架的第6层实际上不是resource。配置文件和图形是resource的扩展
-    或resourceresource组成，通过fhir组成框架继续前进。他们提供
-    满足某些用例所需的附加上下文化。
 </p>
 <p>
-There are several benefits expected from aligning the creation of FHIR resources to this framework, including:
-
-    将fhir resource的创建与该框架协调起来，预计会带来一些好处，包括：
+    将FHIR资源的创建与该框架结合起来，会带来一些预期的好处：
 </p>
 <ul>
 <li>Organization and manageability of health domains - the framework provides a basis for decomposition and modularity
@@ -533,7 +455,7 @@ Visualization tool on <a href="https://fhirblog.com/2016/06/14/resource-referenc
     另外一种图形化FHIR resources，展示它们是如何联系的工具可以用<a href="https://fhirblog.com/2016/06/14/resource-reference-visualization-in-clinfhir/">clinFHIR <img src="external.png" style="text-align: baseline"/></a>
 </p>
 <a name="implementations"></a>
-<h3 class="self-link-parent"><span class="sectioncount">2.16.6</span> FHIR Implementation – High-Level Design Considerations FHIR实现--高层次的设计<a href="overview-arch.html#implementations" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">2.16.6</span> FHIR的实现--高级设计方面的考虑<a href="overview-arch.html#implementations" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <a name="APIs"></a>
 <h4 class="self-link-parent"><span class="sectioncount">2.16.6.1</span> FHIR Servers and the FHIR APIs  FHIR Servers 和 the FHIR APIs <a href="overview-arch.html#APIs" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
