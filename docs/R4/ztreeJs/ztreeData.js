@@ -15,7 +15,7 @@ var zNodes =[
             {id: 15, name: " 1.5 Defined RESTful API Operations ", thickTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复;test operations & apply两处重复;Fetch Preferred it应为id)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
             {id:16, name:" 1.7 Namespaces defined by FHIR",iconSkin:"pIcon01",url:"ns.html",target:"_blank"},
 			{id:17, name:" 1.8 FHIR Workgroup List Report",iconSkin:"pIcon01",url:"wglist.html",target:"_blank"},
-			{id:18, name:" 1.9 Getting Started with FHIR",iconSkin:"pIcon01",url:"modules.html",target:"_blank"},
+            { id: 18, name: " 1.9 Getting Started with FHIR", fineTitle: "开始使用FHIR", subtitle:"（去掉STU3版本的Linked Data组件)",iiconSkin:"pIcon01",url:"modules.html",target:"_blank"},
 			
         ]},
     { id:2, pId:0, name:" 2 Foundation Module", thickTitle:"基础组件", open:false,iconSkin:"pIcon01",url:"foundation-module.html", target:"_self",

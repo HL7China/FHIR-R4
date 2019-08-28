@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>开始使用FHIR - HL7 FHIR 中国</title>
+    <title>FHIR入门 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -88,250 +88,304 @@
 
 
 
-<div class="col-12">
+                    <div class="col-12">
 
 
-<a name="root"></a>
-<h2 class="self-link-parent"><span class="sectioncount">1.9<a name="1.9"> </a></span> Getting Started with FHIR <a href="modules.html#1.9" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
-<table class="colsi"><tr><td id="wg">工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a> </td><td id="fmm"><a href="versions.html#maturity">成熟度</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></table>
+                        <a name="root"></a>
+                        <h2 class="self-link-parent"><span class="sectioncount">1.9<a name="1.9"> </a></span> 开始使用FHIR <a href="modules.html#1.9" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+                        <table class="colsi"><tr><td id="wg">工作组:<a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="external.png" style="text-align: baseline" /></a> </td><td id="fmm"><a href="versions.html#maturity">成熟度</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">标准状态</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<p>
-FHIR is a platform specification that defines a set of capabilities use across the healthcare
-process, in all jurisdictions, and in lots of different contexts. While the basics of the
-FHIR specification are relatively straight-forward (see the Overviews: <a href="overview.html">General</a>,
-<a href="overview-dev.html">Developers</a>, <a href="overview-clinical.html">Clinical</a>, and <a href="overview-arch.html">Architects</a>), it can still be difficult to know
-where to start when implementing a solution based on FHIR.
-</p>
-<p>
-This page provides some guidance to help get new implementers started on their path to successful
-implementation. Beyond reading the overviews (previous paragraph), where should an implementer
-start? Generally, an implementer needs to resolve:
-</p>
-<ul>
- <li>How will information be exchanged? (see <a href="foundation-module.html#uses">Foundation Module</a>)</li>
- <li>How are terminologies being used? (see <a href="terminology-module.html#uses">Terminology Module</a>)</li>
- <li>How will the information be secured? (see <a href="secpriv-module.html#uses">Security and Privacy Module</a>)</li>
- <li>When is information exchanged? (See <a href="workflow-module.html">Workflow Module</a>)</li>
- <li>What information is going to be exchanged?</li>
-</ul>
-<p>
-The remaining sections provide guidance on specific areas (Foundation, Implementer Support, Security and Privacy, Conformance,
-Terminology, Linked Data, Administration, Clinical, Diagnostics, Medications, Workflow, Financial and Clinical Reasoning).
-</p>
-<p>
-All implementers should be aware of how versioning works in the FHIR specification. See both:
-</p>
-<ul>
- <li><a href="versioning.html">Managing Multiple FHIR Versions</a></li>
- <li><a href="versions.html">Specification Version Management Policy </a></li>
-</ul>
-
-<a name="modules"></a>
-<h3 class="self-link-parent"><span class="sectioncount">1.9.1</span> Modules <a href="modules.html#modules" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-<p>
-In order to help implementers find their way around the specification and answer these questions,
-it is organized into a set of "modules". Each module represents a different functional area of the
-specification, and contains:
-</p>
-<ul>
- <li><b>Scope and Index</b>: A description of the content covered by the module, and an index of the important content</li>
- <li><b>Use cases</b>: Guidance for common uses of the module, and how to approach them. This is a key resource for
-   implementers familiarizing themselves with the FHIR specification</li>
- <li><b>Security / Privacy</b>: Information</li>
- <li><b>Roadmap</b>: Where the content covered by the module is in terms of overall progress (see also, for general information: <a href="versions.html">FHIR Timelines</a>)</li>
-</ul>
-
-<p>
-Broadly, the modules are organized into 3 groups:
-</p>
-<ul>
- <li>Infrastructure (bottom rung, and bottom row of boxes)</li>
- <li>Content (middle rung, and top row of boxes)</li>
- <li>Reasoning (top rung)</li>
-</ul>
-
-<div id="diagram">
-
- <p class="level-text"><b>Level 1</b> Basic framework on which the specification is built</p>
- <div id="foundation" class="box box_row box_one">
-  <p class="head">
-   <a style="background-image: url('foundation.png');" href="foundation-module.html">
-   <span>Foundation</span>
-   </a>
-  </p>
-  <p class="content"><span>
-   <a href="documentation.html">Base Documentation</a>, <a href="xml.html">XML</a>, <a href="json.html">JSON</a>, <a href="datatypes.html">Data Types</a>, <a href="extensibility.html">Extensions</a></span>
-  </p>
- </div>
-
-  <p class="level-text"><b>Level 2</b> Supporting implementation and binding to external specifications</p>
- <div class="box_row box_more">
-  <div id="implsupport" class="box">
-   <p class="head">
-    <a style="background-image: url('implsupport.png');" href="implsupport-module.html">
-    <span>Implementer Support</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="downloads.html">Downloads</a>,<br/><a href="versioning.html">Version Mgmt</a>,<br/><a href="usecases.html">Use Cases</a>,<br/><a href="testing.html">Testing</a>
-   </p>
-  </div>
-  <div id="secpriv" class="box">
-   <p class="head">
-    <a style="background-image: url('secpriv.jpg');" href="secpriv-module.html">
-    <span>Security &amp;&nbsp;Privacy</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="security.html">Security</a>,<br/>
-    <a href="consent.html">Consent</a>,<br/>
-    <a href="provenance.html">Provenance</a>,<br/>
-    <a href="auditevent.html">AuditEvent</a>
-   </p>
-  </div>
-  <div id="conformance" class="box">
-   <p class="head">
-    <a style="background-image: url('conformance.jpg');" href="conformance-module.html">
-    <span>Conformance</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="structuredefinition.html">StructureDefinition</a>,<br/><a href="capabilitystatement.html">CapabilityStatement</a>,<br/><a href="implementationguide.html">ImplementationGuide</a>,<br/><a href="profiling.html">Profiling</a>
-   </p>
-  </div>
-  <div id="terminology" class="box">
-   <p class="head">
-    <a style="background-image: url('terminology.png');" href="terminology-module.html">
-    <span>Terminology</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="codesystem.html">CodeSystem</a>,<br/><a href="valueset.html">ValueSet</a>,<br/><a href="conceptmap.html">ConceptMap</a>,<br/><a href="terminology-service.html">Terminology Svc</a>
-   </p>
-  </div>
-  <div id="exchange" class="box">
-   <p class="head">
-    <a style="background-image: url('exchange.png');" href="exchange-module.html">
-    <span>Exchange</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="http.html">REST API</a> + <a href="search.html">Search</a><br/>
-    <a href="documents.html">Documents</a><br/>
-    <a href="messaging.html">Messaging</a><br/>
-    <a href="services.html">Services</a><br/>
-    <a href="storage.html">Databases</a><br/>
-   </p>
-  </div>
- </div>
-
-  <p class="level-text"><b>Level 3</b> Linking to real world concepts in the healthcare system</p>
- <div id="administration" class="box box_row box_one">
-  <p class="head">
-   <a style="background-image: url('administration.jpg');" href="administration-module.html">
-   <span>Administration</span>
-   </a>
-  </p>
-  <p class="content"><span>
-   <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="careteam.html">CareTeam</a>, <a href="device.html">Device</a>, <a href="organization.html">Organization</a>, <a href="location.html">Location</a>, <a href="healthcareservice.html">Healthcare Service</a></span>
-  </p>
- </div>
-
- <p class="level-text"><b>Level 4</b> Record-keeping and Data Exchange for the healthcare process</p>
-
- <div class="box_row box_more">
-  <div id="clinical" class="box">
-   <p class="head">
-    <a style="background-image: url('clinical.png');" href="clinicalsummary-module.html">
-    <span>Clinical</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="allergyintolerance.html">Allergy</a>, <a href="condition.html">Problem</a>,
-    <a href="procedure.html">Procedure</a>,
-    <a href="careplan.html">CarePlan</a>/<a href="goal.html">Goal</a>, <a href="servicerequest.html">ServiceRequest</a>,
-    <a href="familymemberhistory.html">Family History</a>,
-    <a href="riskassessment.html">RiskAssessment</a>, etc.
-   </p>
-  </div>
-  <div id="diagnostics" class="box">
-   <p class="head">
-    <a style="background-image: url('diagnostics.jpg');" href="diagnostics-module.html">
-    <span>Diagnostics</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="observation.html">Observation</a>, <a href="diagnosticreport.html">Report</a>, <a href="specimen.html">Specimen</a>, <a href="imagingstudy.html">ImagingStudy</a>, <a href="genomics.html">Genomics</a>, <a href="specimen.html">Specimen</a>, <a href="imagingstudy.html">ImagingStudy</a>, etc.
-   </p>
-  </div>
-  <div id="medication" class="box">
-   <p class="head">
-    <a style="background-image: url('medication.png');" href="medications-module.html">
-    <span>Medications</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="medication.html">Medication</a>,<br/> <a href="medicationrequest.html">Request</a>, <a href="medicationdispense.html">Dispense</a>,<br/> <a href="medicationadministration.html">Administration</a>,<br/> <a href="medicationstatement.html">Statement</a>,<br/> <a href="immunization.html">Immunization</a>, etc.
-   </p>
-  </div>
-  <div id="workflow" class="box">
-   <p class="head">
-    <a style="background-image: url('workflow.png');" href="workflow-module.html">
-    <span>Workflow</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="workflow.html">Introduction</a> + <a href="task.html">Task</a>, <a href="appointment.html">Appointment</a>, <a href="schedule.html">Schedule</a>, <a href="servicerequest.html">Referral</a>, <a href="plandefinition.html">PlanDefinition</a>, etc
-   </p>
-  </div>
-  <div id="financial" class="box">
-   <p class="head">
-    <a style="background-image: url('financial.png');" href="financial-module.html">
-    <span>Financial</span>
-   </a>
-   </p>
-   <p class="content">
-    <a href="claim.html">Claim</a>, <a href="account.html">Account</a>,<br/><a href="invoice.html">Invoice</a>, <a href="chargeitem.html">ChargeItem</a>, <br/>
-    <a href="coverage.html">Coverage</a> + Eligibility <br/><a href="coverageeligibilityrequest.html">Request</a> &amp; 
-    <a href="coverageeligibilityresponse.html">Response</a>, <a href="explanationofbenefit.html">ExplanationOfBenefit</a>, etc.
-   </p>
-  </div>
- </div>
-
- <p class="level-text"><b>Level 5</b> Providing the ability to reason about the healthcare process</p>
- <div id="reasoning" class="box box_row box_one">
-  <p class="head">
-   <a style="background-image: url('reasoning.png');" href="clinicalreasoning-module.html">
-    <span>Clinical Reasoning</span>
-   </a>
-  </p>
-  <p class="content"><span><a href="library.html">Library</a>, <a href="plandefinition.html">PlanDefinition</a> &amp; <a href="guidanceresponse.html">GuidanceResponse</a>, <a href="measure.html">Measure</a>/<a href="measurereport.html">MeasureReport</a>, etc.</span></p>
- </div>
-</div>
+                        <p>
+                            FHIR是一个平台规范，它定义了一套贯穿卫生健康流程、可以在不同国家和地区的各种场境下使用的功能。
+                            虽然FHIR规范的基础是相对直观的（详见概述：<a href="summary.html">摘要</a>、
+                            <a href="overview-dev.html">开发人员入门</a>、
+                            <a href="overview-clinical.html">临床人员入门</a>、
+                            和 <a href="overview-arch.html">架构师入门</a>）
+                            但要着手实施一个基于FHIR的解决方案时，却不知从何处下手。
 
 
-<p>
-Dependencies between the modules are mainly downwards, with some horizontal dependencies.
-Implementers should choose the content modules to engage with based on their
-requirements, and should only engage with the reasoning module if they need to do
-clinical decision support, and/or Quality Measures.
-</p>
+                        </p>
+                        <p>
 
-<p>
-In addition to the use case based assistance in the modules, these additional documentation pages
-may be useful:
-</p>
-<ul>
- <li><a href="usecases.html">Common Use Cases</a>: Personal Health Record, Document Sharing (XDS) and Decision Support</li>
- <li><a href="resourceguide.html">Resource Guide</a>: Further information about the resources and the relationship between them</li>
-</ul>
+                            本页提供了一些指导，以帮助新手开始他们的成功实施之路。
+                            除了阅读概述（上一段中的入门链接），实施者应该从哪里开始？通常，实施者需要解决：
+                        </p>
+                        <ul>
 
-<p>
-Finally, one important place to look is the <a href="http://www.fhir.org/guides/registry">registry of implementation guides <img src="external.png" style="text-align: baseline"/></a>, to see
-whether similar (or identical) requirements have been met.
-</p>
+                            <li>如何交换信息? (请参阅 <a href="foundation-module.html#uses">基础组件</a>)</li>
+                            <li>如何使用术语 (请参阅 <a href="terminology-module.html#uses">术语组件</a>)</li>
+                            <li>如何保障信息的安全? (请参阅 <a href="secpriv-module.html#uses">安全和隐私组件</a>)</li>
+                            <li>何时交换信息? (请参阅 <a href="workflow-module.html">工作流组件</a>)</li>
+                            <li>要交换什么信息?</li>
+                        </ul>
+                        <p>
+                            其它组件（实施者支持、安全和隐私、符合性、术语、管理、临床、诊断、药物、工作流、财务和临床推理）提供了特定领域的相关指南。
 
-</div>
+                        </p>
+                        <p>
+                            所有实施者都应该知道在FHIR规范中的版本管理。详见以下两个链接：
+
+                        </p>
+                        <ul>
+                            <li><a href="versioning.html">管理多个FHIR版本</a></li>
+                            <li><a href="versions.html">版本管理策略</a></li>
+                        </ul>
+
+                        <a name="modules"></a>
+                        <h3 class="self-link-parent"><span class="sectioncount">1.9.1</span> 组件 <a href="modules.html#modules" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+                        <p>
+                            为了帮助实施者快速入门并回答上述问题，FHIR规范以“组件”的形式组织。每个组件代表FHIR规范中的不同功能领域，并包含：
+                        </p>
+                        <ul>
+                            <li>
+                                <b>范围与索引</b>: 对组件所涵盖内容的描述，以及重要内容的索引
+
+                            </li>
+                            <li>
+                                <b>用例</b>:
+                                组件的常见使用指南，以及如何实现它们。这对于熟悉FHIR规范的实施者来说是一个关键资源。
+
+                            </li>
+                            <li><b>安全/隐私：</b>: 信息</li>
+                            <li>
+                                <b>Roadmap</b>:
+                                此组件所涵盖的内容涉及总体进度（另请参见通用信息：<a href="versions.html">
+                                    FHIR时间表
+                                </a>）
+
+                            </li>
+                        </ul>
+
+                        <p>
+
+                            这些组件大体上分为三个组别：
+                        </p>
+                        <ul>
+                            <li>基础框架（底级横框和底级方框，即第1级和第2级）</li>
+                            <li>内容 （中间横框和顶级方框，即第3级和第4级）</li>
+                            <li>推理 （顶级横框）</li>
+                        </ul>
+
+                        <div id="diagram">
+
+                            <p class="level-text"><b> 1级：</b> 构建本规范的基础框架</p>
+                            <div id="foundation" class="box box_row box_one">
+                                <p class="head">
+                                    <a style="background-image: url('foundation.png');" href="foundation-module.html">
+                                        <span>基础组件</span>
+                                    </a>
+                                </p>
+                                <p class="content">
+                                    <span>
+                                        <a href="documentation.html">基础文档</a>, <a href="xml.html">XML</a>, <a href="json.html">JSON</a>,
+                                        <a href="datatypes.html">数据类型</a>, <a href="extensibility.html">扩展</a>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <p class="level-text"><b> 2级</b> 对实现本规范的支持、与其它标准绑定</p>
+                            <div class="box_row box_more">
+                                <div id="implsupport" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('implsupport.png');" href="implsupport-module.html">
+                                            <span>实施者支持</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="downloads.html">下载</a>,<br /><a href="versioning.html">版本管理</a>,<br />
+                                        <a href="usecases.html">用例</a>,<br /><a href="testing.html">测试</a>
+                                    </p>
+                                </div>
+                                <div id="secpriv" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('secpriv.jpg');" href="secpriv-module.html">
+                                            <span>安全和隐私</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="security.html">安全</a>,<br />
+                                        <a href="consent.html">知情同意</a>,<br />
+                                        <a href="provenance.html">来源追溯</a>,<br />
+                                        <a href="auditevent.html">审计事件</a>
+                                    </p>
+                                </div>
+                                <div id="conformance" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('conformance.jpg');" href="conformance-module.html">
+                                            <span>符合性</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="structuredefinition.html">结构定义</a>,<br />
+                                        <a href="capabilitystatement.html">能力声明</a>,<br />
+                                        <a href="implementationguide.html">实施指南</a>,<br />
+                                        <a href="profiling.html">配置与扩展</a>
+                                    </p>
+                                </div>
+                                <div id="terminology" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('terminology.png');" href="terminology-module.html">
+                                            <span>术语</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="codesystem.html">编码系统</a>,<br />
+                                        <a href="valueset.html">编码值集</a>,<br />
+                                        <a href="conceptmap.html">概念映射</a>,<br /><a href="terminology-service.html">术语服务</a>
+                                    </p>
+                                </div>
+                                <div id="exchange" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('exchange.png');" href="exchange-module.html">
+                                            <span>交互</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="http.html">REST API</a> + <a href="search.html">搜索</a><br />
+                                        <a href="documents.html">文档</a><br />
+                                        <a href="messaging.html">消息</a><br />
+                                        <a href="services.html">SOA服务</a><br />
+                                        <a href="storage.html">数据库</a><br />
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="level-text"><b> 3级</b>与卫生健康系统真实环境中的概念关联</p>
+                            <div id="administration" class="box box_row box_one">
+                                <p class="head">
+                                    <a style="background-image: url('administration.jpg');" href="administration-module.html">
+                                        <span>管理</span>
+                                    </a>
+                                </p>
+                                <p class="content">
+                                    <span>
+                                        <a href="patient.html">患者</a>, <a href="practitioner.html">参与者</a>, <a href="careteam.html">照护团队</a>,
+                                        <a href="device.html">设备</a>, <a href="organization.html">组织</a>, <a href="location.html">位置</a>,
+                                        <a href="healthcareservice.html">健康服务</a>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <p class="level-text"><b> 4级</b> 医疗流程的记录保存和数据交换</p>
+
+                            <div class="box_row box_more">
+                                <div id="clinical" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('clinical.png');" href="clinicalsummary-module.html">
+                                            <span>临床</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="allergyintolerance.html">过敏与不良反应</a>, <br />
+                                        <a href="condition.html">病症与诊断</a>,<br />
+                                        <a href="procedure.html">治疗过程</a>,<br />
+                                        <a href="careplan.html">照护计划</a>/<a href="goal.html">目标</a>,<br />
+                                        <a href="servicerequest.html">服务申请</a>,<br />
+                                        <a href="familymemberhistory.html">家族史</a>,<br />
+                                        <a href="riskassessment.html">风险评估</a>, 等.
+                                    </p>
+                                </div>
+                                <div id="diagnostics" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('diagnostics.jpg');" href="diagnostics-module.html">
+                                            <span>诊断</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="observation.html">观测</a>, <br /><a href="diagnosticreport.html">诊断报告</a>,<br />
+                                        <a href="specimen.html">标本</a>,<br /> <a href="imagingstudy.html">DICOM影像</a>,<br />
+                                        <a href="genomics.html">基因组学</a>,
+                                        等.
+                                    </p>
+                                </div>
+                                <div id="medication" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('medication.png');" href="medications-module.html">
+                                            <span>药物</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="medication.html">药物</a>,<br />
+                                        <a href="medicationrequest.html">药品处方/医嘱</a>,<br />
+                                        <a href="medicationdispense.html">发药</a>,<br />
+                                        <a href="medicationadministration.html">用药记录</a>,<br />
+                                        <a href="medicationstatement.html">用药状态</a>,<br />
+                                        <a href="immunization.html">疫苗/免疫</a>, 等.
+                                    </p>
+                                </div>
+                                <div id="workflow" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('workflow.png');" href="workflow-module.html">
+                                            <span>工作流</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="workflow.html">介绍</a> + <a href="task.html">任务</a>,<br />
+                                        <a href="appointment.html">预约</a>,<br />
+                                        <a href="appointmentresponse.html">预约确认</a>, <br />
+
+                                        <a href="schedule.html">日程/排班</a>,<br />
+                                        <a href="slot.html">可分配时段</a>,
+                                        等。
+                                    </p>
+                                </div>
+                                <div id="financial" class="box">
+                                    <p class="head">
+                                        <a style="background-image: url('financial.png');" href="financial-module.html">
+                                            <span>账务</span>
+                                        </a>
+                                    </p>
+                                    <p class="content">
+                                        <a href="claim.html">理赔/报销</a>,<br />
+                                        <a href="account.html">帐户</a>,
+                                        <a href="invoice.html">发票</a>, <br />
+                                        <a href="chargeitem.html">收费项目</a>, <br />
+                                        <a href="coverage.html">支付范围</a> + <br />
+                                        保险资格<a href="coverageeligibilityrequest.html">查询</a>与<a href="coverageeligibilityresponse.html">响应</a>, <br />
+                                        <a href="explanationofbenefit.html">费用详情</a>, etc.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="level-text"><b> 5级：</b> 为医疗过程提供推理能力</p>
+                            <div id="reasoning" class="box box_row box_one">
+                                <p class="head">
+                                    <a style="background-image: url('reasoning.png');" href="clinicalreasoning-module.html">
+                                        <span>临床推理</span>
+                                    </a>
+                                </p>
+                                <p class="content">
+                                    <span>
+                                        <a href="library.html">知识库</a>, <a href="plandefinition.html">计划定义(路径)</a> &amp; <a href="guidanceresponse.html">决策辅助</a>,
+                                        质量<a href="measure.html">测量</a>/<a href="measurereport.html">测量报告</a>, 等.
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <p>
+                            Dependencies between the modules are mainly downwards, with some horizontal dependencies.
+                            Implementers should choose the content modules to engage with based on their
+                            requirements, and should only engage with the reasoning module if they need to do
+                            clinical decision support, and/or Quality Measures.
+                        </p>
+
+                        <p>
+                            In addition to the use case based assistance in the modules, these additional documentation pages
+                            may be useful:
+                        </p>
+                        <ul>
+                            <li><a href="usecases.html">Common Use Cases</a>: Personal Health Record, Document Sharing (XDS) and Decision Support</li>
+                            <li><a href="resourceguide.html">Resource Guide</a>: Further information about the resources and the relationship between them</li>
+                        </ul>
+
+                        <p>
+                            Finally, one important place to look is the <a href="http://www.fhir.org/guides/registry">registry of implementation guides <img src="external.png" style="text-align: baseline" /></a>, to see
+                            whether similar (or identical) requirements have been met.
+                        </p>
+
+                    </div>
 
 
 				</div>  <!-- /inner-wrapper -->
