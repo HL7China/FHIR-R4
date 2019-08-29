@@ -120,8 +120,20 @@ var zNodes =[
 			]},
 	{ id:3, pId:0, name:" 3 FHIR Exchange Module", open:false, iconSkin:"pIcon01",url:"exchange-module.html", target:"_self",
         children:[
-            { id: 31, name: " 3.1 RESTful API ", fineTitle: "REST风格微服务", subtitle: "（3.1.0.9 “the return”文字重复；3.1.1.2“/Patient/[id]”应为“/[Compartment]/[id]”）",iconSkin:"icon01",url:"http.html", target:"_blank"},
-            { id: 32, name: " 3.2 Extended Operations on the RESTful API", fineTitle: "RESTful API 的扩展操作", subtitle: "（3.2.0.1 “四类FHIR终结点”更正为“三类”）",iconSkin:"icon01",url:"operations.html", target:"_blank"},
+            { id: 31, name: " 3.1 RESTful API ", fineTitle: "REST风格微服务", subtitle: "（3.1.0.9 “the return”文字重复；3.1.1.2“/Patient/[id]”应为“/[Compartment]/[id]”）",iconSkin:"icon01",url:"http.html", target:"_blank",
+				children:[
+					{id:311, name:" 3.1.1 Search", fineTitle: "搜索(3.1.1.5.4中“related-target”为STU3的元素，已修正为“hasMember”)",iconSkin:"icon01",url:"search.html",target:"_blank"},
+				    {id:312, name:" 3.1.2 Using GraphQL with FHIR",iconSkin:"pIcon01",url:"graphql.html",target:"_blank"},
+					{id:313, name:" 3.1.3 _filter Parameter",iconSkin:"pIcon01",url:"search_filter.html",target:"_blank"},
+					{id:314, name:" 3.1.4 Defined Search Parameters",iconSkin:"pIcon01",url:"searchparameter-registry.html",target:"_blank"},
+					{id:315, name:" 3.1.5 FHIRPath Patch",iconSkin:"pIcon01",url:"fhirpatch.html",target:"_blank"},
+					{id:316, name:" 3.1.6 Asynchronous Request Pattern",iconSkin:"pIcon01",url:"async.html",target:"_blank"},
+			]},
+            { id: 32, name: " 3.2 Extended Operations on the RESTful API", fineTitle: "RESTful API 的扩展操作", subtitle: "（3.2.0.1 “四类FHIR终结点”更正为“三类”）",iconSkin:"icon01",url:"operations.html", target:"_blank",
+				children:[
+					{id:316, name:" 3.2.1 Operation Request Example",iconSkin:"pIcon01",url:"op-example-request.html",target:"_blank"},
+				]
+			},
             {id:33, name:" 3.3 FHIR Documents",iconSkin:"pIcon01",url:"documents.html", target:"_blank"},
             {id:34, name:" 3.4 Messaging using FHIR Resources ",iconSkin:"pIcon01",url:"messaging.html", target:"_blank"},
             {id:35, name:" 3.5 Using Resources with Services and Service-oriented Architecture",iconSkin:"pIcon01",url:"services.html", target:"_blank"},
