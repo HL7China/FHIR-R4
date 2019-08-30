@@ -212,7 +212,7 @@ var zNodes =[
             {id:58, name:" 5.8 Resource ImplementationGuide - Content",iconSkin:"pIcon01",url:"implementationguide.html", target:"_blank"},
             {id:59, name:" 5.9 Resource GraphDefinition - Content",iconSkin:"pIcon01",url:"graphdefinition.html", target:"_blank"},
 		]},
-	{ id:6, pId:0, name:" 6 Security and Privacy Module", open:false, iconSkin:"pIcon01",url:"secpriv-module.html", target:"_self",
+	{ id:6, pId:0, name:" 6 Security and Privacy Module",fineTitle:"安全与隐私组件", open:false, iconSkin:"pIcon01",url:"secpriv-module.html", target:"_self",
         children:[
             {id:61, name:" 6.1 FHIR Security",iconSkin:"pIcon01",url:"security.html", target:"_blank"},
             {id:62, name:" 6.2 Resource Consent - Content",iconSkin:"pIcon01",url:"consent.html", target:"_blank"},
