@@ -460,6 +460,8 @@
     // })
     //筛选
     $(".label_box label div").click(function () {
+        $(".chose").prev().attr("checked",false)
+        $(".chose").removeClass("chose")
         var foo = JSON.parse(JSON.stringify(zNodes));
         if ($(this).hasClass('chose')) {
             $(this).removeClass('chose')
