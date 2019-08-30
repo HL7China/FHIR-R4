@@ -1,7 +1,7 @@
 //规则：pId为父级id，zNodes里面的数据，pId为0时为第一层  children为子集
 //iconSkin属性控制图标，icon01是正式规范  pIcon01是非正式规范    open是否展开  url链接地址   target用于设置 页面跳转的窗口目标:_self当前窗口  _blank新窗口  subtitle副标题 thickTitle粗标题 fineTitle细标题
 var zNodes =[
-    { id:1, pId:0, name:" 1 Welcome to FHIR® ",thickTitle:"欢迎使用 FHIR®", subtitle:"（部分资源重复，如：ImagingStudy）", open:false, iconSkin:"pIcon01",url:"index.html", target:"_self",
+    { id:1, pId:0, name:" 1 Welcome to FHIR® ",fineTitle:"",thickTitle:"欢迎使用 FHIR®", subtitle:"（部分资源重复，如：ImagingStudy）", open:false, iconSkin:"pIcon01",url:"index.html", target:"_self",
         children: [
             {
                 id: 10, name: " 1.0 Table Of Contents", fineTitle: "原始目录", iconSkin: "pIcon01",
@@ -9,16 +9,16 @@ var zNodes =[
             },
 
             { id: 11, name: " 1.1 Documentation Index", fineTitle: "文档索引", iconSkin: "pIcon01", url:"documentation.html", target:"_blank"},
-            {id:12, name:" 1.2 Resource Index",thickTitle:"资源索引",iconSkin:"pIcon01",url:"resourcelist.html",subtitle:"（修正Architect's Overview链接为：overview-arch.html#frameworks）", target:"_blank"},
+            {id:12, name:" 1.2 Resource Index",fineTitle:"",thickTitle:"资源索引",iconSkin:"pIcon01",url:"resourcelist.html",subtitle:"（修正Architect's Overview链接为：overview-arch.html#frameworks）", target:"_blank"},
             {id:13, name:" 1.3 Profiles defined as part of FHIR",fineTitle:"FHIR内置的配置",iconSkin:"pIcon01",url:"profilelist.html",target:"_blank"},
             {id:14, name:" 1.4 FHIR Core-defined Extension Registry",fineTitle:"FHIR核心扩展注册表",iconSkin:"pIcon01",url:"extensibility-registry.html",target:"_blank"},
-            {id: 15, name: " 1.5 Defined RESTful API Operations ", thickTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复;test operations & apply两处重复;Fetch Preferred it应为id)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
+            {id: 15, name: " 1.5 Defined RESTful API Operations ", fineTitle:"",thickTitle: "已定义的 RESTful API 操作", subtitle:"($conforms操作解释错误、重复;test operations & apply两处重复;Fetch Preferred it应为id)",iconSkin:"pIcon01",url:"operationslist.html",target:"_blank"},
             {id:16, name:" 1.7 Namespaces defined by FHIR",iconSkin:"pIcon01",url:"ns.html",target:"_blank"},
 			{id:17, name:" 1.8 FHIR Workgroup List Report",iconSkin:"pIcon01",url:"wglist.html",target:"_blank"},
-            { id: 18, name: " 1.9 Getting Started with FHIR", fineTitle: "开始使用FHIR", subtitle:"（去掉STU3版本的Linked Data组件)",iiconSkin:"pIcon01",url:"modules.html",target:"_blank"},
+            { id: 18, name: " 1.9 Getting Started with FHIR", fineTitle:"",thickTitle: "开始使用FHIR", subtitle:"（去掉STU3版本的Linked Data组件)",iiconSkin:"pIcon01",url:"modules.html",target:"_blank"},
 			
         ]},
-    { id:2, pId:0, name:" 2 Foundation Module", thickTitle:"基础组件", open:false,iconSkin:"pIcon01",url:"foundation-module.html", target:"_self",
+    { id:2, pId:0, name:" 2 Foundation Module", fineTitle:"",thickTitle:"基础组件", open:false,iconSkin:"pIcon01",url:"foundation-module.html", target:"_self",
         children: [
             { id: 20, name: " 2.0 Documentation", fineTitle: "", iconSkin: "pIcon01", url: "documentation.html", target: "_blank" },
 			{id:21, name:" 2.1 Conformance",fineTitle:"标准符合性",iconSkin:"icon01",url:"conformance-rules.html",target:"_blank"},
@@ -40,7 +40,7 @@ var zNodes =[
 			{id:214, name:" 2.14 FHIR Overview - Developers",iconSkin:"pIcon01",url:"overview-dev.html",target:"_blank"},
 			{id:215, name:" 2.15 FHIR Overview - Clinicians",iconSkin:"pIcon01",url:"overview-clinical.html",target:"_blank"},
             { id: 216, name: " 2.16 FHIR Overview - Architects", fineTitle: "FHIR概述-写给架构师", subtitle: "(2.16.5 FHIR框架结构子类更新)",iconSkin:"pIcon01",url:"overview-arch.html",target:"_blank"},
-            { id: 217, name: " 2.17 Introducing HL7 FHIR ", thickTitle: "HL7 FHIR 简介", subtitle: "(补充：在2.17.4里加入已发布正式版信息)",iconSkin:"pIcon01",url:"summary.html",target:"_blank"},
+            { id: 217, name: " 2.17 Introducing HL7 FHIR ", fineTitle:"",thickTitle: "HL7 FHIR 简介", subtitle: "(补充：在2.17.4里加入已发布正式版信息)",iconSkin:"pIcon01",url:"summary.html",target:"_blank"},
 			{id:218, name:" 2.18 Glossary",iconSkin:"pIcon01",url:"help.html",target:"_blank"},
 			{id:219, name:" 2.19 Language Glossary",iconSkin:"pIcon01",url:"glossary.html",target:"_blank"},
 			{id:220, name:" 2.20 License and Legal Terms",iconSkin:"pIcon01",url:"license.html",target:"_blank"},
@@ -56,14 +56,14 @@ var zNodes =[
 					{id:2261, name:"2.26.6 Resource Resource - Operations",iconSkin:"pIcon01",url:"resource-operations.html",target:"_blank",
 						children:[
                             {
-                                id: 22611, name: " 2.26.6.1 Operation $validate on Resource", thickTitle: "资源的验证操作",subtitle: "(官方定义URL错误)",iconSkin:"icon01",url:"resource-operation-validate.html",target:"_blank"},
+                                id: 22611, name: " 2.26.6.1 Operation $validate on Resource", fineTitle:"",thickTitle: "资源的验证操作",subtitle: "(官方定义URL错误)",iconSkin:"icon01",url:"resource-operation-validate.html",target:"_blank"},
                             { id: 22612, name: " 2.26.6.2 Operation $meta on Resource", fineTitle: "获取资源元数据的操作", subtitle: "(多了一个“）”；other meta operations是指什么)",iconSkin:"pIcon01",url:"resource-operation-meta.html",target:"_blank"},
 						{id:22613, name:" 2.26.6.3 Operation $meta-add on Resource",fineTitle:"添加资源元数据的操作",iconSkin:"pIcon01",url:"resource-operation-meta-add.html",target:"_blank"},
 						{id:22614, name:" 2.26.6.4 Operation $meta-delete on Resource",fineTitle:"删除资源元数据的操作",iconSkin:"pIcon01",url:"resource-operation-meta-delete.html",target:"_blank"},
 						
                             { id: 22615, name: " 2.26.6.5 Operation $convert on Resource", fineTitle: "资源的格式转换操作", subtitle: "（e.g.前多了“（”）",iconSkin:"pIcon01",url:"resource-operation-convert.html",target:"_blank"},
-                            { id: 22616, name: " 2.26.6.6 Operation $graphql on Resource", thickTitle: "资源的GraphQL操作", subtitle: "（since资源应该是single资源）",iconSkin:"pIcon01",url:"resource-operation-graphql.html",target:"_blank"},
-                            { id: 22614, name: " 2.26.6.7 Operation $graph on Resource", thickTitle: "资源的图谱操作",subtitle: "(packaage笔误)",iconSkin:"pIcon01",url:"resource-operation-graph.html",target:"_blank"},
+                            { id: 22616, name: " 2.26.6.6 Operation $graphql on Resource", fineTitle:"",thickTitle: "资源的GraphQL操作", subtitle: "（since资源应该是single资源）",iconSkin:"pIcon01",url:"resource-operation-graphql.html",target:"_blank"},
+                            { id: 22614, name: " 2.26.6.7 Operation $graph on Resource", fineTitle:"",thickTitle: "资源的图谱操作",subtitle: "(packaage笔误)",iconSkin:"pIcon01",url:"resource-operation-graph.html",target:"_blank"},
 						]
 					},
 				]
@@ -330,7 +330,7 @@ var zNodes =[
             {id:832, name:" 8.32 Resource VerificationResult - Content",iconSkin:"pIcon01",url:"verificationresult.html", target:"_blank"},
 			]},
     {
-        id: 9, pId: 0, name: " 9 Clinical Module", fineTitle:"临床摘要组件", thickTitle: "", open:false, iconSkin:"pIcon01",url:"clinicalsummary-module.html", target:"_self",
+        id: 9, pId: 0, name: " 9 Clinical Module", fineTitle:"临床摘要组件",  open:false, iconSkin:"pIcon01",url:"clinicalsummary-module.html", target:"_self",
         children:[
             {id:91, name:" 9.1 Resource AllergyIntolerance - Content",iconSkin:"pIcon01",url:"allergyintolerance.html", target:"_blank"},
             {id:92, name:" 9.2 Resource Condition - Content",iconSkin:"pIcon01",url:"condition.html", target:"_blank"},
