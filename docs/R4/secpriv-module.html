@@ -202,61 +202,56 @@ OWASP(开放式Web应用程序安全项目)移动安全 <img src="external.png" 
 <h3 class="self-link-parent"><span class="sectioncount">6.0.4</span> 隐私 <a href="secpriv-module.html#privacy" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 
-Privacy in FHIR includes the set of considerations required to ensure that
-individual data are treated according to an individual's Privacy Principles and Privacy-By-Design. FHIR
-includes implementation guidance to ensure that:
+FHIR中的隐私包括所需的一系列考虑因素。FHIR包括实施指南，以
+为确保根据个人隐私原则和设计的隐私规则来处理个人数据，在FHIR中需考虑一系列与隐私相关的因素。FHIR规范包含了一个实施指南用以确保：
 
 </p>
 
 <ul>
 <li>
-  Individual preferences can be communicated through standards-based protocols
-  (e.g., OAuth, User-Managed Access) or using an explicit FHIR representation
-  (<a href="consent.html">Consent</a>) </li>
+
+  个人偏好可以基于标准协议（例如，OAuth，用户访问控制管理）来通信，或明确的使用FHIR中的<a href="consent.html">知情同意</a>来表达。 </li>
 <li>
-  Resources can be tagged to indicate the sensitivity or confidentiality of the data they represent (<a href="security-labels.html">Security Labels</a>)
+  
+  资源可以标记为敏感性或机密性的数据(<a href="security-labels.html">
+  安全标签</a>)
 </li>
 <li>
-  Data access records and audit logs can be shared with individuals, e.g. for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
+  数据访问记录和审计日志可以共享给不同的人，例如用于会计公开(<a href="auditevent.html">审计事件</a>)
 </li>
 </ul>
 
 <a name="uses"></a>
-<h3 class="self-link-parent"><span class="sectioncount">6.0.5</span> Common Use Cases <a href="secpriv-module.html#uses" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">6.0.5</span> 常见用例<a href="secpriv-module.html#uses" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <a name="authorization"></a>
 <h4 class="self-link-parent"><span class="sectioncount">6.0.5.1</span> 
-Authorization and Access Control
+授权和访问控制
+ 
  <a href="secpriv-module.html#authorization" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 
 <p>
 
-<em>Use case:</em> A FHIR server should ensure that API access is allowed for
-authorized requests and denied for unauthorized requests.
+<em>用例:</em> 
+FHIR服务器应保证允许已授权的API访问请求，并拒绝未授权请求。
 
 </p>
-
 <p>
 
-<em>Approach:</em> Authorization details can vary according to local policy,
-and according to the access scenario (e.g. sharing data among
-institution-internal subsystems vs. sharing data with trusted partners vs.
-sharing data with third-party user-facing apps). In general, FHIR enables a
-separation of concerns between the FHIR REST API and standards-based
-authorization protocols like OAuth. For the use case of user-facing third-party
-app authorization, we recommend the OAuth-based SMART protocol 
-see <a href="security.html#authentication">Security: Authentication</a> as an
-externally-reviewed authorization mechanism with a real-world deployment base -
-but we note that community efforts are underway to explore a variety of
-approaches to authorization. 
-For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
-
+<em>方法:</em> 
+根据本地策略和访问方案的不同，授权详细信息可能会有所不同
+（例如，机构内部子系统之间共享数据，与受信任的合作伙伴共享数据，与面向第三方用户的应用程序共享数据）。
+通常，FHIR允许FHIR REST API和标准授权协议（如OAuth）之间的分离。
+对于面向用户的第三方应用程序授权的用例，我们建议基于OAuth的SMART协议。
+请参阅<a href="security.html#authentication">安全性之身份验证</a>，它是一种具有真实案例部署基础的外部审查的授权机制，
+，同时我们的社区正在努力探索各种授权方法。有关更多详细信息，请参阅<a href="security.html#binding">安全：授权和访问控制</a>。
 </p>
 
 <a name="query-parameters"></a>
-<h5 class="self-link-parent"><span class="sectioncount">6.0.5.1.1</span> Query Parameters Considerations <a href="secpriv-module.html#query-parameters" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h5>
+<h5 class="self-link-parent"><span class="sectioncount">6.0.5.1.1</span> 查询参数注意事项<a href="secpriv-module.html#query-parameters" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h5>
 <p>
-<em>Use-Case:</em> When a user has restricted rights but attempts to do a query they do not have rights to, they should not be given the data. Policy should be used to determine if the user query should result in an error, zero data, or the data one would get after removing the non-authorized parameters.
-</p><p>
+<em>用例:</em> 
+若用户仅有部分权限，当试图进行超权限的查询时，不应该给他们返回数据。
+应该使用策略来确定是否对用户的查询返回错误、是否返回数据，以及去掉没授权的参数后将得到哪些数据。</p><p>
 <em>Approach:</em> Enforcement is by local enforcement methods. Note that community efforts are underway to explore a variety of
 approaches to enforcement. 
 </p><p>
