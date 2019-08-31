@@ -153,53 +153,53 @@ FHIR并未强制要求采用单一技术方案来保护安全和隐私; 相反�
 <p>
 常见用例的详细介绍如下：
 <ul>
-<li><a href="#security">Security</a> and <a href="#privacy">Privacy</a></li>
-<li><a href="#authorization">Authorization and Access Control</a></li>
-<li><a href="#query-parameters">Authorization considerations with Query Parameters</a></li>
-<li><a href="#user">User Identity and Access Context</a></li>
-<li><a href="#audit">Security and Privacy Audit Logging</a></li>
-<li><a href="#AoD">Accounting of Disclosures and Access Reports</a></li>
-<li><a href="#privacy-consent">Privacy Consent</a></li>
-<li><a href="#provenance">Provenance</a></li>
-<li><a href="#signature">Digital and Electronic Signatures</a></li>
-<li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
-<li><a href="#testData">Security Considerations on Test Data</a></li>
+<ul>
+<li><a href="#security">安全</a> 与 <a href="#privacy">隐私</a></li>
+<li><a href="#authorization">授权和访问控制</a></li>
+<li><a href="#query-parameters">查询参数的授权注意事项</a></li>
+<li><a href="#user">用户身份和访问上下文</a></li>
+<li><a href="#audit">安全和隐私审计日志</a></li>
+<li><a href="#AoD">会计公开和访问报告</a></li>
+<li><a href="#privacy-consent">隐私知情同意</a></li>
+<li><a href="#provenance">出处</a></li>
+<li><a href="#signature">数字和电子签名</a></li>
+<li><a href="#deId">脱敏处理、匿名化和化名</a></li>
+<li><a href="#testData">测试数据的安全注意事项</a></li>
 </ul>
 </p>
 
 
 <a name="security"></a>
-<h3 class="self-link-parent"><span class="sectioncount">6.0.3</span> Security <a href="secpriv-module.html#security" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-<p>
-FHIR is focused on the data access methods and encoding leveraging existing Security solutions.
-Security in FHIR needs to focus on the set of considerations required to ensure that
-data can be discovered, accessed, or altered only in accordance with
-expectations and policies.  
-Implementation should leverage existing security standards and implementations to ensure that:
+<h3 class="self-link-parent"><span class="sectioncount">6.0.3</span> 安全 <a href="secpriv-module.html#security" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+
+FHIR利用现有安全解决方案的数据访问方法和编码。为确保数据只能根据预期和策略被发现、访问或更改，FHIR中的安全性需要考虑的一系列的问题。实施工作应利用现有的安全标准来确保以下事项：
 </p>
 
 <ul>
 <li>
-All communications can be encrypted to prevent unauthorized access. 
+阻止未授权的访问，所有通信都要能加密
 </li>
 <li>
-No information leaks when errors occur
+当出错时，不会有信息泄漏
 </li>
 <li>
-No active script content can be injected into narrative resources
+脚本代码不能注入时文本资源中
+
 </li>
 <li>
-Full audit trails can be constructed and used to detect anomalous access patterns
+可以构建全量审计跟踪，并用于监测异常访问方式
 </li></ul>
 <p>
-For general security considerations and principles, see <a href="security.html">Security</a>.
-Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc.
-See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security <img src="external.png" style="text-align: baseline"/></a>
-and <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">OWASP Mobile Security <img src="external.png" style="text-align: baseline"/></a>. 
-These security frameworks include prioritized lists of most important concerns.
+有关通用安全注意事项和原则，请参阅<a href="security.html">安全性</a>。
+请使用包括设备安全、云安全、大数据安全、服务交互安全等的成熟安全框架。
+请参阅<a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> 
+NIST(美国国家标准与技术研究院)移动设备安全 <img src="external.png" style="text-align: baseline"/></a>
+和 <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">
+OWASP(开放式Web应用程序安全项目)移动安全 <img src="external.png" style="text-align: baseline"/>
+</a>。这些安全框架包括了一个优先处理列表，其中落列了那些最需关注的事项。
 </p>
 <a name="privacy"></a>
-<h3 class="self-link-parent"><span class="sectioncount">6.0.4</span> Privacy <a href="secpriv-module.html#privacy" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">6.0.4</span> 隐私 <a href="secpriv-module.html#privacy" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
 
 Privacy in FHIR includes the set of considerations required to ensure that
