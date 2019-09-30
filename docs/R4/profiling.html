@@ -71,7 +71,7 @@
                     <a href="http://hl7.org/fhir/profiling.html" target="_blank" title="英语官方页面">
                         切换到英文
                     </a>
-
+                    Limitations of Use
             </ul>
 
         </div>
@@ -340,21 +340,26 @@ the resource without knowledge of the profile. For this reason the representatio
 
 
 <a name="limitations"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.7</span> Limitations of Use <a href="profiling.html#limitations" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.7</span> 使用局限 <a href="profiling.html#limitations" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-What StructureDefinitions can do when they are constraining existing resources and datatypes is limited in some respects:
+    结构定义用于约束现有资源和数据类型时，有以下限制：
 </p>
 <ul>
- <li>Profiles cannot break the rules established in the base specification (e.g. cardinality as described above)</li>
- <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that data types and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
- <li>Profiles cannot give more specific names to elements defined in the base specification, or add new elements</li>
- <li>It must be safe to process a resource without knowing the profile</li>
+ <li>
+     适配定义不能违背在基本规范中建立的规则（如：上述的基数）</li>
+ <li>
+     适配定义不能为基本规范中定义的元素指定默认值或含义（请注意，数据类型和资源根本不会定义默认值），但可以为<a href="structuredefinition.html#logical">逻辑模型</a>定义默认值
+    </li>
+ <li>适配定义不能为基本规范中定义的元素提供更具体的名称，也不能添加新的元素</li>
+ <li>
+     必须保证即使不知道适配定义存在也能处理资源</li>
 </ul>
 <p>
-The consequence of this is that if a profile mandates extended behavior that cannot
-be ignored, it must also mandate the use of a <a href="extensibility.html#modifiers">modifier extension</a>.
-Another way of saying this is that knowledge must be explicit in
-the instance, not implicit in the profile.
+
+    这样就意味着如果适配定义强制约束一个不能忽略的扩展，那么它还必须强制使用<a href="extensibility.html#modifierExtension ">限定扩展</a>（<a
+        herf="domainresource-definitions.html#DomainResource.modifierExtension">域资源的modifierExtension元素</a>）。
+    意即，必须在实例中显式的定义而不能隐式的进行适配定义。
+
 </p>
 <p>
 As an example, if a profile wished to describe that a <a href="procedure.html">Procedure</a>
