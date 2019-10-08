@@ -188,15 +188,15 @@
         .label_box > label {
             display: block;
             float: left;
-            padding: 8px 30px 15px 0;
+            margin: 8px 30px 15px 0;
             position: relative;
-            overflow: hidden;
+            /*overflow: hidden;*/
         }
 
         .label_box > label > input {
             position: absolute;
-            top: 0;
-            left: -20px;
+            top: -3px;
+            left: 5px;
         }
 
         .label_box > label > div {
@@ -211,6 +211,7 @@
             user-select: none;
             overflow: hidden;
             position: relative;
+            background: #fff;
             cursor: pointer;
         }
 
@@ -251,16 +252,16 @@
             padding: 0 6px;
             position: absolute;
             text-align: center;
-            bottom: 0px;
             display: block;
             font-size: 12px;
+            pointer-events: none;
             background-color: #f56c6c;
             border-radius: 10px;
             color: #fff;
-            left: 65px;
+            left: 38px;
+            bottom: 5px;
             z-index: 999;
         }
-
     </style>
 
 </head>
@@ -373,6 +374,10 @@
                             </label>
                         </div>
                     </div>
+                    <div>
+                        <button style="width: 40px;font-size: 12px;padding: 0;margin-left: 10px" onclick="allTrue()">全部+</button>
+                        <button style="width: 40px;font-size: 12px;padding: 0;margin-left: 10px" onclick="allFalse()">全部-</button>
+                    </div>
                     <div style="width: 100%">
                         <ul id="treeDemo" class="ztree"></ul>
                     </div>
@@ -460,16 +465,18 @@
     // })
     //筛选
     $(".label_box label div").click(function () {
-        $(".chose").prev().attr("checked",false)
-        $(".chose").removeClass("chose")
         var foo = JSON.parse(JSON.stringify(zNodes));
         if ($(this).hasClass('chose')) {
             $(this).removeClass('chose')
+            $(".chose").prev().attr("checked",false)
+            $(".chose").removeClass("chose")
             if ($('.chose').length == 0) {
                 search(foo)
                 return
             }
         } else {
+            $(".chose").prev().attr("checked",false)
+            $(".chose").removeClass("chose")
             $(this).addClass('chose');
         }
         ztree(foo)
@@ -488,7 +495,7 @@
                     var child = item.children.filter(function (childItem) {
                         if (childItem.children) {
                             var child1 = childItem.children.filter(function (child1Item) {
-                                if (childItem.children) {
+                                if (child1Item.children) {
                                     var child2 = child1Item.children.filter(function (child2Item) {
                                         let bol = false;
                                         for (let i = 0; i < iconNameArr.length; i++) {
@@ -803,6 +810,16 @@
                 return temp=(temp+=str).substr(temp.length-len);
             }
         }
+    }
+    //全部展开
+    function allTrue(){
+        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        treeObj.expandAll(false);
+    }
+    //全部折叠
+    function allFalse() {
+        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        treeObj.expandAll(true);
     }
 </script>
 
