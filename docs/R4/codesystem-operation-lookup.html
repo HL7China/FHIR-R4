@@ -87,33 +87,38 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="codesystem.html">Content</a></li><li><a href="codesystem-examples.html">Examples</a></li><li><a href="codesystem-definitions.html">Detailed Descriptions</a></li><li><a href="codesystem-mappings.html">Mappings</a></li><li><a href="codesystem-profiles.html">Profiles &amp; Extensions</a></li><li><a href="codesystem-operations.html">Operations</a></li><li><a href="codesystem-version-maps.html">R3 Conversions</a></li></ul>
 
-<h3 class="self-link-parent"><span class="sectioncount">4.8.21.1<a name="4.8.21.1"> </a></span> Operation $lookup on CodeSystem <a href="codesystem-operation-lookup.html#4.8.21.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.8.21.1<a name="4.8.21.1"> </a></span> CodeSystem 的查找操作：$lookup<a href="codesystem-operation-lookup.html#4.8.21.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <table class="colsn"><tr><td>工作组: <a href="http://www.hl7.org/Special/committees/Vocab/index.cfm">Vocabulary <img src="external.png" style="text-align: baseline"/></a></td><td>&nbsp;<a href="versions.html#maturity" title="Maturity Level">成熟度</a>: <a href="versions.html#std-process">N</a></td><td><a href="versions.html#std-process">Normative</a> (from v4.0.0)</td>  <!-- !ns! --><td><a href="compartmentdefinition.html">Compartments</a>: N/A</td></tr></table>
 
 
 
-<p>Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties. One of the products of this operation is a full decomposition of a code from a structured terminology.</p>
-<p>When invoking this operation, a client SHALL provide both a system and a code, either using the system+code parameters, or in the coding parameter. Other parameters are optional.</p>
+<p>
+    通过一对code/system或一个Coding类型的输入参数，获取相关概念的其他详细信息，包括定义、状态、名称和属性。
+    此操作的产出之一是从结构化术语中完全分解后的code编码信息。
+  </p>
+<p>调用此操作时，客户端<b>必须</b>提供code和system输入参数，可以使用code+system或在Coding类型。其他更多输入参数是可选的。
+   </p>
 
-<p>The official URL for this operation definition is</p>
+<p>此操作的官方定义URL如下：</p>
 <pre> http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup</pre>
-<p><a href="operation-codesystem-lookup.html">Formal Definition</a> (as a <a href="operationdefinition.html">OperationDefinition</a>).</p>
-<p>URL: [base]/CodeSystem/$lookup</p>
-<p>This is an idempotent operation</p>
+<p><a href="operation-codesystem-lookup.html">正式定义</a> (作为 <a href="operationdefinition.html">OperationDefinition</a>).</p>
+<p>URL: [基地址]/CodeSystem/$lookup</p>
+<p>这是一个幂等的操作。</p>
 <table class="grid">
-<tr><td colspan="6"><b>In Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>code</td><td>0..1</td><td><a href="datatypes.html#code">code</a></td><td></td><td></td><td><p>The code that is to be located. If a code is provided, a system must be provided</p>
+<tr><td colspan="6"><b>输入参数:</b></td></tr>
+<tr><td><b>参数名</b></td><td><b>基数</b></td><td><b>类型</b></td><td></td><td></td><td><b>文档</b></td></tr><tr>
+    <td>code</td><td>0..1</td><td><a href="datatypes.html#code">code</a></td><td></td><td></td><td><p>The code that is to be located. If a code is provided, a system must be provided</p>
 </td></tr><tr><td>system</td><td>0..1</td><td><a href="datatypes.html#uri">uri</a></td><td></td><td></td><td><p>The system for the code that is to be located</p>
 </td></tr><tr><td>version</td><td>0..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td><p>The version of the system, if one was provided in the source data</p>
 </td></tr><tr><td>coding</td><td>0..1</td><td><a href="datatypes.html#Coding">Coding</a></td><td></td><td></td><td><p>A coding to look up</p>
 </td></tr><tr><td>date</td><td>0..1</td><td><a href="datatypes.html#dateTime">dateTime</a></td><td></td><td></td><td><p>The date for which the information should be returned. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.</p>
 </td></tr><tr><td>displayLanguage</td><td>0..1</td><td><a href="datatypes.html#code">code</a></td><td></td><td></td><td><p>The requested language for display (see $expand.displayLanguage)</p>
 </td></tr><tr><td>property</td><td>0..*</td><td><a href="datatypes.html#code">code</a></td><td></td><td></td><td><p>A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: url, name, version (code system info) and code information: display, definition, designation, parent and child, and for designations, lang.X where X is a designation language code. Some of the properties are returned explicit in named parameters (when the names match), and the rest (except for lang.X) in the property parameter group</p>
-</td></tr><tr><td colspan="6"><b>Out Parameters:</b></td></tr>
-<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr><tr><td>name</td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td><p>A display name for the code system</p>
+</td></tr><tr><td colspan="6"><b>输出参数:</b></td></tr>
+    <tr><td><b>参数名</b></td><td><b>基数</b></td><td><b>类型</b></td><td></td><td></td><td><b>文档</b></td></tr><tr>
+    <tr><td>name</td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td><p>A display name for the code system</p>
 </td></tr><tr><td>version</td><td>0..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td><p>The version that these details are based on</p>
 </td></tr><tr><td>display</td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td><p>The preferred display for this concept</p>
 </td></tr><tr><td>designation</td><td>0..*</td><td></td><td></td><td></td><td><p>Additional representations for this concept</p>
@@ -129,16 +134,18 @@
 </td></tr><tr><td>property.subproperty.value</td><td>1..1</td><td>code | Coding | string | integer | boolean | dateTime | decimal</td><td></td><td></td><td><p>The value of the sub-property returned</p>
 </td></tr><tr><td>property.subproperty.description</td><td>0..1</td><td><a href="datatypes.html#string">string</a></td><td></td><td></td><td><p>Human Readable representation of the property value (e.g. display for a code)</p>
 </td></tr></table>
-<p>Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions.</p>
+<p>
+    注意，$lookup操作不仅仅是搜索编码系统,服务器会去查找对应的概念，并从编码系统定义的底层收集信息后再返回。
+   </p>
 
 <a name="examples"> </a>
-<h4 class="self-link-parent"><span class="sectioncount">4.8.21.1.1</span> Examples <a href="codesystem-operation-lookup.html#examples" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
-<p><p>Request: Looking up a code/system</p>
+<h4 class="self-link-parent"><span class="sectioncount">4.8.21.1.1</span> 示例 <a href="codesystem-operation-lookup.html#examples" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<p><p>请求: 用 code+system 查找</p>
 </p>
 <pre>
 GET [base]/CodeSystem/$lookup?system=http://loinc.org&amp;code=1963-8
 </pre>
-<p><p>Request: Lookup using a Coding</p>
+<p><p>请求: 用 Coding 查找</p>
 </p>
 <pre>
 POST [base]/CodeSystem/$lookup
@@ -155,8 +162,8 @@ POST [base]/CodeSystem/$lookup
 &lt;/Parameters&gt;
 </pre>
 <hr/>
-<p><p>Response: When the request can be processed ok</p>
-</p>
+<p>响应: 当请求能被处理时</p>
+
 <pre>
 
 HTTP/1.1 200 OK
@@ -193,7 +200,7 @@ HTTP/1.1 200 OK
   ]
 }
 </pre>
-<p><p>Response: An error - e.g. the requested code is not known</p>
+<p><p>响应: 出错，如：请求一个未知的code</p>
 </p>
 <pre>
 

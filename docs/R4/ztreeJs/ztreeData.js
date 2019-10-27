@@ -156,7 +156,7 @@ var zNodes =[
 				children:[
 					 {id:4821, name:" 4.8.21 Resource CodeSystem - Operations",iconSkin:"pIcon01",url:"codesystem-operations.html", target:"_blank",
 						children:[
-							 {id:48211, name:" 4.8.21.1 Operation $lookup on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-lookup.html", target:"_blank"},
+							 {id:48211, name:" 4.8.21.1 Operation $lookup on CodeSystem",fineTitle: "CodeSystem 的查找操作：$lookup",iconSkin:"icon01",url:"codesystem-operation-lookup.html", target:"_blank"},
 							 {id:48212, name:" 4.8.21.2 Operation $validate-code on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-validate-code.html", target:"_blank"},
 							 {id:48213, name:" 4.8.21.3 Operation $subsumes on CodeSystem",iconSkin:"icon01",url:"codesystem-operation-subsumes.html", target:"_blank"},
 							 {id:48214, name:" 4.8.21.4 Operation $find-matches on CodeSystem",iconSkin:"pIcon01",url:"codesystem-operation-find-matches.html", target:"_blank"}
