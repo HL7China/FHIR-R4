@@ -1234,59 +1234,45 @@ server detects the update cannot be done (e.g. due to server side pessimistic lo
 <a name="patch"></a>
 <h3 class="self-link-parent"><span class="sectioncount">3.1.0.6</span> patch 补丁 <a href="http.html#patch" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-As an alternative to updating an entire resource, clients can perform a patch operation.
-This can be useful when a client is seeking to minimize its bandwidth utilization, or
-in scenarios where a client has only partial access or support for a resource. The <code>patch</code>
-interaction is performed by an HTTP <code>PATCH</code> command as shown:
 
-    作为更新整个资源的替代方法，客户端可以执行修补操作。
-    当客户机试图最小化其带宽利用率时，这可能很有用，或者
-    在客户机只能部分访问或支持资源的情况下。<code>patch</code>
-    交互由http<code>patch</code>command执行，如图所示
+
+    除了一次性更新整个资源外，客户端还可以执行修补操作以实现局部更新。
+    这种方式可以最大限度的节约带宽，另外，在当客户机只有局部访问权限或仅对某资源的部分元素提供支持时此方式会很用。
+   <code>patch</code>交互由HTTP <code>PATCH</code> 动作执行，如图所示
 </p>
 <pre class="http">
   PATCH [基地址]/[资源类型]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The body of a PATCH operation SHALL be either:
-    补丁操作的主体应为:
+    PATCH操作的消息体<b>必须</b>用以下三种形式其中之一提交:
 </p>
 <ul>
- <li>a <a href="https://tools.ietf.org/html/rfc6902.">JSON Patch <img src="external.png" style="text-align: baseline"/></a> document with a content type of <code>application/json-patch+json</code>
+ <li> <a href="https://tools.ietf.org/html/rfc6902.">JSON Patch
+     <img src="external.png" style="text-align: baseline"/></a> 文档，同时指定<code>Content-Type</code> 消息头为 <code>application/json-patch+json</code>
 
  </li>
- <li>an <a href="http://tools.ietf.org/html/rfc5261">XML Patch <img src="external.png" style="text-align: baseline"/></a> document with a content type of <code>application/xml-patch+xml</code></li>
- <li>a <a href="fhirpatch.html">FHIRPath Patch</a> parameters resource with <a href="#mime-type">FHIR Content Type</a></li>
+ <li> <a href="http://tools.ietf.org/html/rfc5261">XML Patch
+     <img src="external.png" style="text-align: baseline"/></a> 文档，同时指定<code>Content-Type</code> 消息头为 <code>application/xml-patch+xml</code></li>
+ <li> <a href="fhirpatch.html">FHIRPath Patch</a> <a href="parameters.html">参数资源
+ </a> ，同时指定<code>Content-Type</code> 消息头为<a href="#mime-type">FHIR内容类型</a>（application/fhir+xml 、application/fhir+json 等）</li>
 </ul>
 <p>
-In either case, the server SHALL process its own copy of the resource in the format indicated, applying
-the operations specified in the document, following the relevant PATCH specification. When the operations
-have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
-operation; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
+    在以上任何一种情况下，服务器都<b>必须</b>按指定的格式处理自己的资源副本，并遵循相关的PATCH规范来执行文档中指定的操作（如：添加、替换、插入等）。
+    当所有操作都已处理完时，服务器将结果文档、版本、错误处理以及<a href="#prefer">Prefer Header</a>等都视为<a href="#update"><code>Update</code></a>动作来处理。
 
-    在任何一种情况下，服务器都应按照指定的格式处理自己的资源副本，应用
-    文档中指定的操作，遵循相关补丁规范。当手术
-    所有文件都已处理，服务器将结果文档作为<a href="#update"><code>Update</code></a>
-    操作；所有版本和错误处理等均按规定应用，<a href="#prefer">Prefer Header</a>也按规定应用。
 </p>
 <p>
-Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support
-conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>.
-Clients SHOULD always consider using version specific PATCH operations so that inappropriate
-actions are not executed.
 
-    处理修补程序操作可能对版本非常敏感。因此，服务器应支持
-    Conditional Patch，其工作原理与在<a href="#versionaware">Concurrency Management</a>中为更新指定的工作原理完全相同。
-    客户机应始终考虑使用特定于版本的补丁操作，以便
-    未执行操作。
+    执行PATCH动作可能对版本非常敏感。因此，服务器<b>必须</b>支持带条件的PATCH，其工作方式与在<a href="#versionaware">并发管理</a>中指定的更新完全相同。
+
+    客户端在使用PATCH动作时应该始终考虑指定版本，避免执行不适当的操作。
+
 </p>
 <div class="draft-content">
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
 
-    与此页面的其余部分不同，条件创建、更新、修补和删除在
-    他们的使用获得了更多的经验。他们的状态将在未来版本的fhir中进行审查。
+    与此页面的其余部分不同，带条件的创建、更新、修补和删除在进一步实践之前是试用状态。他们的状态将在FHIR的未来版本中进行审查。
+
 </p>
 <p>
 In addition, servers that support PATCH, and that support <a href="#cond-update">Conditional Update</a> SHOULD
