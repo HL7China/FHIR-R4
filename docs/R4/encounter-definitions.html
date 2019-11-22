@@ -115,16 +115,16 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Encounter"> </a><b>Encounter</b></td></tr>
   <tr><td>Element Id</td><td>Encounter</td></tr>
-  <tr><td>Definition</td><td><p>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</p>
+  <tr><td>Definition</td><td>患者和卫生健康提供者之间的交互活动，交互目的是提供卫生健康服务或评估患者的健康状况。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Visit</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.identifier"> </a><b>Encounter.identifier</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.identifier</td></tr>
-  <tr><td>Definition</td><td><p>Identifier(s) by which this encounter is known.</p>
+  <tr><td>Definition</td><td><p>本次医疗活动的标志符</p>
 </td></tr>
-  <tr><td>Note</td><td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
+  <tr><td>Note</td><td>这是业务id，并不是资源的标识符 (参见 <a href="resource.html#identifiers">讨论</a>)</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
@@ -141,10 +141,14 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.statusHistory"> </a><b>Encounter.statusHistory</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.statusHistory</td></tr>
-  <tr><td>Definition</td><td><p>The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.</p>
+  <tr><td>Definition</td><td>
+    状态历史记录了此医疗活动在不同时间段所处的不同状态。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Comments</td><td><p>The current status is always found in the current version of the resource, not the status history.</p>
+  <tr><td>Comments</td><td>
+    当前状态始终位于Encounter.status中，不会在状态历史中记录。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.statusHistory.status"> </a><b>Encounter.statusHistory.status</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.statusHistory.status</td></tr>
@@ -161,7 +165,9 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.class"> </a><b>Encounter.class</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.class</td></tr>
-  <tr><td>Definition</td><td><p>Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.</p>
+  <tr><td>Definition</td><td>
+    患者医疗活动的分类，如门诊、住院、急诊、家庭医疗或其他医疗活动。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="v3/ActEncounterCode/vs.html">V3 Value SetActEncounterCode</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
@@ -242,13 +248,17 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.participant.type"> </a><b>Encounter.participant.type</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.participant.type</td></tr>
-  <tr><td>Definition</td><td><p>Role of participant in encounter.</p>
+  <tr><td>Definition</td><td><p>从业者在本次医疗活动中充当的角色</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-participant-type.html">Participant type</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The participant type indicates how an individual participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.</p>
+  <tr><td>Comments</td><td>
+    从业者类型说明了医务人员或其它人员如何参与医疗活动的。
+    对于医务人员，描述的是本次医疗活动具体场景下的活动类型（例如，住院医师、主治医师、转诊办理员、咨询师）。
+    它与从业者角色（PractitionerRole）不同，从业者角色是功能性角色，是通过受聘情况、教育背景、执业证等来确定的。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.participant.period"> </a><b>Encounter.participant.period</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.participant.period</td></tr>
@@ -462,11 +472,15 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.partOf"> </a><b>Encounter.partOf</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.partOf</td></tr>
-  <tr><td>Definition</td><td><p>Another Encounter of which this encounter is a part of (administratively or in time).</p>
+  <tr><td>Definition</td><td>
+    另一个医疗活动，此医疗是其中的一部分（在管理上或时间上）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="encounter.html">Encounter</a>)</td></tr>
-  <tr><td><a href="references.html#circular">Hierarchy</a></td><td>This reference is part of a strict Hierarchy</td></tr>
+  <tr><td><a href="references.html#circular">Hierarchy</a></td><td>
+    此引用是严格层次结构的一部分
+    This reference is part of a strict Hierarchy</td></tr>
   <tr><td>Comments</td><td><p>This is also used for associating a child's encounter back to the mother's encounter.</p>
 <p>Refer to the Notes section in the Patient resource for further details.</p>
 </td></tr>

@@ -115,14 +115,17 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Person"> </a><b>Person</b></td></tr>
   <tr><td>Element Id</td><td>Person</td></tr>
-  <tr><td>Definition</td><td><p>Demographics and administrative information about a person independent of a specific health-related context.</p>
-</td></tr>
+  <tr><td>Definition</td><td><p>和医疗记录无关的人口学个人档案。可用作EMPI主索引。</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
   <tr><td>Requirements</td><td><p>Need to track persons potentially across multiple roles.</p>
 </td></tr>
-  <tr><td>Comments</td><td><p>The Person resource does justice to person registries that keep track of persons regardless of their role. The Person resource is also a primary resource to point to for people acting in a particular role such as SubjectofCare, Practitioner, and Agent. Very few attributes are specific to any role and so Person is kept lean. Most attributes are expected to be tied to the role the Person plays rather than the Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), and multipleBirthInd (SubjectofCare).</p>
-</td></tr>
+  <tr><td>Comments</td><td><p>
+      居民资源是与人相关的人口(学)信息和管理信息，它与特定健康相关场景无关，主要用于人口档案的建档与注册。
+      此资源是作为EMPI主索引的重要资源，它可链接到此人的一个特定角色，如患者，从业者和照护人员。
+      它保持着简练的与人相关的属性。与角色有关的属性，不与此资源直接联系在一起，而是包含在那此具有角色特性的资源里。
+      例如监护人、联系人、从业者等。
+     </td></tr>
   <tr><td colspan="2" class="structure"><a name="Person.identifier"> </a><b>Person.identifier</b></td></tr>
   <tr><td>Element Id</td><td>Person.identifier</td></tr>
   <tr><td>Definition</td><td><p>Identifier for a person within a particular scope.</p>
