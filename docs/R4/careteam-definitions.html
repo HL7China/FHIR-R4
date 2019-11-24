@@ -194,7 +194,9 @@ Allows for an organization to designate a team such as the PICC line team.</p>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CareTeam.participant"> </a><b>CareTeam.participant</b></td></tr>
   <tr><td>Element Id</td><td>CareTeam.participant</td></tr>
-  <tr><td>Definition</td><td><p>Identifies all people and organizations who are expected to be involved in the care team.</p>
+  <tr><td>Definition</td><td>
+      描述所有参与医护团队的人员和组织
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td>Invariants</td><td><table class="dict">
@@ -204,13 +206,18 @@ Allows for an organization to designate a team such as the PICC line team.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CareTeam.participant.role"> </a><b>CareTeam.participant.role</b></td></tr>
   <tr><td>Element Id</td><td>CareTeam.participant.role</td></tr>
-  <tr><td>Definition</td><td><p>Indicates specific responsibility of an individual within the care team, such as "Primary care physician", "Trained social worker counselor", "Caregiver", etc.</p>
+  <tr><td>Definition</td><td>
+      用于说明个人在医护团队中所负担的具体责任，如“初级护士”、“心理顾问”、“护工”等。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-participant-role.html">Participant Roles</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.</p>
+  <tr><td>Comments</td><td>
+      有时可以根据医疗服务人员的类型来推断其在此团队中的角色。
+      这些关系通常作为与服务对象患者直接相关的属性，只存在于此团队场景中。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CareTeam.participant.member"> </a><b>CareTeam.participant.member</b></td></tr>
   <tr><td>Element Id</td><td>CareTeam.participant.member</td></tr>

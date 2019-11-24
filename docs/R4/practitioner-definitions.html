@@ -115,7 +115,7 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Practitioner"> </a><b>Practitioner</b></td></tr>
   <tr><td>Element Id</td><td>Practitioner</td></tr>
-  <tr><td>Definition</td><td><p>A person who is directly or indirectly involved in the provisioning of healthcare.</p>
+  <tr><td>Definition</td><td>直接或间接参与提供医疗健康服务的人员
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
@@ -214,12 +214,17 @@ Work addresses are not typically entered in this property as they are usually ro
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Practitioner.qualification"> </a><b>Practitioner.qualification</b></td></tr>
   <tr><td>Element Id</td><td>Practitioner.qualification</td></tr>
-  <tr><td>Definition</td><td><p>The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.</p>
+  <tr><td>Definition</td><td>
+      官方证书、培训证和执照，用于授权或证明医疗健康服务人员的资格或能力。授权或以其他方式与医生提供护理有关。例如，医师执业证，授权医生在某区域内行医。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td colspan="2" class="structure"><a name="Practitioner.qualification.identifier"> </a><b>Practitioner.qualification.identifier</b></td></tr>
+  <tr><td colspan="2" class="structure"><a name="Practitioner.qualification.identifier"> </a>
+      <b>Practitioner.qualification.identifier</b></td></tr>
   <tr><td>Element Id</td><td>Practitioner.qualification.identifier</td></tr>
-  <tr><td>Definition</td><td><p>An identifier that applies to this person's qualification in this role.</p>
+  <tr><td>Definition</td><td>
+      某人担任某角色的资格的标识符。
+
 </td></tr>
   <tr><td>Note</td><td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
@@ -228,18 +233,20 @@ Work addresses are not typically entered in this property as they are usually ro
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Practitioner.qualification.code"> </a><b>Practitioner.qualification.code</b></td></tr>
   <tr><td>Element Id</td><td>Practitioner.qualification.code</td></tr>
-  <tr><td>Definition</td><td><p>Coded representation of the qualification.</p>
+  <tr><td>Definition</td><td><p>编码形式的资格/证书</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="v2/0360/2.7/index.html">v2 table 0360, Version 2.7</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Practitioner.qualification.period"> </a><b>Practitioner.qualification.period</b></td></tr>
   <tr><td>Element Id</td><td>Practitioner.qualification.period</td></tr>
-  <tr><td>Definition</td><td><p>Period during which the qualification is valid.</p>
+  <tr><td>Definition</td><td><p>资格/证书的有效期</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
-  <tr><td>Requirements</td><td><p>Qualifications are often for a limited period of time, and can be revoked.</p>
+  <tr><td>Requirements</td><td>
+      资格证书通常是规定了有效期限的，并且可以撤销。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Practitioner.qualification.issuer"> </a><b>Practitioner.qualification.issuer</b></td></tr>
   <tr><td>Element Id</td><td>Practitioner.qualification.issuer</td></tr>

@@ -175,7 +175,12 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.classHistory"> </a><b>Encounter.classHistory</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.classHistory</td></tr>
-  <tr><td>Definition</td><td><p>The class history permits the tracking of the encounters transitions without needing to go  through the resource history.  This would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient.</p>
+  <tr><td>Definition</td><td>
+    就诊类别历史记录可以在不遍历资源历史记录的情况下跟踪医疗就诊活动类别的变化。
+    这将用于这样一种情况：刚开始是急诊，然后通过急诊入院转为住院。
+    用这种方式记录而不是新建一次医疗就诊活动的好处在于此患者的所有检验检查的诊断结果都可以更容易的获取，
+    因为不会在急诊出院又重新入院的过程中造成数据的无法关联，也不需要通过患者索引来重新处理数据。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.classHistory.class"> </a><b>Encounter.classHistory.class</b></td></tr>
@@ -193,7 +198,9 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.type"> </a><b>Encounter.type</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.type</td></tr>
-  <tr><td>Definition</td><td><p>Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).</p>
+  <tr><td>Definition</td><td>
+    医疗活动的具体类型。例如：电子邮件咨询、外科手术、家庭护理、产后康复。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-type.html">Encounter type</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
@@ -203,7 +210,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.serviceType"> </a><b>Encounter.serviceType</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.serviceType</td></tr>
-  <tr><td>Definition</td><td><p>Broad categorization of the service that is to be provided (e.g. cardiology).</p>
+  <tr><td>Definition</td><td>
+    所提供服务的广义分类，如心脏病学。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-service-type.html">Service type</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
@@ -211,38 +220,51 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.priority"> </a><b>Encounter.priority</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.priority</td></tr>
-  <tr><td>Definition</td><td><p>Indicates the urgency of the encounter.</p>
+  <tr><td>Definition</td><td>表示医疗就诊活动的紧迫性
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="v3/ActPriority/vs.html">v3 Code System ActPriority</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.subject"> </a><b>Encounter.subject</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.subject</td></tr>
-  <tr><td>Definition</td><td><p>The patient or group present at the encounter.</p>
+  <tr><td>Definition</td><td>
+    此医疗活动的服务对象：患者或群体。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="patient.html">Patient</a> | <a href="group.html">Group</a>)</td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>patient</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>While the encounter is always about the patient, the patient might not actually be known in all contexts of use, and there may be a group of patients that could be anonymous (such as in a group therapy for Alcoholics Anonymous - where the recording of the encounter could be used for billing on the number of people/staff and not important to the context of the specific patients) or alternately in veterinary care a herd of sheep receiving treatment (where the animals are not individually tracked).</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    虽然医疗就诊的服务对象总是患者，但在某些场境中，可能并知道患者的真实身份，可能存在一组匿名患者，
+    例如在匿名戒酒者团体治疗中——在这种情况下，医疗就诊的记录可用于对人数/工作人员进行计费，而不并不关注病人的具体信息。
+    在兽医治疗的场景中，服务对象可能是接受治疗的一群羊（在这种情况下,不会单个动物进行追踪）。
+    </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.episodeOfCare"> </a><b>Encounter.episodeOfCare</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.episodeOfCare</td></tr>
-  <tr><td>Definition</td><td><p>Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).</p>
+  <tr><td>Definition</td><td>
+    当医疗就诊活动事件应被归类为某些治疗/照护期的一部分时，应使用此字段。这种关联可以方便地将相关医疗就诊活动按目的进行分组，例如上报数据、问题追踪、常见问题相关性。
+    因为治疗/照护期可能很长（跨越数年），在其结束之前通常不会先创建治疗/照护期资源并通过编辑更新逐步附加相关医疗就诊资源，
+    而是在其结束后创建并按条目分组。所以，为了方便后期创建治疗/照护期资源时获取相关信息，当这种关联信息产生时就先记录在医疗就诊资源里。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="episodeofcare.html">EpisodeOfCare</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.basedOn"> </a><b>Encounter.basedOn</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.basedOn</td></tr>
-  <tr><td>Definition</td><td><p>The request this encounter satisfies (e.g. incoming referral or procedure request).</p>
+  <tr><td>Definition</td><td>
+    此医疗就诊资源是基于哪些申请产生的（例如转入申请或手术申请）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="servicerequest.html">ServiceRequest</a>)</td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>incomingReferral</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.participant"> </a><b>Encounter.participant</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.participant</td></tr>
-  <tr><td>Definition</td><td><p>The list of people responsible for providing the service.</p>
+  <tr><td>Definition</td><td>
+    负责提供服务的人员名单。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
@@ -268,48 +290,63 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.participant.individual"> </a><b>Encounter.participant.individual</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.participant.individual</td></tr>
-  <tr><td>Definition</td><td><p>Persons involved in the encounter other than the patient.</p>
+  <tr><td>Definition</td><td>
+    除了病人之外的其他参与人。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="practitioner.html">Practitioner</a> | <a href="practitionerrole.html">PractitionerRole</a> | <a href="relatedperson.html">RelatedPerson</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.appointment"> </a><b>Encounter.appointment</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.appointment</td></tr>
-  <tr><td>Definition</td><td><p>The appointment that scheduled this encounter.</p>
+  <tr><td>Definition</td><td>
+    安排这次医疗就诊的预约
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="appointment.html">Appointment</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.period"> </a><b>Encounter.period</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.period</td></tr>
-  <tr><td>Definition</td><td><p>The start and end time of the encounter.</p>
+  <tr><td>Definition</td><td>
+    此就诊活动的起止时间
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
-  <tr><td>Comments</td><td><p>If not (yet) known, the end of the Period may be omitted.</p>
+  <tr><td>Comments</td><td>
+    如果活动尚未结束且不可预知，截止时间可以省略。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.length"> </a><b>Encounter.length</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.length</td></tr>
-  <tr><td>Definition</td><td><p>Quantity of time the encounter lasted. This excludes the time during leaves of absence.</p>
+  <tr><td>Definition</td><td>
+    此就诊活动持续的时间长度。应减去其离院期间的时长。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Duration">Duration</a></td></tr>
-  <tr><td>Comments</td><td><p>May differ from the time the Encounter.period lasted because of leave of absence.</p>
+  <tr><td>Comments</td><td>
+    由于临时离院等因素，可能与Encounter.period的时间跨度的时长不同。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.reasonCode"> </a><b>Encounter.reasonCode</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.reasonCode</td></tr>
-  <tr><td>Definition</td><td><p>Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.</p>
+  <tr><td>Definition</td><td>
+    医疗就诊活动发生的原因，用代码表示。对于入院，这可填写入院诊断编码。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-reason.html">Encounter Reason Codes</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Indication; Admission diagnosis</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis).</p>
+  <tr><td>Comments</td><td>
+    若要区分主要诊断，需使用标准扩展“主要诊断”（primaryDiagnosis）进行标记，这是一个带顺序的值，第一个值代表主要诊断。不能用一个标志来表示（如：1=主要诊断）
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.reasonReference"> </a><b>Encounter.reasonReference</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.reasonReference</td></tr>
-  <tr><td>Definition</td><td><p>Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.</p>
+  <tr><td>Definition</td><td>
+#以下官方错误#
+    <p>Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="condition.html">Condition</a> | <a href="procedure.html">Procedure</a> | <a href="observation.html">Observation</a> | <a href="immunizationrecommendation.html">ImmunizationRecommendation</a>)</td></tr>
@@ -319,13 +356,18 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.diagnosis"> </a><b>Encounter.diagnosis</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.diagnosis</td></tr>
-  <tr><td>Definition</td><td><p>The list of diagnosis relevant to this encounter.</p>
+  <tr><td>Definition</td><td>
+    与此医疗就诊相关的所有诊断
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.diagnosis.condition"> </a><b>Encounter.diagnosis.condition</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.diagnosis.condition</td></tr>
-  <tr><td>Definition</td><td><p>Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.</p>
+  <tr><td>Definition</td><td>
+    使用其他资源的信息来说明就诊活动发生的原因。对于入院，通常用一个Condition资源（其相关资源由Condition.evidence.detail引用）来表示入院诊断。
+    <p>Reason the encounter takes place, as specified using information from another resource.
+      For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="condition.html">Condition</a> | <a href="procedure.html">Procedure</a>)</td></tr>
@@ -348,19 +390,26 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#positiveInt">positiveInt</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.account"> </a><b>Encounter.account</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.account</td></tr>
-  <tr><td>Definition</td><td><p>The set of accounts that may be used for billing for this Encounter.</p>
+  <tr><td>Definition</td><td>
+    可用于对为此就诊活动进行支付与结算的一组帐户
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="account.html">Account</a>)</td></tr>
-  <tr><td>Comments</td><td><p>The billing system may choose to allocate billable items associated with the Encounter to different referenced Accounts based on internal business rules.</p>
+  <tr><td>Comments</td><td>
+    计费系统可根据内部业务规则将与此就诊活动相关联的收费项目分配给不同的引用帐户。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization"> </a><b>Encounter.hospitalization</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization</td></tr>
-  <tr><td>Definition</td><td><p>Details about the admission to a healthcare service.</p>
+  <tr><td>Definition</td><td>
+    医疗服务详情
+    <p>Details about the admission to a healthcare service.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
-  <tr><td>Comments</td><td><p>An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.</p>
-<p>The duration recorded in the period of this encounter covers the entire scope of this hospitalization record.</p>
+  <tr><td>Comments</td><td>
+    医疗就诊活动可能不仅仅包括住院治疗。还包括门诊、社区门诊和老年照护机构等。
+
+    <p>本次住院记录需覆盖的此期间的全部范围。</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.preAdmissionIdentifier"> </a><b>Encounter.hospitalization.preAdmissionIdentifier</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.preAdmissionIdentifier</td></tr>
