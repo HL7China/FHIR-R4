@@ -115,11 +115,14 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Group"> </a><b>Group</b></td></tr>
   <tr><td>Element Id</td><td>Group</td></tr>
-  <tr><td>Definition</td><td><p>Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+
+      表示一个已定义的实体集合，可以把它作为一个群体来看待，但它并不是经法律正式认可的集体，即非组织的实体集合。</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
-  <tr><td>Comments</td><td><p>If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics.</p>
+  <tr><td>Comments</td><td>
+      如果同时指定了Group.characteristic和Group.member，则成员是符合此特性的人群。可能还有其他候选人符合这此特性，只是尚未出现在成员名单中。Group.member中所有成员都必须符合Group.characteristic中所列特征。
+
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Defined on this element</b></td></tr>

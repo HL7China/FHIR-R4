@@ -115,14 +115,16 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Observation"> </a><b>Observation</b></td></tr>
   <tr><td>Element Id</td><td>Observation</td></tr>
-  <tr><td>Definition</td><td><p>Measurements and simple assertions made about a patient, device or other subject.</p>
+  <tr><td>Definition</td><td>对目标（患者、设备或其它对象）进行检测、观察后的观测结果。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
   <tr><td>Requirements</td><td><p>Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.</p>
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Vital Signs; Measurement; Results; Tests</td></tr>
-  <tr><td>Comments</td><td><p>Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc.</p>
+  <tr><td>Comments</td><td>
+    用于简单的观测，如设备测量、实验室细项结果、生命体征、身高、体重、吸烟状态、意见等。多个观测资源被诸如检验报告的资源引用后才具有临床意义。
+
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Defined on this element</b></td></tr>

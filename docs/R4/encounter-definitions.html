@@ -159,7 +159,9 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.statusHistory.period"> </a><b>Encounter.statusHistory.period</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.statusHistory.period</td></tr>
-  <tr><td>Definition</td><td><p>The time that the episode was in the specified status.</p>
+  <tr><td>Definition</td><td>
+    处于此状态的时间段。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
@@ -413,109 +415,138 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.preAdmissionIdentifier"> </a><b>Encounter.hospitalization.preAdmissionIdentifier</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.preAdmissionIdentifier</td></tr>
-  <tr><td>Definition</td><td><p>Pre-admission identifier.</p>
+  <tr><td>Definition</td><td>
+    预入院标识符。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.origin"> </a><b>Encounter.hospitalization.origin</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.origin</td></tr>
-  <tr><td>Definition</td><td><p>The location/organization from which the patient came before admission.</p>
+  <tr><td>Definition</td><td>患者入院前所在的地点或机构。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="location.html">Location</a> | <a href="organization.html">Organization</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.admitSource"> </a><b>Encounter.hospitalization.admitSource</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.admitSource</td></tr>
-  <tr><td>Definition</td><td><p>From where patient was admitted (physician referral, transfer).</p>
+  <tr><td>Definition</td><td>
+    患者入院途径（医生转诊、转院）
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-admit-source.html">Admit source</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.reAdmission"> </a><b>Encounter.hospitalization.reAdmission</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.reAdmission</td></tr>
-  <tr><td>Definition</td><td><p>Whether this hospitalization is a readmission and why if known.</p>
+  <tr><td>Definition</td><td>
+    是否属于非计划再入院，以及再入院的原因。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="v2/0092/index.html">v2 RE-ADMISSION INDICATOR</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.dietPreference"> </a><b>Encounter.hospitalization.dietPreference</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.dietPreference</td></tr>
-  <tr><td>Definition</td><td><p>Diet preferences reported by the patient.</p>
+  <tr><td>Definition</td><td>
+    患者报告的饮食偏好
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-diet.html">Diet</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter.</p>
+  <tr><td>Requirements</td><td>
+    用于跟踪患者的饮食禁忌或偏好。若要完整描述患者在住院期间的营养需求，应使用一个指向此医疗就诊活动的营养处方资源。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive).</p>
+  <tr><td>Comments</td><td>
+    例如，患者可以同时提出不吃无乳制品和不吃坚果的饮食要求（不相互排斥）。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.specialCourtesy"> </a><b>Encounter.hospitalization.specialCourtesy</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.specialCourtesy</td></tr>
-  <tr><td>Definition</td><td><p>Special courtesies (VIP, board member).</p>
+  <tr><td>Definition</td><td>特别礼遇（贵宾、董事会成员）。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-special-courtesy.html">Special courtesy</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.specialArrangement"> </a><b>Encounter.hospitalization.specialArrangement</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.specialArrangement</td></tr>
-  <tr><td>Definition</td><td><p>Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.</p>
+  <tr><td>Definition</td><td>
+    本次住院治疗中提出的所有特殊要求，如提供特定设备或其他物品。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-special-arrangements.html">Special arrangements</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.destination"> </a><b>Encounter.hospitalization.destination</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.destination</td></tr>
-  <tr><td>Definition</td><td><p>Location/organization to which the patient is discharged.</p>
+  <tr><td>Definition</td><td>
+    患者出院到哪里（地点、机构）
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="location.html">Location</a> | <a href="organization.html">Organization</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.hospitalization.dischargeDisposition"> </a><b>Encounter.hospitalization.dischargeDisposition</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.hospitalization.dischargeDisposition</td></tr>
-  <tr><td>Definition</td><td><p>Category or kind of location after discharge.</p>
+  <tr><td>Definition</td><td>
+    患者出院后所处地点的类别
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-discharge-disposition.html">Discharge disposition</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.location"> </a><b>Encounter.location</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.location</td></tr>
-  <tr><td>Definition</td><td><p>List of locations where  the patient has been during this encounter.</p>
+  <tr><td>Definition</td><td>
+    患者在此就诊期间去过哪些位置。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Comments</td><td><p>Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type "kind" such as "client's home" and an encounter.class = "virtual".</p>
+  <tr><td>Comments</td><td>
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.location.location"> </a><b>Encounter.location.location</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.location.location</td></tr>
-  <tr><td>Definition</td><td><p>The location where the encounter takes place.</p>
+  <tr><td>Definition</td><td>
+    此医疗就诊活动的发生地点
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="location.html">Location</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.location.status"> </a><b>Encounter.location.status</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.location.status</td></tr>
-  <tr><td>Definition</td><td><p>The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.</p>
+  <tr><td>Definition</td><td>
+    在某时段内患者在此地点的状态：已预定、已在位、预留中、已完成（planned | active | reserved | completed）。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-encounter-location-status.html">EncounterLocationStatus</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td>Comments</td><td><p>When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    如果患者不再在该位置，则Encounter.location.period应填写结束日期/时间。，状态可能更改为“completed”。</td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.location.physicalType"> </a><b>Encounter.location.physicalType</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.location.physicalType</td></tr>
-  <tr><td>Definition</td><td><p>This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query.</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+    用于指定记录位置的级别（病床/病区/病房等），以简化消息传递或查询。
+    </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-location-physical-type.html">Location type</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Comments</td><td><p>This information is de-normalized from the Location resource to support the easier understanding of the encounter resource and processing in messaging or query.</p>
-<p>There may be many levels in the hierachy, and this may only pic specific levels that are required for a specific usage scenario.</p>
+  <tr><td>Comments</td><td>
+    <p>此信息可以重新指定位置资源中的物理类型（Location.physicalType），以便在消息传递或查询中更容易理解和处理医疗就诊资源。
+      </p>
+
+    <p>可能会有层级式的多个级别，也可能只是特定使用场景所需的某些级别。</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.location.period"> </a><b>Encounter.location.period</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.location.period</td></tr>
-  <tr><td>Definition</td><td><p>Time period during which the patient was present at the location.</p>
+  <tr><td>Definition</td><td>
+    患者在此位置的时间段。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Period">Period</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Encounter.serviceProvider"> </a><b>Encounter.serviceProvider</b></td></tr>
   <tr><td>Element Id</td><td>Encounter.serviceProvider</td></tr>
-  <tr><td>Definition</td><td><p>The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.</p>
+  <tr><td>Definition</td><td>
+    对本次就诊服务负主要责任的组织单位，这与患者记录上的医疗机构<b>可能</b>相同，但也可能不同，
+    例如，参与者来自外部组织，并且提供的是单独收费的额外服务。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td></tr>
@@ -528,10 +559,12 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="encounter.html">Encounter</a>)</td></tr>
   <tr><td><a href="references.html#circular">Hierarchy</a></td><td>
-    此引用是严格层次结构的一部分
-    This reference is part of a strict Hierarchy</td></tr>
-  <tr><td>Comments</td><td><p>This is also used for associating a child's encounter back to the mother's encounter.</p>
-<p>Refer to the Notes section in the Patient resource for further details.</p>
+    此引用是严格层级结构中的一部分
+</td></tr>
+  <tr><td>Comments</td><td><p>
+    可用于关联新生儿医疗就诊资源与产妇医疗就诊资源。
+    </p>
+<p>详细信息请参阅“患者资源”中的官方说明。</p>
 </td></tr>
 </table>
 

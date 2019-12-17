@@ -115,11 +115,13 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Patient"> </a><b>Patient</b></td></tr>
   <tr><td>Element Id</td><td>Patient</td></tr>
-  <tr><td>Definition</td><td><p>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</p>
+  <tr><td>Definition</td><td>
+    接受医疗健康服务个人的人口学信息或动物的管理信息。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
-  <tr><td>Requirements</td><td><p>Tracking patient is the center of the healthcare process.</p>
+  <tr><td>Requirements</td><td>
+ 医疗过程是以患者为中心的。
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>SubjectOfCare Client Resident</td></tr>
   <tr><td colspan="2" class="structure"><a name="Patient.identifier"> </a><b>Patient.identifier</b></td></tr>
@@ -134,31 +136,34 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Patient.active"> </a><b>Patient.active</b></td></tr>
   <tr><td>Element Id</td><td>Patient.active</td></tr>
-  <tr><td>Definition</td><td><p>Whether this patient record is in active use.
-Many systems use this property to mark as non-current patients, such as those that have not been seen for a period of time based on an organization's business rules.</p>
-<p>It is often used to filter patient lists to exclude inactive patients</p>
-<p>Deceased patients may also be marked as inactive for the same reasons, but may be active for some time after death.</p>
+  <tr><td>Definition</td><td>此患者记录是否正在使用中。许多系统使用此属性将患者标记为非当前患者，例如根据组织的业务规则在一段时间内未就诊的患者。
+    它通常用于筛选正在使用患者记录，排除不活动的患者。
+    死亡的病人也可能被标记为不活动，但在死亡后的一段时间内病历可能还在使用，可以认为是活动的。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
-  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid)</td></tr>
-  <tr><td>Meaning if Missing</td><td>This resource is generally assumed to be active if no value is provided for the active element</td></tr>
-  <tr><td>Requirements</td><td><p>Need to be able to mark a patient record as not to be used because it was created in error.</p>
+  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (原因:
+    此元素值为fasle时，意味着此记录应被视为无效)</td></tr>
+  <tr><td>Meaning if Missing</td><td>如果没有为active元素提供值，则默认假定此资源是活动的</td></tr>
+  <tr><td>Requirements</td><td>需要能够将错误创建的记录标记为不使用（False)。
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient.</p>
+  <tr><td>Comments</td><td>
+    如果某个患者记录A处于非活动状态并被链接到另一个处于活动状态的患者记录B，则后来对患者记录的更新应在B上进行。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Patient.name"> </a><b>Patient.name</b></td></tr>
   <tr><td>Element Id</td><td>Patient.name</td></tr>
-  <tr><td>Definition</td><td><p>A name associated with the individual.</p>
+  <tr><td>Definition</td><td><p>与患者相关的名字</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#HumanName">HumanName</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to be able to track the patient by multiple names. Examples are your official name and a partner name.</p>
+  <tr><td>Requirements</td><td>
+    需要能够通过不同的姓名定位可能的患者。例如包括户口姓名、曾用名、笔名、学名、乳名等
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>A patient may have multiple names with different uses or applicable periods. For animals, the name is a "HumanName" in the sense that is assigned and used by humans and has the same patterns.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    患者可能在不同时期有多个不同用途的名字。对动物名字仍然是一个HumanName数据类型，因为它是由人类指定和使用的，并且具有相同的模式。</td></tr>
   <tr><td colspan="2" class="structure"><a name="Patient.telecom"> </a><b>Patient.telecom</b></td></tr>
   <tr><td>Element Id</td><td>Patient.telecom</td></tr>
   <tr><td>Definition</td><td><p>A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.</p>
