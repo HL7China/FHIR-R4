@@ -396,35 +396,44 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.property"> </a><b>CodeSystem.property</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.property</td></tr>
-  <tr><td>Definition</td><td><p>A property defines an additional slot through which additional information can be provided about a concept.</p>
+  <tr><td>Definition</td><td>
+  属性用于提供有此概念相关的更多附加信息。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.property.code"> </a><b>CodeSystem.property.code</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.property.code</td></tr>
-  <tr><td>Definition</td><td><p>A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters.</p>
+  <tr><td>Definition</td><td>
+  用于标识属性的编码。此编码可用在此资源内部（CodeSystem.concept.property.code），也可用在外部，如：用于属性筛选器（filter）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.property.uri"> </a><b>CodeSystem.property.uri</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.property.uri</td></tr>
-  <tr><td>Definition</td><td><p>Reference to the formal meaning of the property. One possible source of meaning is the <a href="codesystem-concept-properties.html">Concept Properties</a> code system.</p>
+  <tr><td>Definition</td><td>
+  指向属性表示的意思。常使用“概念属性”编码系统的官方地址：http://hl7.org/fhir/concept-properties。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.property.description"> </a><b>CodeSystem.property.description</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.property.description</td></tr>
-  <tr><td>Definition</td><td><p>A description of the property- why it is defined, and how its value might be used.</p>
+  <tr><td>Definition</td><td>
+  属性的描述——为什么如此定义，以及如何使用它的值。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.property.type"> </a><b>CodeSystem.property.type</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.property.type</td></tr>
-  <tr><td>Definition</td><td><p>The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+  属性值的类型。“编码”类型的属性值是某个编码系统定义的概念，即引用另一个定义的概念。
+  </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-concept-property-type.html">PropertyType</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>

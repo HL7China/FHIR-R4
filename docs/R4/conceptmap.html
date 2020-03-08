@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>概念图 - HL7 FHIR 中国</title>
+    <title>概念映射 - HL7 FHIR 中国</title>
 
 
   
@@ -63,7 +63,7 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><img src="terminology.png"/><b> 当前位置：</b><a href="terminology-module.html"> 术语</a></li>                <li>概念图</li>         <!-- conceptmap.html / resource / ConceptMap -->
+        <li><img src="terminology.png"/><b> 当前位置：</b><a href="terminology-module.html"> 术语</a></li>                <li>概念映射</li>         <!-- conceptmap.html / resource / ConceptMap -->
         <div class="breadcrumbRight">
             <ul>
                 <li>
@@ -988,24 +988,45 @@ the meaning of an <code>unmatched</code> target whether or not there is a stated
 <h2 class="self-link-parent"><span class="sectioncount">4.10.7</span> Mapping Dependencies <a href="conceptmap.html#dependencies" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <p>
-In the simple case, a mapping is made from one code to another. E.g. from "home address" in one code system to "address - home" in another. 
-But in other cases, the mapping is not a simple one to one mapping. A typical example might be mapping between 
-a radiology imaging request that has 2 elements: modality, and body site, and another radiology imaging request that 
-pre-coordinates both of these into a single code modality+body site. In this case, it is not possible to map from 
-one code to another. Instead, the mapping might contain entries like this:
+在简单的情况下，映射的编码是一对一的。如：将一个编码系统中的“家庭地址”编码映射到另一个编码系统中的“家庭住址”编码。
+但有时却不仅仅是简单一对一的映射关系。
+以映射两个影像检查项目为例，一个的项目具有两个元素（方式和身体部位），
+另一个预先将这两个元素打包成了一个元素（方式+身体部位）。
+在这种情况下，不可能从一个编码映射到另一个编码。相反，映射可能包含如下条目：
+
 </p>
 <table class="grid">
- <tr><td><b>Source Concept</b></td><td><b>DependsOn.property</b></td><td><b>DependsOn Concept</b></td><td><b>Target Concept</b></td></tr>
- <tr><td>X-Ray</td><td>Bodysite</td><td>Chest</td><td>Chest-XRay</td></tr>
+ <tr><td><b>源概念</b></td><td><b>DependsOn.property</b></td><td><b>DependsOn.value</b></td><td><b>目标概念</b></td></tr>
+ <tr><td>   X光</td><td>部位</td><td>胸部</td><td>X光胸片</td></tr>
 </table>
 <p>
-When attempting to translate the source to the target, an application must also provide a value for the element 
-identified in <code>dependsOn.property</code> so that the correct mapping can be performed. To support the reverse
-operation, <code>product</code> is the converse, and works in reverse.
+在上例中，为了将源转换为正确的目标，必须为<code>ConceptMap.group.element.target.dependsOn.property
+</code>中标识的属性元素（这里元素即为“部位”）提供值（这里的值就是“胸部”）。:
+<pre class="xml">
+ </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element" class="xmltag">element</a></span><span class="xmltag">&gt;</span><a name="ConceptMap.group.element"> </a><b>
+      </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.code" class="xmltag">code</a></span><span class="xmlattr"><a name="ConceptMap.group.element.code"> </a>value="<span class="xmlattrvalue">x-Ray</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.code-end"> </a><b>
+      </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.display" class="xmltag">display</a></span><span class="xmlattr"><a name="ConceptMap.group.element.display"> </a>value="<span class="xmlattrvalue">X光检查</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.display-end"> </a><b>
+      </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target" class="xmltag">target</a></span><span class="xmltag">&gt;</span><a name="ConceptMap.group.element.target"> </a><b>
+        </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.code" class="xmltag">code</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.code"> </a>value="<span class="xmlattrvalue">xRay4Chest</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.code-end"> </a><b>
+        </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.display" class="xmltag">display</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.display"> </a>value="<span class="xmlattrvalue">X光胸片</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.display-end"> </a><b>
+        </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.equivalence" class="xmltag">equivalence</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.equivalence"> </a>value="<span class="xmlattrvalue">equivalent</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.equivalence-end"> </a><b>
+        </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn" class="xmltag">dependsOn</a></span><span class="xmltag">&gt;</span><a name="ConceptMap.group.element.target.dependsOn"> </a><b>
+          </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.property" class="xmltag">property</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.dependsOn.property"> </a>value="<span class="xmlattrvalue">部位</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.dependsOn.property-end"> </a><b>
+          </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.system" class="xmltag">system</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.dependsOn.system"> </a>value="<span class="xmlattrvalue">
+		  <i>如果“胸部”是属于源系统（ConceptMap.group.source）中的编码，则无需提供system元素。否则这里应指向编码系统“部位”的URL</i></span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.dependsOn.system-end"> </a><b>
+          </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.value" class="xmltag">value</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.dependsOn.value"> </a>value="<span class="xmlattrvalue">胸部</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.dependsOn.value-end"> </a><b>
+          </b><span class="xmltag">&lt;<a href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.display" class="xmltag">display</a></span><span class="xmlattr"><a name="ConceptMap.group.element.target.dependsOn.display"> </a>value="<span class="xmlattrvalue">放射部位在胸部</span>"</span><span class="xmltag">/&gt;</span><a name="ConceptMap.group.element.target.dependsOn.display-end"> </a><b>
+        </b><span class="xmltag">&lt;/<a href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn" class="xmltag">dependsOn</a>&gt;</span><a name="ConceptMap.group.element.target.dependsOn-end"> </a><b>
+      </b><span class="xmltag">&lt;/<a href="conceptmap-definitions.html#ConceptMap.group.element.target" class="xmltag">target</a>&gt;</span><a name="ConceptMap.group.element.target-end"> </a><b>
+    </b><span class="xmltag">&lt;/<a href="conceptmap-definitions.html#ConceptMap.group.element" class="xmltag">element</a>&gt;</span><a name="ConceptMap.group.element-end"> </a><b>
+    
+</pre>
+为了支持逆向转换，<code>ConceptMap.group.element.target.product</code>是逆向的，并且反向工作。
+
 </p>
 <p>
-To see a real example of a mapping with dependencies, check the <a href="conceptmap-example-specimen-type.html">Specimen Type Mapping</a>.
-</p>
+要查看具有依赖关系的映射的真实示例，请参见<a href="conceptmap-example-specimen-type.html">样本类型映射</a>.
+
 
 <a name="unmapped"></a>
 <h2 class="self-link-parent"><span class="sectioncount">4.10.8</span> Handling Unmapped Codes <a href="conceptmap.html#unmapped" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>

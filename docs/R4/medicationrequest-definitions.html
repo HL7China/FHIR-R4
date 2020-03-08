@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
   <!-- template-definitions.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>MedicationRequest - FHIR v4.0.0</title>
+  <title>药品处方/医嘱 - FHIR v4.0.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -115,7 +115,9 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="MedicationRequest"> </a><b>MedicationRequest</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest</td></tr>
-  <tr><td>Definition</td><td><p>An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.</p>
+  <tr><td>Definition</td><td>
+    给患者提供药物及用药说明的医嘱或处方。此资源可用于门诊、住院及照护方案等多种场景。在FHIR工作流框架中，它属于“请求”类资源。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
@@ -131,18 +133,21 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.status"> </a><b>MedicationRequest.status</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.status</td></tr>
-  <tr><td>Definition</td><td><p>A code specifying the current state of the order.  Generally, this will be active or completed state.</p>
+  <tr><td>Definition</td><td>
+    用编码形式表示此医嘱当前状态。通常指活动状态或完成状态。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medicationrequest-status.html">Medicationrequest  status</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.</p>
-</td></tr>
+  <tr><td>Comments</td><td>若此元素值的改变会引起整个药品处方意义发生改变。如：已取消、输入错误、已停止</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.statusReason"> </a><b>MedicationRequest.statusReason</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.statusReason</td></tr>
-  <tr><td>Definition</td><td><p>Captures the reason for the current state of the MedicationRequest.</p>
+  <tr><td>Definition</td><td>
+
+    <p>Captures the reason for the current state of the MedicationRequest.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medicationrequest-status-reason.html">Medication request  status  reason  codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
@@ -151,29 +156,46 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.intent"> </a><b>MedicationRequest.intent</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.intent</td></tr>
-  <tr><td>Definition</td><td><p>Whether the request is a proposal, plan, or an original order.</p>
+  <tr><td>Definition</td><td>
+      本次用药需求是属于医嘱、建议还是计划。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
-  <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medicationrequest-intent.html">Medication request  intent</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
+  <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medicationrequest-intent.html">
+      Medication request  intent</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element changes the interpretation of all descriptive attributes. For example "the time the request is recommended to occur" vs. "the time the request is authorized to occur" or "who is recommended to perform the request" vs. "who is authorized to perform the request)</td></tr>
+  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>
+      true (Reason:
+      此元素会更改整个资源实际应用的时间和方式。
+      例如：当此元素值为“proposal”时，意为“执行医嘱的推荐时间”和“建议由谁来执行医嘱”；
+      当值为“order”时，意为“经授权的可执行医嘱的时间”与“授权谁可执行医嘱”。
+      </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.</p>
-<p>An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.</p>
-<p>This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.</p>
+  <tr><td>Comments</td><td>
+      根据用药请求所处的不同阶段，请求类型将受到限制。例如，用药需求和用药计划可以由患者、相关人员、医务人员甚至由设备创建。
+      原始医嘱只能由医务人员创建。<br/>
+      实例医嘱是请求或医嘱的实例，可作为用药记录。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.category"> </a><b>MedicationRequest.category</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.category</td></tr>
-  <tr><td>Definition</td><td><p>Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).</p>
+  <tr><td>Definition</td><td>
+      药品处方/医嘱的类别。例如，以用药地点可分类为：住院医嘱、门诊处方、出院带药等。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medicationrequest-category.html">Medication request  category  codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Comments</td><td><p>The category can be used to include where the medication is expected to be consumed or other types of requests.</p>
+  <tr><td>Comments</td><td>
+
+      用于服务药物的预期地点分类或药品医嘱的其它分类。
+      <p>The category can be used to include where the medication is expected to be consumed or other types of requests.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.priority"> </a><b>MedicationRequest.priority</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.priority</td></tr>
-  <tr><td>Definition</td><td><p>Indicates how quickly the Medication Request should be addressed with respect to other requests.</p>
+  <tr><td>Definition</td><td>
+      相对于其他医嘱，应以多快的速度响应并执行此医嘱。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-request-priority.html">Request priority</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
@@ -181,17 +203,27 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.doNotPerform"> </a><b>MedicationRequest.doNotPerform</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.doNotPerform</td></tr>
-  <tr><td>Definition</td><td><p>If true indicates that the provider is asking for the medication request not to occur.</p>
+  <tr><td>Definition</td><td>
+      如果此元素值为true，则表示医嘱下达者要求停止执行此药品医嘱。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
-  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc))</td></tr>
+  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true
+      (Reason:
+      这个元素被标记为修饰符，因为这个元素否定了发生的请求。即，这是停止执行医嘱或处方的请求。
+     )</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If do not perform is not specified, the request is a positive request e.g. "do perform".</p>
+  <tr><td>Comments</td><td>
+      如果未提供此元素，则意味着此医嘱需求被“执行”。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.reported_x_"> </a><b>MedicationRequest.reported[x]</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.reported[x]</td></tr>
-  <tr><td>Definition</td><td><p>Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.</p>
+  <tr><td>Definition</td><td>
+      当此医嘱不是原始下达的而是从外部获取时，可以将元素值设为“true”，或者引用信息的来源。如，由患者口述的历史医嘱、转诊时从其它系统获取的医嘱信息。
+      指示是否将此记录捕获为次要的“已报告”记录，而不是真实记录的原始主源。它也可能指出报告的来源。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a>|<a href="references.html#Reference">Reference</a>(<a href="patient.html">Patient</a> | <a href="practitioner.html">Practitioner</a> | <a href="practitionerrole.html">PractitionerRole</a> | <a href="relatedperson.html">RelatedPerson</a> | <a href="organization.html">Organization</a>)</td></tr>
@@ -199,90 +231,122 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.medication_x_"> </a><b>MedicationRequest.medication[x]</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.medication[x]</td></tr>
-  <tr><td>Definition</td><td><p>Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+      用于标识医嘱中的药物。可以使用药品编码，也可以引用一个药物资源（Medication）。
+      </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medication-codes.html">SNOMED CT Medication Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a href="references.html#Reference">Reference</a>(<a href="medication.html">Medication</a>)</td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the Medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource.</p>
+  <tr><td>Comments</td><td>
+      如果只使用一个编码，则它必须是特定药品编码。如果需要更多信息（如药品的性状、批号或制剂等），建议使用药物资源。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.subject"> </a><b>MedicationRequest.subject</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.subject</td></tr>
-  <tr><td>Definition</td><td><p>A link to a resource representing the person or set of individuals to whom the medication will be given.</p>
+  <tr><td>Definition</td><td>
+    此医嘱的用药对象，可以是一个患者或一个群体。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="patient.html">Patient</a> | <a href="group.html">Group</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified.</p>
+  <tr><td>Comments</td><td>
+    药品处方/医嘱的用药患者不可或缺的。即使在某些情况下无法提供实际患者，也必须指定一个匿名对象。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.encounter"> </a><b>MedicationRequest.encounter</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.encounter</td></tr>
-  <tr><td>Definition</td><td><p>The Encounter during which this [x] was created or to which the creation of this record is tightly associated.</p>
+  <tr><td>Definition</td><td>
+    此医嘱/处方是在这个医疗就诊活动期间产生的，或与这个医疗就诊活动密切相关
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="encounter.html">Encounter</a>)</td></tr>
-  <tr><td>Comments</td><td><p>This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."    If there is a need to link to episodes of care they will be handled with an extension.</p>
+  <tr><td>Comments</td><td>
+    通常此医嘱/处方是在这个医疗就诊活动期间产生的，如果是在这个医疗活动正式开始之前或结束之后才产生的，那么它们之间一定关联紧密。
+    如果需要引用治疗/照护期资源（EpisodeOfCare），则请使用用扩展来处理。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.supportingInformation"> </a><b>MedicationRequest.supportingInformation</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.supportingInformation</td></tr>
-  <tr><td>Definition</td><td><p>Include additional information (for example, patient height and weight) that supports the ordering of the medication.</p>
+  <tr><td>Definition</td><td>
+    支持此药品医嘱的附加信息（例如患者的身高体重）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="resourcelist.html#Any">Any</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.authoredOn"> </a><b>MedicationRequest.authoredOn</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.authoredOn</td></tr>
-  <tr><td>Definition</td><td><p>The date (and perhaps time) when the prescription was initially written or authored on.</p>
+  <tr><td>Definition</td><td>
+    下达医嘱（或对医嘱授权）的时间。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#dateTime">dateTime</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.requester"> </a><b>MedicationRequest.requester</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.requester</td></tr>
-  <tr><td>Definition</td><td><p>The individual, organization, or device that initiated the request and has responsibility for its activation.</p>
+  <tr><td>Definition</td><td>
+    发起此用药请求并对请求生效后负责的个人、单位或设备。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="practitioner.html">Practitioner</a> | <a href="practitionerrole.html">PractitionerRole</a> | <a href="organization.html">Organization</a> | <a href="patient.html">Patient</a> | <a href="relatedperson.html">RelatedPerson</a> | <a href="device.html">Device</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.performer"> </a><b>MedicationRequest.performer</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.performer</td></tr>
-  <tr><td>Definition</td><td><p>The specified desired performer of the medication treatment (e.g. the performer of the medication administration).</p>
+  <tr><td>Definition</td><td>
+    药物治疗的执行者，即给药者。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="practitioner.html">Practitioner</a> | <a href="practitionerrole.html">PractitionerRole</a> | <a href="organization.html">Organization</a> | <a href="patient.html">Patient</a> | <a href="device.html">Device</a> | <a href="relatedperson.html">RelatedPerson</a> | <a href="careteam.html">CareTeam</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.performerType"> </a><b>MedicationRequest.performerType</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.performerType</td></tr>
-  <tr><td>Definition</td><td><p>Indicates the type of performer of the administration of the medication.</p>
+  <tr><td>Definition</td><td>
+  对用药执行者的所属分类的要求。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-performer-role.html">Procedure Performer Role Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If specified without indicating a performer, this indicates that the performer must be of the specified type. If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.</p>
+  <tr><td>Comments</td><td>
+    如果未填写给药者，则表示给药者必须属于此元素指定的分类。
+    如果填写了给药者的同时又填写了此无素，则意味着已填写的给药者并不是期望的最佳人选，并通过此元素来表示对给药者的要求。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.recorder"> </a><b>MedicationRequest.recorder</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.recorder</td></tr>
-  <tr><td>Definition</td><td><p>The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.</p>
+  <tr><td>Definition</td><td>
+    录入（记录）医嘱的人，例如，某护士将医生的口头医嘱或电话医嘱录入信息系统。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="practitioner.html">Practitioner</a> | <a href="practitionerrole.html">PractitionerRole</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.reasonCode"> </a><b>MedicationRequest.reasonCode</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.reasonCode</td></tr>
-  <tr><td>Definition</td><td><p>The reason or the indication for ordering or not ordering the medication.</p>
+  <tr><td>Definition</td><td>
+    用编码来表示在医嘱中使用或不使用相关药品的原因。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-condition-code.html">Condition/Problem/Diagnosis Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Comments</td><td><p>This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.</p>
+  <tr><td>Comments</td><td>
+    这可能是诊断编码。如果有完整病症与诊断资源或需要附加细节，请使用“MedicationRequest.reasonReference”元素。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.reasonReference"> </a><b>MedicationRequest.reasonReference</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.reasonReference</td></tr>
-  <tr><td>Definition</td><td><p>Condition or observation that supports why the medication was ordered.</p>
+  <tr><td>Definition</td><td>
+    用病症与诊断资源（Condition）或观测资源（Observation）来说明用药原因。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="condition.html">Condition</a> | <a href="observation.html">Observation</a>)</td></tr>
-  <tr><td>Comments</td><td><p>This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode.</p>
+  <tr><td>Comments</td><td>
+    如果用药理由只有编码而没有具体的相关资源，可以使用MedicationRequest.reasonCode元素。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.instantiatesCanonical"> </a><b>MedicationRequest.instantiatesCanonical</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.instantiatesCanonical</td></tr>
@@ -293,55 +357,85 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.instantiatesUri"> </a><b>MedicationRequest.instantiatesUri</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.instantiatesUri</td></tr>
-  <tr><td>Definition</td><td><p>The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+
+    此药品医嘱需要完全遵守或部分遵守的指南、规章等。
+   </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.basedOn"> </a><b>MedicationRequest.basedOn</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.basedOn</td></tr>
-  <tr><td>Definition</td><td><p>A plan or request that is fulfilled in whole or in part by this medication request.</p>
+  <tr><td>Definition</td><td>
+
+    此药品请求资源是基于此元素中的计划类资源或请求类资源来的，即此元素中的资源的实现是全部或部分由此药品请求资源来完成的。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="careplan.html">CarePlan</a> | <a href="medicationrequest.html">MedicationRequest</a> | <a href="servicerequest.html">ServiceRequest</a> | <a href="immunizationrecommendation.html">ImmunizationRecommendation</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.groupIdentifier"> </a><b>MedicationRequest.groupIdentifier</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.groupIdentifier</td></tr>
-  <tr><td>Definition</td><td><p>A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.</p>
+  <tr><td>Definition</td><td>
+
+    用于标识医嘱/处方/请求的ID，它是由一组几乎在同一时间下达的医嘱共同使用的组别ID。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
-  <tr><td>Requirements</td><td><p>Requests are linked either by a "basedOn" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.</p>
+  <tr><td>Requirements</td><td>
+
+      医嘱/处方/请求可以通过两种方式关联，一是使用"MedicationRequest.basedOn"元素直接引用关联，二是使用此元素来建立一个共用的分组。
+      组内的单个医嘱/处方/请求在其创建后通常是单独维护，对其状态的变更也是分别进行的。
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.courseOfTherapyType"> </a><b>MedicationRequest.courseOfTherapyType</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.courseOfTherapyType</td></tr>
-  <tr><td>Definition</td><td><p>The description of the overall patte3rn of the administration of the medication to the patient.</p>
+  <tr><td>Definition</td><td>
+    患者用药的模式，如：长期、临时。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medicationrequest-course-of-therapy.html">Medication request  course of  therapy  codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Comments</td><td><p>This attribute should not be confused with the protocol of the medication.</p>
+  <tr><td>Comments</td><td>
+    此元素不能用于表示药品规定（说明）。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.insurance"> </a><b>MedicationRequest.insurance</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.insurance</td></tr>
-  <tr><td>Definition</td><td><p>Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.</p>
+  <tr><td>Definition</td><td>
+    此用药医嘱/处方/请求相关的医保或商保信息，包括理赔范围、预审核信息。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="coverage.html">Coverage</a> | <a href="claimresponse.html">ClaimResponse</a>)</td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.note"> </a><b>MedicationRequest.note</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.note</td></tr>
-  <tr><td>Definition</td><td><p>Extra information about the prescription that could not be conveyed by the other attributes.</p>
+  <tr><td>Definition</td><td>
+
+    其他需要备注的额外信息。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Annotation">Annotation</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.dosageInstruction"> </a><b>MedicationRequest.dosageInstruction</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.dosageInstruction</td></tr>
-  <tr><td>Definition</td><td><p>Indicates how the medication is to be used by the patient.</p>
+  <tr><td>Definition</td><td>
+    患者如何使用药物。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="dosage.html">Dosage</a></td></tr>
-  <tr><td>Comments</td><td><p>There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, "Ondansetron 8mg orally or IV twice a day as needed for nausea" or "Compazine&reg; (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting".  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed.</p>
+  <tr><td>Comments</td><td>
+    有时用药医嘱既可以是口服用药也可以是静脉注射或肌肉注射。
+    例如，“昂丹司琼8mg口服或静脉注射，每日两次，视恶心情况而定”
+    或“康帕嗪（前氯培嗪）5-10mg PO或25mg PR bid prn恶心或呕吐”。
+    在这种情况下，将创建两个可以组合在一起的药物请求资源。给药途径和剂量取决于患者在需要用药时的情况。
+    <p>There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.
+      For example, "Ondansetron 8mg orally or IV twice a day as needed for nausea" or
+      "Compazine&reg; (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting".
+      In these cases, two medication requests would be created that could be grouped together.
+      The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="MedicationRequest.dispenseRequest"> </a><b>MedicationRequest.dispenseRequest</b></td></tr>
   <tr><td>Element Id</td><td>MedicationRequest.dispenseRequest</td></tr>

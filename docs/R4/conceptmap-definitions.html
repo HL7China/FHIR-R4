@@ -115,7 +115,8 @@
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="ConceptMap"> </a><b>ConceptMap</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap</td></tr>
-  <tr><td>Definition</td><td><p>A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.</p>
+  <tr><td>Definition</td><td>
+  描述一组概念与另一组或其它几组概念的关系。这些概念可以是编码系统中定义的概念，也可以是数据元/数据元概念，或者是类模型中的类
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
@@ -184,7 +185,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.status"> </a><b>ConceptMap.status</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.status</td></tr>
-  <tr><td>Definition</td><td><p>The status of this concept map. Enables tracking the life-cycle of the content.</p>
+  <tr><td>Definition</td><td>
+  此概念映射的发布状态。它支持对映射内容生命周期进行跟踪。
+  <p>The status of this concept map. Enables tracking the life-cycle of the content.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-publication-status.html">PublicationStatus</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
@@ -265,11 +268,16 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.purpose"> </a><b>ConceptMap.purpose</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.purpose</td></tr>
-  <tr><td>Definition</td><td><p>Explanation of why this concept map is needed and why it has been designed as it has.</p>
+  <tr><td>Definition</td><td>
+  解释为什么需要这个概念映射，以及为什么它是如此设计的。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
-  <tr><td>Comments</td><td><p>This element does not describe the usage of the concept map. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this concept map.</p>
+  <tr><td>Comments</td><td>
+  此元素不是用于描述概念映射的用法。相反，它强调“为什么”需要定义此映射和“为什么”这样定义。
+  它可用于追溯设计此概念映射结构的源材料或规范。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.copyright"> </a><b>ConceptMap.copyright</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.copyright</td></tr>
@@ -284,7 +292,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.source_x_"> </a><b>ConceptMap.source[x]</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.source[x]</td></tr>
-  <tr><td>Definition</td><td><p>Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.</p>
+  <tr><td>Definition</td><td>
+  源值域集，其中含有被映射的概念。它可以帮助本次映射解理上文下场景。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a>|<a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td></tr>
@@ -294,30 +304,41 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.target_x_"> </a><b>ConceptMap.target[x]</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.target[x]</td></tr>
-  <tr><td>Definition</td><td><p>The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.</p>
+  <tr><td>Definition</td><td>
+  目标值域集，其中含有映射的目标概念。它可以帮助本次映射解理上文下场景。
+  注意，映射是针对概念之间的，而不非值域集之间，但是值域集为如何选择概念的映射提供了重要上下文。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a>|<a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map.</p>
+  <tr><td>Comments</td><td>
+  应该引用特定版本的引用URI绝对地址。如果不指定源或目标值域，映射则失去了上下文场景意义（不推荐）。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group"> </a><b>ConceptMap.group</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group</td></tr>
-  <tr><td>Definition</td><td><p>A group of mappings that all have the same source and target system.</p>
+  <tr><td>Definition</td><td>
+  一组具有相同源和目标编码系统的映射。即表示两个编码系统之间的概念映射。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.source"> </a><b>ConceptMap.group.source</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.source</td></tr>
-  <tr><td>Definition</td><td><p>An absolute URI that identifies the source system where the concepts to be mapped are defined.</p>
+  <tr><td>Definition</td><td>
+ 被映射概念所属编码系统（源系统）的绝对URI地址。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
-  <tr><td>Comments</td><td><p>This is not needed if the source value set is specified and it contains concepts from only a single system.</p>
+  <tr><td>Comments</td><td>
+  如果指定了源值域集(ConceptMap.source)，并且此值域集只包含了一个编码系统中的概念，则不需要指定此元素。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.sourceVersion"> </a><b>ConceptMap.group.sourceVersion</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.sourceVersion</td></tr>
-  <tr><td>Definition</td><td><p>The specific version of the code system, as determined by the code system authority.</p>
+  <tr><td>Definition</td><td>
+  由编码系统发布者确定的编码系统的特定版本。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
@@ -325,41 +346,66 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.target"> </a><b>ConceptMap.group.target</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.target</td></tr>
-  <tr><td>Definition</td><td><p>An absolute URI that identifies the target system that the concepts will be mapped to.</p>
+  <tr><td>Definition</td><td>
+  映射指向的概念所属编码系统（目标系统）的绝对URI地址。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
-  <tr><td>Comments</td><td><p>This is not needed if the target value set is specified and it contains concepts from only a single system. The group target may also be omitted if all of the target element equivalence values are 'unmatched'.</p>
+  <tr><td>Comments</td><td>
+  <ur>
+  如果存在以下两种情况之一，则不需要指定此元素：
+  
+  <li>
+  已经指定了目标值域集(ConceptMap.target)，并且此值域集只包含了一个编码系统中的概念
+  </li>
+  <li>
+  所有目标元素等效性均为“不匹配”，即所有的 ConceptMap.group.element.target.equivalence = 'ummatched'
+  </li>
+  </ur>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.targetVersion"> </a><b>ConceptMap.group.targetVersion</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.targetVersion</td></tr>
-  <tr><td>Definition</td><td><p>The specific version of the code system, as determined by the code system authority.</p>
+  <tr><td>Definition</td><td>
+  由目标编码系统发布者确定的编码系统的特定版本。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
-  <tr><td>Comments</td><td><p>The specification of a particular code system version may be required for code systems which lack concept permanence.</p>
+  <tr><td>Comments</td><td>
+  对于概念持久性不强的编码系统，可能需要指定特定的编码系统版本。
+  
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element"> </a><b>ConceptMap.group.element</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element</td></tr>
-  <tr><td>Definition</td><td><p>Mappings for an individual concept in the source to one or more concepts in the target.</p>
+  <tr><td>Definition</td><td>
+  将源编码系统中单个概念对应到目标编码系统中单个或多个概念的映射。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..*</td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>code; concept; item</td></tr>
-  <tr><td>Comments</td><td><p>Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped multiple times with different comments or dependencies.</p>
+  <tr><td>Comments</td><td>
+  在理想情况下，源值域集中的每个概念只会映射一次（一对一或一对多）。
+  但是某些概念可能出现多次映射的情况，这时需要指定备注（ConceptMap.group.element.target.comment）或依赖（ConceptMap.group.element.target.dependsOn）。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.code"> </a><b>ConceptMap.group.element.code</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.code</td></tr>
-  <tr><td>Definition</td><td><p>Identity (code or path) or the element/item being mapped.</p>
+  <tr><td>Definition</td><td>
+ 用编码或路径标识映射元素（ConceptMap.group.element）中的被映射概念。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.display"> </a><b>ConceptMap.group.element.display</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.display</td></tr>
-  <tr><td>Definition</td><td><p>The display for the code. The display is only provided to help editors when editing the concept map.</p>
+  <tr><td>Definition</td><td>
+  编码的显示。此显示仅在编辑概念映射时用于帮助编辑者。
+  <p>The display for the code. The display is only provided to help editors when editing the concept map.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
-  <tr><td>Comments</td><td><p>The display is ignored when processing the map.</p>
+  <tr><td>Comments</td><td>
+  当执行映射时此显示内容将被忽略。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target"> </a><b>ConceptMap.group.element.target</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target</td></tr>
@@ -388,17 +434,24 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.equivalence"> </a><b>ConceptMap.group.element.target.equivalence</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.equivalence</td></tr>
-  <tr><td>Definition</td><td><p>The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).</p>
+  <tr><td>Definition</td><td>
+  源概念和目标概念之间的等价性（包括依赖和属性）。等价性是从目标概念的角度与源概念进行比较（例如，'wider'意为目标概念比源概念更“宽广”）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-concept-map-equivalence.html">ConceptMapEquivalence</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: Some of the values mean that there is no mapping from the source to the target, particularly 'disjoint', and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between)</td></tr>
-  <tr><td>Comments</td><td><p>This element is labeled as a modifier because it may indicate that a target does not apply.</p>
-</td></tr>
+  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td>
+  <td>true (Reason: 
+此元素值会对映射的意义造成严重影响，特别是“互斥”（‘disjoint’），不同的值可能意味着映射的概念之间是等价的，也可能意味这完全不同，或只是有相关性等等。
+)</td></tr>
+  <tr><td>Comments</td><td>此元素的某些值会导致目标映射不适用
+  </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.comment"> </a><b>ConceptMap.group.element.target.comment</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.comment</td></tr>
-  <tr><td>Definition</td><td><p>A description of status/issues in mapping that conveys additional information not represented in  the structured data.</p>
+  <tr><td>Definition</td><td>
+  对映射的状态或问题的描述，它作为附加信息对资源中结构化元素未能表达的信息进行补充说明。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
@@ -408,31 +461,47 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.dependsOn"> </a><b>ConceptMap.group.element.target.dependsOn</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.dependsOn</td></tr>
-  <tr><td>Definition</td><td><p>A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.</p>
+  <tr><td>Definition</td><td>
+ 映射适用的附加依赖条件。
+ 仅当上下文场景中所需的相关元素可被解析且其值符合条件时此映射才适用。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.dependsOn.property"> </a><b>ConceptMap.group.element.target.dependsOn.property</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.dependsOn.property</td></tr>
-  <tr><td>Definition</td><td><p>A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somewhere that is labeled to correspond with a code system property.</p>
+  <tr><td>Definition</td><td>
+
+  指向某个包含在源系统（ConceptMap.group.source）中具有编码值的属性。
+  即表示以源系统的某个属性作为条件。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.dependsOn.system"> </a><b>ConceptMap.group.element.target.dependsOn.system</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.dependsOn.system</td></tr>
-  <tr><td>Definition</td><td><p>An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).</p>
+  <tr><td>Definition</td><td>
+  依赖属性编码所属编码系统的绝对URI（如果依赖源系统的属性是另一个编码系统中的概念）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#canonical">canonical</a>(<a href="codesystem.html">CodeSystem</a>)</td></tr>
-  <tr><td>Meaning if Missing</td><td>The code is in the source (dependsOn) or target (product) system</td></tr>
+  <tr><td>Meaning if Missing</td>
+  
+  <td>
+  若不填此值，则意为：依赖属性的编码是包含在源系统（ConceptMap.group.source）
+  或目标系统（ConceptMap.group.target）中。
+  </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.dependsOn.value"> </a><b>ConceptMap.group.element.target.dependsOn.value</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.dependsOn.value</td></tr>
-  <tr><td>Definition</td><td><p>Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.</p>
+  <tr><td>Definition</td><td>
+  映射所依赖的标识（编码或路径）或 映射引用的元素/项/值集/文本。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.dependsOn.display"> </a><b>ConceptMap.group.element.target.dependsOn.display</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.dependsOn.display</td></tr>
-  <tr><td>Definition</td><td><p>The display for the code. The display is only provided to help editors when editing the concept map.</p>
+  <tr><td>Definition</td><td>
+  <p>The display for the code. The display is only provided to help editors when editing the concept map.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
@@ -440,7 +509,10 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target.product"> </a><b>ConceptMap.group.element.target.product</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target.product</td></tr>
-  <tr><td>Definition</td><td><p>A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.</p>
+  <tr><td>Definition</td><td>
+  当映射需要目标系统（ConceptMap.group.target）中更多的概念支持才能准确的进行映射转换时，需要用到此条目。
+  如果不提供这些额外概念（在product.property中指定），此映射虽然仍可用，但其等价性就不可靠了。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="#ConceptMap.group.element.target.dependsOn">See ConceptMap.group.element.target.dependsOn</a></td></tr>

@@ -1133,15 +1133,25 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
   <tr><td colspan="2" class="structure"><a name="Timing"> </a><b>Timing</b></td></tr>
   <tr style="background-color: #e6ffe6"><td><a href="versions.html#std-process">Standards Status</a></td><td>This element has a standards status of "Normative"</td></tr>
   <tr><td>Element Id</td><td>Timing</td></tr>
-  <tr><td>Definition</td><td><p>Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.</p>
+  <tr><td>Definition</td><td>
+    <p>
+      为可能多次发生的事件设置定时计划。定时数据类型用来记录那些计划、预期或申请发生的事件。常用于药物剂量类型（Dosage）的用法时间元素、照护计划资源（CarePlan）的日程元素。也可用于报告过去定期活动的时间表。
+     </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="backboneelement.html">BackboneElement</a></td></tr>
   <tr><td>Requirements</td><td><p>Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Describes the occurrence of an event that may occur multiple times. Timing schedules are used for specifying when events are expected or requested to occur, and may also be used to represent the summary of a past or ongoing event.  For simplicity, the definitions of Timing components are expressed as 'future' events, but such components can also be used to describe historic or ongoing events.</p>
-<p>A Timing schedule can be a list of events and/or criteria for when the event happens, which can be expressed in a structured form and/or as a code. When both event and a repeating specification are provided, the list of events should be understood as an interpretation of the information in the repeat structure.</p>
+  <tr><td>Comments</td><td>
+   定时数据类型用于指定事件预期或申请发生的时间和允许发生的规则条件，其中“事件”元素（Timing.event)定义为“未来”事件，但也可用于描述历史或正在发生的事件。
+   也可用于表示过去或正在进行的事件的摘要。为简单起见，计时组件的。
+   
+    <p>
+	 定时数据类型支持以列表形式指定多个事件发生的时间，也支持指定的事件发生的条件。
+	 其表现方式可以用结构化元素，也可以用编码表示。
+	 当同时指定“事件”元素（Timing.event)和“重复”元素（Timing.repeat)，应将“事件”元素理解为对“重复”元素中的信息的解释。
+</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Timing.event"> </a><b>Timing.event</b></td></tr>
   <tr><td>Element Id</td><td>Timing.event</td></tr>
@@ -1154,7 +1164,9 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Timing.repeat"> </a><b>Timing.repeat</b></td></tr>
   <tr><td>Element Id</td><td>Timing.repeat</td></tr>
-  <tr><td>Definition</td><td><p>A set of rules that describe when the event is scheduled.</p>
+  <tr><td>Definition</td><td>
+  用于描述事件定时计划何时生效的一组规则。
+  <p>A set of rules that describe when the event is scheduled.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td>Requirements</td><td><p>Many timing schedules are determined by regular repetitions.</p>
@@ -1297,13 +1309,27 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Timing.code"> </a><b>Timing.code</b></td></tr>
   <tr><td>Element Id</td><td>Timing.code</td></tr>
-  <tr><td>Definition</td><td><p>A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).</p>
+  <tr><td>Definition</td><td>
+  用编码来表示定时计划。可以使用像BID这样的通用编码，也可以使用机构自己定义的额外编码。
+  如果提供了编码，只编码所表示的才是完整的描述（无论定时类型中其它元素的值是什么）。
+  另外，无论是使用编码还是使用元素数据来定义定时计划，Timing.repeat.bounds元素定义的内容都适用于编码（编码并不包含bounds）。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-timing-abbreviation.html">TimingAbbreviation</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times).</p>
+  <tr><td>Comments</td><td>
+  常用编码有：
+  <p> BID：每日两次 ；TID：一日三次 ；QID ：一日四次； AM：上午 ；PM：下午 ； QD：一日一次；QOD：隔日一次；QW：一周一次；BIW：两周两次；Q2H：每两小时一次；QN：每晚一次；HS：临睡前，等等。
+  </p>
+  而更具体的时间点则通常由机构自行规定并形成惯例。例如，某医院的BID指的就是“在早上7点和下午6点”。如果没有这样的约定，则不应使用编码BID来表示。
+  为了解决此问题另外有两种方式，一是使用机构的自定义编码；二是使用两个Timing.event元素来分别指定两个具体的时间。
+  
+  <p>BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is "always at 7am and 6pm".  
+  If it is inappropriate for this choice to be made, the code BID should not be used. 
+  Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or
+  a structured representation should be used (in this case, specifying the two event times).</p>
 </td></tr>
 </table>
 

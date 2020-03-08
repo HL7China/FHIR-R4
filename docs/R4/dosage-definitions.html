@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Dosage-definitions - FHIR v4.0.0</title>
+  <title>用法用量-定义 - FHIR v4.0.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -118,69 +118,104 @@
   <tr><td colspan="2" class="structure"><a name="Dosage"> </a><b>Dosage</b></td></tr>
   <tr style="background-color: #fff5e6"><td><a href="versions.html#std-process">Standards Status</a></td><td>This element has a standards status of "Trial Use"</td></tr>
   <tr><td>Element Id</td><td>Dosage</td></tr>
-  <tr><td>Definition</td><td><p>Indicates how the medication is/was taken or should be taken by the patient.</p>
+  <tr><td>Definition</td><td>
+      用于表示患者（应该）如何用药。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="backboneelement.html">BackboneElement</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.sequence"> </a><b>Dosage.sequence</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.sequence</td></tr>
-  <tr><td>Definition</td><td><p>Indicates the order in which the dosage instructions should be applied or interpreted.</p>
+  <tr><td>Definition</td><td>
+     需要遵循或说明的用药顺序
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#integer">integer</a></td></tr>
-  <tr><td>Requirements</td><td><p>If the sequence number of multiple Dosages is the same, then it is implied that the instructions are to be treated as concurrent.  If the sequence number is different, then the Dosages are intended to be sequential.</p>
+  <tr><td>Requirements</td><td>
+当多个用法用量的用药序号相同的，则意味着应该同时使用，否则应该按序号顺序使用。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.text"> </a><b>Dosage.text</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.text</td></tr>
-  <tr><td>Definition</td><td><p>Free text dosage instructions e.g. SIG.</p>
+  <tr><td>Definition</td><td><p>描述用法用量的自由文本说明，如：SIG.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
-  <tr><td>Requirements</td><td><p>Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.  Additional information about administration or preparation of the medication should be included as text.</p>
+  <tr><td>Requirements</td><td>
+      当用法用量的说明过于复杂而无法用编码来表示时，可以用自由文本来描述。此元素描述的内容仅限于用法与剂量而不应包含药物的名称或说明。
+      若用法用量提供了编码，则可用此元素显示友好的人读信息。<br>
+      无论是哪种情况都请尽量为此元素提供说明文字。如果Dosage.timing元素也有值，则此元素（Dosage.text）提供信息应与Dosage.timing元素值的意义一致。
+      另外，用药或备药的相关信息也应包含在此元素中。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.additionalInstruction"> </a><b>Dosage.additionalInstruction</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.additionalInstruction</td></tr>
-  <tr><td>Definition</td><td><p>Supplemental instructions to the patient on how to take the medication  (e.g. "with meals" or"take half to one hour before food") or warnings for the patient about the medication (e.g. "may cause drowsiness" or "avoid exposure of skin to direct sunlight or sunlamps").</p>
+  <tr><td>Definition</td><td>
+
+      指导患者如何用药（如：“随餐服用”或“饭前半小时服用”）或作为用药警告使用（如：“可能导致嗜睡”或“避免皮肤阳光直射或日光灯下”）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-additional-instruction-codes.html">SNOMED CT Additional Dosage Instructions</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
+  <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-additional-instruction-codes.html">
+      SNOMED CT Additional Dosage Instructions</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Additional instruction is intended to be coded, but where no code exists, the element could include text.  For example, "Swallow with plenty of water" which might or might not be coded.</p>
+  <tr><td>Requirements</td><td>
+      尽量提供注意事项的编码，如果没有可用的编码，则使用文本描述。
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Information about administration or preparation of the medication (e.g. "infuse as rapidly as possibly via intraperitoneal port" or "immediately following drug x") should be populated in dosage.text.</p>
+  <tr><td>Comments</td><td>
+      用药或备药的信息（例如“通过腹腔内端口尽快注入”或“紧跟某药物”）应在Dosage.text元素中填写。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.patientInstruction"> </a><b>Dosage.patientInstruction</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.patientInstruction</td></tr>
-  <tr><td>Definition</td><td><p>Instructions in terms that are understood by the patient or consumer.</p>
+  <tr><td>Definition</td><td>
+      用患者或消费者能理解的方式表达的用药指导。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.timing"> </a><b>Dosage.timing</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.timing</td></tr>
-  <tr><td>Definition</td><td><p>When medication should be administered.</p>
+  <tr><td>Definition</td><td><p>何时给药</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Timing">Timing</a></td></tr>
-  <tr><td>Requirements</td><td><p>The timing schedule for giving the medication to the patient. This  data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</p>
+  <tr><td>Requirements</td><td>
+      给病人用药的时间安排。此数据类型允许使用各种不同的表达方式。
+      例如：“每8小时”、“一天三次”、“从2019年12月23日起早餐前半小时，持续10天”、“2013年10月15日、2013年10月17日和2013年11月1日”。
+      当用“总容量/时间”的形式表示速率时，有时暗含了用药持续时间的信息，例如，可以用“500mL/2小时”意味着液体总药量为500毫升，持续用药2小时）。
+      但当时间只有单位没有数字时（例如，250毫升/小时），则需要使用Dosage.timing.repeat.duration元素来表示持续时间。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>This attribute might not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+      由于 Dosage.timing元素是预期的尽可能提供值的元素，所以并不一定会使用此元素。
+      如果这两个元素都已填值，则 Dosage.text应包含 Dosage.timing的内容。</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.asNeeded_x_"> </a><b>Dosage.asNeeded[x]</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.asNeeded[x]</td></tr>
-  <tr><td>Definition</td><td><p>Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).</p>
+  <tr><td>Definition</td><td>
+      用asNeededBoolean来表示是否在必要时用药；
+      用asNeededCodeableConcept来表示用药的先决条件。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-medication-as-needed-reason.html">SNOMED CT Medication As Needed Reason Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a>|<a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not "prn" or "as needed".</p>
+  <tr><td>Comments</td><td>
+      此元素要么使用asNeededBoolean表示，要么使用asNeededCodeableConcept表示，不能同时使用。
+      通过设置asNeededBoolean=True，可以直接表示“必要时使用（prn)”。
+      如果asNeededBoolean=False，则说明用药将根据计划给出，而不是“prn”或“必要时使用”。
+      如果设置asNeededCodeableConcept的编码来表达具体的“必要条件”，则暗示着asNeededBoolean=True。
+
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.site"> </a><b>Dosage.site</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.site</td></tr>
@@ -189,10 +224,17 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-approach-site-codes.html">SNOMED CT Anatomical Structure for Administration Site Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>A coded specification of the anatomic site where the medication first enters the body.</p>
+  <tr><td>Requirements</td><td>
+      用编码形式说明药物首先进入身体的解剖部位。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension <a href="extension-bodysite.html">bodySite</a>.  May be a summary code, or a reference to a very precise definition of the location, or both.</p>
+  <tr><td>Comments</td><td>
+      如果需要使用身体结构资源（BodyStructure）请使用官方标准扩展BodySite（例如，分别标识和跟踪）。
+      可能是摘要代码，也可能是对非常精确的位置定义的引用，或者两者都是。
+      <p>If the use case requires attributes from the BodySite resource (e.g. to identify and track separately)
+          then use the standard extension <a href="extension-bodysite.html">bodySite</a>.
+          May be a summary code, or a reference to a very precise definition of the location, or both.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.route"> </a><b>Dosage.route</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.route</td></tr>
@@ -201,7 +243,9 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-route-codes.html">SNOMED CT Route Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body.</p>
+  <tr><td>Requirements</td><td>
+      一种代码，指明将治疗剂注入或注入病人体内的路径或生理路径。
+      <p>A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.method"> </a><b>Dosage.method</b></td></tr>
@@ -211,51 +255,76 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-administration-method-codes.html">SNOMED CT Administration Method Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.</p>
+  <tr><td>Requirements</td><td>
+      一种编码值，指示药物进入或进入身体的方法。最常用于注射。例如，慢推；深静脉注射。
+      <p>A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Terminologies used often pre-coordinate this term with the route and or form of administration.</p>
+  <tr><td>Comments</td><td>
+      术语通常用于预先协调这一术语的路线和或管理形式。
+      <p>Terminologies used often pre-coordinate this term with the route and or form of administration.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.doseAndRate"> </a><b>Dosage.doseAndRate</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.doseAndRate</td></tr>
-  <tr><td>Definition</td><td><p>The amount of medication administered.</p>
+  <tr><td>Definition</td><td>
+      给药的量。
+      <p>The amount of medication administered.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.doseAndRate.type"> </a><b>Dosage.doseAndRate.type</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.doseAndRate.type</td></tr>
-  <tr><td>Definition</td><td><p>The kind of dose or rate specified, for example, ordered or calculated.</p>
+  <tr><td>Definition</td><td>
+      指定的剂量或速率的种类，例如，有序的或计算的。
+      <p>The kind of dose or rate specified, for example, ordered or calculated.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-dose-rate-type.html">DoseAndRateType</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>If the type is not populated, assume to be "ordered".</p>
+  <tr><td>Requirements</td><td>
+      如果类型未填充，则假定为“ordered”。
+      <p>If the type is not populated, assume to be "ordered".</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.doseAndRate.dose_x_"> </a><b>Dosage.doseAndRate.dose[x]</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.doseAndRate.dose[x]</td></tr>
-  <tr><td>Definition</td><td><p>Amount of medication per dose.</p>
+  <tr><td>Definition</td><td>
+      每次剂量的药物用量。
+      <p>Amount of medication per dose.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Range">Range</a>|<a href="datatypes.html#SimpleQuantity">SimpleQuantity</a></td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
-  <tr><td>Requirements</td><td><p>The amount of therapeutic or other substance given at one administration event.</p>
+  <tr><td>Requirements</td><td>
+      在一次给药事件中给予的治疗性或其他物质的量。
+      <p>The amount of therapeutic or other substance given at one administration event.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.</p>
+  <tr><td>Comments</td><td>
+      请注意，这指定了指定药物的数量，而不是每个活性成分的数量。每种成分的含量都可以在药物资源中进行交流。例如，如果要告知片剂为375 mg，其中剂量为一片，则可以使用药物资源来记录该片剂由375 mg药物XYZ组成。或者，如果剂量是375毫克，那么您可能只需要使用药物资源来表明这是一个片剂。如果这个例子是静脉注射，比如多巴胺，你想说明400毫克的多巴胺混合在500毫升的静脉注射溶液中，那么这一切都会在药物资源中进行交流。如果给药不是瞬时的（存在速率或定时有持续时间），则可指定此值来表示在附表所示的时间段内要给药的总量，例如500毫升的剂量，定时用于表示应在4小时内给药。
+      <p>Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.doseAndRate.rate_x_"> </a><b>Dosage.doseAndRate.rate[x]</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.doseAndRate.rate[x]</td></tr>
-  <tr><td>Definition</td><td><p>Amount of medication per unit of time.</p>
+  <tr><td>Definition</td><td>
+      单位时间内的药物用量。
+      <p>Amount of medication per unit of time.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Ratio">Ratio</a>|<a href="datatypes.html#Range">Range</a>|<a href="datatypes.html#SimpleQuantity">SimpleQuantity</a></td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
-  <tr><td>Requirements</td><td><p>Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</p>
+  <tr><td>Requirements</td><td>
+      确定药物被或将被引入患者体内的速度。通常为每小时100毫升或每小时100毫升的输液速率。也可以表示为每单位时间的速率，例如每2小时500毫升。其他示例：200 mcg/min或200 mcg/1分钟；1升/8小时。有时，速率可以表示总体积/持续时间（例如，500mL/2小时表示2小时的持续时间）。然而，当速率并不意味着持续时间（例如，250毫升/小时）时，则需要计时。重复。持续时间以在一段时间内传递灌注。
+      <p>Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.</p>
-<p>It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.</p>
+  <tr><td>Comments</td><td>
+      有可能提供一个比率和剂量相等，以提供有关如何给药和供应药物的全部细节。如果要根据本地规则/法规随时间更改费率，则应将每个更改捕获为具有更新费率的新版本的MedicationRequest，或捕获为具有新费率的新MedicationRequest。
+
+      <p>It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.</p>
+      可以使用速率比和速率量指定随时间变化的速率（例如，100毫升/小时）。rateQuantity方法要求系统能够解析包含ml/小时的UCUM grammer，而不是将时间指定为分母的特定比率。如果规定了500ml/2小时的速率，则使用速率比可能比使用250 mg/h的速率量更准确。
+
+      <p>It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Dosage.maxDosePerPeriod"> </a><b>Dosage.maxDosePerPeriod</b></td></tr>
   <tr><td>Element Id</td><td>Dosage.maxDosePerPeriod</td></tr>

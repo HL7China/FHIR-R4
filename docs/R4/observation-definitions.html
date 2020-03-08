@@ -142,36 +142,48 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.basedOn"> </a><b>Observation.basedOn</b></td></tr>
   <tr><td>Element Id</td><td>Observation.basedOn</td></tr>
-  <tr><td>Definition</td><td><p>A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed.</p>
+  <tr><td>Definition</td><td>
+    为了满足此元素引用的事件（处方、医嘱、检验检查申请、照护计划等）才导致此观测资源的产生。
+    例如，药品处方可能要求在发药之前对患者进行检验检查。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="careplan.html">CarePlan</a> | <a href="devicerequest.html">DeviceRequest</a> | <a href="immunizationrecommendation.html">ImmunizationRecommendation</a> | <a href="medicationrequest.html">MedicationRequest</a> | <a href="nutritionorder.html">NutritionOrder</a> | <a href="servicerequest.html">ServiceRequest</a>)</td></tr>
-  <tr><td>Requirements</td><td><p>Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon.</p>
+  <tr><td>Requirements</td><td>
+    通过此元素可实现追溯与跟踪管理：一方面可以用于确认此观测事件是否已通过授权，另一方面还可以跟踪医嘱或申请单是否执行。
+
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Fulfills</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.partOf"> </a><b>Observation.partOf</b></td></tr>
   <tr><td>Element Id</td><td>Observation.partOf</td></tr>
-  <tr><td>Definition</td><td><p>A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure.</p>
+  <tr><td>Definition</td><td>
+    包含此观测资源的一个更大的事件（如：治疗、用药记录、发药、免疫接种等），此观测资源仅作为其中的一个组成部分或步骤。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="medicationadministration.html">MedicationAdministration</a> | <a href="medicationdispense.html">MedicationDispense</a> | <a href="medicationstatement.html">MedicationStatement</a> | <a href="procedure.html">Procedure</a> | <a href="immunization.html">Immunization</a> | <a href="imagingstudy.html">ImagingStudy</a>)</td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Container</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>To link an Observation to an Encounter use <code>encounter</code>.  See the  <a href="observation.html#obsgrouping">Notes</a> below for guidance on referencing another Observation.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    若要将观测资源与医疗就诊资源相关联，应使用<code>Observation.encounter</code>元素。
+    两个观测资源之间的关联请参阅<a href="observation.html#obsgrouping">观测资源分组</a>。</td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.status"> </a><b>Observation.status</b></td></tr>
   <tr><td>Element Id</td><td>Observation.status</td></tr>
-  <tr><td>Definition</td><td><p>The status of the result value.</p>
+  <tr><td>Definition</td><td><p>观测结果值的状态</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
-  <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-status.html">ObservationStatus</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
+  <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-status.html">ObservationStatus</a>
+    (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid)</td></tr>
-  <tr><td>Requirements</td><td><p>Need to track the status of individual results. Some results are finalized before the whole report is finalized.</p>
+  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td>
+    需要对单个观测结果的状态进行跟踪。有些观测结果可能在整体报告审核之前就已通过审核。
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.</p>
+  <tr><td>Comments</td><td>
+    当此状态码为“entered-in-error”时，表示当前资源无效。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.category"> </a><b>Observation.category</b></td></tr>
   <tr><td>Element Id</td><td>Observation.category</td></tr>
@@ -180,97 +192,154 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-category.html">Observation Category Codes</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Used for filtering what observations are retrieved and displayed.</p>
+  <tr><td>Requirements</td><td>
+    用于对观测资源进行筛选检索和分类显示。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    除了建议的类别值域集之外，还可以从其它维度自定义分类方案，并且可以同时使用多个类别。分类的粒度粗细由值域集中的概念定义。
+    </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.code"> </a><b>Observation.code</b></td></tr>
   <tr><td>Element Id</td><td>Observation.code</td></tr>
-  <tr><td>Definition</td><td><p>Describes what was observed. Sometimes this is called the observation "name".</p>
+  <tr><td>Definition</td><td>
+    用编码表示观测到的内容。可以看作观测“项目名称”。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-codes.html">LOINC Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Knowing what kind of observation is being made is essential to understanding the observation.</p>
+  <tr><td>Requirements</td><td>
+    精确的理解正在进行的是什么观测非常重要。
+
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Name</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p><em>All</em> code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.</p>
+  <tr><td>Comments</td><td><p>
+   如果Observation.component不为空，则需要将component元素中<b>所有的</b>值（编码-值对）结合此元素一起综合考虑，才能正确理解观测结果的含义。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.subject"> </a><b>Observation.subject</b></td></tr>
   <tr><td>Element Id</td><td>Observation.subject</td></tr>
-  <tr><td>Definition</td><td><p>The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the <code>focus</code> element or the <code>code</code> itself specifies the actual focus of the observation.</p>
+  <tr><td>Definition</td><td>
+    观测目标对象是一名患者或一组患者、位置或设备，观测结果记录在此对象的病历或报告中。
+    如果实际参与直接测量的观测对象与此目标对象（或对象的样本、部位）不同，应使用“Observation.focus”元素指定观测的实际测量对象，
+    并通过“Observation.code”来精确的表达观测的实际内容。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="patient.html">Patient</a> | <a href="group.html">Group</a> | <a href="device.html">Device</a> | <a href="location.html">Location</a>)</td></tr>
   <tr><td>Requirements</td><td><p>Observations have no value if you don't know who or what they're about.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>One would expect this element to be a cardinality of 1..1. The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.</p>
+  <tr><td>Comments</td><td>
+    除非由是某设备对某未知患者做的观测结果，否则此元素是必填项。
+    尽管如此，也<b>必须</b>在后期通过某种匹配技术将观测结果与患者关联，补充此元素并更新此观测结果。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.focus"> </a><b>Observation.focus</b></td></tr>
   <tr><td>Element Id</td><td>Observation.focus</td></tr>
-  <tr><td>Definition</td><td><p>The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.</p>
+  <tr><td>Definition</td><td>
+    当观测对象实际关注的并不是病历中的患者时，用于表示与患者相关的实际参与直接测量的观测对象，比如配偶、父母、胎儿或捐赠者。例如，母亲病历中对胎儿的观测。 观测的关注点也可以是当前病症、干预效果、目标的饮食、目标的另一个观测或体内物质（如肿瘤或植入装置）。 另一个例子是使用观测资源来表示母亲是否接受过更换其孩子气管套管的培训，在此场景下孩子是病历中的病人，母亲则是观测资源实际参与直接测量的观测对象。。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="resourcelist.html#Any">Any</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately using this element.  Use <code>specimen</code> if a reference to a specimen is required.  If a code is required instead of a resource use either  <code>bodysite</code> for bodysites or the standard extension <a href="extension-observation-focuscode.html">focusCode</a>.</p>
+  <tr><td>Comments</td><td>
+    观测目标对象通常是一名患者或一组患者、位置或设备。
+    目标对象和实际参与直接测量的观测对象之间的区别不需要使用此元素单独表示，而是应该通过指定具体的观测代码（Observation.code）来区分。
+
+  如果需要引用观测的标配，应使用“Observation.specimen”元素。
+    如果想表示具体观测的身体部位，应使用“Observation.bodysite”元素。
+    如果需要用编码而不用资源来表示此元素，可以使用focusCode扩展（http://hl7.org/fhir/StructureDefinition/observation-focusCode）。
+
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.encounter"> </a><b>Observation.encounter</b></td></tr>
   <tr><td>Element Id</td><td>Observation.encounter</td></tr>
-  <tr><td>Definition</td><td><p>The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.</p>
+  <tr><td>Definition</td><td>
+    在此医疗就诊活动（比如某次门诊、住院）期间产生的观测结果。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="encounter.html">Encounter</a>)</td></tr>
-  <tr><td>Requirements</td><td><p>For some observations it may be important to know the link between an observation and a particular encounter.</p>
+  <tr><td>Requirements</td><td>
+    对于某些观测项目来说，了解与其相关的具体医疗就诊活动很重要。
+
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Context</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests).</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    这通常是发生在此医疗就诊活动期间的观测事件。虽然某些事件可能在医疗就诊活动之前或在完成之后发生，但仍在其相关（例如入院前检查）。
+    </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.effective_x_"> </a><b>Observation.effective[x]</b></td></tr>
   <tr><td>Element Id</td><td>Observation.effective[x]</td></tr>
-  <tr><td>Definition</td><td><p>The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.</p>
+  <tr><td>Definition</td><td>
+    观测发生的真实时间或时段。对于生物目标对象，如人类患者，这通常被称为“生理相关时间”。
+    这通常是治疗或标本采集的时间，但此时间数据的来源可能未知。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#dateTime">dateTime</a>|<a href="datatypes.html#Period">Period</a>|<a href="datatypes.html#Timing">Timing</a>|<a href="datatypes.html#instant">instant</a></td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
-  <tr><td>Requirements</td><td><p>Knowing when an observation was deemed true is important to its relevance as well as determining trends.</p>
+  <tr><td>Requirements</td><td>
+    观测发生的真实时间对其相关性以及趋势判定都很重要。
+
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Occurrence</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>At least a date should be present unless this observation is a historical report.  For recording imprecise or "fuzzy" times (For example, a blood glucose measurement taken "after breakfast") use the <a href="datatypes.html#timing">Timing</a> datatype which allow the measurement to be tied to regular life events.</p>
+  <tr><td>Comments</td><td>
+    此元素至少应该提供一个日期，除非这是一个历史观测。
+    要记录不精确或“模糊”的时间（如，餐后血糖），请使用<a href="datatypes.html#timing">Timing</a>数据类型，它用于测量与日常生活事件相关的时间。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.issued"> </a><b>Observation.issued</b></td></tr>
   <tr><td>Element Id</td><td>Observation.issued</td></tr>
-  <tr><td>Definition</td><td><p>The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.</p>
+  <tr><td>Definition</td><td>
+    此版本的观测结果的发布日期和时间，通常是在审核和确认之后才发布。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#instant">instant</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>For Observations that don’t require review and verification, it may be the same as the <a href="resource-definitions.html#Meta.lastUpdated"><code>lastUpdated</code> </a> time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the <code>lastUpdated</code> time of the resource itself due to a non-clinically significant update that doesn’t require the new version to be reviewed and verified again.</p>
+  <tr><td>Comments</td><td>
+    对于不需要审核和确认的观测，此元素的值可能与资源本身的“Meta.lastUpdated”时间相同。
+    有些观测则需要在其更新时进行审核和确认，这时此元素的时间可能早于资源本身的“Meta.lastUpdated”时间，
+    因为当更新的不是重要的临床信息时，不需要重新审核和发布，此时更新资源并不会更新此元素的值。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.performer"> </a><b>Observation.performer</b></td></tr>
   <tr><td>Element Id</td><td>Observation.performer</td></tr>
-  <tr><td>Definition</td><td><p>Who was responsible for asserting the observed value as "true".</p>
+  <tr><td>Definition</td><td>
+    对观测值的准备性负责的人
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="practitioner.html">Practitioner</a> | <a href="practitionerrole.html">PractitionerRole</a> | <a href="organization.html">Organization</a> | <a href="careteam.html">CareTeam</a> | <a href="patient.html">Patient</a> | <a href="relatedperson.html">RelatedPerson</a>)</td></tr>
-  <tr><td>Requirements</td><td><p>May give a degree of confidence in the observation and also indicates where follow-up questions should be directed.</p>
+  <tr><td>Requirements</td><td>
+    可增加观测结果的可信度，同时明确了后续问题的责任人。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.value_x_"> </a><b>Observation.value[x]</b></td></tr>
   <tr><td>Element Id</td><td>Observation.value[x]</td></tr>
-  <tr><td>Definition</td><td><p>The information determined as a result of making the observation, if the information has a simple value.</p>
+  <tr><td>Definition</td><td>
+    若观测结果是一个简单值，则可以通过此元素来表示观测产生的结果信息。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Quantity">Quantity</a>|<a href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a href="datatypes.html#string">string</a>|<a href="datatypes.html#boolean">boolean</a>|<a href="datatypes.html#integer">integer</a>|<a href="datatypes.html#Range">Range</a>|<a href="datatypes.html#Ratio">Ratio</a>|<a href="datatypes.html#SampledData">SampledData</a>|<a href="datatypes.html#time">time</a>|<a href="datatypes.html#dateTime">dateTime</a>|<a href="datatypes.html#Period">Period</a></td></tr>
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
-  <tr><td>Requirements</td><td><p>An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.</p>
+  <tr><td>Requirements</td><td>
+    观测资源都应该有值，除非有错误产生，或者它代表着一组观测。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the <a href="observation.html#notes">Notes section</a> below.</p>
+  <tr><td>Comments</td><td>
+    一个观测值可以是：1）此元素的单个值，
+    2）此单个值和observation.component元素中一组相关或明细指标的值，或者
+    3）仅使用observation.component元素中一组相关或明细指标的值。
+    如果此元素值不为空，则其数据类型应通过Observation.code确定。
+    如果此元素有固定的编码，或者由Observation.code定义了编码值，则对值的文本描述应该使用一个只有text元素的CodeableConcept数据类型来表示，而不用字符串类型。
+    更多信息请参见下面的<a href="observation.html#notes">Notes 章节</a>。
+
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Affect this element</b></td></tr>
@@ -278,15 +347,25 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.dataAbsentReason"> </a><b>Observation.dataAbsentReason</b></td></tr>
   <tr><td>Element Id</td><td>Observation.dataAbsentReason</td></tr>
-  <tr><td>Definition</td><td><p>Provides a reason why the expected value in the element Observation.value[x] is missing.</p>
+  <tr><td>Definition</td><td>
+    如果Observation.value[x]缺少值，通过此元素说明缺失的原因。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-data-absent-reason.html">DataAbsentReason</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>For many results it is necessary to handle exceptional values in measurements.</p>
+  <tr><td>Requirements</td><td>
+    有很多在检测中出现的观测结果异常值都有必要处理。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  "detected", "not detected", "inconclusive", or  "specimen unsatisfactory".</p>
-<p>The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code "error" could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.</p>
+  <tr><td>Comments</td><td>
+    在FHIR中，观测资源的空值（Null）或异常值有两种表示方法：一种方法是使用值域集，简单地将它们作为其中的概念来表示异常。
+    例如，血清检测的观测资源值可以是“检测”、“未检测”、“不确定”或“样本不合格”。
+    另一种方法是使用value元素记录实际观测结果，同时使用dataAbsentReason元素显式的记录异常值。
+    例如，当检测未完成时，可以将“error”编码赋值给dataAbsentReason元素。
+    注意，只有当有观测值时才能报告。例如，只有细胞计数值当大于0时才能报告。
+    所以在实际用例中需要使用以上两种方法之一对观测的空值或异常值进行解释。
+
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Affect this element</b></td></tr>
@@ -294,71 +373,116 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.interpretation"> </a><b>Observation.interpretation</b></td></tr>
   <tr><td>Element Id</td><td>Observation.interpretation</td></tr>
-  <tr><td>Definition</td><td><p>A categorical assessment of an observation value.  For example, high, low, normal.</p>
+  <tr><td>Definition</td><td>
+    对观测值的分类评估。例如，高、低、正常。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-interpretation.html">Observation Interpretation Codes</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.</p>
+  <tr><td>Requirements</td><td>
+
+    为了充分理解观测结果的重要性，有必要对某些结果（特别是数值性结果或危急值）进行解释。
+
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Abnormal Flag</td></tr>
-  <tr><td>Comments</td><td><p>Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.</p>
+  <tr><td>Comments</td><td>
+    以前作为实验室结果的“异常标志”来使用，现在使用范围得到了扩展（扩展范围与其绑定的值域集中编码的含义相对应）。
+    此元素在报告中呈现方式通常是显示在观测结果值旁边的代码或符号，以表示结果的含义或正常状态。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.note"> </a><b>Observation.note</b></td></tr>
   <tr><td>Element Id</td><td>Observation.note</td></tr>
-  <tr><td>Definition</td><td><p>Comments about the observation or the results.</p>
+  <tr><td>Definition</td><td>
+    对观测或结果的备注或评论。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Annotation">Annotation</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to be able to provide free text additional information.</p>
+  <tr><td>Requirements</td><td>
+    提供自由文本附加信息很有必要。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>May include general statements about the observation, or statements about significant, unexpected or unreliable results values, or information about its source when relevant to its interpretation.</p>
+  <tr><td>Comments</td><td>
+    可能包括对观测结果的一般性陈述，或关于重大、意外或不可靠结果值的陈述，或与Observation.interpretation的相关信息。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.bodySite"> </a><b>Observation.bodySite</b></td></tr>
   <tr><td>Element Id</td><td>Observation.bodySite</td></tr>
-  <tr><td>Definition</td><td><p>Indicates the site on the subject's body where the observation was made (i.e. the target site).</p>
+  <tr><td>Definition</td><td>
+    在患者身体上进行观测的位置（即目标位置）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-body-site.html">SNOMED CT Body Structures</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Comments</td><td><p>Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.</p>
-<p>If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension<a href="extension-bodysite.html"> bodySite</a>.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    仅当Observation.code的概念中没有包含位置信息时才使用此元素。在有些系统中，可以用此元素来表示相关的观测，而不是作为此观测所包含的一部分。
+    在某些场景下可能需要使用单独的身体结构资源（BodyStructure），比如用于标识和跟踪不同的身体部位。
+    这种情况应该用一扩展元素来解决，参见BodyStructure引用扩展（http://hl7.org/fhir/extension-bodysite.html）。
+    </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.method"> </a><b>Observation.method</b></td></tr>
   <tr><td>Element Id</td><td>Observation.method</td></tr>
-  <tr><td>Definition</td><td><p>Indicates the mechanism used to perform the observation.</p>
+  <tr><td>Definition</td><td>
+    用于明确执行观测时所使用的方法和机制。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-methods.html">Observation Methods</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results.</p>
+  <tr><td>Requirements</td><td>
+    在某些情况下，不同的观测（检验/实验）方法会产生不同的观测结果，所以仅当观测方法相同时所产生的结果才具有可比性，同理只有在明确了观测方法后才能确定结果值的意义。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>Only used if not implicit in code for Observation.code.</p>
+  <tr><td>Comments</td><td>
+    仅当Observation.code的编码值的概念中没有暗含观测方法时才使用此元素。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.specimen"> </a><b>Observation.specimen</b></td></tr>
   <tr><td>Element Id</td><td>Observation.specimen</td></tr>
-  <tr><td>Definition</td><td><p>The specimen that was used when this observation was made.</p>
+  <tr><td>Definition</td><td>
+    执行观测时所使用的样本。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="specimen.html">Specimen</a>)</td></tr>
-  <tr><td>Comments</td><td><p>Should only be used if not implicit in code found in <code>Observation.code</code>.  Observations are not made on specimens themselves; they are made on a subject, but in many cases by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources may be used in contexts that track the specimen explicitly (e.g. Diagnostic Report).</p>
+  <tr><td>Comments</td><td>
+    仅当Observation.code的编码值的概念中没有暗含观测所使用的标本时才使用此元素。
+    虽然观测针是对目标（患者等）进行的，但在很多情况下需要通过标本作为载体才能完成具体的观测。
+
+    注意，观测资源中包含的标本信息并不一定会很精确。
+    另外，观测资源可用于对标本进行精确追踪时的场景（例如诊断报告）。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.device"> </a><b>Observation.device</b></td></tr>
   <tr><td>Element Id</td><td>Observation.device</td></tr>
-  <tr><td>Definition</td><td><p>The device used to generate the observation data.</p>
+  <tr><td>Definition</td><td>
+    用来产生观测数据的仪器设备。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="device.html">Device</a> | <a href="devicemetric.html">DeviceMetric</a>)</td></tr>
-  <tr><td>Comments</td><td><p>Note that this is not meant to represent a device involved in the transmission of the result, e.g., a gateway.  Such devices may be documented using the Provenance resource where relevant.</p>
+  <tr><td>Comments</td><td>
+    注意，这里的设备不是指用于传输结果的相关设备，例如网关。与网络的相关设备应使用处出资源（Provenance）来记录。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange"> </a><b>Observation.referenceRange</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange</td></tr>
-  <tr><td>Definition</td><td><p>Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an "OR".   In other words, to represent two distinct target populations, two <code>referenceRange</code> elements would be used.</p>
+  <tr><td>Definition</td><td>
+    观测结果的正常范围或推荐的参考范围，通此元素提供的范围值和实际结果值的比较，可以从量级上解释观测结果的意义。
+    若此元素有多个范围值，这些值之间是“或者”关系。
+    换句话说，可以使用两个“referenceRange”元素来表示两个范围的并集。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Requirements</td><td><p>Knowing what values are considered "normal" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts.</p>
+  <tr><td>Requirements</td><td>
+    清楚哪些观测值是属于“正常”的，对评估观测结果的临床意义性很有帮助。不同的临床场景也需要使用不同的“参考范围”。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.</p>
+  <tr><td>Comments</td><td>
+    多数观测值只有一个通用参考范围。
+    系统<b>可能</b>会根据对患者的相关信息（如年龄、性别、体重和其他信息）来提供更个性化的参考范围，但这可能是不可能或不适当的。
+    当提供多个参考范围时，<b>应该</b>通过Observation.referenceRange.appliesTo、Observation.referenceRange.age 来区分它们。
+
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Defined on this element</b></td></tr>
@@ -366,7 +490,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange.low"> </a><b>Observation.referenceRange.low</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange.low</td></tr>
-  <tr><td>Definition</td><td><p>The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3).</p>
+  <tr><td>Definition</td><td>
+    参考范围下限的值。参考范围边界的下限包含该值（例如，参考范围>=5 - <=9）。如果下限值无临床意义，则可能不填（例如，参考范围<=2.3）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#SimpleQuantity">SimpleQuantity</a></td></tr>
@@ -376,8 +502,7 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange.high"> </a><b>Observation.referenceRange.high</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange.high</td></tr>
-  <tr><td>Definition</td><td><p>The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3).</p>
-</td></tr>
+  <tr><td>Definition</td><td>参考范围上限的值。参考范围边界的上限包含该值，例如，参考范围为：（>=5 - <=9），此时上限值为9。如果上限值无临床意义，则可能不填（例如，参考范围>=2.3）。</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#SimpleQuantity">SimpleQuantity</a></td></tr>
   <tr><td>Invariants</td><td><table class="dict">
@@ -386,29 +511,43 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange.type"> </a><b>Observation.referenceRange.type</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange.type</td></tr>
-  <tr><td>Definition</td><td><p>Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.</p>
+  <tr><td>Definition</td><td>
+    用编码来表示参考范围的分类意义。例如，正常范围或治疗范围。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-referencerange-meaning.html">Observation Reference Range Meaning Codes</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc.,  - for proper interpretation.</p>
-</td></tr>
-  <tr><td>Comments</td><td><p>This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed.</p>
+  <tr><td>Requirements</td><td>
+    为正解的理解范围的意义，需要说明参考范围的类型，如：正常范围、推荐范围，治疗范围等等。
+   </td></tr>
+  <tr><td>Comments</td><td>
+    默认的参考范围是指“正常范围”，当提供多个参考范围时，<b>应该</b>为此元素赋值，以区分不同范围的意义。
+   
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange.appliesTo"> </a><b>Observation.referenceRange.appliesTo</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange.appliesTo</td></tr>
-  <tr><td>Definition</td><td><p>Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.  Multiple <code>appliesTo</code>  are interpreted as an "AND" of the target populations.  For example, to represent a target population of African American females, both a code of female and a code for African American would be used.</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+    用编码来表示此参考范围的适用目标群体。例如，正常人群、特定性别或种族对此参考范围适用。
+    若提供多个“appliesTo”元素提供值，则这些编码值之间是“并且”关系，即多个目标群体取交集。
+    例如，一个代表“女人”的编码加上一个代表“非裔美国人”的编码，意味着目标群体为“非裔美国女性”。
+   </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-referencerange-appliesto.html">Observation Reference Range Applies To Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to be able to identify the target population for proper interpretation.</p>
+  <tr><td>Requirements</td><td>
+    为正确理解参考范围的意义，需要能够识别目标人群。
+
 </td></tr>
-  <tr><td>Comments</td><td><p>This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed.</p>
+  <tr><td>Comments</td><td>
+    如果有多个参考范围，则<b>应该</b>提供此元素。如果没有提供此元素，则默认为正常群体。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange.age"> </a><b>Observation.referenceRange.age</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange.age</td></tr>
-  <tr><td>Definition</td><td><p>The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.</p>
+  <tr><td>Definition</td><td>
+    此参考范围适用的年龄段，包括新生儿年龄（例如足月的周数）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Range">Range</a></td></tr>
@@ -416,46 +555,63 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.referenceRange.text"> </a><b>Observation.referenceRange.text</b></td></tr>
   <tr><td>Element Id</td><td>Observation.referenceRange.text</td></tr>
-  <tr><td>Definition</td><td><p>Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of "normals".</p>
+  <tr><td>Definition</td><td>
+    当定量的参考范围不适合时，用文本描述的观测参考范围。例如，参考值是“负数”或“正常值列表”。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.hasMember"> </a><b>Observation.hasMember</b></td></tr>
   <tr><td>Element Id</td><td>Observation.hasMember</td></tr>
-  <tr><td>Definition</td><td><p>This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.</p>
-</td></tr>
+  <tr><td>Definition</td><td>
+    当此观测是作为一组观测(（例如电池、一组检验、一组生命体征测量）)中的一个时，用此元素来引用该组中的其它组成员。
+    </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="observation.html">Observation</a> | <a href="questionnaireresponse.html">QuestionnaireResponse</a> | <a href="molecularsequence.html">MolecularSequence</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see <a href="observation.html#obsgrouping">Notes</a> below.  Note that a system may calculate results from <a href="questionnaireresponse.html">QuestionnaireResponse</a>  into a final score and represent the score as an Observation.</p>
+  <tr><td>Comments</td><td>
+    使用此元素时，引用的观测资源通常都会有值，并且可能还会有一组相关资源。
+    组合使用观测的更多信息请参见 http://hl7.org/fhir/observation.html#obsgrouping。
+    注意，系统可能会将“答卷资源”（QuestionnaireResponse）的结果计算为用观测值来表示的最终分数。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.derivedFrom"> </a><b>Observation.derivedFrom</b></td></tr>
   <tr><td>Element Id</td><td>Observation.derivedFrom</td></tr>
-  <tr><td>Definition</td><td><p>The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.</p>
+  <tr><td>Definition</td><td>
+    基于哪个资源得出此观测结果。例如，基于超声图像的胎儿大小测量。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="references.html#Reference">Reference</a>(<a href="documentreference.html">DocumentReference</a> | <a href="imagingstudy.html">ImagingStudy</a> | <a href="media.html">Media</a> | <a href="questionnaireresponse.html">QuestionnaireResponse</a> | <a href="observation.html">Observation</a> | <a href="molecularsequence.html">MolecularSequence</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see <a href="observation.html#obsgrouping">Notes</a> below.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    此元素中列出的资源可以是临床观测，也可以是其他测量，此观测的值来源于这些测量中。最常见的情况此元素会引用另一个观测资源。
+   </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.component"> </a><b>Observation.component</b></td></tr>
   <tr><td>Element Id</td><td>Observation.component</td></tr>
-  <tr><td>Definition</td><td><p>Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.</p>
+  <tr><td>Definition</td><td>
+    有些观测是由多个明细观测项构成的。这些明细观测共享相同属性,但有各自不同的“编码-值”对。
+    例如：血压测量的明细观测分为收缩压和舒张压。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Requirements</td><td><p>Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.</p>
+  <tr><td>Requirements</td><td>
+    明细观测作为主观测资源的一部分（不可分开使用）共享主观测资源中的属性，
+    但主观测值的参考范围是不共享使用的，每个明细观测的参考范围可以独立设置。
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td>Comments</td><td><p>For a discussion on the ways Observations can be assembled in groups together see <a href="observation.html#notes">Notes</a> below.</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.component.code"> </a><b>Observation.component.code</b></td></tr>
   <tr><td>Element Id</td><td>Observation.component.code</td></tr>
-  <tr><td>Definition</td><td><p>Describes what was observed. Sometimes this is called the observation "code".</p>
+  <tr><td>Definition</td><td>
+    以编码的形式描述观测到的内容。有时这被称为“观测代码”。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-observation-codes.html">LOINC Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
-  <tr><td>Requirements</td><td><p>Knowing what kind of observation is being made is essential to understanding the observation.</p>
+  <tr><td>Requirements</td><td>精确的理解正在进行的是什么观测非常重要。
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td>Comments</td><td><p><em>All</em> code-value and  component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.</p>
@@ -470,8 +626,10 @@
   <tr><td>Requirements</td><td><p>An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Used when observation has a set of component observations. An observation may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the <a href="observation.html#notes">Notes section</a> below.</p>
-</td></tr>
+  <tr><td>Comments</td><td>
+    当观测资源存在一组observation.component元素时，它可能同时具有一个结果值（例如Apgar评分）和明细观测项（Apgar评分中的每一个评分项）。
+    如果此元素值不为空，则其数据类型应通过Observation.code确定。 如果此元素有固定的编码，或者由Observation.code定义了编码值，则对值的文本描述应该使用一个只有text元素的CodeableConcept数据类型来表示，而不用字符串类型。
+    </td></tr>
   <tr><td colspan="2" class="structure"><a name="Observation.component.dataAbsentReason"> </a><b>Observation.component.dataAbsentReason</b></td></tr>
   <tr><td>Element Id</td><td>Observation.component.dataAbsentReason</td></tr>
   <tr><td>Definition</td><td><p>Provides a reason why the expected value in the element Observation.component.value[x] is missing.</p>

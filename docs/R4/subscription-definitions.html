@@ -95,12 +95,18 @@
 <table class="colstu"><tr><td>工作组: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure <img src="external.png" style="text-align: baseline"/></a></td><td><a href="versions.html#maturity">成熟度</a>: 3</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">试用</a></td><td><a href="security.html#SecPrivConsiderations">安全级别</a>: Business</td>  <!-- !ns! --><td><a href="compartmentdefinition.html">隔间</a>: Not linked to any defined compartments</td></tr></table>
 
 
-<p>Detailed Descriptions for the elements in the Subscription resource.</p>
+<p>Detailed Descriptions for the elements in the Subscription resource.在订阅型resource结构体中的元素的详细解释。</p>
 
 <table class="dict">
   <tr><td colspan="2" class="structure"><a name="Subscription"> </a><b>Subscription</b></td></tr>
   <tr><td>Element Id</td><td>Subscription</td></tr>
-  <tr><td>Definition</td><td><p>The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system can take an appropriate action.</p>
+  <tr><td>Definition</td><td><p>The subscription resource is used to define a push-based subscription from a
+      server to another system. Once a subscription is registered with the server, the server checks every resource that
+      is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that
+      another system can take an appropriate action.
+      订阅型resource用于定义用于记录推送到另一个服务端相关的信息.
+      订阅型resource一旦生成，在对应的resource有生成或修改满足订阅型资源所描述的，将会通过一种方式推送消息到被推送端，被推送端将会这些推送的信息作相应的业务操作。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="domainresource.html">DomainResource</a></td></tr>
@@ -108,64 +114,92 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.status"> </a><b>Subscription.status</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.status</td></tr>
-  <tr><td>Definition</td><td><p>The status of the subscription, which marks the server state for managing the subscription.</p>
+  <tr><td>Definition</td><td><p>The status of the subscription, which marks the server state for managing the subscription.
+  订阅型resource的状态，这个状态标记当前推送端管理订阅型resource的状态。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-subscription-status.html">SubscriptionStatus</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid)</td></tr>
+  <tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td><td>true (Reason: This element is labelled as a modifier
+      because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid)(原因：
+      本元素(status)不可或缺的原因为当一个订阅型resource生成时status的值为error时，这会被fhir服务端认为是无效的。
+      )</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.</p>
-<p>This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.</p>
+  <tr><td>Comments</td><td><p>A client can only submit subscription resources in the requested or off state. Only the
+      server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.
+    客户端提交的订阅型resource的status的值只能为requested或off，只有fhir服务端可以将订阅型resource的状态从requested改为active或者error，无效是客户端还是fhir服务端都可
+      把status的值改为off.
+  </p>
+<p>This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+status不可或缺是因为其值标记着当前资源是否有效。
+</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.contact"> </a><b>Subscription.contact</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.contact</td></tr>
-  <tr><td>Definition</td><td><p>Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.</p>
+  <tr><td>Definition</td><td><p>Contact details for a human to contact about the subscription.
+      The primary use of this for system administrator troubleshooting.
+  contact元素用于订阅型资源对人类可用的联系方式的描述，主要用途在于系统管理员解决问题时(需要找相关负责人)用到。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#ContactPoint">ContactPoint</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.end"> </a><b>Subscription.end</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.end</td></tr>
-  <tr><td>Definition</td><td><p>The time for the server to turn the subscription off.</p>
+  <tr><td>Definition</td><td><p>The time for the server to turn the subscription off.
+  fhir服务端将订阅型资源的status修改为off时的时间。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#instant">instant</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The server is permitted to deviate from this time but should observe it.</p>
+  <tr><td>Comments</td><td><p>The server is permitted to deviate from this time but should observe it.
+  fhir服务端可以不用填写但最好填上。
+  </p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.reason"> </a><b>Subscription.reason</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.reason</td></tr>
-  <tr><td>Definition</td><td><p>A description of why this subscription is defined.</p>
+  <tr><td>Definition</td><td><p>A description of why this subscription is defined.这个订阅型resource存在的原因。</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.criteria"> </a><b>Subscription.criteria</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.criteria</td></tr>
-  <tr><td>Definition</td><td><p>The rules that the server should use to determine when to generate notifications for this subscription.</p>
+  <tr><td>Definition</td><td><p>The rules that the server should use to determine when to generate notifications for this subscription.
+  fhir服务端推送消息到被推送端的规则。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading "/".</p>
+  <tr><td>Comments</td><td><p>The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading "/".
+  这些规则为搜索条件（不需要带上基地址）就像Bundle.entry.request.url，不需要以“/”开头。
+  </p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.error"> </a><b>Subscription.error</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.error</td></tr>
-  <tr><td>Definition</td><td><p>A record of the last error that occurred when the server processed a notification.</p>
+  <tr><td>Definition</td><td><p>A record of the last error that occurred when the server processed a notification.
+  记录上次推送通知时的错误。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.channel"> </a><b>Subscription.channel</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.channel</td></tr>
-  <tr><td>Definition</td><td><p>Details where to send notifications when resources are received that meet the criteria.</p>
+  <tr><td>Definition</td><td><p>Details where to send notifications when resources are received that meet the criteria.
+  当满足条件时，要使用的推送方式。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.channel.type"> </a><b>Subscription.channel.type</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.channel.type</td></tr>
-  <tr><td>Definition</td><td><p>The type of channel to send notifications on.</p>
+  <tr><td>Definition</td><td><p>The type of channel to send notifications on.
+  要使用的推送方式的类型。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-subscription-channel-type.html">SubscriptionChannelType</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
@@ -173,31 +207,54 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.channel.endpoint"> </a><b>Subscription.channel.endpoint</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.channel.endpoint</td></tr>
-  <tr><td>Definition</td><td><p>The url that describes the actual end-point to send messages to.</p>
+  <tr><td>Definition</td><td><p>The url that describes the actual end-point to send messages to.
+  推送通知使用的接入点。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#url">url</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs).</p>
+  <tr><td>Comments</td><td><p>For rest-hook, and websocket, the end-point must be an http: or https: URL; for email,
+      a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands
+      (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point
+      (since there may be more than one, clients should avoid using relative URIs).
+  对于rest-hook和websocket方式，接入点的格式必须为http:url或https:url,对于email来说格式为mailto:url，对于短信来说为 tel:url，对于用message方式，
+      格式任意只要fhir服务端明白即可。（一般来说，为http:或mllp:开头）。URI可以是相对地址，这种情况下，它是相对fhir服务而言（为了不必要的麻烦，客户端最好避免使用相对URI）
+  </p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.channel.payload"> </a><b>Subscription.channel.payload</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.channel.payload</td></tr>
-  <tr><td>Definition</td><td><p>The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the payload is not present, then there is no payload in the notification, just a notification. The mime type "text/plain" may also be used for Email and SMS subscriptions.</p>
+  <tr><td>Definition</td><td><p>The mime type to send the payload in - either application/fhir+xml,
+      or application/fhir+json. If the payload is not present, then there is no payload in the notification,
+      just a notification. The mime type "text/plain" may also be used for Email and SMS subscriptions.
+  内容的多媒体类型，可以是application/fhir+xml或application/fhir+json。如果payload元素没有那么意味着在通知里无内容，只是一个通知而已。
+      "text/plain"也可以用于email或sms的内容格式。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-mimetypes.html">MimeType</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured.</p>
+  <tr><td>Comments</td><td><p>Sending the payload has obvious security implications.
+      The server is responsible for ensuring that the content is appropriately secured.
+      直接发内容有安全隐患，推送端应该通过适当的方式加密数据。
+
+  </p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Subscription.channel.header"> </a><b>Subscription.channel.header</b></td></tr>
   <tr><td>Element Id</td><td>Subscription.channel.header</td></tr>
-  <tr><td>Definition</td><td><p>Additional headers / information to send as part of the notification.</p>
+  <tr><td>Definition</td><td><p>Additional headers / information to send as part of the notification.
+  作为通知的额外header信息。
+  </p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Exactly what these mean depend on the channel type. They can convey additional information to the recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions.</p>
+  <tr><td>Comments</td><td><p>Exactly what these mean depend on the channel type.
+      They can convey additional information to the recipient and/or meet security requirements;
+      for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions.
+  根据实际的推送方式不同header的内容不同。header可用于给被推送端的额外信息或者用于满足一些安全需要。比如说，对于rest-hook方式的推送（根据实际情况）可以加入多种不同的header.
+  </p>
 </td></tr>
 </table>
 
