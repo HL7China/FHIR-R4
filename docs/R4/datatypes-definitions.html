@@ -364,53 +364,79 @@ See also <a href="datatypes.html#Coding">Base Definition</a>, <a href="datatypes
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Coding.system"> </a><b>Coding.system</b></td></tr>
   <tr><td>Element Id</td><td>Coding.system</td></tr>
-  <tr><td>Definition</td><td><p>The identification of the code system that defines the meaning of the symbol in the code.</p>
+  <tr><td>Definition</td><td>
+
+  编码符号所属编码系统的URI。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to be unambiguous about the source of the definition of the symbol.</p>
+  <tr><td>Requirements</td><td>
+  需要明确编码符号定义的来源。
+  
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously.</p>
+  <tr><td>Comments</td><td>
+  URI可以是OID（urn:OID:…）或UUID（urn:UUID:…）。OID和UUIDs<b>必须</b>引用自HL7 OID注册表。否则，该URI应该选自HL7为FHIR定义的特殊URI列表。如果要引用其它系统的定义的URI，所引用的系统应该有清晰、明确的定义。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Coding.version"> </a><b>Coding.version</b></td></tr>
   <tr><td>Element Id</td><td>Coding.version</td></tr>
-  <tr><td>Definition</td><td><p>The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.</p>
+  <tr><td>Definition</td><td>
+  选择此编码时使用的编码系统的版本。注意，维护良好的编码系统不需要使用版本，因为编码的含义在不同版本之间是一致的。然而，这却一定能得到保证，当同一编码的不同版本含义不能保证一致时，应提供版本信息。
+  
 </td></tr>
   <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="resource.html#versions">discussion</a>)</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.</p>
+  <tr><td>Comments</td><td>
+  如果术语没有明确定义用于标识编码系统版本的字符串，建议使用该版本正式发布的日期（以FHIR日期格式表示）作为版本日期。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="Coding.code"> </a><b>Coding.code</b></td></tr>
   <tr><td>Element Id</td><td>Coding.code</td></tr>
-  <tr><td>Definition</td><td><p>A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).</p>
+  <tr><td>Definition</td><td>
+  由系统定义的语法符号。符号可以是预定义的编码或由编码系统定义的语法中的表达式，例如：后协调（post-coordination）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to refer to a particular code in the system.</p>
+  <tr><td>Requirements</td><td>
+  需要指向系统中的特定编码。
+ 
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Coding.display"> </a><b>Coding.display</b></td></tr>
   <tr><td>Element Id</td><td>Coding.display</td></tr>
-  <tr><td>Definition</td><td><p>A representation of the meaning of the code in the system, following the rules of the system.</p>
+  <tr><td>Definition</td><td>
+  用于说明编码在系统中的意义，它遵循系统的规则。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
-  <tr><td>Requirements</td><td><p>Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.</p>
+  <tr><td>Requirements</td><td>
+  需要能够为不了解系统的使用者提供可读性强的编码含义。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="Coding.userSelected"> </a><b>Coding.userSelected</b></td></tr>
   <tr><td>Element Id</td><td>Coding.userSelected</td></tr>
-  <tr><td>Definition</td><td><p>Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).</p>
+  <tr><td>Definition</td><td>
+  此编码是否是由用户直接选择的。例如，从下拉列表框中的选取的编码或含义。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
-  <tr><td>Requirements</td><td><p>This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.</p>
+  <tr><td>Requirements</td><td>
+  这已经被确定为一个临床安全性标准-这明确了“系统/编码”对是由用户显式选择的，而不是由系统根据一些规则或语言处理自动生成的。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.</p>
+  <tr><td>Comments</td><td>
+  
+  当同一个CodeableConcept里的存在多个的Coding时，将用户直接选择的编码作为编码转换的起点是最合适的。关于“直接选择”究竟意味着什么，存在一些模糊性，可能需要数据交互的多方进一步约定以更全面地澄清这一要素的使用及其后果。
+  
 </td></tr>
 </table>
 
@@ -428,14 +454,18 @@ See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="
   <tr><td colspan="2" class="structure"><a name="CodeableConcept"> </a><b>CodeableConcept</b></td></tr>
   <tr style="background-color: #e6ffe6"><td><a href="versions.html#std-process">Standards Status</a></td><td>This element has a standards status of "Normative"</td></tr>
   <tr><td>Element Id</td><td>CodeableConcept</td></tr>
-  <tr><td>Definition</td><td><p>A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.</p>
+  <tr><td>Definition</td><td>
+  一种概念，它可以通过对术语或本体的正式引用来定义，也可以通过文本来表示。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="element.html">Element</a></td></tr>
   <tr><td>Requirements</td><td><p>This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED CT, and/or defined by the provision of text that captures a human sense of the concept.</p>
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Not all terminology uses fit this general pattern. In some cases, models should not use CodeableConcept and use Coding directly and provide their own structure for managing text, codings, translations and the relationship between elements and pre- and post-coordination.</p>
+  <tr><td>Comments</td><td>
+这是表示术语的常用模型，但并不适用于所有的术语。在某些情况下，会直接使用编码，并使用自己的结构来管理描述文本、编码、转换、元素之间的关系、前协调（预置映射规则）和后协调（映射后置处理）。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeableConcept.coding"> </a><b>CodeableConcept.coding</b></td></tr>
   <tr><td>Element Id</td><td>CodeableConcept.coding</td></tr>
@@ -443,21 +473,29 @@ See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#Coding">Coding</a></td></tr>
-  <tr><td>Requirements</td><td><p>Allows for alternative encodings within a code system, and translations to other code systems.</p>
+  <tr><td>Requirements</td><td>
+  允许在编码系统中使用备用编码，并支持转换为其他编码系统。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true.</p>
+  <tr><td>Comments</td><td><p>编码可以使用枚举值或编码列表非常随意地定义。也可以非常正式的定义，如SNOMED CT。请参阅HL7 v3核心原则。 
+  此类型并未定义编码的顺序，并<b>不得</b>用于推断含义。通常，最多只有一个Coding的UserSelected属性被标记为true。
+</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeableConcept.text"> </a><b>CodeableConcept.text</b></td></tr>
   <tr><td>Element Id</td><td>CodeableConcept.text</td></tr>
-  <tr><td>Definition</td><td><p>A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.</p>
+  <tr><td>Definition</td><td>
+  自然语言表示的概念，它是由输入数据的用户看到、选择、说出，并代表着用户意图。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
-  <tr><td>Requirements</td><td><p>The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source.</p>
+  <tr><td>Requirements</td><td>
+  术语中的编码并不总能精确的表达其所有细微差别的含义，或者有时根本没有合适的编码。在这些情况下，文本可用于表达编码的全部含义。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Very often the text is the same as a displayName of one of the codings.</p>
+  <tr><td>Comments</td><td><p>通常此元素的文本与此资源中某一个coding元素的display属性值相同。</p>
 </td></tr>
 </table>
 

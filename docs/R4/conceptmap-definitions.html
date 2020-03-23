@@ -1,4 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿
+<!DOCTYPE HTML>
   <!-- template-definitions.html --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>ConceptMap - FHIR v4.0.0</title>
@@ -198,35 +199,51 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.experimental"> </a><b>ConceptMap.experimental</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.experimental</td></tr>
-  <tr><td>Definition</td><td><p>A Boolean value to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.</p>
+  <tr><td>Definition</td><td>
+ 此是概念映射资源是否是为了测试（或教育/评估等）而编写的，而不是用于生产环境。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
-  <tr><td>Requirements</td><td><p>Enables experimental content to be developed following the same lifecycle that would be used for a production-level concept map.</p>
+  <tr><td>Requirements</td><td>
+  测试映射支持与生产级概念映射资源相同的生命周期进行开发。
+
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Allows filtering of concept maps that are appropriate for use versus not.</p>
+  <tr><td>Comments</td><td>
+  可用于筛选概念映射资源是否可用。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.date"> </a><b>ConceptMap.date</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.date</td></tr>
-  <tr><td>Definition</td><td><p>The date  (and optionally time) when the concept map was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.</p>
+  <tr><td>Definition</td><td>
+  概念映射资源发布的日期（可精确到时间）。此日期必须随资源的业务版本(version)、状态编码(status)、映射实质内容的变更而同步更改。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#dateTime">dateTime</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Revision Date</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.</p>
+  <tr><td>Comments</td><td>
+  请注意，这与资源上次修改日期不同，因为概念映射资源可能是最近提交的一个副本。可以通过扩展添加更多的时间，并通过历史版本来查询。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.publisher"> </a><b>ConceptMap.publisher</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.publisher</td></tr>
-  <tr><td>Definition</td><td><p>The name of the organization or individual that published the concept map.</p>
+  <tr><td>Definition</td><td>
+  发布此概念映射的组织或个人的名称。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
-  <tr><td>Requirements</td><td><p>Helps establish the "authority/credibility" of the concept map.  May also allow for contact.</p>
+  <tr><td>Requirements</td><td>
+  帮助建立概念映射的“权威性”或“可信度”。可当作联系人使用。
+  
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Usually an organization but may be an individual. The publisher (or steward) of the concept map is the organization or individual primarily responsible for the maintenance and upkeep of the concept map. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the concept map. This item SHOULD be populated unless the information is available from context.</p>
+  <tr><td>Comments</td><td>
+  通常是一个组织，但也可能是个人。概念映射的发布者（或管理者）是主要负责维护概念映射的组织或个人。这与开发和最初编写内容的不一是同一个人或组织。它是概念映射问题的主要联系人。除非可从资源上下文中获得此信息，否则应填充此项。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.contact"> </a><b>ConceptMap.contact</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.contact</td></tr>
@@ -239,22 +256,28 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.description"> </a><b>ConceptMap.description</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.description</td></tr>
-  <tr><td>Definition</td><td><p>A free text natural language description of the concept map from a consumer's perspective.</p>
+  <tr><td>Definition</td><td>
+  从使用者的角度用自由文本自然语言对概念映射的描述。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
-  <tr><td>Comments</td><td><p>The description is not intended to describe the semantics of the concept map. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.</p>
+  <tr><td>Comments</td><td>
+  该描述并不用于描述此概念映射的语义，而是用于描述其用途。如果其模型在未来发生变更，此描述可以确保其使用的完整性。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.useContext"> </a><b>ConceptMap.useContext</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.useContext</td></tr>
-  <tr><td>Definition</td><td><p>The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate concept map instances.</p>
+  <tr><td>Definition</td><td>
+  此资源的重点和目的是支持列出的场景。这些场景可以是一般类别（性别、年龄等），也可以是对特定项目（保险计划、研究等）的引用，也可用于帮助索引和搜索适当的概念映射实例。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="metadatatypes.html#UsageContext">UsageContext</a></td></tr>
-  <tr><td>Requirements</td><td><p>Assist in searching for appropriate content.</p>
+  <tr><td>Requirements</td><td>用于协助搜索合适的内容
 </td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.</p>
+  <tr><td>Comments</td><td>如果指定了多个useContexts，则既不期望应用所有场景，也不期望一定要应用某个场景。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.jurisdiction"> </a><b>ConceptMap.jurisdiction</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.jurisdiction</td></tr>
@@ -409,10 +432,14 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.element.target"> </a><b>ConceptMap.group.element.target</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.element.target</td></tr>
-  <tr><td>Definition</td><td><p>A concept from the target value set that this concept maps to.</p>
+  <tr><td>Definition</td><td>
+  此概念（ConceptMap.group.element.code）映射到的目标值域集中的概念。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Comments</td><td><p>Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched.</p>
+  <tr><td>Comments</td><td>
+  理想情况下，只有一个具有“意同”和“等价”的映射。但如果等价性为“更窄”，则允许同时映射多个“更窄”的概念。也可以用来指定多个其它“不匹配”的概念。
+ 
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Defined on this element</b></td></tr>
@@ -518,10 +545,15 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="#ConceptMap.group.element.target.dependsOn">See ConceptMap.group.element.target.dependsOn</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.unmapped"> </a><b>ConceptMap.group.unmapped</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.unmapped</td></tr>
-  <tr><td>Definition</td><td><p>What to do when there is no mapping for the source concept. "Unmapped" does not include codes that are unmatched, and the unmapped element is ignored in a code is specified to have equivalence = unmatched.</p>
+  <tr><td>Definition</td><td>
+  
+  当目标系统中没有与源系统相匹配的概念时使用（用于解决那些没有在此概念映射资源中设置对应关系的概念的翻译问题）。
+此条目不会包含那些源概念与目标概念等价性为“unmatched”的code。<br/>即当源概念的<code>ConceptMap.group.element.target.equivalence=“unmatched”</code>时，此条目将被忽略。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
-  <tr><td>Comments</td><td><p>This only applies if the source code has a system value that matches the system defined for the group.</p>
+  <tr><td>Comments</td><td> 仅当<code>ConceptMap.group.element.code</code>所属的编码系统与ConceptMap.group.source的值一致时，此条目才生效。
+
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Defined on this element</b></td></tr>
@@ -529,20 +561,28 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.unmapped.mode"> </a><b>ConceptMap.group.unmapped.mode</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.unmapped.mode</td></tr>
-  <tr><td>Definition</td><td><p>Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).</p>
+  <tr><td>Definition</td><td>
+  
+ 当不能在目标系统中找到与源概念（<code>ConceptMap.group.element.code</code>）相匹配的概念时，所采取的操作模式。操作模式有三种：
+ 一是“provided”模式，使用$translate 请求参数中的code作为“未映射编码”对应的编码值。即将提供的编码直接作为结果编码，这在进行对同一编码系统的不同版本之间的映射时很有用，因为只需要在概念映射中编辑少数变更后的编码的映射关系，其它能变更的编码都视为“未映射编码”。；二是“fixed”模式，即固定映射到默认编码（通过指定<code>ConceptMap.group.unmapped.code</code>）；三是“other-map”模式，这将使用另一个概念映射资 源来表达这部分的对应关系（通过指定ConceptMap.group.unmapped.url）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-conceptmap-unmapped-mode.html">ConceptMapGroupUnmappedMode</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.unmapped.code"> </a><b>ConceptMap.group.unmapped.code</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.unmapped.code</td></tr>
-  <tr><td>Definition</td><td><p>The fixed code to use when the mode = 'fixed'  - all unmapped codes are mapped to a single fixed code.</p>
+  <tr><td>Definition</td><td>
+  当操作模式为"固定"时(ConceptMap.group.unmapped.mode== 'fixed'),将所有不能匹配的编码都映射到这个元素值所指定的固定编码。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.unmapped.display"> </a><b>ConceptMap.group.unmapped.display</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.unmapped.display</td></tr>
-  <tr><td>Definition</td><td><p>The display for the code. The display is only provided to help editors when editing the concept map.</p>
+  <tr><td>Definition</td><td>
+  显示不能匹配的说明文字，仅在编辑概念映射时用于帮助编辑者。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
@@ -550,7 +590,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.group.unmapped.url"> </a><b>ConceptMap.group.unmapped.url</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.group.unmapped.url</td></tr>
-  <tr><td>Definition</td><td><p>The canonical reference to an additional ConceptMap resource instance to use for mapping if this ConceptMap resource contains no matching mapping for the source concept.</p>
+  <tr><td>Definition</td><td>
+  用其它概念映射资源来解决没有概念能匹配的问题。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#canonical">canonical</a>(<a href="conceptmap.html">ConceptMap</a>)</td></tr>

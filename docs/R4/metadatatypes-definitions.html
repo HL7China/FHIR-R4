@@ -669,7 +669,10 @@ See also <a href="metadatatypes.html#UsageContext">Base Definition</a>, <a href=
   <tr><td colspan="2" class="structure"><a name="UsageContext"> </a><b>UsageContext</b></td></tr>
   <tr style="background-color: #fff5e6"><td><a href="versions.html#std-process">Standards Status</a></td><td>This element has a standards status of "Trial Use"</td></tr>
   <tr><td>Element Id</td><td>UsageContext</td></tr>
-  <tr><td>Definition</td><td><p>Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).</p>
+  <tr><td>Definition</td><td>
+  
+ 临床或业务等的元数据，可用于对元数据的检索、索引或分类。它既可以用于指定适用人群（例如，年龄类别、DRG），也可以用于指定的照护理场景（例如，地点场所、护理级别、照护人员）。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="element.html">Element</a></td></tr>
@@ -678,7 +681,9 @@ See also <a href="metadatatypes.html#UsageContext">Base Definition</a>, <a href=
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="UsageContext.code"> </a><b>UsageContext.code</b></td></tr>
   <tr><td>Element Id</td><td>UsageContext.code</td></tr>
-  <tr><td>Definition</td><td><p>A code that identifies the type of context being specified by this usage context.</p>
+  <tr><td>Definition</td><td>
+  标识使用场景类型的编码
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-usage-context-type.html">UsageContextType</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
@@ -686,7 +691,9 @@ See also <a href="metadatatypes.html#UsageContext">Base Definition</a>, <a href=
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="UsageContext.value_x_"> </a><b>UsageContext.value[x]</b></td></tr>
   <tr><td>Element Id</td><td>UsageContext.value[x]</td></tr>
-  <tr><td>Definition</td><td><p>A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.</p>
+  <tr><td>Definition</td><td>
+  在此使用场景下，用于定义场景的编码值。该值的解释由编码定义。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-use-context.html">ConformanceUseContext</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
