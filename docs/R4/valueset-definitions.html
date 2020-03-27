@@ -184,7 +184,10 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.status"> </a><b>ValueSet.status</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.status</td></tr>
-  <tr><td>Definition</td><td><p>The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state.</p>
+  <tr><td>Definition</td><td>
+  此值域集的发布状态。它支持对资源内容生命周期进行跟踪。值域包括：草稿、生效、退休、未知
+值域集的状态作用范围包含值域集定义（ValueSet.compose）和其关联的元数据。值域集的展开内容（ValueSet.expansion）是没有状态的。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-publication-status.html">PublicationStatus</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
@@ -241,7 +244,8 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Scope; Purpose</td></tr>
-  <tr><td>Comments</td><td><p>This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created).The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description.</p>
+  <tr><td>Comments</td><td>
+  此元素与DomainResource.text中生成的叙述文字不同，它侧重于描述为什么创建此值集、不适用场景、临床使用说明、文献参考、手工纸质使用的示例等详细信息。如果资源的上下文中不能获得以上信息，则应提供此元素。由于值域集中展开编码和值集本身的语义是分离且会随着编码系统的语义变化，所以此元素不用于描述值域集的语义，而是用于描述其用途。这样，即使其模型在未来发生变更，此描述也可以确保其使用的完整性。大多数术语注册中心都要求值域集提供描述。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.useContext"> </a><b>ValueSet.useContext</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.useContext</td></tr>
@@ -256,13 +260,15 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.jurisdiction"> </a><b>ValueSet.jurisdiction</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.jurisdiction</td></tr>
-  <tr><td>Definition</td><td><p>A legal or geographic region in which the value set is intended to be used.</p>
+  <tr><td>Definition</td><td>
+  使用值域集的地理区域范围或法规约定的区域范围。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-jurisdiction.html">Jurisdiction</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>It may be possible for the value set to be used in jurisdictions other than those for which it was originally designed or intended.</p>
+  <tr><td>Comments</td><td>使用时可能会超出最初设计或打算使用的管辖范围。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.immutable"> </a><b>ValueSet.immutable</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.immutable</td></tr>
@@ -283,14 +289,15 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.copyright"> </a><b>ValueSet.copyright</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.copyright</td></tr>
-  <tr><td>Definition</td><td><p>A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.</p>
+  <tr><td>Definition</td><td>
+  此值域集及其相关内容的版权声明。版权声明通常是对此值域集的使用和发布的法律限制。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
   <tr><td>Requirements</td><td><p>Consumers must be able to determine any legal restrictions on the use of the value set and/or its content.</p>
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>License; Restrictions</td></tr>
-  <tr><td>Comments</td><td><p>nullFrequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required.</p>
+  <tr><td>Comments</td><td>值域集和其中包含的编码的版权通常是不同的。版权声明应在需要时明确区分这些内容。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose"> </a><b>ValueSet.compose</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose</td></tr>

@@ -127,7 +127,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.url"> </a><b>ConceptMap.url</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.url</td></tr>
-  <tr><td>Definition</td><td><p>An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this concept map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the concept map is stored on different servers.</p>
+  <tr><td>Definition</td><td>
+  在标准规范、模型、设计或应用实例中引用此资源时用于标识此资源的绝对URI；也称为官方标识符。它应该是全局唯一的文本地址，官方应在该地址上发布（或将要发布）概念映射资源的权威实例，并被官方引用。当概念映射存储在不同的服务器上时，此地址<b>必须</b>保持不变。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
@@ -281,13 +283,17 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.jurisdiction"> </a><b>ConceptMap.jurisdiction</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.jurisdiction</td></tr>
-  <tr><td>Definition</td><td><p>A legal or geographic region in which the concept map is intended to be used.</p>
+  <tr><td>Definition</td><td>
+  使用概念映射的地理区域范围或法规约定的区域范围。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-jurisdiction.html">Jurisdiction</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>It may be possible for the concept map to be used in jurisdictions other than those for which it was originally designed or intended.</p>
+  <tr><td>Comments</td><td>
+  使用时可能会超出最初设计或打算使用的管辖范围。
+  
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.purpose"> </a><b>ConceptMap.purpose</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.purpose</td></tr>
@@ -304,14 +310,17 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.copyright"> </a><b>ConceptMap.copyright</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.copyright</td></tr>
-  <tr><td>Definition</td><td><p>A copyright statement relating to the concept map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the concept map.</p>
+  <tr><td>Definition</td><td>
+  此概念映射及其相关内容的版权声明。版权声明通常是对此概念映射的使用和发布的法律限制。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
   <tr><td>Requirements</td><td><p>Consumers must be able to determine any legal restrictions on the use of the concept map and/or its content.</p>
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>License; Restrictions</td></tr>
-  <tr><td>Comments</td><td><p>Frequently the copyright differs between the concept map and codes that are included. The copyright statement should clearly differentiate between these when required.</p>
+  <tr><td>Comments</td><td>
+  概念映射和其中包含的编码的版权通常是不同的。版权声明应在需要时明确区分这些内容。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ConceptMap.source_x_"> </a><b>ConceptMap.source[x]</b></td></tr>
   <tr><td>Element Id</td><td>ConceptMap.source[x]</td></tr>

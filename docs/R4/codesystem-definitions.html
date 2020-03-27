@@ -241,7 +241,8 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Scope; Purpose</td></tr>
-  <tr><td>Comments</td><td><p>This description can be used to capture details such as why the code system was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the code system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the code system is presumed to be the predominant language in the place the code system was created).</p>
+  <tr><td>Comments</td><td>
+  此元素与DomainResource.text中生成的叙述文字不同，它侧重于描述为什么创建此编码系统、不适用场景、临床使用说明、文献参考、手工纸质使用的示例等详细信息。如果资源的上下文中不能获得以上信息，则应提供此元素。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.useContext"> </a><b>CodeSystem.useContext</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.useContext</td></tr>
@@ -256,13 +257,15 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.jurisdiction"> </a><b>CodeSystem.jurisdiction</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.jurisdiction</td></tr>
-  <tr><td>Definition</td><td><p>A legal or geographic region in which the code system is intended to be used.</p>
+  <tr><td>Definition</td><td>
+  使用编码系统的地理区域范围或法规约定的区域范围。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-jurisdiction.html">Jurisdiction</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended.</p>
+  <tr><td>Comments</td><td>使用时可能会超出最初设计或打算使用的管辖范围。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.purpose"> </a><b>CodeSystem.purpose</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.purpose</td></tr>
@@ -274,7 +277,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.copyright"> </a><b>CodeSystem.copyright</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.copyright</td></tr>
-  <tr><td>Definition</td><td><p>A copyright statement relating to the code system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the code system.</p>
+  <tr><td>Definition</td><td>
+  此编码系统及其相关内容的版权声明。版权声明通常是对编码系统的使用和发布的法律限制。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
@@ -285,31 +290,43 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.caseSensitive"> </a><b>CodeSystem.caseSensitive</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.caseSensitive</td></tr>
-  <tr><td>Definition</td><td><p>If code comparison is case sensitive when codes within this system are compared to each other.</p>
+  <tr><td>Definition</td><td>
+
+  对此系统中的编码进行对比时，是否区分大小写。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software.</p>
+  <tr><td>Comments</td><td>
+  此元素主要用于对验证的支持。如不提供此元素则应遵循波斯特尔定律：创建编码时使用正确的大小写，使用编码时不区分大小写。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.valueSet"> </a><b>CodeSystem.valueSet</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.valueSet</td></tr>
-  <tr><td>Definition</td><td><p>Canonical reference to the value set that contains the entire code system.</p>
+  <tr><td>Definition</td><td>
+  此编码系统的值域集，此编码系统的所有编码概念都包含在其中。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The definition of the value set SHALL include all codes from this code system and only codes from this code system, and it SHALL be immutable.</p>
+  <tr><td>Comments</td><td>
+  值集全集的定义<b>必须</b>包括本代码系统中的所有编码，且<b>只能</b>包括本代码系统中的代码，且其永恒性<b>只能</b>为真，即ValueSet.immutable=“true”。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.hierarchyMeaning"> </a><b>CodeSystem.hierarchyMeaning</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.hierarchyMeaning</td></tr>
-  <tr><td>Definition</td><td><p>The meaning of the hierarchy of concepts as represented in this resource.</p>
+  <tr><td>Definition</td><td>
+  概念的层级关系的含义。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Note that other representations might have a different hierarchy or none at all, and represent the information using properties.</p>
+  <tr><td>Comments</td><td>
+  注意，有些编码系统可能使用属性来表示其它的层次结构，或根本没有层次结构。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.compositional"> </a><b>CodeSystem.compositional</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.compositional</td></tr>
@@ -334,7 +351,7 @@
   <tr><td colspan="2" class="structure"><a name="CodeSystem.content"> </a><b>CodeSystem.content</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.content</td></tr>
   <tr><td>Definition</td><td>
-  在此资源实例中定义的概念和代码在整个代码系统中的内容范围。
+  在此资源实例中定义的概念和编码在整个编码系统中的内容范围。
   
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
