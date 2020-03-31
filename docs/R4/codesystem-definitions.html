@@ -312,7 +312,7 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td>Comments</td><td>
-  值集全集的定义<b>必须</b>包括本代码系统中的所有编码，且<b>只能</b>包括本代码系统中的代码，且其永恒性<b>只能</b>为真，即ValueSet.immutable=“true”。
+  值集全集的定义<b>必须</b>包括本编码系统中的所有编码，且<b>只能</b>包括本编码系统中的编码，且其永恒性<b>只能</b>为真，即ValueSet.immutable=“true”。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.hierarchyMeaning"> </a><b>CodeSystem.hierarchyMeaning</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.hierarchyMeaning</td></tr>
@@ -330,23 +330,34 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.compositional"> </a><b>CodeSystem.compositional</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.compositional</td></tr>
-  <tr><td>Definition</td><td><p>The code system defines a compositional (post-coordination) grammar.</p>
+  <tr><td>Definition</td><td>
+  编码系统定义了一个动态的组合编码(post-coordination)语法。
+    <p>The code system defines a compositional (post-coordination) grammar.</p>
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>grammar</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Note that the code system resource does not define what the compositional grammar is, only whether or not there is one.</p>
+  <tr><td>Comments</td><td>
+  注意，编码系统资源只定义是否存动态的组合编码语法，并不说明语法的具体内容。
+  
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.versionNeeded"> </a><b>CodeSystem.versionNeeded</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.versionNeeded</td></tr>
-  <tr><td>Definition</td><td><p>This flag is used to signify that the code system does not commit to concept permanence across versions. If true, a version must be specified when referencing this code system.</p>
+  <tr><td>Definition</td><td>
+  用于表示编码系统的不同版本之间的稳定性与兼容性。如果为true，则在引用此编码系统时必须指定版本。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as 'versionNeeded'.</p>
-<p>Most code systems occasionally refine the displays defined for concepts between versions. Contexts in which the concept display values are validated may require that the version be specified for some code systems irrespective of the value of this property.</p>
+  <tr><td>Comments</td><td>
+  最佳实践是编码系统不重新定义概念，如果重新定义概念，则创建新的编码系统实例。但有时却办不到，所以有些编码系统可能被定义为“versionNeeded”。
+
+
+<p>
+
+大多数编码系统偶尔会在新版本中改进概念显示的名称。有些验证过概念显示名称的上下文可能要求为某些编码系统指定版本，这种情况而不使用此元素。</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.content"> </a><b>CodeSystem.content</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.content</td></tr>
@@ -360,12 +371,16 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.supplements"> </a><b>CodeSystem.supplements</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.supplements</td></tr>
-  <tr><td>Definition</td><td><p>The canonical URL of the code system that this code system supplement is adding designations and properties to.</p>
+  <tr><td>Definition</td><td>
+  此编码系统附录的官方URL，此附录提供更多的名称(语言）和属性。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#canonical">canonical</a>(<a href="codesystem.html">CodeSystem</a>)</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The most common use of a code system supplement is to add additional language support.</p>
+  <tr><td>Comments</td><td>
+  附录最常见的用途是添加额外的语言支持。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.count"> </a><b>CodeSystem.count</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.count</td></tr>
