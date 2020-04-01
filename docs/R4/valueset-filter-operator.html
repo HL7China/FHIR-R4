@@ -157,7 +157,49 @@ This value set is used in the following places:
 <h2 class="self-link-parent"><span class="sectioncount">4.4.1.100.2</span> Expansion <a href="valueset-filter-operator.html#expansion" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>This expansion generated 27 Dec 2018</p>
 <hr/>
-<div xmlns="http://www.w3.org/1999/xhtml"><p>This value set contains 9 concepts</p><p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px">Expansion based on http://hl7.org/fhir/filter-operator version 4.0.0</p><p>All codes from system <a href="codesystem-filter-operator.html"><code>http://hl7.org/fhir/filter-operator</code></a></p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator--"> </a><a href="codesystem-filter-operator.html#filter-operator-.61">=</a></td><td>Equals</td><td>The specified property of the code equals the provided value.</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-is-a"> </a><a href="codesystem-filter-operator.html#filter-operator-is-a">is-a</a></td><td>Is A (by subsumption)</td><td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self).</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-descendent-of"> </a><a href="codesystem-filter-operator.html#filter-operator-descendent-of">descendent-of</a></td><td>Descendent Of (by subsumption)</td><td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-is-not-a"> </a><a href="codesystem-filter-operator.html#filter-operator-is-not-a">is-not-a</a></td><td>Not (Is A) (by subsumption)</td><td>The specified property of the code does not have an is-a relationship with the provided value.</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-regex"> </a><a href="codesystem-filter-operator.html#filter-operator-regex">regex</a></td><td>Regular Expression</td><td>The specified property of the code  matches the regex specified in the provided value.</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-in"> </a><a href="codesystem-filter-operator.html#filter-operator-in">in</a></td><td>In Set</td><td>The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-not-in"> </a><a href="codesystem-filter-operator.html#filter-operator-not-in">not-in</a></td><td>Not in Set</td><td>The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-generalizes"> </a><a href="codesystem-filter-operator.html#filter-operator-generalizes">generalizes</a></td><td>Generalizes (by Subsumption)</td><td>Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self).</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-exists"> </a><a href="codesystem-filter-operator.html#filter-operator-exists">exists</a></td><td>Exists</td><td>The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values).</td></tr></table></div>
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>此值域集包含9个概念</p>
+<p>编码选自 <a href="codesystem-filter-operator.html"><code>http://hl7.org/fhir/filter-operator</code></a></p>
+<table class="codes">
+<tr><td style="white-space:nowrap"><b>编码</b></td><td><b>显示名称</b></td><td><b>定义</b></td></tr>
+<tr>
+<td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator--"> </a><a href="codesystem-filter-operator.html#filter-operator-.61">=</a></td>
+<td>等于</td>
+<td>指定的编码属性与filter.value的值相等</td>
+</tr>
+<tr>
+<td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-is-a"> </a><a href="codesystem-filter-operator.html#filter-operator-is-a">is-a</a></td>
+<td>包含</td>
+<td>包括继承关系中的子级编码和自身。</td>
+</tr>
+<tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-descendent-of"> </a><a href="codesystem-filter-operator.html#filter-operator-descendent-of">descendent-of</a></td>
+<td>继承</td>
+<td>仅包含继承关系中的子级编码。</td>
+</tr>
+<tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-is-not-a"> </a><a href="codesystem-filter-operator.html#filter-operator-is-not-a">is-not-a</a></td>
+<td>非继承</td><td>
+指定编码属性与filter.value的值非继承关系</td>
+</tr>
+<tr>
+<td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-regex"> </a><a href="codesystem-filter-operator.html#filter-operator-regex">regex</a></td>
+<td>正则</td>
+<td>指定的编码属性与filter.value的值中提供的正则表达式匹配。
+</td></tr>
+<tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-in"> </a><a href="codesystem-filter-operator.html#filter-operator-in">in</a></td>
+<td>集合中</td>
+<td>
+指定编码属性包含在所提供值（逗号分隔列表）中的编码或概念集中。
+</td></tr>
+<tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-not-in"> </a><a href="codesystem-filter-operator.html#filter-operator-not-in">not-in</a></td>
+<td>集合外</td>
+<td>指定编码属性不包含在所提供值（逗号分隔列表）中的编码或概念集中。</td></tr>
+<tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-generalizes"> </a><a href="codesystem-filter-operator.html#filter-operator-generalizes">generalizes</a></td>
+<td>属于(继承归类)</td>
+<td>包括继承关系中的父级编码和自身。
+</td></tr><tr><td style="white-space:nowrap"><a name="http---hl7.org-fhir-filter-operator-exists"> </a><a href="codesystem-filter-operator.html#filter-operator-exists">exists</a></td><td>是否存在</td>
+<td>
+如果filter.value的值为true，则指定编码属性至少有一个值；如果filter.value的值为false，则当指定编码属性没有值时匹配。
+</td></tr></table></div>
 
 <p>&nbsp;</p>
 

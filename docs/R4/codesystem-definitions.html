@@ -384,38 +384,51 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.count"> </a><b>CodeSystem.count</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.count</td></tr>
-  <tr><td>Definition</td><td><p>The total number of concepts defined by the code system. Where the code system has a compositional grammar, the basis of this count is defined by the system steward.</p>
+  <tr><td>Definition</td><td>
+  编码系统定义的概念总数。如果编码系统具有组合语法，则此计数由系统管理员定义。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#unsignedInt">unsignedInt</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>The count of concepts defined in this resource cannot be more than this value but may be less for several reasons - see the content element.</p>
+  <tr><td>Comments</td><td>
+  此资源中定义的概念数不能比总数多，但可能比总数少，其几个原因可参阅content元素。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.filter"> </a><b>CodeSystem.filter</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.filter</td></tr>
-  <tr><td>Definition</td><td><p>A filter that can be used in a value set compose statement when selecting concepts using a filter.</p>
+  <tr><td>Definition</td><td>
+ 
+  此筛选器是为值域集准备的，当值域集使用ValueSet.compose.include.filter来选择此编码系统中的概念时需要定义此元素。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Note that filters defined in code systems usually require custom code on the part of any terminology engine that will make them available for use in value set filters. For this reason, they are generally only seen in high value published terminologies.</p>
+  <tr><td>Comments</td><td>
+  注意，需要术语引擎对值域集自定义概念选择表示式的支持，在编码系统中定义的筛选器才有意义。由于这个原因，它们通常只出现在高级术语系统中。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.filter.code"> </a><b>CodeSystem.filter.code</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.filter.code</td></tr>
-  <tr><td>Definition</td><td><p>The code that identifies this filter when it is used as a filter in <a href="valueset.html">ValueSet</a>.compose.include.filter.</p>
+  <tr><td>Definition</td><td>
+  当值域集使用ValueSet.compose.include.filter来选择此编码系统中的概念时，ValueSet.compose.include.filter.property中填写的此code中的值。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.filter.description"> </a><b>CodeSystem.filter.description</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.filter.description</td></tr>
-  <tr><td>Definition</td><td><p>A description of how or why the filter is used.</p>
+  <tr><td>Definition</td><td>
+  描述如何或为什么使用此筛选器。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.filter.operator"> </a><b>CodeSystem.filter.operator</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.filter.operator</td></tr>
-  <tr><td>Definition</td><td><p>A list of operators that can be used with the filter.</p>
+  <tr><td>Definition</td><td>可与筛选器一起使用的运算符。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..*</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-filter-operator.html">FilterOperator</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
@@ -423,7 +436,9 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.filter.value"> </a><b>CodeSystem.filter.value</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.filter.value</td></tr>
-  <tr><td>Definition</td><td><p>A description of what the value for the filter should be.</p>
+  <tr><td>Definition</td><td>
+  描述筛选器的值用来做什么。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
@@ -474,26 +489,36 @@
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept"> </a><b>CodeSystem.concept</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept</td></tr>
-  <tr><td>Definition</td><td><p>Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meanings of the hierarchical relationships are.</p>
+  <tr><td>Definition</td><td>
+  编码系统中的概念。概念定义天然的具有层次关系，但是必须参阅CodeSystem.hierarchyMeaning的定义来确定层次关系的含义。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Comments</td><td><p>If this is empty, it means that the code system resource does not represent the content of the code system.</p>
+  <tr><td>Comments</td><td>
+  如果为空，则表示此编码系统资源不是用来表示编码系统的内容的，其CodeSystem.content的值应为“not-present”。
+  
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.code"> </a><b>CodeSystem.concept.code</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.code</td></tr>
-  <tr><td>Definition</td><td><p>A code - a text symbol - that uniquely identifies the concept within the code system.</p>
+  <tr><td>Definition</td><td>
+  概念的编码（表示为文本符号），它是在编码系统中标识概念唯一性的代码。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.display"> </a><b>CodeSystem.concept.display</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.display</td></tr>
-  <tr><td>Definition</td><td><p>A human readable string that is the recommended default way to present this concept to a user.</p>
+  <tr><td>Definition</td><td>
+  一个自然语言描述的可读强的字符串，是概念的显示在界面上的推荐默认方式。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.definition"> </a><b>CodeSystem.concept.definition</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.definition</td></tr>
-  <tr><td>Definition</td><td><p>The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.</p>
+  <tr><td>Definition</td><td>
+  概念的正式定义。由于遗留系统的普遍存在，不强制要求提供正式定义。但是，强烈建议对概念进行正式的定义，否则，就没有与概念相关联的正式含义，容易产生岐意。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
