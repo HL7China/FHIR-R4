@@ -524,7 +524,9 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.designation"> </a><b>CodeSystem.concept.designation</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.designation</td></tr>
-  <tr><td>Definition</td><td><p>Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.</p>
+  <tr><td>Definition</td><td>
+  概念的其他称谓方式-其他语言、别名、专业目的、用于特殊用途等。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td>Requirements</td><td><p>Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes.</p>
@@ -533,7 +535,7 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.designation.language"> </a><b>CodeSystem.concept.designation.language</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.designation.language</td></tr>
-  <tr><td>Definition</td><td><p>The language this designation is defined for.</p>
+  <tr><td>Definition</td><td>定义此称谓的语言。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-languages.html">Common Languages</a> (<a href="terminologies.html#preferred">Preferred</a> but limited to <a href="valueset-all-languages.html">All Languages</a>)</td></tr>
@@ -542,7 +544,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.designation.use"> </a><b>CodeSystem.concept.designation.use</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.designation.use</td></tr>
-  <tr><td>Definition</td><td><p>A code that details how this designation would be used.</p>
+  <tr><td>Definition</td><td>
+  用编码来详细说明如何使用该称谓。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-designation-use.html">Designation Use</a> (<a href="terminologies.html#extensible">Extensible</a>)</td></tr>
@@ -562,7 +566,9 @@
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.property.code"> </a><b>CodeSystem.concept.property.code</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.property.code</td></tr>
-  <tr><td>Definition</td><td><p>A code that is a reference to CodeSystem.property.code.</p>
+  <tr><td>Definition</td><td>
+  引用自CodeSystem.property.code的属性编码。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
@@ -575,7 +581,9 @@
   <tr><td>[x] Note</td><td>See <a href="formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
   <tr><td colspan="2" class="structure"><a name="CodeSystem.concept.concept"> </a><b>CodeSystem.concept.concept</b></td></tr>
   <tr><td>Element Id</td><td>CodeSystem.concept.concept</td></tr>
-  <tr><td>Definition</td><td><p>Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.</p>
+  <tr><td>Definition</td><td>
+  定义概念的子级要概念。以形成概念的层级结构。父概念与子概念之间可以有几种不同的关系（is-a/contains/categorizes）。-请参见CodeSystem.hierarchyMeaning。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="#CodeSystem.concept">See CodeSystem.concept</a></td></tr>
