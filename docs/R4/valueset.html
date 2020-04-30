@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>值集 - HL7 FHIR 中国</title>
+    <title>值域集 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -62,7 +62,7 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><img src="terminology.png"/><b> 当前位置：</b><a href="terminology-module.html"> 术语</a></li>                <li>值集</li>          <!-- valueset.html / resource / ValueSet -->
+        <li><img src="terminology.png"/><b> 当前位置：</b><a href="terminology-module.html"> 术语</a></li>                <li>值域集</li>          <!-- valueset.html / resource / ValueSet -->
         <div class="breadcrumbRight">
             <ul>
                 <li>
@@ -99,8 +99,8 @@
 
 <p>
 <p>
-    ValueSet资源从一个或多个编码系统中提取一组编码作为一个值集的实例，用于特定场景中。
-    值集将<a href="codesystem.html">编码系统</a>的定义和使用(详见<a href="terminologies.html">在资源中使用编码</a>)关联起来。
+    ValueSet资源从一个或多个编码系统中提取一组编码作为一个值域集的实例，用于特定场景中。
+    值域集将<a href="codesystem.html">编码系统</a>的定义和使用(详见<a href="terminologies.html">在资源中使用编码</a>)关联起来。
 </p>
 
 </p>
@@ -121,26 +121,26 @@
 
     </li>
     <li>
-        值集： <code>ValueSet</code>
-        - 指定从一个或多个编码系统中提取的一组编码，用于特定场景。 值集将 <a href="codesystem.html">编码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
+        值域集： <code>ValueSet</code>
+        - 指定从一个或多个编码系统中提取的一组编码，用于特定场景。 值域集将 <a href="codesystem.html">编码系统</a>的定义 和 它们在<a href="terminologies.html">编码元素</a>中的使用 关联起来。
     </li>
 </ul>
 <p>
-值集包含两个关键元素:
+值域集包含两个关键元素:
 </p>
 <ul>
  <li><code><a href="valueset-definitions.html#ValueSet.compose">.compose</a>（组成）</code>: 
     
-     定义值集包含会哪些编码（“内涵”）。</li>
+     定义值域集包含会哪些编码（“内涵”）。</li>
  <li>
      <code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a>（展开）</code>:
-     在指定的一系列条件下，实际包含在值集中的编码列表（“外延”）。可参见<a href="valueset.html#expansion">值集展开</a>
+     在指定的一系列条件下，实际包含在值域集中的编码列表（“外延”）。可参见<a href="valueset.html#expansion">值域集展开</a>
  </li>
 </ul>
 <p>
     <code>ValueSet</code> 资源中可以包含<code>.compose</code>或<code>.expansion</code>元素，也可以两个同时包含或者一个都不含（如果仅当做元数据使用时）。
     ValueSet支持<a href="valueset-operation-expand.html">"$expand" 操作</a>，可在特定场景下请求服务器根据给出的组合规则生成ValueSet展开内容；
-    <a href="valueset-operation-validate-code.html">"$validate-code" 操作</a> 可用于在特定场景下请求服务器检查给定编码或概念是否包含在值集中。
+    <a href="valueset-operation-validate-code.html">"$validate-code" 操作</a> 可用于在特定场景下请求服务器检查给定编码或概念是否包含在值域集中。
 </p>
 </div>
 
@@ -148,32 +148,32 @@
 <a name="relationships"></a>
 <h2 class="self-link-parent"><span class="sectioncount">4.9.2</span> 边界和关系 <a href="valueset.html#relationships" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 <p>
-    很多资源都会使用到值集:
+    很多资源都会使用到值域集:
 </p>
 <ul>
- <li>值集通引用 <a href="codesystem.html">编码系统</a>的权威参考的方式使用CodeSystem资源.</li>
+ <li>值域集通引用 <a href="codesystem.html">编码系统</a>的权威参考的方式使用CodeSystem资源.</li>
  <li>结构定义<a href="structuredefinition.html">StructureDefinition</a>、
-   操作定义<a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>、问卷/问询<a href="questionnaire.html">Questionnaire</a>等资源用值集来
+   操作定义<a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>、问卷/问询<a href="questionnaire.html">Questionnaire</a>等资源用值域集来
      规定编码元素的允许内容或为数据处理指定业务规则。</li>
- <li>概念映射<a href="conceptmap.html">ConceptMap</a>资源用于描述值集之间的映射关系</li>
+ <li>概念映射<a href="conceptmap.html">ConceptMap</a>资源用于描述值域集之间的映射关系</li>
  <li>数据需求<a href="metadatatypes.html#DataRequirement">DataRequirement</a>数据类型用于指定数据处理的条件</li>
 </ul>
 <p>
     有关完整的用途列表，请参阅下文。
 </p>
 <p>
-<code>ValueSet</code>资源的特性源自（其他规范对）值集的定义：
+<code>ValueSet</code>资源的特性源自（其他规范对）值域集的定义：
 </p>
 <ul> 
     <li>
      
-        值集资源是根据
+        值域集资源是根据
         <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2 <img src="external.png" style="text-align: baseline" /></a>
-        规范的功能要求和HL7规范对值集元数据的定义要求来设计的。值集资源可以转换为CTS2值集或编码系统实例。
+        规范的功能要求和HL7规范对值域集元数据的定义要求来设计的。值域集资源可以转换为CTS2值域集或编码系统实例。
     </li>
     <li>
-        值集资源完全符合<a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">值集定义（VSD）项目<img src="external.png" style="text-align: baseline" /></a>
-        要求。VSD要求的元素一部分定义在ValueSet基础资源里，另一部分定义为<a href="valueset-extensions.html">值集的展开</a>。ValueSet资源中的<code>.compose</code>元素是VSD“内容的逻辑定义”。
+        值域集资源完全符合<a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">值域集定义（VSD）项目<img src="external.png" style="text-align: baseline" /></a>
+        要求。VSD要求的元素一部分定义在ValueSet基础资源里，另一部分定义为<a href="valueset-extensions.html">值域集的展开</a>。ValueSet资源中的<code>.compose</code>元素是VSD“内容的逻辑定义”。
     </li>
 </ul>
 </div>
@@ -184,70 +184,70 @@
 
 <p>
    
-    使用值集时，正确理解编码系统和值集之的区别很重要。在实践中常常会在这里出现重大的临床安全风险。
+    使用值域集时，正确理解编码系统和值域集之的区别很重要。在实践中常常会在这里出现重大的临床安全风险。
     实施者应对<a href="terminologies.html">在资源中使用编码</a>章节的内容很熟悉。
 </p>
 
 <a name="ident"></a>
-<h3 class="self-link-parent"><span class="sectioncount">4.9.3.1</span> 值集的标识 <a href="valueset.html#ident" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">4.9.3.1</span> 值域集的标识 <a href="valueset.html#ident" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-    值集有3个可作为标识的元素：
+    值域集有3个可作为标识的元素：
 </p>
 <ul>
     <li>
-        <code>ValueSet.id</code>: 此值集在保存它的系统中的<a href="resource.html#id">逻辑ID</a>，即当它在服务器之间迁移时此ID会发生更改（此ID与其前置的服务器地址一起，称为此资源的“原文标识”）。
+        <code>ValueSet.id</code>: 此值域集在保存它的系统中的<a href="resource.html#id">逻辑ID</a>，即当它在服务器之间迁移时此ID会发生更改（此ID与其前置的服务器地址一起，称为此资源的“原文标识”）。
     </li>
     <li>
-        <code>ValueSet.url</code>: 此值集的规范URL,它永远都不会变更且在每个副本中都是相同的。由于遗留原因，此元素被命名为<code>url</code> 而不是<code>uri</code>，
+        <code>ValueSet.url</code>: 此值域集的规范URL,它永远都不会变更且在每个副本中都是相同的。由于遗留原因，此元素被命名为<code>url</code> 而不是<code>uri</code>，
         并强烈建议尽可能提供可解析的url作为标识符。
-        理想情况下，它应该是此值集的主版本的URL地址，尽管并不是都能做到。
+        理想情况下，它应该是此值域集的主版本的URL地址，尽管并不是都能做到。
     </li>
     <li>
-        <code>ValueSet.identifier</code>: 系统/值组成的一对标识符，用于标识其他场景的值集（例如
+        <code>ValueSet.identifier</code>: 系统/值组成的一对标识符，用于标识其他场景的值域集（例如
         <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3 <img src="external.png" style="text-align: baseline" /></a>
         规范中的OID）
     </li>
 </ul>
 <p>
     
-    此外，值集的展开元素下也可有一个<code>ValueSet.expansion.identifier</code>元素，用于标识此展开的唯一性。有关资源标识的更多信息，请参阅<a href="resource.html#id">资源标识</a>。
+    此外，值域集的展开元素下也可有一个<code>ValueSet.expansion.identifier</code>元素，用于标识此展开的唯一性。有关资源标识的更多信息，请参阅<a href="resource.html#id">资源标识</a>。
 </p>
 
 <p>
     
-    这意味着每个值集都有两个不同的URL可以用来引用它——规范的URL（<code>url</code> 元素）和本地位置（包括<code>id</code> 元素，可以用来获取值集资源实例）。
-    因为在本地复制（缓存）值集是常见的做法，所以对值集的大多数引用都使用规范的URL。
+    这意味着每个值域集都有两个不同的URL可以用来引用它——规范的URL（<code>url</code> 元素）和本地位置（包括<code>id</code> 元素，可以用来获取值域集资源实例）。
+    因为在本地复制（缓存）值域集是常见的做法，所以对值域集的大多数引用都使用规范的URL。
    
 </p>
 <blockquote>
     <p>
        
-        例如，值集作为FHIR的一部分发布,它都有一个位置（“原文的”）URI，这是可以在发布它的FHIR规范中被访问的URL。
-        不过，请注意，尽管正在准备新版本的FHIR规范，但在当前发布的FHIR规范中，在其规范URL处将找不到草稿中发布的值集。
-        <br />（译者注：已发布的标准和草稿中的规范URL是相同的，但其逻辑id不同，其内容和格式可能相同但却不是同一个值集实例。）
+        例如，值域集作为FHIR的一部分发布,它都有一个位置（“原文的”）URI，这是可以在发布它的FHIR规范中被访问的URL。
+        不过，请注意，尽管正在准备新版本的FHIR规范，但在当前发布的FHIR规范中，在其规范URL处将找不到草稿中发布的值域集。
+        <br />（译者注：已发布的标准和草稿中的规范URL是相同的，但其逻辑id不同，其内容和格式可能相同但却不是同一个值域集实例。）
     </p>
 </blockquote>
 
 <p>
      另外，设计、配置FHIR、
     <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA <img src="external.png" style="text-align: baseline" /></a>模板
-    或HL7 v3消息（在CD数据类型的值集和valueSetVersion属性中）可能会用到标识符<code>identifier</code>元素和版本<code>version</code>元素来引用此值集。
-    在这些不同场景可能会对这些元素的取值范围进行额外的限制。在FHIR场景中使用值集通常关注其规范URL，不需要标识符。
+    或HL7 v3消息（在CD数据类型的值域集和valueSetVersion属性中）可能会用到标识符<code>identifier</code>元素和版本<code>version</code>元素来引用此值域集。
+    在这些不同场景可能会对这些元素的取值范围进行额外的限制。在FHIR场景中使用值域集通常关注其规范URL，不需要标识符。
 </p>
 
 <a name="int-ext"></a>
 <h3 class="self-link-parent"><span class="sectioncount">4.9.3.2</span> 内涵 vs 外延 <a href="valueset.html#int-ext" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-值集可以通过的内涵或外延来描述它。“内涵”和“外延”这两个术语来自于数学逻辑和集合论的领域。
+值域集可以通过的内涵或外延来描述它。“内涵”和“外延”这两个术语来自于数学逻辑和集合论的领域。
 </p>
 <p>
-    通常内涵值集是由算法定义的。也就是说, 编码组被定义成一种规则(例如, 在其描述中涵盖糖尿病一词的所有编码)。
+    通常内涵值域集是由算法定义的。也就是说, 编码组被定义成一种规则(例如, 在其描述中涵盖糖尿病一词的所有编码)。
     内涵编码组的主要优点是可以动态更新。动态更新可帮助卫生组织在有新药 (及其相关编码)可用时或疾病编码和其他临床概念发生变化时保持最新状态。
-    用于包含β受体阻滞剂类别中的所有药物的内涵值集可以在新的β受体阻滞剂进入市场后立即自动接收该编码。
+    用于包含β受体阻滞剂类别中的所有药物的内涵值域集可以在新的β受体阻滞剂进入市场后立即自动接收该编码。
 </p>
 <p>
-    另一方面, 外延值集是枚举的编码列表, 其中每个编码都单独列出。
-    这使值集的作者和用户可以更好地控制值集中的编码, 但为了让值集保持最新，这种方式的维护量会更大。
+    另一方面, 外延值域集是枚举的编码列表, 其中每个编码都单独列出。
+    这使值域集的作者和用户可以更好地控制值域集中的编码, 但为了让值域集保持最新，这种方式的维护量会更大。
 </p>
 
 </div>
@@ -330,7 +330,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.filter.property" title="ValueSet.compose.include.filter.property : A code that identifies a property or a filter defined in the code system.">property</a><a name="ValueSet.compose.include.filter.property"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td>1..1</td><td><a href="datatypes.html#code">code</a></td><td>A property/filter defined by the code system</td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="ValueSet.compose.include.filter.op : The kind of operation to perform as a part of the filter criteria.">op</a><a name="ValueSet.compose.include.filter.op"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td>1..1</td><td><a href="datatypes.html#code">code</a></td><td>= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists<br/><a href="valueset-filter-operator.html" title="The kind of operation to perform as a part of a property based filter.">FilterOperator</a> (<a href="terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">Required</a>)</td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="ValueSet.compose.include.filter.value : The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.">value</a><a name="ValueSet.compose.include.filter.value"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td>Code from the system, or regex criteria, or boolean value for exists</td></tr>
-<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="ValueSet.compose.include.valueSet : Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.">valueSet</a><a name="ValueSet.compose.include.valueSet"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td>0..*</td><td><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td><td>选择此值集中包含的内容<br/></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="ValueSet.compose.include.valueSet : Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.">valueSet</a><a name="ValueSet.compose.include.valueSet"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td>0..*</td><td><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td><td>选择此值域集中包含的内容<br/></td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reuse.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Element" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.exclude" title="ValueSet.compose.exclude : Exclude one or more codes from the value set based on code system filters and/or other value sets.">exclude</a><a name="ValueSet.compose.exclude"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td>0..*</td><td>see <a href="#ValueSet.compose.include" title="ValueSet.compose.include">include</a></td><td>Explicitly exclude codes from a code system or other value sets<br/></td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.expansion" title="ValueSet.expansion : A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.">expansion</a><a name="ValueSet.expansion"> </a></td><td></td><td>0..1</td><td><a href="backboneelement.html">BackboneElement</a></td><td>Used when the value set is "expanded"</td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.expansion.identifier" title="ValueSet.expansion.identifier : An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier.">identifier</a><a name="ValueSet.expansion.identifier"> </a></td><td></td><td>0..1</td><td><a href="datatypes.html#uri">uri</a></td><td>Identifies the value set expansion (business identifier)</td></tr>
@@ -423,7 +423,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     &lt;<a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="The kind of operation to perform as a part of the filter criteria." class="dict"><b>op</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy"><a style="color: navy" href="valueset-filter-operator.html">= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists</a></span><span style="color: Gray"> --&gt;</span>
     &lt;<a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." class="dict"><b>value</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Code from the system, or regex criteria, or boolean value for exists</a></span><span style="color: Gray"> --&gt;</span>
    &lt;/filter&gt;
-   &lt;<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict"><b>valueSet</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">选择此值集中包含的内容</a></span><span style="color: Gray"> --&gt;</span>&lt;/valueSet&gt;
+   &lt;<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict"><b>valueSet</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">选择此值域集中包含的内容</a></span><span style="color: Gray"> --&gt;</span>&lt;/valueSet&gt;
   &lt;/include&gt;
   &lt;<a href="valueset-definitions.html#ValueSet.compose.exclude" title="Exclude one or more codes from the value set based on code system filters and/or other value sets." class="dict"><b>exclude</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="vsd-2: A value set with concepts or filters SHALL include a system"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen">Content as for ValueSet.compose.include</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Explicitly exclude codes from a code system or other value sets</a></span><span style="color: Gray"> --&gt;</span>&lt;/exclude&gt;
  &lt;/compose&gt;
@@ -500,7 +500,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
         "<a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="The kind of operation to perform as a part of the filter criteria." class="dict">op</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: brown" title="This element is required"><b>R!</b></span>  <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-filter-operator.html">= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists</a></span>
         "<a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." class="dict">value</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: brown" title="This element is required"><b>R!</b></span>  <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Code from the system, or regex criteria, or boolean value for exists</a></span>
       }],
-      "<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">valueSet</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> }] <span style="color: Gray">//</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">选择此值集中包含的内容</a></span>
+      "<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">valueSet</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> }] <span style="color: Gray">//</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">选择此值域集中包含的内容</a></span>
     }],
     "<a href="valueset-definitions.html#ValueSet.compose.exclude" title="Exclude one or more codes from the value set based on code system filters and/or other value sets." class="dict">exclude</a>" : [{ <span style="color: darkgreen">Content as for ValueSet.compose.include</span> }] <span style="color: Gray">//</span> <span style="color: brown" title="vsd-2: A value set with concepts or filters SHALL include a system"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Explicitly exclude codes from a code system or other value sets</a></span>
   },
@@ -588,7 +588,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
         fhir:<a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="The kind of operation to perform as a part of the filter criteria." class="dict">ValueSet.compose.include.filter.op</a><a name="ttl-op"> </a>[ <a href="datatypes.html#code">code</a> ]; # 1..1 <span style="color: navy">= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists</span>
         fhir:<a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." class="dict">ValueSet.compose.include.filter.value</a><a name="ttl-value"> </a>[ <a href="datatypes.html#string">string</a> ]; # 1..1 <span style="color: navy">Code from the system, or regex criteria, or boolean value for exists</span>
       ], ...;
-      fhir:<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">ValueSet.compose.include.valueSet</a><a name="ttl-valueSet"> </a>[ <a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>) ], ... ; # 0..* <span style="color: navy">选择此值集中包含的内容</span>
+      fhir:<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">ValueSet.compose.include.valueSet</a><a name="ttl-valueSet"> </a>[ <a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>) ], ... ; # 0..* <span style="color: navy">选择此值域集中包含的内容</span>
     ], ...;
     fhir:<a href="valueset-definitions.html#ValueSet.compose.exclude" title="Exclude one or more codes from the value set based on code system filters and/or other value sets." class="dict">ValueSet.compose.exclude</a><a name="ttl-exclude"> </a>[ <a href="#ttl-ValueSet.compose.include"><span style="color: DarkViolet">See ValueSet.compose.include</span></a> ], ... ; # 0..* <span style="color: navy">Explicitly exclude codes from a code system or other value sets</span>
   ];
@@ -789,7 +789,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.filter.property" title="ValueSet.compose.include.filter.property : A code that identifies a property or a filter defined in the code system.">property</a><a name="ValueSet.compose.include.filter.property"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td>1..1</td><td><a href="datatypes.html#code">code</a></td><td>A property/filter defined by the code system</td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="ValueSet.compose.include.filter.op : The kind of operation to perform as a part of the filter criteria.">op</a><a name="ValueSet.compose.include.filter.op"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td>1..1</td><td><a href="datatypes.html#code">code</a></td><td>= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists<br/><a href="valueset-filter-operator.html" title="The kind of operation to perform as a part of a property based filter.">FilterOperator</a> (<a href="terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">Required</a>)</td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="ValueSet.compose.include.filter.value : The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.">value</a><a name="ValueSet.compose.include.filter.value"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td>1..1</td><td><a href="datatypes.html#string">string</a></td><td>Code from the system, or regex criteria, or boolean value for exists</td></tr>
-<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="ValueSet.compose.include.valueSet : Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.">valueSet</a><a name="ValueSet.compose.include.valueSet"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td>0..*</td><td><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td><td>选择此值集中包含的内容<br/></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="ValueSet.compose.include.valueSet : Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.">valueSet</a><a name="ValueSet.compose.include.valueSet"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td>0..*</td><td><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html">ValueSet</a>)</td><td>选择此值域集中包含的内容<br/></td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reuse.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Element" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.compose.exclude" title="ValueSet.compose.exclude : Exclude one or more codes from the value set based on code system filters and/or other value sets.">exclude</a><a name="ValueSet.compose.exclude"> </a></td><td><a style="padding-left: 3px; padding-right: 3px; color: black; background-color: white" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td>0..*</td><td>see <a href="#ValueSet.compose.include" title="ValueSet.compose.include">include</a></td><td>Explicitly exclude codes from a code system or other value sets<br/></td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.expansion" title="ValueSet.expansion : A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.">expansion</a><a name="ValueSet.expansion"> </a></td><td></td><td>0..1</td><td><a href="backboneelement.html">BackboneElement</a></td><td>Used when the value set is "expanded"</td></tr>
 <tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="valueset-definitions.html#ValueSet.expansion.identifier" title="ValueSet.expansion.identifier : An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier.">identifier</a><a name="ValueSet.expansion.identifier"> </a></td><td></td><td>0..1</td><td><a href="datatypes.html#uri">uri</a></td><td>Identifies the value set expansion (business identifier)</td></tr>
@@ -879,7 +879,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     &lt;<a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="The kind of operation to perform as a part of the filter criteria." class="dict"><b>op</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy"><a style="color: navy" href="valueset-filter-operator.html">= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists</a></span><span style="color: Gray"> --&gt;</span>
     &lt;<a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." class="dict"><b>value</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Code from the system, or regex criteria, or boolean value for exists</a></span><span style="color: Gray"> --&gt;</span>
    &lt;/filter&gt;
-   &lt;<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict"><b>valueSet</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">选择此值集中包含的内容</a></span><span style="color: Gray"> --&gt;</span>&lt;/valueSet&gt;
+   &lt;<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict"><b>valueSet</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">选择此值域集中包含的内容</a></span><span style="color: Gray"> --&gt;</span>&lt;/valueSet&gt;
   &lt;/include&gt;
   &lt;<a href="valueset-definitions.html#ValueSet.compose.exclude" title="Exclude one or more codes from the value set based on code system filters and/or other value sets." class="dict"><b>exclude</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="vsd-2: A value set with concepts or filters SHALL include a system"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen">Content as for ValueSet.compose.include</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Explicitly exclude codes from a code system or other value sets</a></span><span style="color: Gray"> --&gt;</span>&lt;/exclude&gt;
  &lt;/compose&gt;
@@ -954,7 +954,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
         "<a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="The kind of operation to perform as a part of the filter criteria." class="dict">op</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: brown" title="This element is required"><b>R!</b></span>  <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-filter-operator.html">= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists</a></span>
         "<a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." class="dict">value</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: brown" title="This element is required"><b>R!</b></span>  <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Code from the system, or regex criteria, or boolean value for exists</a></span>
       }],
-      "<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">valueSet</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> }] <span style="color: Gray">//</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">选择此值集中包含的内容</a></span>
+      "<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">valueSet</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>)</span> }] <span style="color: Gray">//</span> <span style="color: brown" title="vsd-1: A value set include/exclude SHALL have a value set or a system"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">选择此值域集中包含的内容</a></span>
     }],
     "<a href="valueset-definitions.html#ValueSet.compose.exclude" title="Exclude one or more codes from the value set based on code system filters and/or other value sets." class="dict">exclude</a>" : [{ <span style="color: darkgreen">Content as for ValueSet.compose.include</span> }] <span style="color: Gray">//</span> <span style="color: brown" title="vsd-2: A value set with concepts or filters SHALL include a system"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Explicitly exclude codes from a code system or other value sets</a></span>
   },
@@ -1040,7 +1040,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
         fhir:<a href="valueset-definitions.html#ValueSet.compose.include.filter.op" title="The kind of operation to perform as a part of the filter criteria." class="dict">ValueSet.compose.include.filter.op</a><a name="ttl-op"> </a>[ <a href="datatypes.html#code">code</a> ]; # 1..1 <span style="color: navy">= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists</span>
         fhir:<a href="valueset-definitions.html#ValueSet.compose.include.filter.value" title="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." class="dict">ValueSet.compose.include.filter.value</a><a name="ttl-value"> </a>[ <a href="datatypes.html#string">string</a> ]; # 1..1 <span style="color: navy">Code from the system, or regex criteria, or boolean value for exists</span>
       ], ...;
-      fhir:<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">ValueSet.compose.include.valueSet</a><a name="ttl-valueSet"> </a>[ <a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>) ], ... ; # 0..* <span style="color: navy">选择此值集中包含的内容</span>
+      fhir:<a href="valueset-definitions.html#ValueSet.compose.include.valueSet" title="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." class="dict">ValueSet.compose.include.valueSet</a><a name="ttl-valueSet"> </a>[ <a href="datatypes.html#canonical">canonical</a>(<a href="valueset.html#ValueSet">ValueSet</a>) ], ... ; # 0..* <span style="color: navy">选择此值域集中包含的内容</span>
     ], ...;
     fhir:<a href="valueset-definitions.html#ValueSet.compose.exclude" title="Exclude one or more codes from the value set based on code system filters and/or other value sets." class="dict">ValueSet.compose.exclude</a><a name="ttl-exclude"> </a>[ <a href="#ttl-ValueSet.compose.include"><span style="color: DarkViolet">See ValueSet.compose.include</span></a> ], ... ; # 0..* <span style="color: navy">Explicitly exclude codes from a code system or other value sets</span>
   ];
@@ -1226,64 +1226,71 @@ Terminology Bindings
 <h2 class="self-link-parent"><span class="sectioncount">4.9.5</span> 组合规则 <a href="valueset.html#compositions" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
 
 <p>
-    A value set can be a simple list of included codes, or it can be some kind of general selection criteria
-    using the facilities provided by the <a href="codesystem.html">code system</a>. For these value sets:
-    值集可以是包含编码的简单列表，也可以是利用编码系统特表示的某种通用选择标准。这类值集：
+   
+    值域集可以是包含编码的简单列表，也可以是利用编码系统特性表示的某种通用选择标准。选择标准规则如下：
 </p>
 <ul>
     <li>
+若声明了多个<code>include</code>元素，则意味着累加所有编码，即，值域集将选取所有<code>include</code>的并集。
 
-        声明多个<code>include</code>元素累加 - 例如，值集包含所有include的并集。
     </li>
     <li>
 
-        在一个<code>include</code>中，应用所有标准 - 例如，值集包含标准的交集
+        在同一个<code>include</code>中定义的所有标准都需要同时满足，例如，选取多个筛选器结果的交集
     </li>
     <li>
 
-        在一个<code>include</code>中，可以列出具有选择条件的单个系统和零到多个值集。
+        在同一个<code>include</code>中，可以同时指定一个编码系统（可指定选择条件）和多个值域集。
+    </li>
+	<li>
+      如果同时指定了<code>System</code>和<code>ValueSet
+	  </code>，则选取编码系统中符合<code>concept</code>和<code>filter</code>标准的所有编码与所有值域集的所有编码的并集。
+    
     </li>
     <li>
         
-        <b>仅指定了<code>valueSet</code>：</b>所有引用值集的编码都“选择”将其包含在内。
+        <b>如果仅指定了<code>ValueSet</code></b>，则将所有指定的值域集中的所有编码都选取到此值域集中。
     </li>
     <li>
      
-             <b>如果仅指定了<code>System</code></b>，以下规则即生效：
+             <b>如果仅指定了<code>System</code></b>，则选取规则如下：
         <ul>
             <li>
                 <b>未指定<code>concept</code>或<code>filter</code></b>：包括系统中的所有编码
             </li>
             <li>
-                <b>指定了<code>concept</code></b>:：仅选择枚举编码
+                <b>指定了<code>concept</code></b>:：仅选取列举出来的具体编码
 
             </li>
-            <li><b>指定了<code>filter</code></b>: 选择任何符合筛选条件的编码</li>
+            <li><b>指定了<code>filter</code></b>: 选取所有符合筛选条件的编码</li>
+			<li>不能同时指定concept和filter</li>
         </ul>
     </li>
-    <li>
-        <b><code>valueSet</code> 和 <code>System</code></b>:
-        编码系统中符合<code>concept</code>和<code>filter</code>的要求的编码以及所有引用值集的编码都“选择”将其包含在内。
     
-    </li>
- <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
-    over time as the underlying code systems are updated</li>
- <li>The version reference may be the special value '<code>*</code>', which indicates that the value set includes codes from all versions of the code system.
-     how to handle provision of the required versions and generation of expansions is at server discretion, including for poorly behaved code systems where 
-		 a code changes in meaning). 
-    <blockquote><p> <b>Implementation Note:</b>      
-       <span class="warning">Use of this capability is subject to future clarification and conformance requirements based on implementation experience</span>.
+ <li>
+ 如果引用的编码系统没有指定版本，并且提供了筛选器，则值域集的内容将是开放的，即：随着依赖的编码系统的更新而变化。
+</li>
+ <li>
+ 如果将版本指定为特殊值“<code>*</code>”，这表示该值域集包含编码系统所有版本编码的并集。至于如何处理指定的所需版本、生成哪些展开结果、如何处理不同版本之间编码意义发生改变的情况都是由服务器决定的。
+
+    <blockquote><p> <b>重要提示:</b> 
+       <span class="warning">
+	   是否支持此能力需要参照服务器发布的实施指南中的符合性声明
+	   </span>.
     </p></blockquote>     
  </li>
- <li>Using the property filters is only possible where the code system in use defines 
-  the relevant properties. Note that in some cases the underlying code system defines the 
-  logical concepts but not the syntax for exercising them. In such cases, the literal 
-  definitions may be provided by a third party</li>
- <li>In addition to include rules, codes may be excluded. Rules for interpretation of exclude statements match those for includes, but codes in the exclude statements are never in the value set</li>
- <li>Value sets may include abstract codes - that is, codes designated by the underlying code system as 
-   not for use as a selectable concept in a particular context. These abstract codes are typically used as a grouping/searching mechanism,
-   and can be included either by enumerating them, or by using a filter.</li>
- <li>Any compose.exclude SHALL be processed such that excluded codes are not found in the expansion</li>
+ <li>
+ 使用属性筛选器的前提是在编码系统中先定义了相关属性。请注意，在某些情况下，底层编码系统仅定义了逻辑概念，而没有定义使用这些概念的文字，这些文字定义可能由第三方提供。
+</li>
+ <li>
+ 除了<code>include</code>规则外，还可以使用<code>exclude</code>来排除编码。exclude与include的使用规则相同，但意义相反，即满足exclude条件的编码不会选取到值域集里
+</li>
+ <li>
+值域集可以包括抽象编码，抽象编码可以通过枚举底层编码系统的编码或使用筛选器来指定，通常用于分组和搜索，而不会选取出来作为值域使用。
+</li>
+ <li>
+ <b>必须</b>处理compose.exclude中的内容，以确保其排除的编码不会出现在值域集的展开结果中。
+ </li>
 </ul>
 <a name="designations"></a>
 <h2 class="self-link-parent"><span class="sectioncount">4.9.6</span> Display and Designations <a href="valueset.html#designations" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>

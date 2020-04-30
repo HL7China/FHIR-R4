@@ -245,7 +245,7 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Scope; Purpose</td></tr>
   <tr><td>Comments</td><td>
-  此元素与DomainResource.text中生成的叙述文字不同，它侧重于描述为什么创建此值集、不适用场景、临床使用说明、文献参考、手工纸质使用的示例等详细信息。如果资源的上下文中不能获得以上信息，则应提供此元素。由于值域集中展开编码和值集本身的语义是分离且会随着编码系统的语义变化，所以此元素不用于描述值域集的语义，而是用于描述其用途。这样，即使其模型在未来发生变更，此描述也可以确保其使用的完整性。大多数术语注册中心都要求值域集提供描述。
+  此元素与DomainResource.text中生成的叙述文字不同，它侧重于描述为什么创建此值域集、不适用场景、临床使用说明、文献参考、手工纸质使用的示例等详细信息。如果资源的上下文中不能获得以上信息，则应提供此元素。由于值域集中展开编码和值域集本身的语义是分离且会随着编码系统的语义变化，所以此元素不用于描述值域集的语义，而是用于描述其用途。这样，即使其模型在未来发生变更，此描述也可以确保其使用的完整性。大多数术语注册中心都要求值域集提供描述。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.useContext"> </a><b>ValueSet.useContext</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.useContext</td></tr>
@@ -272,20 +272,24 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.immutable"> </a><b>ValueSet.immutable</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.immutable</td></tr>
-  <tr><td>Definition</td><td><p>If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.</p>
+  <tr><td>Definition</td><td>
+  如果设置为“true”，则无法创建内容逻辑定义的新版本，即不能更新其选择的值域内容或范围。但请注意，其他元数据是可以更新的。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Normally immutability is set to 'false', which is the default assumption if it is not populated.  Note that the implication is that if this is set to 'true', there may be only one ValueSet version for this definition. Immutability tends to be set to 'true' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example "All specializations of ACT in ActClassCode" - Where there's no safe way to express the "Purpose" such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition.</p>
+  <tr><td>Comments</td><td>
+  固定性的默认值设置为“false”。当其值设置为“true”时，此值域集可能只有一个版本。固定性在以下两种情况下通常设置为“true”：1）值域集的使用性质决定了不能对它进行变更。。2）由于安全原因，不方便使用ValueSet.purpose来描述其定义目的，就可以标记为固定，以免除发布者（或管理者）之外的其他人变更此值域集的内容。用于工作流控制的值域集必须保证同一URI的定义总是相同。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.purpose"> </a><b>ValueSet.purpose</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.purpose</td></tr>
-  <tr><td>Definition</td><td><p>Explanation of why this value set is needed and why it has been designed as it has.</p>
+  <tr><td>Definition</td><td>解释为什么需要此值域集，以及为什么它是如此设计的。
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
-  <tr><td>Comments</td><td><p>This element does not describe the usage of the value set. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this value set.</p>
+  <tr><td>Comments</td><td>此元素不是用于描述值域集的用法。相反，它强调“为什么”需要定义此资源和“为什么”这样定义。 它可用于追溯设计此资源结构的来源或规范。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.copyright"> </a><b>ValueSet.copyright</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.copyright</td></tr>
@@ -294,56 +298,84 @@
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#markdown">markdown</a></td></tr>
-  <tr><td>Requirements</td><td><p>Consumers must be able to determine any legal restrictions on the use of the value set and/or its content.</p>
+  <tr><td>Requirements</td><td>
+  使用者必须能够确定值域集和其内容的使用符合其版权要求。
+  
 </td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>License; Restrictions</td></tr>
   <tr><td>Comments</td><td>值域集和其中包含的编码的版权通常是不同的。版权声明应在需要时明确区分这些内容。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose"> </a><b>ValueSet.compose</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose</td></tr>
-  <tr><td>Definition</td><td><p>A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).</p>
+  <tr><td>Definition</td><td>
+  通过从给定的编码系统中选择或排除编码到此该值域集中的一组用于定义值域集内容的条件。这也被称为内容逻辑定义（CLD）。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Content Logical Definition; CLD</td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.lockedDate"> </a><b>ValueSet.compose.lockedDate</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.lockedDate</td></tr>
-  <tr><td>Definition</td><td><p>The Locked Date is  the effective date that is used to determine the version of all referenced Code Systems and Value Set Definitions included in the compose that are not already tied to a specific version.</p>
+  <tr><td>Definition</td><td>
+  
+  此元素值填写内容逻辑定义（CLD）中所有引用的编码系统和值域集在尚未绑定到具体版本时的生效日期，用于将此值域集的展开结果固定在此日期不再改变。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#date">date</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>With a defined lockedDate the value set is considered "Locked". Otherwise, the value set may have different expansions as underlying code systems and/or value sets evolve.  The interpretation of lockedDate is often dependent on the context - e.g. a SNOMED CT derived value set with a lockedDate will have a different expansion in USA than in UK.  If a value set specifies a version for include and exclude statements, and also specifies a locked date, the specified versions need to be available that date, or the value set will not be usable.</p>
+  <tr><td>Comments</td><td>
+  若定义了此元素，此值域集则被视为“已锁定”。否则，随着其依赖的编码系统或值域集的更新，此值域集的展开结果可能会跟随着变化。lockedDate的解释通常取决于上下文，例如，一个具有锁定日期的值域集内容选自SNOMED CT，它在美国和英国的展开结果是不同的。如果值域集在其include和exclude元素中指定了版本，同时又指定了锁定日期，则指定的版本需要在该日期可用，否则该值域集将不可用。
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.inactive"> </a><b>ValueSet.compose.inactive</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.inactive</td></tr>
-  <tr><td>Definition</td><td><p>Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable $expand parameters (but generally, inactive codes would be expected to be included).</p>
+  <tr><td>Definition</td><td>
+  目前暂未批准使用的编码称为未激活编码。如果值域集中选取的编码是未激活的，那么是否将这些未激活编码包含在此值域中呢？此元素就是用来解决此问题的。如果inactive=true，则值域集展开结果中将包含未激活编码，反之则不包含。另外，也可通过$expand操作的activeOnly参数决定是否包含未激活编码。如果既不提供此元素又没指定activeOnly参数，则应视为要包含未激活编码。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#boolean">boolean</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Note that in the FHIR terminology framework, "deprecated" does not mean inactive, but in some code systems, e.g. LOINC, "deprecated" does mean inactive. Code systems should define what codes are considered to be inactive. If this is not clearly defined (including in the FHIR code system resource), then all codes are assumed to be active.</p>
-<p>The Value Set Definition specification defines an ActiveOnly element, which is the reverse of this element e.g. (ValueSet.compose.inactive=FALSE) is the same as (VSD.ActiveOnly=TRUE).</p>
+  <tr><td>Comments</td><td>
+  注意，在FHIR术语框架中，“deprecated”并不表示未激活，但是在一些编码系统中，例如LOINC，“deprecated”表示未激活。编码系统资源应通过CodeSystem.status定义其激活状态。如果没有明确定义，则假定所有编码都已激活。
+
+<p>
+值域集定义项目（VSD，Value Set Definition Project）的规范中定义了一个ActiveOnly元素，它与此元素正好相反，即（ValueSet.compose.inactive=FALSE）与（VSD.ActiveOnly=TRUE）意思相同。</p>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include"> </a><b>ValueSet.compose.include</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include</td></tr>
-  <tr><td>Definition</td><td><p>Include one or more codes from a code system or other value set(s).</p>
+  <tr><td>Definition</td><td>
+  定义包括在此值域集中的编码,它们都选自某些编码系统或其他值域集。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>All the conditions in an include must be true. If a system is listed, all the codes from the system are listed. If one or more filters are listed, all of the filters must apply. If one or more value sets are listed, the codes must be in all the value sets. E.g. each include is 'include all the codes that meet all these conditions'.</p>
+  <tr><td>Comments</td><td>
+  包含编码的规则如下：
+  1、若声明了多个include元素，则意味着累加所有编码，即，值域集将选取所有include的并集。
+2、在同一个include中定义的所有标准都需要同时满足，例如，选取多个筛选器结果的交集
+3、在同一个include中，可以同时指定一个编码系统（可指定选择条件）和多个值域集。如果同时指定了System和ValueSet ，则选取编码系统中符合concept和filter标准的所有编码与所有值域集的所有编码的并集。
+4、如果仅指定了ValueSet，则将所有指定的值域集中的所有编码都选取到此值域集中。
+5、如果仅指定了System，则选取规则如下：
+1）未指定concept或filter：包括编码系统中的所有编码
+2）指定了concept:：仅选取列举出来的具体编码
+3）指定了filter: 选取所有符合筛选条件的编码
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Defined on this element</b></td></tr>
-<tr><td width="60px"><b title="Formal Invariant Identifier">vsd-1</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>A value set include/exclude SHALL have a value set or a system</td><td><span style="font-family: Courier New, monospace">valueSet.exists() or system.exists()</span></td></tr><tr><td width="60px"><b title="Formal Invariant Identifier">vsd-2</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>A value set with concepts or filters SHALL include a system</td><td><span style="font-family: Courier New, monospace">(concept.exists() or filter.exists()) implies system.exists()</span></td></tr><tr><td width="60px"><b title="Formal Invariant Identifier">vsd-3</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>Cannot have both concept and filter</td><td><span style="font-family: Courier New, monospace">concept.empty() or filter.empty()</span></td></tr></table>
+<tr><td width="60px"><b title="Formal Invariant Identifier">vsd-1</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>A value set include/exclude SHALL have a value set or a system</td><td><span style="font-family: Courier New, monospace">valueSet.exists() or system.exists()</span></td></tr><tr><td width="60px"><b title="Formal Invariant Identifier">vsd-2</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>A value set with concepts or filters SHALL include a system</td><td><span style="font-family: Courier New, monospace">(concept.exists() or filter.exists()) implies system.exists()</span></td></tr><tr><td width="60px"><b title="Formal Invariant Identifier">vsd-3</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>
+不能同时指定concept和filter</td><td><span style="font-family: Courier New, monospace">concept.empty() or filter.empty()</span></td></tr></table>
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.system"> </a><b>ValueSet.compose.include.system</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.system</td></tr>
-  <tr><td>Definition</td><td><p>An absolute URI which is the code system from which the selected codes come from.</p>
+  <tr><td>Definition</td><td>
+  所选取的编码来自哪个编码系统。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#uri">uri</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element.</p>
+  <tr><td>Comments</td><td>
+  若未指定concept或filter，则包括编码系统中的所有编码。请注意，选取的编码集可能包含抽象编码。
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Affect this element</b></td></tr>
@@ -351,20 +383,26 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.version"> </a><b>ValueSet.compose.include.version</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.version</td></tr>
-  <tr><td>Definition</td><td><p>The version of the code system that the codes are selected from, or the special version '*' for all versions.</p>
+  <tr><td>Definition</td><td>
+  从编码系统的哪个版本中选择编码。若要同时选取所有版本的编码并集，可将此值设定为“*”。
+
 </td></tr>
   <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="resource.html#versions">discussion</a>)</td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set might not be known until a context of use binds it to a particular version. The special value '*' means all versions; It is at server discretion regarding expansions and which versions must be supported.</p>
+  <tr><td>Comments</td><td>
+为避免不同版本的子级概念发生变更造成的影响，在选取子概念时可使用此元素。如果未指定版本，值域集的具体内容可以发生变更，除非能利用上下文语境判断值域集与编码系统特定版本的绑定关系。特殊值“*”表示所有版本；服务器可自行决定值域集的展开结果包含哪些版本的编码。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.concept"> </a><b>ValueSet.compose.include.concept</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.concept</td></tr>
-  <tr><td>Definition</td><td><p>Specifies a concept to be included or excluded.</p>
+  <tr><td>Definition</td><td>此值域集包含编码系统中的哪些概念
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
-  <tr><td>Comments</td><td><p>The list of concepts is considered ordered, though the order might not have any particular significance. Typically, the order of an expansion follows that defined in the compose element.</p>
+  <tr><td>Comments</td><td>
+  概念的列表按顺序落列，尽管顺序可能没有任何特殊意义。通常，展开结果的顺序遵循compose元素中定义的顺序。
+ 
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Affect this element</b></td></tr>
@@ -376,11 +414,15 @@
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
-  <tr><td>Comments</td><td><p>Expressions are allowed if defined by the underlying code system.</p>
+  <tr><td>Comments</td><td>
+  如果底层编码系统定义了表达式，则允许在值域集中使用。
+
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.concept.display"> </a><b>ValueSet.compose.include.concept.display</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.concept.display</td></tr>
-  <tr><td>Definition</td><td><p>The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.</p>
+  <tr><td>Definition</td><td>
+  在该值域集中为此概念向用户显示的文本。如果未提供值，则默认使用编码系统中的显示文本。
+
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
@@ -419,11 +461,14 @@
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.filter"> </a><b>ValueSet.compose.include.filter</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.filter</td></tr>
-  <tr><td>Definition</td><td><p>Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true.</p>
+  <tr><td>Definition</td><td>
+  通过指定匹配条件来选取概念。匹配条件是基于编码系统定义的属性（包括关系）或编码系统筛选器的。如果指定了多个值域集筛选器，则它们的匹配结果都<b>必须</b>为真。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>0..*</td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party.</p>
+  <tr><td>Comments</td><td>
+  只有在底层编码系统定义了适当的属性时，才可以通过基于属性匹配的值域集筛选器来选取编码。注意，在某些情况下，底层编码系统定义的是逻辑抽你概念，而不是概念的文字编码。在这种情况下，其文字定义可以由第三方提供。
 </td></tr>
   <tr><td>Invariants</td><td><table class="dict">
 <tr><td colspan="4"><b>Affect this element</b></td></tr>
@@ -431,7 +476,9 @@
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.filter.property"> </a><b>ValueSet.compose.include.filter.property</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.filter.property</td></tr>
-  <tr><td>Definition</td><td><p>A code that identifies a property or a filter defined in the code system.</p>
+  <tr><td>Definition</td><td>
+  用于标识编码系统中定义的属性或筛选器的编码。
+  
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
@@ -444,11 +491,19 @@
   <tr><td><a href="terminologies.html">Terminology Binding</a></td><td><a href="valueset-filter-operator.html">FilterOperator</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#code">code</a></td></tr>
   <tr><td><a href="search.html#summary">Summary</a></td><td>true</td></tr>
-  <tr><td>Comments</td><td><p>In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values.</p>
+  <tr><td>Comments</td><td>
+  如果filter.property代表的是编码系统的属性，则此运算类别将基于此属性而定。如果filter.property代表的是编码系统的筛选器，则此运算类别<b>必须</b>与CodeSystem.filter.operator元素值相同或其中之一（若有多个operator）。
+ 
 </td></tr>
   <tr><td colspan="2" class="structure"><a name="ValueSet.compose.include.filter.value"> </a><b>ValueSet.compose.include.filter.value</b></td></tr>
   <tr><td>Element Id</td><td>ValueSet.compose.include.filter.value</td></tr>
-  <tr><td>Definition</td><td><p>The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.</p>
+  <tr><td>Definition</td><td>
+  此元素值是用于匹配的值，有以下几种情况：
+  1、此匹配值可以是由编码系统定义的编码。
+  2、如果filter.property代表的是编码系统的属性，则此匹配值可以是正则字符串值，用来匹配属性值。
+  3、如果filter.property代表的是编码系统的筛选器，当运算类别为“regex”时，此匹配值是编码系统筛选器的值。
+  4、当运算类别为“exists”时，则此匹配值为true或false。
+ 
 </td></tr>
   <tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td><td>1..1</td></tr>
   <tr><td><a href="datatypes.html">Type</a></td><td><a href="datatypes.html#string">string</a></td></tr>
