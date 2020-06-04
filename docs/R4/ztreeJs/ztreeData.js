@@ -118,7 +118,7 @@ var zNodes =[
 			},
 			{id:248, name:" 2.48 Resource MessageDefinition - Content",iconSkin:"pIcon01",url:"messagedefinition.html",target:"_blank"}
 			]},
-	{ id:3, pId:0, name:" 3 FHIR Exchange Module", open:false, iconSkin:"pIcon01",url:"exchange-module.html", target:"_self",
+	{ id:3, pId:0, name:" 3 FHIR Exchange Module", open:false,  fineTitle: "FHIR交互组件", subtitle: "（在持久化存储中使用FHIR的超链接缺失）",iconSkin:"pIcon01",url:"exchange-module.html", target:"_self",
         children:[
             { id: 31, name: " 3.1 RESTful API ", fineTitle: "REST风格微服务", subtitle: "（3.1.0.9 “the return”文字重复）",iconSkin:"icon01",url:"http.html", target:"_blank",
                 children: [

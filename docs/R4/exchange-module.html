@@ -63,7 +63,7 @@ in order to support consistent definitions for schema and UML derived code. --><
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><b><img src="exchange.png"/> 交互</b></li>          <!-- exchange-module.html / page / -->
+        <li><b><img src="exchange.png"/> 交互组件</b></li>          <!-- exchange-module.html / page / -->
         <div class="breadcrumbRight">
             <ul>
                 <li>
@@ -94,22 +94,18 @@ in order to support consistent definitions for schema and UML derived code. --><
 
 <h3 class="self-link-parent"><span class="sectioncount">3.0.1<a name="3.0.1"> </a></span> Introduction / Index <a href="exchange-module.html#3.0.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-FHIR is designed as an interface specification - it specifies the content of the data exchanged between 
-healthcare applications, and how the exchange is implemented and managed. FHIR defines the following 
-methods for exchanging data between systems: 
+
+FHIR标准是作为一个接口规范来设计的，它规定了医疗行业软件之间交换的数据内容与格式，并描述了如何实现与管理这些交互。包括以下5种交互方法：
 </p>
 <ul>
   <li><a href="#rest">RESTful API</a></li>
-  <li><a href="#msg">Messaging</a></li>
-  <li><a href="#doc">Documents</a></li>
-  <li><a href="#soa">Services</a></li>
-  <li><a href="#store">Database / Persistent Storage</a></li>
+  <li><a href="#msg">消息交换</a></li>
+  <li><a href="#doc">文档交换</a></li>
+  <li><a href="#soa">SOA服务</a></li>
+  <li><a href="#store">数据库/持久化存储（中间库交换）</a></li>
 </ul>
 <p>
-Each of these approaches can be used to exchange information, and each has its own strengths and weaknesses and applicability.
-Note that applications are allowed to use any other method to exchange resources; the methods
-described in this specification are the common methods that are used enough to justify
-the effort to describe or standardize their use. 
+以上的方式都可以独立的用于数据交换，它们各自都有着自己的适用场景和优缺点。请注意，软件系统之间的数据资源交换可以使用其他任意的方法，本规范中描述的这5种方法是最常用的，它们的运用已经很成熟并有标准的用法。
 </p>
 
 <a name="rest"></a>
@@ -144,7 +140,7 @@ organizations with low levels of process integration and/or trust.
 
 <a name="doc"></a>
 
-<h4 class="self-link-parent"><span class="sectioncount">3.0.1.3</span> Documents <a href="exchange-module.html#doc" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.0.1.3</span> 文档交换 <a href="exchange-module.html#doc" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
 This specification also defines a <a href="documents.html">document based exchange
 framework</a>, where content to be exchanged is wrapped by a <a href="composition.html">Composition</a>
@@ -153,9 +149,7 @@ The document framework is provided to help with computer-assisted human to human
 uses - which are not uncommon in healthcare.
 </p>
 <p>
-Typically, exchanging documents is associated with exchanging clinical information across
-clinical governance borders, while data-based exchange using the RESTful API is appropriate
-within where there are well established clinical governance arrangements.
+通常，文档交换用于跨临床管理边界的临床信息交换（主要用于机构之间的数据交换），而RESTful API是基于数据的交换，它适用于临床管理统一的情况（主要用于同一机构或医共体内的数据交换）。
 </p>
 
 <a name="soa"></a>
@@ -165,15 +159,13 @@ In addition, this specification describes the use of FHIR in a <a href="services
 Note that any use of any of the above approaches in production is a 'service' by some or many definitions.
 The services description provides context regarding the use of FHIR (and particularly the RESTful API) in a
 wider enterprise architecture.
+
 </p>
 
 <a name="store"></a>
 <h4 class="self-link-parent"><span class="sectioncount">3.0.1.5</span> Database / Persistent Store <a href="exchange-module.html#store" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-Another way to make use of the resources defined by FHIR is to store them natively 
-in a database or persistent store, where different applications or modules write 
-and read the resources as part of their implementation. Using resources in this
-fashion is described here.
+利用“中间库”也可以实现FHIR资源的数据交互，即将FHIR资源存储在本地数据库或持久性存储中，不同的应用程序或系统模块通过数据库读写资源。以这种方式使用资源的介绍请参见 <a href="storage.html">在持久化存储中使用FHIR</a>。
 </p>
 
 
