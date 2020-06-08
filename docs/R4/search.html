@@ -169,13 +169,13 @@
 
                             在最简单的情况下，搜索是在RESTful框架中执行<code>GET</code>动作来完成的：
                         </p>
-<pre>
- GET [基地址]/[资源类型]?name=value&amp;...{&amp;_format=[mime-type]}}
+                        <pre>
+ GET [基地址]/[资源类型]?[参数名]=[参数值]&amp;[参数名]=[参数值]&amp;...{&amp;_format=[mime-type]}}
 </pre>
                         <p>
                             对于此RESTful搜索（请参阅<a href="http.html#search">
                                 RESTful API中的定义
-                            </a>），参数是一系列编码在URL中的成对 name=[value]，
+                            </a>），参数以“?[参数名]=[参数值]”的形式直接编码在URL地址中，
                             或者通过<code>POST</code>动作，以application/x-www-form-urlencoded 格式的Body消息体提交：
 
                         </p>
@@ -414,46 +414,48 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
 <pre>
  GET [基地址]/Condition?_tag=http://acme.org/codes|needs-review
 </pre>
-                        <p>
-                            searches for all Condition resources with the tag:
-                        </p>
+<p>
+  
+    搜索带有以下标签的所有Condition资源：
+</p>
 <pre class="json">
 {
   "system" : "http://acme.org/codes",
   "code" : "needs-review"
 }
 </pre>
-                        <p>
-                            In the same manner:
-                        </p>
+<p>
+    以同样的方式搜索profile定义为"lipid"的DiagnosticReport资源：
+</p>
 <pre>
  GET [基地址]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid
  GET [基地址]/DiagnosticReport?_profile=Profile/lipid
 </pre>
-                        <p>
-                            restricts the search to only DiagnosticReport resources that are tagged as conforming to a particular profile.
-                            The second reference is relative and refers a local profile on the same server.
-                        </p>
-                        <p>
-                            <a href="resource.html#simple-tags">_tag</a>, and <a href="resource.html#security-labels">_security</a> parameters are token types (see <a href="#token">below</a>),
-                            and <a href="resource.html#profile-tags">_profile</a> is a <a href="#reference">reference</a> search parameter.
-                        </p>
+<p>
+    第一个请求是通过定义profile的绝对URL来搜索符合条件的DiagnosticReport资源。第二个请求是通过相对地址搜索与profile定义在同一服务器上的DiagnosticReport资源。
+</p>
+<p>
+
+    <a href="resource.html#simple-tags">_tag</a>和 <a href="resource.html#security-labels">
+        _security
+    </a> 参数是令牌类型(参见 <a href="#token">token令牌</a>),
+    而 <a href="resource.html#profile-tags">_profile</a> 是<a href="#reference">引用类型参数</a> 。
+</p>
 
 
                         <a name="parameters"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.2</span> Parameters for each resource <a href="search.html#parameters" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.2</span> 每个资源的专属搜索参数<a href="search.html#parameters" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            In addition to the <code>_id</code> parameter which exists for all resources, each
-                            FHIR resource type defines its own set of search parameters with
-                            their names, types, and meanings. These search parameters are on the
-                            same page as the resource definitions, and are also published as part
-                            of the standard Capability statement (<a href="capabilitystatement-base.xml.html">XML</a> or <a href="capabilitystatement-base.json.html">JSON</a>).
+                            
+                            所有的资源都支持<code>_id</code>参数，除此之外，每种资源类型都定义了一系列它们自己的专属搜索参数，包括了参数名、参数类型、参数说明。
+                            本规范中这些搜索参数的文档呈现在其资源介绍页面的底部，并且作为本规范的一部分以能力声明(<a href="capabilitystatement-base.xml.html">XML</a> 或 <a href="capabilitystatement-base.json.html">JSON</a>)的形式发布。
                         </p>
                         <p>
                             In general, the defined search parameters correspond to a
                             single element in the resource, but this is not required, and some
                             search parameters refer to the same type of element in multiple
                             places, or refer to derived values.
+							（在大体上，终端搜索参数会和一个单个的设备连接在资源库中，但这是不需要的，并且一些搜索参数会涉及到相同的相同类型的元素，或者涉及到共用的值。）
                         </p>
                         <p>
                             Some search parameters defined by resources are associated
@@ -462,42 +464,44 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             path matches, the whole resource is returned in the
                             search results. The client may have to examine the resource to determine
                             which path contains the match.
+							（一些搜索参数会取决于资源是否关联到不只一个路径，这意味着是否任何目录的路径都有这些搜索参数的匹配，如果有一个路径是匹配的，那么整个资源将会返回一个结果。客户可能会检查这个资源在终端上是否有匹配的内容。）
                         </p>
                         <p>
                             Servers are not required to implement any of the standard search parameters
                             (except for the <code>_id</code> parameter described above).  Servers may also define their own
-                            parameters.
+                            parameters.（服务是不会需要去改变任何的标准搜索参数的。除了id这个参数描述的内容。服务器也可能自己去定义他们的参数。）
                         </p>
 
                         <a name="ptypes"></a>
                         <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.3</span> Search Parameter Types <a href="search.html#ptypes" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            Each search parameter is defined by a type that specifies how the search parameter
+                            Each search parameter is defined by a type that specifies how the search parameter（每个搜索参数会取决于一个类型是否有特殊的行为，以下是一些决定性参数类型。）
                             behaves. These are the defined parameter types:
                         </p>
                         <table class="codes">
-                            <tr><td><a href="#number">number</a></td><td>Search parameter SHALL be a number (a whole number, or a decimal).</td></tr>
-                            <tr><td><a href="#date">date</a></td><td>Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.</td></tr>
-                            <tr><td><a href="#string">string</a></td><td>Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.</td></tr>
+                            <tr><td><a href="#number">number</a></td><td>Search parameter SHALL be a number (a whole number, or a decimal).</td></tr>（搜索数字，可以是整数，也可以是小数）
+                            <tr><td><a href="#date">date</a></td><td>Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.</td></tr>（搜索日期，这个日期表格的标准是xml格式，但是也可以支持其他的格式。）
+                            <tr><td><a href="#string">string</a></td><td>Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.</td></tr>（这是一个简单的字符串，可以是名字的一部分，可能会只用名字开头部分来搜索匹配，字符搜索可能会有包括空格。）
                             <tr><td><a href="#token">token</a></td><td>Search parameter on a coded element or identifier. May be used to search through the text, display, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.</td></tr>
-                            <tr><td><a href="#reference">reference</a></td><td>A reference to another resource (Reference or canonical).</td></tr>
-                            <tr><td><a href="#composite">composite</a></td><td>A composite search parameter that combines a search on two values together.</td></tr>
-                            <tr><td><a href="#quantity">quantity</a></td><td>A search parameter that searches on a quantity.</td></tr>
-                            <tr><td><a href="#uri">uri</a></td><td>A search parameter that searches on a URI (RFC 3986).</td></tr>
-                            <tr><td><a href="#special">special</a></td><td>Special logic applies to this parameter per the description of the search parameter.</td></tr>
+							                                         （搜索参数是代码或者身份证明，可能会通过使用文本，展示台，代码或者代码表，系统和身份关键字来搜索。他的值是一个字符串或者名字的一部分和值，是用|来分隔开的，取决于使用的模型。）   
+                            <tr><td><a href="#reference">reference</a></td><td>A reference to another resource (Reference or canonical).</td></tr>（一个引用到另一个资源的）
+                            <tr><td><a href="#composite">composite</a></td><td>A composite search parameter that combines a search on two values together.</td></tr>（一个组合搜索参数将两个值合并为一个搜索参数。）
+                            <tr><td><a href="#quantity">quantity</a></td><td>A search parameter that searches on a quantity.</td></tr>（一个搜索参数有一定的数量）
+                            <tr><td><a href="#uri">uri</a></td><td>A search parameter that searches on a URI (RFC 3986).</td></tr>（一个特别的搜索参数在统一资源标识上搜索，注释：3986）
+                            <tr><td><a href="#special">special</a></td><td>Special logic applies to this parameter per the description of the search parameter.</td></tr>（专业的逻辑请求给搜素展示在参数搜索上。）
                         </table>
 
                         <p>
                             The search parameters can also append "modifiers" that control
                             their behavior. The kinds of modifiers that available is dependent on the type
-                            of parameter being modified.
+                            of parameter being modified.（搜索参数也可能会出现可编辑的形式来被控制，各种各样的编辑器取决于编辑参数的类型。）
                         </p>
 
                         <a name="modifiers"> </a>
                         <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.4</span> Modifiers <a href="search.html#modifiers" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
                             Parameters are defined per resource.  Parameter names may specify a modifier as a suffix.
-                            The modifiers are separated from the parameter name by a colon. Modifiers are:
+                            The modifiers are separated from the parameter name by a colon. Modifiers are:（参数会取决于每个资源，参数的名字可能会作为一个特别的编辑器因素。）
                         </p>
                         <ul>
                             <li>
@@ -506,16 +510,26 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
                                 will return all the resources that have a value for the <code>gender</code> parameter.
                                 For simple data type elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
+								（对于所有的参数除了合并的之外：性别
+								  搜索性别将会返回资源中有的相匹配的参数，那些经常被返回的资源将会有一个值。
+								  对于简单的日期类型编辑器：没有的情况下会匹配所有编辑器不管是线下被省略了的还是还是目前存在的。）
                             </li>
                             <li>
                                 For string: <code>:exact</code> returns results that match the entire supplied parameter, including casing and combining characters.
                                 Note that the handling of (extended) <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters <img src="external.png" style="text-align: baseline" /></a> is within
                                 the discretion of the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters, or matches on
                                 the actual used Unicode code points, or <code>:contains</code> (case insensitive and combining character-insensitive, search text matched anywhere in the string), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the start of the string).
+								（对于字符串要求返回结果，要匹配整个表中的参数，包括单个和合并的字符。
+								  注意已经给出的图表）
+								  服务端的浏览器可用IE浏览器，服务端的字符串搜索参数会匹配在一个特别的设备上，或者在实际使用的代码上，或者包括个别和合并的，搜索文本会被匹配到任何有字符串的地方，而不是用一些错误的方式，个例和突发的部分会用字符串的开始部分来匹配。）
                             </li>
                             <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
+
                             <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, :identifier, and, for some parameters, :above and :below</li>
                             <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left-matches the value, or vice-versa.</li>
+							   （文本：能够匹配的会做一个特别的搜索在文本标注上，或者展示为代码的一部分，而不是使用失败的搜索，
+							      类型：资源中的类型就是资源的名字，有身份者和一些上下的参数。
+								  ）
                         </ul>
                         <p>
                             Server SHALL reject any search request that contains is suffixed by a modifier that the
@@ -523,6 +537,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             the <code>name</code> search parameter, but not the <code>:exact</code> modifier on the name, it should reject a
                             search with the parameter <code>name:exact=Bill</code>, using an HTTP <code>400</code> error with
                             an <a href="operationoutcome.html">OperationOutcome</a> with a <a href="operationoutcome-example-searchfail.html">clear error message</a>.
+							（服务将反应任何搜索需求包括了清洗一些模型，服务不会支持一些参数，例如，如果服务支持姓名搜索这个参数，但是不会要求模型在姓名上有呈现，它就应该反应一份有参数的搜索，用网页错误来操作并清理错误的信息。）
 
                         </p>
 
