@@ -20,7 +20,7 @@ var zNodes =[
         ]},
     { id:2, pId:0, name:" 2 Foundation Module", fineTitle:"",thickTitle:"基础组件", open:false,iconSkin:"pIcon01",url:"foundation-module.html", target:"_self",
         children: [
-            { id: 20, name: " 2.0 Documentation", fineTitle: "", iconSkin: "pIcon01", url: "documentation.html", target: "_blank" },
+            { id: 20, name: " 2.0 Documentation", iconSkin: "pIcon01",  fineTitle:"文档索引",url: "documentation.html", target: "_blank" },
 			{id:21, name:" 2.1 Conformance",fineTitle:"标准符合性",iconSkin:"icon01",url:"conformance-rules.html",target:"_blank"},
 			{id:22, name:" 2.2 FHIR Life Cycle Page",iconSkin:"pIcon01",url:"lifecycle.html",target:"_blank"},
 			{id:23, name:" 2.3 Resource References",iconSkin:"icon01",url:"references.html",target:"_blank"},
@@ -165,7 +165,7 @@ var zNodes =[
 				]
 			},
             {
-                id: 49, name: " 4.9 Resource ValueSet - Content", fineTitle: "值集资源简介", subtitle: "(4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank",
+                id: 49, name: " 4.9 Resource ValueSet - Content", fineTitle: "值域集资源简介", subtitle: "(4.9.3.2的e.g前缺少括号)",iconSkin:"icon01",url:"valueset.html", target:"_blank",
 				children:[
 					{id:491, name:" 4.9.15 Resource ValueSet - Operations",iconSkin:"pIcon01",url:"valueset-operations.html", target:"_blank",
 						children:[
@@ -261,7 +261,7 @@ var zNodes =[
             {id:716, name:" 7.16 Integrated Examples",iconSkin:"pIcon01",url:"integrated-examples.html", target:"_blank"},			
 			{id:717, name:" 7.17 Appendix: The Relationship between FHIR and other HL7 Standards",iconSkin:"pIcon01",url:"comparison.html", target:"_blank"},
 		]},
-	{ id:8, pId:0, name:" 8 Administration Module", open:false, iconSkin:"pIcon01",url:"administration-module.html", target:"_self",
+	{ id:8, pId:0, name:" 8 Administration Module", open:false, iconSkin:"pIcon01",fineTitle: "主数据管理组件",url:"administration-module.html", target:"_self",
         children:[
             {id:81, name:" 8.1 Resource Patient - Content",iconSkin:"icon01",url:"patient.html", target:"_blank",
 				children:[
@@ -293,7 +293,7 @@ var zNodes =[
             {id:88, name:" 8.8 Resource HealthcareService - Content",iconSkin:"pIcon01",url:"healthcareservice.html", target:"_blank"},
 
 		    {id:89, name:" 8.9 Resource Endpoint - Content",iconSkin:"pIcon01",url:"endpoint.html", target:"_blank"},
-            {id:810, name:" 8.10 Resource EpisodeOfCare - Content",iconSkin:"pIcon01",url:"episodeofcare.html", target:"_blank"},
+            {id:810, name:" 8.10 Resource EpisodeOfCare - Content",iconSkin:"pIcon01",fineTitle: "患病治疗期资源简介",url:"episodeofcare.html", target:"_blank"},
             {id:811, name:" 8.11 Resource Encounter - Content",iconSkin:"pIcon01",url:"encounter.html", target:"_blank",
 				children:[
 					{id:8111, name:" 8.11.11 Resource Encounter - Operations",iconSkin:"pIcon01",url:"encounter-operations.html", target:"_blank",
@@ -486,7 +486,7 @@ var zNodes =[
 			]},
 	{ id:13, pId:0, name:" 13 Financial Module" , open:false, iconSkin:"pIcon01",url:"financial-module.html", target:"_self",
         children:[
-            {id:131, name:" 13.1 Resource Coverage - Content",iconSkin:"pIcon01",url:"coverage.html", target:"_blank"},
+            {id:131, name:" 13.1 Resource Coverage - Content",iconSkin:"pIcon01",fineTitle:"支付范围资源——介绍",url:"coverage.html", target:"_blank"},
             {id:132, name:" 13.2 Resource CoverageEligibilityRequest - Content" ,iconSkin:"pIcon01",url:"coverageeligibilityrequest.html", target:"_blank",
 				children:[
 					{id:1321, name:" 13.2.9 Resource CoverageEligibilityRequest - Operations",iconSkin:"pIcon01",url:"coverageeligibilityrequest-operations.html", target:"_blank",
