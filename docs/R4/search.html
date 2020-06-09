@@ -465,17 +465,29 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                         </p>
 
                         <a name="ptypes"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.3</span> Search Parameter Types <a href="search.html#ptypes" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.3</span> 搜索参数的类型 <a href="search.html#ptypes" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            Each search parameter is defined by a type that specifies how the search parameter（每个搜索参数会取决于一个类型是否有特殊的行为，以下是一些决定性参数类型。）
-                            behaves. These are the defined parameter types:
+                     
+                            搜索参数的类型决定了其搜索的方式，以下是本规范已定义的参数类型：
+                       
                         </p>
                         <table class="codes">
-                            <tr><td><a href="#number">number</a></td><td>Search parameter SHALL be a number (a whole number, or a decimal).</td></tr>（搜索数字，可以是整数，也可以是小数）
-                            <tr><td><a href="#date">date</a></td><td>Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.</td></tr>（搜索日期，这个日期表格的标准是xml格式，但是也可以支持其他的格式。）
-                            <tr><td><a href="#string">string</a></td><td>Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.</td></tr>（这是一个简单的字符串，可以是名字的一部分，可能会只用名字开头部分来搜索匹配，字符搜索可能会有包括空格。）
-                            <tr><td><a href="#token">token</a></td><td>Search parameter on a coded element or identifier. May be used to search through the text, display, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.</td></tr>
-							                                         （搜索参数是代码或者身份证明，可能会通过使用文本，展示台，代码或者代码表，系统和身份关键字来搜索。他的值是一个字符串或者名字的一部分和值，是用|来分隔开的，取决于使用的模型。）   
+                            <tr><td><a href="#number">number</a></td><td>
+    数字型，搜索参数<b>必须</b>是一个数字(整数或小数)。
+</td></tr>
+                            <tr><td><a href="#date">date</a></td><td>
+    日期型，搜索参数是一个日期或时间。日期格式是标准XML格式，也可能支持其它格式。
+   
+</td></tr>
+                            <tr><td><a href="#string">string</a></td><td>
+    字符串，搜索参数是不区分大小写和重音的简单字符串，并可能支持“以……开始”的局部匹配模式，参数中允许包含空格字符。
+</td></tr>
+                            <tr><td><a href="#token">token</a></td><td>
+    令牌，搜索参数是一个编码元素或者是一个标识符。
+    它既支持对编码类型中的text、display,、code、system元素进行匹配，又支持对标识符类型中的system和key的匹配。
+    此类型的参数可以使用“后缀修饰符”，根据使用的后缀修饰符，此类型的参数既可以是一个字符串，也可以是“namespace|value”形式的键值对。
+  
+</td></tr>系统和身份关键字来搜索。他的值是一个字符串或者名字的一部分和值，是用|来分隔开的，取决于使用的模型。）   
                             <tr><td><a href="#reference">reference</a></td><td>A reference to another resource (Reference or canonical).</td></tr>（一个引用到另一个资源的）
                             <tr><td><a href="#composite">composite</a></td><td>A composite search parameter that combines a search on two values together.</td></tr>（一个组合搜索参数将两个值合并为一个搜索参数。）
                             <tr><td><a href="#quantity">quantity</a></td><td>A search parameter that searches on a quantity.</td></tr>（一个搜索参数有一定的数量）
