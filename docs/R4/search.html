@@ -348,7 +348,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                         <h3 class="self-link-parent"><span class="sectioncount">3.1.1.4</span> 标准参数 <a href="search.html#standard" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
                         <a name="all"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.1</span> 适用于所有资源的参数 <a href="search.html#all" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.1</span> 适用于所有资源的通用搜索参数 <a href="search.html#all" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
                             这些参数<a href="resource.html#search">适用于所有资源</a>: <code>_content</code>, <code>
                                 _id
@@ -451,25 +451,17 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             本规范中这些搜索参数的文档呈现在其资源介绍页面的底部，并且作为本规范的一部分以能力声明(<a href="capabilitystatement-base.xml.html">XML</a> 或 <a href="capabilitystatement-base.json.html">JSON</a>)的形式发布。
                         </p>
                         <p>
-                            In general, the defined search parameters correspond to a
-                            single element in the resource, but this is not required, and some
-                            search parameters refer to the same type of element in multiple
-                            places, or refer to derived values.
-							（在大体上，终端搜索参数会和一个单个的设备连接在资源库中，但这是不需要的，并且一些搜索参数会涉及到相同的相同类型的元素，或者涉及到共用的值。）
+
+							一般情况下，定义的搜索参数是和资源的某个元素一一对应的，但这不是必须的。
+							一些搜索参数会对应到资源中多条路径的相同类型的元素，或者与继承自元素的值相对应。
                         </p>
                         <p>
-                            Some search parameters defined by resources are associated
-                            with more than one path in a resource. This means that the search
-                            parameter matches if any of the paths contain matching content.  If a
-                            path matches, the whole resource is returned in the
-                            search results. The client may have to examine the resource to determine
-                            which path contains the match.
-							（一些搜索参数会取决于资源是否关联到不只一个路径，这意味着是否任何目录的路径都有这些搜索参数的匹配，如果有一个路径是匹配的，那么整个资源将会返回一个结果。客户可能会检查这个资源在终端上是否有匹配的内容。）
+                          
+							资源的某些专属搜索参数不仅只关联到资源的一个路径，这意味着,只要任何一条路径中存在匹配的内容，搜索参数都会命中，并将整个资源作为搜索的返回结果。客户端可能需要进一步处理这个资源才能判断搜索参数是与资源哪条路径中的元素值相匹配的。
                         </p>
                         <p>
-                            Servers are not required to implement any of the standard search parameters
-                            (except for the <code>_id</code> parameter described above).  Servers may also define their own
-                            parameters.（服务是不会需要去改变任何的标准搜索参数的。除了id这个参数描述的内容。服务器也可能自己去定义他们的参数。）
+						 服务器必须支持<code>_id</code>参数，但并不强制要求服务器实现其它在3.1.1.4.1节所述“通用搜索参数”。
+                          另外，服务器也可以根据需求自定义搜索参数。
                         </p>
 
                         <a name="ptypes"></a>
