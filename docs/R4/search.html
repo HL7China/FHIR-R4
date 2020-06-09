@@ -473,50 +473,69 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                         </p>
                         <table class="codes">
                             <tr><td><a href="#number">number</a></td><td>
-    数字型，搜索参数<b>必须</b>是一个数字(整数或小数)。
+    数字搜索型，搜索参数<b>必须</b>是一个数字(整数或小数)。
 </td></tr>
                             <tr><td><a href="#date">date</a></td><td>
-    日期型，搜索参数是一个日期或时间。日期格式是标准XML格式，也可能支持其它格式。
-   
+    日期搜索型，搜索参数是一个日期或时间。日期格式是标准XML格式，也可能支持其它格式。
+
 </td></tr>
                             <tr><td><a href="#string">string</a></td><td>
-    字符串，搜索参数是不区分大小写和重音的简单字符串，并可能支持“以……开始”的局部匹配模式，参数中允许包含空格字符。
+    字符串搜索型，搜索参数是不区分大小写和重音的简单字符串，并可能支持“以……开始”的局部匹配模式，参数中允许包含空格字符。
 </td></tr>
                             <tr><td><a href="#token">token</a></td><td>
-    令牌，搜索参数是一个编码元素或者是一个标识符。
+    令牌搜索型，搜索参数是一个编码元素或者是一个标识符。
     它既支持对编码类型中的text、display,、code、system元素进行匹配，又支持对标识符类型中的system和key的匹配。
     此类型的参数可以使用“后缀修饰符”，根据使用的后缀修饰符，此类型的参数既可以是一个字符串，也可以是“namespace|value”形式的键值对。
-  
-</td></tr>系统和身份关键字来搜索。他的值是一个字符串或者名字的一部分和值，是用|来分隔开的，取决于使用的模型。）   
-                            <tr><td><a href="#reference">reference</a></td><td>A reference to another resource (Reference or canonical).</td></tr>（一个引用到另一个资源的）
-                            <tr><td><a href="#composite">composite</a></td><td>A composite search parameter that combines a search on two values together.</td></tr>（一个组合搜索参数将两个值合并为一个搜索参数。）
-                            <tr><td><a href="#quantity">quantity</a></td><td>A search parameter that searches on a quantity.</td></tr>（一个搜索参数有一定的数量）
-                            <tr><td><a href="#uri">uri</a></td><td>A search parameter that searches on a URI (RFC 3986).</td></tr>（一个特别的搜索参数在统一资源标识上搜索，注释：3986）
-                            <tr><td><a href="#special">special</a></td><td>Special logic applies to this parameter per the description of the search parameter.</td></tr>（专业的逻辑请求给搜素展示在参数搜索上。）
+
+</td></tr>   
+                            <tr><td><a href="#reference">reference</a></td><td>
+    引用搜索型，对另一个资源的引用。可以引用资源的实例地址或官方定义地址。
+</td></tr>
+                         
+                            <tr><td><a href="#composite">composite</a></td><td>
+    组合搜索型，此类型的搜索将多个目标匹配值合并在一起搜索，即多条件搜索。
+</td></tr>
+                            <tr><td><a href="#quantity">quantity</a></td><td>
+    数量搜索型，搜索参数对数量进行搜索，即带数量单位的搜索。
+ 
+</td></tr>
+                            <tr><td><a href="#uri">uri</a></td><td>URI搜索型，
+                                搜索参数是一个遵循RFC 3986编码规范的URI地址。</td></tr>
+                       
+                            <tr><td><a href="#special">special</a></td><td>
+                                特殊搜索，此类搜索有着自己特有的搜索逻辑。
+                            </td></tr>
+                       
                         </table>
 
                         <p>
-                            The search parameters can also append "modifiers" that control
-                            their behavior. The kinds of modifiers that available is dependent on the type
-                            of parameter being modified.（搜索参数也可能会出现可编辑的形式来被控制，各种各样的编辑器取决于编辑参数的类型。）
+                     
+                            搜索参数还可以使用“后缀修饰符”来控制其匹配方式。
+                            搜索参数的类型决定了它可以支持哪些“后缀修饰符”（详见下小节）。
+                            
                         </p>
 
                         <a name="modifiers"> </a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.4</span> Modifiers <a href="search.html#modifiers" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.4</span> 后缀修饰符 <a href="search.html#modifiers" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            Parameters are defined per resource.  Parameter names may specify a modifier as a suffix.
-                            The modifiers are separated from the parameter name by a colon. Modifiers are:（参数会取决于每个资源，参数的名字可能会作为一个特别的编辑器因素。）
+                        参数在每个资源中分别定义，在参数名之后可能会以“:修饰符种类”的形式（即用冒号来分隔参数名和修饰符）添加一个后缀修饰符。
+                            后缀修饰符的名称及其支持的搜索参数类型如下：
                         </p>
                         <ul>
                             <li>
-                                For all parameters (except combination): <code>:missing</code>; e.g. gender:missing=true (or false).
-                                Searching for <code>gender:missing=true</code> will return all the resources that don't have a value for the gender parameter (which usually
-                                equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
-                                will return all the resources that have a value for the <code>gender</code> parameter.
-                                For simple data type elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
-								（对于所有的参数除了合并的之外：性别
-								  搜索性别将会返回资源中有的相匹配的参数，那些经常被返回的资源将会有一个值。
-								  对于简单的日期类型编辑器：没有的情况下会匹配所有编辑器不管是线下被省略了的还是还是目前存在的。）
+                                <code>:missing</code>修饰符，它支持除“组合搜索型”之外的所有类型的修饰符。
+                                例如，<code>
+                                    gender:missing=true
+                                </code>，意为：搜索所有带有gender元素的资源类型，返回资源实例中缺失gender元素或未对gender元素赋值的所有资源实例。
+                                反之，<code>gender:missing=false</code>则意为：搜索所有带有gender元素的资源类型，返回已对gender元素赋值的所有资源实例。
+                              
+                                For simple data type elements, :missing=true will match on
+                                all elements where either the underlying element is omitted or where the element is present 
+                                with extensions but no @value is specified
+                                   <code>
+                                    :missing=true
+                                   </code>
+                                对于简单的日期类型编辑器：没有的情况下会匹配所有编辑器不管是线下被省略了的还是还是目前存在的。）
                             </li>
                             <li>
                                 For string: <code>:exact</code> returns results that match the entire supplied parameter, including casing and combining characters.
