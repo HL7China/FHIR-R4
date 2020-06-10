@@ -1,7 +1,7 @@
 ﻿//herder
 
 document.write('<script id="header-temp" type="text/html">'+
-    ' <div class="container"><a no-external="true" id="logo" href="http://hl7fhir.cn/R4"><img src="./assets/images/fhir-logo-www.png" height="60" width="249" alt="FHIR中国"/> </a><div id="hl7-status"><b>FHIR中国 R4（第四版）<b></div>'+
+    ' <div class="container"><a no-external="true" id="logo" href="http://hl7fhir.cn/R4"><img src="./assets/images/fhir-logo-www.png" height="60" width="249" alt="FHIR中文版"/> </a><div id="hl7-status"><b>FHIR中文版 R4（第四版）<b></div>'+
     '<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://www.hl7.org"><img src="./assets/images/hl7-logo.png" width="42"  height="50" alt="访问 hl7官网"/></a></div>'+
     '<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="toc.html"><img src="./assets/ico/fhirIndex.png" alt="FHIR 目录" width="42" height="50" /></a></div>'+
     '<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./assets/images/search.png" alt="FHIR官网搜索" /></a></div>'+
