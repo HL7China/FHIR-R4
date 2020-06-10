@@ -41,4 +41,11 @@ document.getElementById('segment-header').innerHTML = headerHtml;
 document.getElementById('nav-content').innerHTML = navHtml;
 document.getElementById('segment-footer').innerHTML = footerHtml;
 
+var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a4d8b79ccc6ecb39dec265096ce4c16d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
 
