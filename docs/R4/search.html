@@ -518,7 +518,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                         <a name="modifiers"> </a>
                         <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.4</span> 后缀修饰符 <a href="search.html#modifiers" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                        参数在每个资源中分别定义，在参数名之后可能会以“:修饰符种类”的形式（即用冒号来分隔参数名和修饰符）添加一个后缀修饰符。
+                        参数在每个资源中分别定义，在参数<b>名</b>之后可能会以“:修饰符种类”的形式（即用冒号来分隔参数名和修饰符）添加一个后缀修饰符。
                             后缀修饰符的名称及其支持的搜索参数类型如下：
                         </p>
                         <ul>
@@ -528,65 +528,88 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                     gender:missing=true
                                 </code>，意为：搜索所有带有gender元素的资源类型，返回资源实例中缺失gender元素或未对gender元素赋值的所有资源实例。
                                 反之，<code>gender:missing=false</code>则意为：搜索所有带有gender元素的资源类型，返回已对gender元素赋值的所有资源实例。
-                              
+
                                 For simple data type elements, :missing=true will match on
-                                all elements where either the underlying element is omitted or where the element is present 
+                                all elements where either the underlying element is omitted or where the element is present
                                 with extensions but no @value is specified
-								
-                                 当<code>
+
+                                当<code>
                                     :missing=true
-                                   </code>修饰符作用于资源的元素是简单数据类型时，搜索匹配资源的条件为：资源实例缺失此元素或此元素中仅包含了扩展元素而没有为其赋值（元素缺失@value属性）。
-                                
-                            </li>
-                            <li>
-							<code>:exact</code> 修饰符，它只能和字符串类型的搜索参数配合使用，以支持区分大小写区和支持对“组合字符编码”的搜索。
-							注意，对<a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">扩展字型簇 extended grapheme clusters <img src="external.png" style="text-align: baseline" />
-							</a>（由一组Unicode编码按序列组合后生成的单个人类文字） 的支持由服务器自己决定。即：当搜索参数的值是一串Unicode编码时，服务端系统自行决定搜索是匹配其等效转换后的文字还是匹配Unicode编码中的字符。
-</li>
-                            <li>
- <code>:contains</code> 修饰符，它也只能和字符串类型的搜索参数配合使用，且不支持区分大小写区和“组合字符编码”的搜索。它用于模糊搜索，只要资源的元素值中有一部分内容和搜索参数值相同，无论是头部相同还是中间部分相同或者是尾部相同，都会命中目标。
+                                </code>修饰符作用于资源的元素是简单数据类型时，搜索匹配资源的条件为：资源实例缺失此元素或此元素中仅包含了扩展元素而没有为其赋值（元素缺失@value属性）。
 
                             </li>
                             <li>
-							<code>:text
-							</code>修饰符，它只能和令牌类型的搜索参数配合使用，用于对CodeableConcept数据类型中的text元素或对Coding数据类型中的display元素的搜索。而不使用此修饰符时搜索的是code元素。
-						</li>
+                                <code>:exact</code> 修饰符，它只能和字符串搜索型的参数配合使用，以支持区分大小写区和支持对“组合字符编码”的搜索。
+                                注意，对<a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">
+                                    扩展字型簇 extended grapheme clusters <img src="external.png" style="text-align: baseline" />
+                                </a>（由一组Unicode编码按序列组合后生成的单个人类文字） 的支持由服务器自己决定。即：当搜索参数的值是一串Unicode编码时，服务端系统自行决定搜索是匹配其等效转换后的文字还是匹配Unicode编码中的字符。
+                            </li>
+                            <li>
+                                <code>:contains</code> 修饰符，它也只能和字符串搜索型的参数配合使用，且不支持区分大小写区和“组合字符编码”的搜索。它用于模糊搜索，只要资源的元素值中有一部分内容和搜索参数值相同，无论是头部相同还是中间部分相同或者是尾部相同，都会命中目标。
+
+                            </li>
+                            <li>
+                                <code>
+                                    :text
+                                </code>修饰符，它只能和令牌搜索型的参数配合使用，用于对CodeableConcept数据类型中的text元素或对Coding数据类型中的display元素的搜索。而不使用此修饰符时搜索的是code元素。
+                            </li>
                             <li>
 
-						<code>:in</code>、 <code>:below</code>,、<code>:above</code> 、<code>:not-in</code> 
-						这些修饰符都只能和令牌类型的搜索参数配合使用，具体用法在下文介绍。
-						</li>
+                                <code>:in</code>、 <code>:below</code>,、<code>:above</code> 、<code>:not-in</code>
+                                这些修饰符都只能和令牌搜索型的参数配合使用，具体用法在下文介绍。
+                            </li>
 
                             <li>
-							
-							<code>:[type]
-							</code>修饰符，其中[type]指的是FHIR的资源类型（如：<code>:Patient
-							</code>），它只能和引用类型的搜索参数配合使用。
-							</li>
+
+                                <code>
+                                    :[type]
+                                </code>修饰符，其中[type]指的是FHIR的资源类型（如：<code>
+                                    :Patient
+                                </code>），它只能和引用搜索型的参数配合使用。
+                            </li>
                             <li>
-							
-							:identifier, and, for some parameters, :above and :below</li>
-                            <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left-matches the value, or vice-versa.</li>
-							   （文本：能够匹配的会做一个特别的搜索在文本标注上，或者展示为代码的一部分，而不是使用失败的搜索，
-							      类型：资源中的类型就是资源的名字，有身份者和一些上下的参数。
-								  ）
+
+                                <code>
+                                    :identifier
+                                </code>修饰符，也是和引用搜索型的参数参数配合使用，以支持通过标识符类型的数据（以“system|value”的形式）来匹配引用类型的元素。
+                            
+                            </li>
+                            <li>
+                                <code>:below</code>和 <code>
+                                    :above
+                                </code>修饰符，只能和URI搜索型的参数配合使用。
+                                使用此修饰符后不需要提供URI的完整值进行匹配，只需“左匹配”（使用:above匹配开头部分）或“右匹配”（即使用:below匹配结尾部分）。
+                        
+                            </li>
+          
                         </ul>
                         <p>
-                            Server SHALL reject any search request that contains is suffixed by a modifier that the
-                            server does <b>not</b> support for that parameter. For example, if the server supports
-                            the <code>name</code> search parameter, but not the <code>:exact</code> modifier on the name, it should reject a
-                            search with the parameter <code>name:exact=Bill</code>, using an HTTP <code>400</code> error with
-                            an <a href="operationoutcome.html">OperationOutcome</a> with a <a href="operationoutcome-example-searchfail.html">clear error message</a>.
-							（服务将反应任何搜索需求包括了清洗一些模型，服务不会支持一些参数，例如，如果服务支持姓名搜索这个参数，但是不会要求模型在姓名上有呈现，它就应该反应一份有参数的搜索，用网页错误来操作并清理错误的信息。）
+                            如果服务端系统<b>不支持</b>提交的“后缀修饰符”，服务器<b>必须</b>明确拒绝此搜索请求。
+                            例如，如果服务器支持<code>name</code>搜索参数，但不支持与<code>
+                                :exact
+                            </code>修饰符一起使用，则当收到<code>
+                                name:exact=Bill
+                            </code>的搜索请求时，<b>
+                                必须
+                            </b>返回一个HTTP 400错误状态和一个包含<a href="operationoutcome-example-searchfail.html">
+                                明确错误信息
+                            </a>的<a href="operationoutcome.html">
+                                OperationOutcome资源
+                            </a>来拒绝此请求。
 
                         </p>
 
                         <a name="prefix"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.5</span> Prefixes <a href="search.html#prefix" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.5</span> 前缀比较符 <a href="search.html#prefix" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            For the ordered parameter types of <a href="#number">number</a>, <a href="#date">date</a>, and <a href="#quantity">quantity</a>,
-                            a prefix to the parameter value may be used to control the nature of the matching. To avoid URL escaping and visual confusion,
-                            the following prefixes are used:
+
+
+                            <a href="#number">
+                                数字搜索型
+                            </a>、<a href="#date">日期搜索型</a>、<a href="#quantity">
+                                数量搜索型
+                            </a>这几种搜索类型的参数值是“可排序、可比较”的。可以在参数<b>值</b>之前使用“前缀比较符”来控制匹配的性质（相等、大于、晚于等）。
+                            为了避免URL转义并增强易读性，“前缀比较符”使用以下简称表示：
                         </p>
                         <table class="grid">
                             <tr>
