@@ -262,7 +262,7 @@
                                 服务器不能识别值为"1234-1" 的LOINC编码
                             </li>
                             <li>
-                                参数指定的时间可以超出范围，例如：
+                                参数指定的时间可能超出范围，例如：
                                <code>
                                     GET [基地址]/Condition?onset=le1995
                                 </code>,查询小于等于1995年的病症与诊断资源，但系统只能追溯刚才2001年的数据
@@ -296,9 +296,7 @@
                                 fatal
                             </code> 或 <code>
                                 error
-                            </code>。此操作结果资源将作为资源捆束的一个条目包含在搜索结果中，此资源捆束的<a href="bundle-definitions.html#Bundle.entry.search.mode">
-                                搜索模式
-                            </a>代码=<a href="valueset-search-entry-mode.html"><code>outcome</code></a>的。
+                            </code>。此操作结果资源将作为资源捆束的一个输出类型条目（Bundle.entry.search.mode=<a href="valueset-search-entry-mode.html"><code>outcome</code></a>）包含在搜索结果中。
                             客户端可以使用此信息来改良进一步的搜索。例如，如果客户端执行了以下搜索：
 
                         </p>
@@ -609,101 +607,110 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             </a>、<a href="#date">日期搜索型</a>、<a href="#quantity">
                                 数量搜索型
                             </a>这几种搜索类型的参数值是“可排序、可比较”的。可以在参数<b>值</b>之前使用“前缀比较符”来控制匹配的性质（相等、大于、晚于等）。
-                            为了避免URL转义并增强易读性，“前缀比较符”使用以下简称表示：
+                            为了避免URL转义并增强易读性，“前缀比较符”使用以下代码表示：
                         </p>
                         <table class="grid">
                             <tr>
                                 <td><code>eq</code></td>
-                                <td>the value for the parameter in the resource is equal to the provided value</td>
-                                <td>the range of the search value fully contains the range of the target value</td>
+                                <td>
+								
+								等于：资源中被匹配的元素值（下简称“目标值”）等于搜索参数提供的值（下简称“搜索值”）</td>
+                                <td>
+								时段在期间内：搜索值的值内范围完全包含目标值的值内范围</td>
                             </tr>
                             <tr>
                                 <td><code>ne</code></td>
-                                <td>the value for the parameter in the resource is not equal to the provided value</td>
-                                <td>the range of the search value does not fully contain the range of the target value</td>
+                                <td>不等于：目标值不等于搜索值</td>
+                                <td>时段在期间外：在搜索值的值内范围不完全包含目标值的值内范围</td>
                             </tr>
                             <tr>
                                 <td><code>gt</code></td>
-                                <td>the value for the parameter in the resource is greater than the provided value</td>
-                                <td>the range above the search value intersects (i.e. overlaps) with the range of the target value</td>
+                                <td>大于：目标值大于搜索值</td>
+                                <td>
+								结束时间晚于，搜索值的值上范围与目标值的值内范围相交（即部分重叠）
+								</td>
                             </tr>
                             <tr>
                                 <td><code>lt</code></td>
-                                <td>the value for the parameter in the resource is less than the provided value</td>
-                                <td>the range below the search value intersects (i.e. overlaps) with the range of the target value</td>
+                                <td>小于：目标值小于搜索值</td>
+                                <td>开始时间早于：搜索值的值下范围与目标值的值内范围相交（即部分重叠）</td>
                             </tr>
                             <tr>
                                 <td><code>ge</code></td>
-                                <td>the value for the parameter in the resource is greater or equal to the provided value</td>
-                                <td>the range above the search value intersects (i.e. overlaps) with the range of the target value, or the range of the search value fully contains the range of the target value</td>
+                                <td>大于等于：目标值大于等于搜索值</td>
+                                <td>结束时间晚于或时段在期间内：搜索值的值上范围与目标值的值内范围相交（即部分重叠），或者搜索值的值内范围完全包含目标值的值内范围</td>
                             </tr>
                             <tr>
                                 <td><code>le</code></td>
-                                <td>the value for the parameter in the resource is less or equal to the provided value</td>
-                                <td>the range below the search value intersects (i.e. overlaps) with the range of the target value or the range of the search value fully contains the range of the target value</td>
+                                <td>小于等于：目标值小于等于搜索值</td>
+                                <td>开始时间早于或时段在期间内：搜索值的值下范围与目标值的值内范围相交（即部分重叠），或者搜索值的值内范围完全包含目标值的值内范围</td>
                             </tr>
                             <tr>
                                 <td><code>sa</code></td>
-                                <td>the value for the parameter in the resource starts after the provided value</td>
-                                <td>the range of the search value does not overlap with the range of the target value, and the range above the search value contains the range of the target value</td>
+                                <td>在……之后开始，目标值在搜索值之后开始
+						</td>
+                                <td>
+								目标值的开始时间晚于搜索值的结束时间：搜索值的值内范围与目标值的值内范围不重叠，并且搜索值的值上范围包含目标值的值内范围
+								</td>
                             </tr>
                             <tr>
                                 <td><code>eb</code></td>
-                                <td>the value for the parameter in the resource ends before the provided value</td>
-                                <td>the range of the search value does overlap not with the range of the target value, and the range below the search value contains the range of the target value</td>
+                                <td>在……之前结束，目标值在搜索值之前结束</td>
+                                <td>目标值的结束时间早于搜索值的开始时间：搜索值的范围与目标值的范围不重叠，并且搜索值的值下范围包含目标值的值内范围</td>
                             </tr>
                             <tr>
                                 <td><code>ap</code></td>
                                 <td>
-                                    the value for the parameter in the resource is approximately the same to the provided value.<br />
-                                    Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate
+                          		近似于，目标值与搜索值大致相同。值的偏差建议控制在搜索值 的10%以内（对于日期型搜索，偏差范围是当前时间和搜索值之间的间隔时间的10%），但服务端系统可根据情况调整偏差范围。
                                 </td>
-                                <td>the range of the search value overlaps with the range of the target value</td>
+                                <td>
+								搜索值的值内范围与目标值的值内范围部分重叠</td>
                             </tr>
                         </table>
                         <p>
-                            If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
-                            is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
-                            <code>eb</code> (<code>ends-before</code>) are not used with integer values but are used for decimals.
+						如果没有指定前缀比较符，则默认用“eq”。
+						注意，搜索参数的运作机制和两个数字之间在数学意义上的运算机制不两只。<code>sa</code>（在……之后开始）和<code>eb</code>（在……之前结束）不用于整数值，而是用于小数。
+
                         </p>
                         <p>
-                            For each prefix above, two interpretations are provided - the simple intent of the prefix and the
-                            interpretation of the parameter when applied to ranges. The range interpretation is provided
-                            for decimals and dates.  Searches are always performed on values that are implicitly
-                            or explicitly a range. For instance, the number 2.0 has an implicit range of
-                            1.95 to 2.05, and the date 2015-08-12 has an implicit range of all the time during that day.
-                            If the target value is a <a href="datatypes.html#range">Range</a>, a <a href="datatypes.html#period">Period</a>,
-                            or a <a href="datatypes.html#timing">Timing</a>, then the target is explicitly a range. Three ranges
-                            are identified:
+						上表中对前缀比较符的解释有两种，一是对前缀用途的解释；二是对参数值范围的解释。如果参数值是小数和日期类型时，参数值范围是隐式的（即范围是以某种默认规则的形式存在）例如，数字2.0的隐式范围为1.95到2.05，日期2015-08-12的隐式范围为该天的所有时间。如果
+						搜索总是对隐式或显式为范围的值执行。如果目标值的数据类型是 <a href="datatypes.html#range">Range</a>, a <a href="datatypes.html#period">Period</a>,
+                            or a <a href="datatypes.html#timing">Timing</a>，则目标值的范围是显式的。
+							值的范围有以下三种：
+                 
                         </p>
                         <table class="grid">
                             <tr>
-                                <td>range of the value</td>
-                                <td>The limits implied by the precision of the value</td>
+                                <td>值内范围</td>
                                 <td>
-                                    The number 2.0 has a range of 1.95 to 2.05<br />
-                                    The date 2015-08-12 has a range from 00:00 to 00:00 exclusive
+								范围跨度由数值的精度决定</td>
+                                <td>
+                                    数字2.0的值内范围为：1.95到2.05<br />
+									日期2015-08-12的值内范围为：2015-18-12T00:00:00到2015-18-13T00:00:00之间（包含起点，不含终点）
+                              
                                 </td>
                             </tr>
                             <tr>
-                                <td>range below the value</td>
-                                <td>Up to the specified value</td>
+                                <td>值下范围</td>
                                 <td>
-                                    The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000<br />
-                                    The range before 2015-08-12T05:23:45 includes any time up to 2015-08-12T05:23:45.000000000000000
+								数值（不含数值本身）之前的范围</td>
+                                <td>
+								数字2.0的值下范围为：小于它的所有值，（即：<2.00000000000000000000）。<br />
+								时间点2015-08-12T05:23:45的值下范围为：早于2015-08-12T05:23:45.000000000000000的所有时间。
                                 </td>
                             </tr>
                             <tr>
-                                <td>range above the value</td>
-                                <td>The specified value and up</td>
+                                <td>值上范围</td>
+                                <td>数值（包含数值本身）之后的范围</td>
                                 <td>
-                                    The range above 2.0 includes any value greater or equal to &lt;2.00000000000000000000<br />
-                                    The range after 2015-08-12T05:23:45 includes any time after 2015-08-12T05:23:45.000000000000000
+								数字2.0的值上范围为：大于等于它的所有值，（即：>=2.00000000000000000000）。<br />
+                                时间点2015-08-12T05:23:45的值上范围为：晚于等于2015-08-12T05:23:45.000000000000000的所有时间。
                                 </td>
                             </tr>
                         </table>
                         <p>
                             The proper use of these ranges is discussed further below.
+						 后文将进一步讨论值的范围的正确用法。
                         </p>
 
                         <a name="number"></a>
