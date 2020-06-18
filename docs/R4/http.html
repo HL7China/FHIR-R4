@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>RESTful API - HL7 FHIR 中国</title>
+    <title>RESTful API 微服务 - HL7 FHIR 中国</title>
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -98,7 +98,7 @@
     FHIR被誉为使用REST风格的行业级“RESTful”规范。
     实际上，FHIR的核心规范部分仅支持<a href="https://martinfowler.com/articles/richardsonMaturityModel.html">REST成熟度模型 <img src="external.png" style="text-align: baseline" /></a>
     的第2级，尽管通过使用 <a href="extensibility.html">扩展</a> 可以实现完整的第3级符合性。
-    由于FHIR是一个标准，它依赖于资源结构和接口的标准化。这一点可能被视为违反REST原则，但也是保证不同系统进行一致性交互的关键。
+    由于FHIR是一个标准，它依赖于资源结构和接口的标准化。这一点可能被视为违反REST原则，但这却也是保证不同系统进行一致性交互的关键。
 </p>
 <p>
     每种“资源类型”都定义了一组相同的交互功能，来实现以高粒度模块化的方式管理资源。
@@ -118,7 +118,7 @@
     服务器可以选择哪些交互功能可用，以及它们支持哪些资源类型。服务器应提供一份<a href="capabilitystatement.html">能力声明</a> ，以说明支持哪些交互功能和资源。
 </p>
 <p>
-    除了一些<a href="#general">常规注意事项</a>一般注意事项外，本页还定义了以下交互功能：
+    除了一些<a href="#general">常用理论知识</a>一般注意事项外，本页还定义了以下交互功能：
 </p>
 <a name="interactions"></a>
 <a name="operations"></a>
@@ -141,24 +141,19 @@
   <tr><td><a href="#search">search</a></td><td>根据某些过滤条件搜索所有资源类型</td></tr>
 </table>
 <p>
-    In addition to these interactions, there is an <a href="operations.html">operations framework</a>, which includes endpoints
-    for <a href="operation-resource-validate.html">validation</a>、
-    <a href="messaging.html#mailbox">messaging</a> and
-    <a href="documents.html#bundle">Documents</a>.
-    Also, implementers can <a href="graphql.html">use GraphQL</a>.
-    除了这些交互功能之外，还有一个<a href="operations.html">操作框架</a>，它提供了用于
+   
+    除了这些交互功能之外，FHIR还提供了一个<a href="operations.html">操作框架</a>，以实现
                    <a href="operation-resource-validate.html">验证</a>、
                    <a href="messaging.html#mailbox">消息交换</a> 和
                    <a href="documents.html#bundle">文档交换</a>
-    的端点。
-    此外，实施者可以<a href="graphql.html">使用 GraphQL</a>查询语言。
+    。此外，还支持<a href="graphql.html">使用 GraphQL</a>查询语言。
 </p>
 
 <a name="general"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.0.1</span> 常规注意事项 <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.0.1</span> 常用理论知识 <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-    注意：如果FHIR规范未指定HTTP功能动作（也叫HTTP方式，如OPTIONS），则除了基础HTTP协议强制要求实现的方法，实现者不要期望使用其它的。
+    注意：如果FHIR规范未指定HTTP功能动作（也叫HTTP方式，HTTP方法，如OPTIONS），则只能使用基础HTTP协议强制要求实现的动作。
 </p>
 
 <a name="styleguide"></a>
@@ -169,54 +164,51 @@
 </p>
 
 <pre>
-  VERB [基地址]/[资源类型]/[id] {?_format=[mime-type]}
+  VERB [基地址]/[资源类型]/[逻辑id] {?_format=[表述形式]}
 </pre>
 <ul>
- <li>The first word is the HTTP verb used for the interaction 前面第一个单词就是fhir指定的几种http的方式</li>
- <li>Content surrounded by [] is mandatory, and will be replaced by the string literal identified. Possible insertion values:
-     方括号中的内容表示必填的，实际使用中这些内容将会被一些字符串所代替，可能的值如下
+ <li>VERB就是FHIR支持的几种HTTP方法，如GET/POST/PUT等</li>
+ <li>
+     方括号中的内容（“基地址”、“资源类型”、“逻辑id”）是必填项，在实际使用中方括号中的内容可以有以下几种：
    <ul>
-     <li><code>base</code>: The <a href="#root">Service Base URL服务的基本URL</a></li>
-     <li><code>mime-type</code>: The <a href="#mime-type">Mime Type多媒体类型</a></li>
-     <li><code>type</code>: The name of a resource type (e.g. "Patient")resource类型的名称</li>
-     <li><code>id</code>: The <a href="resource.html#id">Logical Id</a> of a resource resource的逻辑id</li>
-     <li><code>vid</code>: The <a href="resource.html#metadata">Version Id</a> of a resource resource的版本id</li>
-     <li><code>compartment</code>: The name of a <a href="compartmentdefinition.html">compartment间隔名称</a></li>
-     <li><code>parameters</code>: URL parameters as defined for the particular interaction为一些特定场景需要填写的URL参数</li>
+     <li><code>基地址</code>: <a href="#root">服务端提供服务的根URL地址</a></li>
+     <li><code>表述形式</code>: <a href="#mime-type">通过媒体类型（MIME-Type）</a>指定资源的表述形式。MIME(Multipurpose Internet Mail Extensions，多功能网际邮件扩充协议)，其类型也可通过消息头中的“Content-Type”来表示</li>
+     <li><code>资源类型</code>: The name of a resource type (e.g. "Patient")resource类型的名称</li>
+     <li><code>逻辑id</code>: 资源实例的<a href="resource.html#id">业务逻辑id</a></li>
+     <li><code>版本号</code>: 资源实例的历史 <a href="resource.html#metadata">版本号</a></li>。通过在实例后加入“_history/[版本号]”来指定。
+     <li><code>逻辑区块</code>: <a href="compartmentdefinition.html">逻辑区块（compartment）</a>的名称</li>
+     <li><code>parameters</code>: 用于特殊交互的URL参数</li>
    </ul>
  </li>
- <li>Content surrounded by <code>{}</code> is optional<code>大括号</code>中的内容为可选项</li>
+ <li>大括号<code>{}</code> 中的内容为可选项</li>
 </ul>
 <p>
-Implementations constructing URLs using these patterns SHOULD conform to <a href="https://tools.ietf.org/html/rfc3986#appendix-A">RFC 3986 Section 6 Appendix A <img src="external.png" style="text-align: baseline"/></a>
-which requires percent-encoding for a number of characters that occasionally appear in the URLs (mainly in search parameters).
+由上述格式构成的URL地址<b>应该</b>遵循<a href="https://tools.ietf.org/html/rfc3986#appendix-A">RFC 3986标准第6章附录A <img src="external.png" style="text-align: baseline"/></a>的要求，即对某些字符串（特别是对搜索参数）要用百分号转义。
 
-    对这些URL进行实现时要遵循<a href="https://tools.ietf.org/html/rfc3986#appendix-A">RFC 3986 Section 6 Appendix A <img src="external.png" style="text-align: baseline"/></a>即对某些字符串（特别是在搜索时）要用百分号转义
 </p>
 <p>
-This specification uses the underscore as a prefix to disambiguate reserved names from other names in 3 cases:
-    在以下三种情况规范会使用下划线使受保护的名称与其他名称区分开
+    下列三种情况，FHIR规范会使用前缀下划线来区分受保护的名称和其他名称：
 </p>
 <ul>
- <li>To differentiate system wide history and search interactions from interactions on Resource Types
- 区分系统历史，搜索操作与在资源类型的交互
+ <li>
+为了将系统层面的历史检索、资源搜索交互和资源类型层级上的历史检索、资源搜索区分开。
  </li>
- <li>To differentiate search, history and similar interactions from instances of a resource type
- 区分搜索，历史，相似交互与resource类型的交互
+ <li>
+为了区分历史检索等在资源实例层级和资源类型层级上的相似交互功能。
  </li>
- <li>To differentiate search parameters defined for all resources from those defined for specific resource types
- 区分所有资源定义的搜索参数与之对应的resource类型的定义
+ <li>
+ 为了将适用于所有资源的通用搜索参数和资源专属搜索参数区分开。
+
  </li>
 </ul>
 <p>
-In addition, the character <code>$</code> is used as a prefix to operation names that are RPC-like additions to the base
-API defined either by this specification or by implementers.
-    另外，这个操作符<code>$</code>是被用作操作名称前缀，这些操作对基本API的操作或规范来说有些像RPC
+
+    另外，可以在交互操作名称之前将<code>$</code>字符作为前缀使用，以实现类RPC功能。这类功能可能是由本规范定义的，也可能由实施者自定义。
 </p>
 
 <a name="root"></a>
 <a name="general"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.2</span> 1.1.1	服务根路径（Base URL） <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.2</span> 1.1.1	服务基地址（Base URL） <a href="http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
 The Service Base URL is the address where all of the
 resources defined by this interface are found. The Service
@@ -841,20 +833,20 @@ The <code>vread</code> interaction performs a version specific read of the resou
 
 </p>
 <pre>
-  GET [基地址]/[资源类型]/[id]/_history/[vid] {?_format=[mime-type]}
+  GET [基地址]/[资源类型]/[id]/_history/[版本号] {?_format=[mime-type]}
 </pre>
 <p>
 This returns a single instance with the content specified for the resource type for that
 version of the resource.
 The returned resource SHALL have an <code>id</code> element with a value that is the <code>[id]</code>, and a <code>meta.versionId</code>
-element with a value of <code>[vid]</code>. Servers SHOULD return an <code>ETag</code> header with the versionId (if versioning is supported)
+element with a value of <code>[版本号]</code>. Servers SHOULD return an <code>ETag</code> header with the versionId (if versioning is supported)
 and a <code>Last-Modified</code> header.
 
 
     这将返回为该资源类型指定内容的单个实例
     资源的版本。
     返回的资源应具有一个值为<code>id</code>element，该值为<code>[id]</code>，和一个<code>meta.versionid</code>
-    值为<code>[vid]</code>的元素。服务器应返回带有versionID的<code>etag</code>header（如果支持版本控制）
+    值为<code>[版本号]</code>的元素。服务器应返回带有versionID的<code>etag</code>header（如果支持版本控制）
     和A<code>last modified</code>header.
 </p>
 <p>
@@ -1537,15 +1529,15 @@ the created resource version:
     创建的资源版本：
 </p>
 <pre class="http">
-  Location: [基地址]/[资源类型]/[id]/_history/[vid]
+  Location: [基地址]/[资源类型]/[id]/_history/[版本号]
 </pre>
 <p>
-where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version.
+where <code>[id]</code> and <code>[版本号]</code> are the newly created id and version id for the resource version.
 The Location header should be as specific as possible - if the server understands versioning, the version is
 included. If a server does not track versions, the Location header will just contain [基地址]/[资源类型]/[id]. The
 Location MAY be an absolute or relative URL.
 
-    其中<code>[id]</code>and<code>[vid]</code>为新建的id和版本id.
+    其中<code>[id]</code>and<code>[版本号]</code>为新建的id和版本id.
     位置头应尽可能具体-如果服务器了解版本控制，则版本为
     包括。如果服务器不跟踪版本，则位置头将只包含[基地址]/[资源类型]/[id]。这个
     位置可以是绝对或相对URL
@@ -2951,7 +2943,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <tr><th>Interaction</th>                <th>Path</th><th colspan="5">Request</th></tr>
 <tr><th colspan="2"></th>                                                       <th>Verb</th>           <th>Content-Type</th>   <th>Body</th>     <th>Prefer</th>         <th>Conditional</th></tr>
 <tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>ETag</code>, <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
-<tr><td><code>vread</code></td>                      <td><code>/[type]/[id]/_history/[vid]</code></td>    <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>         	<td>N/A</td></tr>
+<tr><td><code>vread</code></td>                      <td><code>/[type]/[id]/_history/[版本号]</code></td>    <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>         	<td>N/A</td></tr>
 <tr><td><code>update</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>PUT</code></td>            <td>R</td>              <td>Resource</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>patch</code></td>                      <td><code>/[type]/[id]</code></td>                   <td><code>PATCH</code></td>          <td>R (may be a patch type)</td>        <td>Patch</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>delete</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>DELETE</code></td>         <td>N/A</td>            <td>N/A</td>      <td>N/A</td>	         <td>N/A</td></tr>
