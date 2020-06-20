@@ -537,24 +537,24 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
 
                             </li>
                             <li>
-                                <code>:exact</code> 修饰符，它只能和字符串搜索型的参数配合使用，以支持区分大小写区和支持对“组合字符编码”的搜索。
+                                <code>:exact</code> 修饰符，它和字符串搜索型的参数配合使用，以支持区分大小写区和支持对“组合字符编码”的搜索。
                                 注意，对<a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">
                                     扩展字型簇 extended grapheme clusters <img src="external.png" style="text-align: baseline" />
                                 </a>（由一组Unicode编码按序列组合后生成的单个人类文字） 的支持由服务器自己决定。即：当搜索参数的值是一串Unicode编码时，服务端系统自行决定搜索是匹配其等效转换后的文字还是匹配Unicode编码中的字符。
                             </li>
                             <li>
-                                <code>:contains</code> 修饰符，它也只能和字符串搜索型的参数配合使用，且不支持区分大小写区和“组合字符编码”的搜索。它用于模糊搜索，只要资源的元素值中有一部分内容和搜索参数值相同，无论是头部相同还是中间部分相同或者是尾部相同，都会命中目标。
+                                <code>:contains</code> 修饰符，它也和字符串搜索型的参数配合使用，且不支持区分大小写区和“组合字符编码”的搜索。它用于模糊搜索，只要资源的元素值中有一部分内容和搜索参数值相同，无论是头部相同还是中间部分相同或者是尾部相同，都会命中目标。
 
                             </li>
                             <li>
                                 <code>
                                     :text
-                                </code>修饰符，它只能和令牌搜索型的参数配合使用，用于对CodeableConcept数据类型中的text元素或对Coding数据类型中的display元素的搜索。而不使用此修饰符时搜索的是code元素。
+                                </code>修饰符，它和令牌搜索型的参数配合使用，用于对CodeableConcept数据类型中的text元素或对Coding数据类型中的display元素的搜索。而不使用此修饰符时搜索的是code元素。
                             </li>
                             <li>
 
                                 <code>:in</code>、 <code>:below</code>,、<code>:above</code> 、<code>:not-in</code>
-                                这些修饰符都只能和令牌搜索型的参数配合使用，具体用法在下文介绍。
+                                这些修饰符都和令牌搜索型的参数配合使用，具体用法在下文介绍。
                             </li>
 
                             <li>
@@ -563,7 +563,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                     :[type]
                                 </code>修饰符，其中[type]指的是FHIR的资源类型（如：<code>
                                     :Patient
-                                </code>），它只能和引用搜索型的参数配合使用。
+                                </code>），它和引用搜索型的参数配合使用。
                             </li>
                             <li>
 
@@ -575,7 +575,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             <li>
                                 <code>:below</code>和 <code>
                                     :above
-                                </code>修饰符，只能和URI搜索型的参数配合使用。
+                                </code>修饰符，它和URI搜索型的参数配合使用。
                                 使用此修饰符后不需要提供URI的完整值进行匹配，只需“左匹配”（使用:above匹配开头部分）或“右匹配”（即使用:below匹配结尾部分）。
                         
                             </li>
@@ -685,7 +685,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 <td>
 								范围跨度由数值的精度决定</td>
                                 <td>
-                                    数字2.0的值内范围为：1.95到2.05<br />
+                                    数字2.0的值内范围为：1.95到2.05（不含）<br />
 									日期2015-08-12的值内范围为：2015-18-12T00:00:00到2015-18-13T00:00:00之间（包含起点，不含终点）
                               
                                 </td>
@@ -714,49 +714,56 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                         </p>
 
                         <a name="number"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.6</span> number <a href="search.html#number" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.6</span> 数字搜索型 <a href="search.html#number" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            Searching on a simple numerical value in a resource. Examples:
+                            
+							针对资源中的简单数值进行搜索。示例如下：
                         </p>
                         <table class="grid">
-                            <tr><td><code>[parameter]=100</code></td><td>Values that equal 100, to 3 significant figures precision, so this is actually searching for values in the range [99.5 ... 100.5)</td></tr>
-                            <tr><td><code>[parameter]=100.00</code></td><td>Values that equal 100, to 5 significant figures precision, so this is actually searching for values in the range [99.995 ... 100.005)</td></tr>
-                            <tr><td><code>[parameter]=1e2</code></td><td>Values that equal 100, to 1 significant figures precision, so this is actually searching for values in the range [95 ... 105)</td></tr>
-                            <tr><td><code>[parameter]=lt100</code></td><td>Values that are less than exactly 100</td></tr>
-                            <tr><td><code>[parameter]=le100</code></td><td>Values that are less or equal to exactly 100</td></tr>
-                            <tr><td><code>[parameter]=gt100</code></td><td>Values that are greater than exactly 100</td></tr>
-                            <tr><td><code>[parameter]=ge100</code></td><td>Values that are greater or equal to exactly 100</td></tr>
-                            <tr><td><code>[parameter]=ne100</code></td><td>Values that are not equal to 100 (actually, in the range 99.5 to 100.5)</td></tr>
+                            <tr><td><code>[参数]=100</code></td><td>
+							等于100的值，精确到3个有效位数，所以这实际上是在搜索范围[99.5 ... 100.5)</td></tr>
+                            <tr><td><code>[参数]=100.00</code></td><td>
+							等于100的值，精确到5个有效位数，所以这实际上是在搜索范围 [99.995 ... 100.005)</td></tr>
+                            <tr><td><code>[参数]=1e2</code></td><td>即1*10<sup>2</sup>，等于100的值，精确到1个有效位数，所以这实际上是在搜索范围 [95 ... 105)</td></tr>
+                            <tr><td><code>[参数]=lt100</code></td><td>小于100（精确值）的值</td></tr>
+                            <tr><td><code>[参数]=le100</code></td><td>小于等于100（精确值）的值</td></tr>
+                            <tr><td><code>[参数]=gt100</code></td><td>大于100（精确值）的值</td></tr>
+                            <tr><td><code>[参数]=ge100</code></td><td>大于等于100（精确值）的值</td></tr>
+                            <tr><td><code>[参数]=ne100</code></td><td>不等于100的值 (确切的说, 是[99.5 ... 100.5)范围之外的值</td></tr>
                         </table>
                         <p>
-                            Notes about searching on Numbers:
+                            数字搜索型还有以下一些注意事项：
                         </p>
                         <ul>
                             <li>
-                                When a number search is used against a resource element that stores a simple integer (e.g.
-                                <a href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.recommendation.doseNumber_x_">ImmunizationRecommendation.recommendation.doseNumber</a>), and the search parameter
-                                is not expressed using the exponential forms, and does not include any non-zero digits after a decimal point,
-                                the significance issues cancel out and searching is based on exact matches.  Note that if there are non-zero digits after a decimal point,
-                                there cannot be any matches
+                                当目标值是一个整数类型（如：<a href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.recommendation.doseNumber_x_">ImmunizationRecommendation.recommendation.doseNumber</a>），并搜索值不是使用的指数形式且不带非零小数位，则不存在有效位数的问题。此时的搜索为精确匹配。注意，如果搜索值带有非零小数位，则不能有任何匹配项。
+								
+                             </li>
+                            <li>
+							
+							当使用了 lgt、lt、ge、le、sa或eb前缀比较符时，则将其视为精确值，即忽略数字值内范围中的隐式精度。
                             </li>
                             <li>
-                                When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the
-                                implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision
-                            </li>
-                            <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
+							资源数字搜索型参数的运行机制与数学意义上比较两个数字的值的概念是不同的。
+						</li>
                             <li>
-                                Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in
-                                the search parameter value, excluding leading zeros. So 100 and 1.00e2 both have the same number of significant digits - three
+							对数字的搜索包含一个隐式范围，即上述“值的范围”。隐式范围的有效位数是以搜索值为准，不包括前导零。另外，虽然100、1.00e2、1e2三个数的值都等于100，但100和1.00e2的有效位数都是3，而1e2的有效位是1。
                             </li>
                         </ul>
 
                         <p>
-                            Here are some example searches:
+                            面上是关于数字搜索型的几个例子：
                         </p>
                         <table>
-                            <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
-                            <tr><td><pre> GET [基地址]/RiskAssessment?probability=gt0.8</pre></td><td>Search for all the Risk Assessments with probability great than 0.8 (could also be <code>probability=gt8e-1</code> using exponential form)</td></tr>
-                            <tr><td><pre> GET [基地址]/ImmunizationRecommendation?dose-number=2</pre></td><td>Search for any immunization recommendation recommending a second dose</td></tr>
+                            <tr><td width="50%"><b>搜索语句</b></td><td><b>描述</b></td></tr>
+                            <tr><td><pre> GET [基地址]/RiskAssessment?probability=gt0.8</pre></td>
+							<td>
+							搜索概率大于0.8的所有RiskAssessment资源（也可以使用指数形式：<code>probability=gt8e-1</code>）
+							</td></tr>
+                            <tr><td><pre> GET [基地址]/ImmunizationRecommendation?dose-number=2</pre></td>
+							<td>寻找任何推荐第二次注射的免疫建议
+							搜索建议进行第二次接种的所有ImmunizationRecommendation资源
+							</td></tr>
                         </table>
 
 
@@ -805,7 +812,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                         </p>
                         <table class="grid">
                             <tr>
-                                <td><code>[parameter]=eq2013-01-14</code></td>
+                                <td><code>[参数]=eq2013-01-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14T00:00 matches (obviously)</li>
@@ -815,7 +822,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=ne2013-01-14</code></td>
+                                <td><code>[参数]=ne2013-01-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-15T00:00 matches - it's not in the range</li>
@@ -825,7 +832,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=lt2013-01-14T10:00</code></td>
+                                <td><code>[参数]=lt2013-01-14T10:00</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14 matches, because it includes the part of 14-Jan 2013 before 10am</li>
@@ -833,7 +840,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=gt2013-01-14T10:00</code></td>
+                                <td><code>[参数]=gt2013-01-14T10:00</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14 matches, because it includes the part of 14-Jan 2013 after 10am</li>
@@ -841,7 +848,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=ge2013-03-14</code></td>
+                                <td><code>[参数]=ge2013-03-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">"from 21-Jan 2013 onwards" is included because that period may include times after 14-Mar 2013</li>
@@ -849,7 +856,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=le2013-03-14</code></td>
+                                <td><code>[参数]=le2013-03-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">"from 21-Jan 2013 onwards" is included because that period may include times before 14-Mar 2013</li>
@@ -857,7 +864,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=sa2013-03-14</code></td>
+                                <td><code>[参数]=sa2013-03-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick2.gif')">"from 15-Mar 2013 onwards" is included because that period starts after 14-Mar 2013</li>
@@ -867,7 +874,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=eb2013-03-14</code></td>
+                                <td><code>[参数]=eb2013-03-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/cross.png')">"from 15-Mar 2013 onwards" is not included because that period starts after 14-Mar 2013</li>
@@ -877,7 +884,7 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>[parameter]=ap2013-03-14</code></td>
+                                <td><code>[参数]=ap2013-03-14</code></td>
                                 <td>
                                     <ul>
                                         <li style="list-style-image: url('assets/images/tick.gif')">14-Mar 2013 is included - as it exactly matches</li>
@@ -1043,10 +1050,10 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             all the codes in the hierarchy. The syntax for the value is one of the following:
                         </p>
                         <ul>
-                            <li><b><code>[parameter]=[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
-                            <li><b><code>[parameter]=[system]|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
-                            <li><b><code>[parameter]=|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the Coding/Identifier has no system property</li>
-                            <li><b><code>[parameter]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
+                            <li><b><code>[参数]=[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
+                            <li><b><code>[参数]=[system]|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
+                            <li><b><code>[参数]=|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the Coding/Identifier has no system property</li>
+                            <li><b><code>[参数]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
                         </ul>
                         <p>
                             Notes:
@@ -1055,11 +1062,11 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
                             <li>
                                 The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
                                 If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
-                                then just the form [parameter]=[code] is used.
+                                then just the form [参数]=[code] is used.
                             </li>
                             <li>
                                 For token parameters on elements of type <a href="datatypes.html#ContactPoint">ContactPoint</a>, <a href="datatypes.html#uri">uri</a>,
-                                or <a href="datatypes.html#boolean">boolean</a>, the presence of the pipe symbol SHALL NOT be used - only the <code>[parameter]=[code]</code> form is allowed
+                                or <a href="datatypes.html#boolean">boolean</a>, the presence of the pipe symbol SHALL NOT be used - only the <code>[参数]=[code]</code> form is allowed
                             </li>
                             <li></li>
                         </ul>
@@ -1210,7 +1217,7 @@ GET [基地址]/DocumentReference?contenttype:below=text/xml
                             The syntax for the value follows the form:
                         </p>
                         <ul>
-                            <li><b>[parameter]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
+                            <li><b>[参数]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
                         </ul>
                         <p>
                             The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how
@@ -1251,12 +1258,12 @@ GET [基地址]/DocumentReference?contenttype:below=text/xml
                             The interpretation of a <i>reference</i> parameter is either:
                         </p>
                         <ul>
-                            <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
+                            <li><b><code>[参数]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
                             <li>
-                                <b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
+                                <b><code>[参数]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
                                 for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)
                             </li>
-                            <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by it's canonical URL</li>
+                            <li><b><code>[参数]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by it's canonical URL</li>
                         </ul>
                         <p>
                             Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
