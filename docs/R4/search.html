@@ -768,13 +768,13 @@ GET [基地址]/Observation?patient.identifier=http://example.com/fhir/identifie
 
 
                         <a name="date"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.7</span> date <a href="search.html#date" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.7</span> 日期搜索型 <a href="search.html#date" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the
-                            concepts are relatively straight-forward, there are a number of subtleties involved in ensuring consistent behavior.
+                          
+							日期搜索型是对日期/时间或时段的搜索。和其它与日期/时间相关的功能一样，虽然一眼就能知道是什么意思，但却有很多需要注意的细节。
                         </p>
                         <p>
-                            The date parameter format is <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code> (the standard XML format).
+                            日期搜索型的参数格式为： <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code>。 这是 XML中使用的标准格式。
                         </p>
                         <p>
                             Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
@@ -1409,30 +1409,32 @@ GET {base]/Observation?definition:below=http:http://acme.com/some-profile|1
                         </p>
 
                         <a name="recursive"></a>
-                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.14</span> Searching Hierarchies <a href="search.html#recursive" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+                        <h4 class="self-link-parent"><span class="sectioncount">3.1.1.4.14</span> 迭代搜索层级性引用元素 <a href="search.html#recursive" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
                         <p>
-                            Some references are <a href="references.html#circular">circular</a> - that is, the reference
-                            points to another resource of the same type. When the reference establishes a strict hierarchy,
-                            the modifiers :above and :below may be used to search transitively through the hierarchy:
+                           
+							
+						资源的<a href="references.html#circular">循环引用</a>是指A资源类型中的某个元素引用的资源类型也是A。当这种循环引用形成了严格的层级结构时，可以使用<code>:above</code> 和 <code>:below</code>后缀修饰符在层级结构中进行传递性搜索。如：
                         </p>
 <pre>
 GET [基地址]/Procedure?location:below=42
 </pre>
                         <p>
-                            This search returns no only all procedures that occurred at location with id 42, but also any procedures
-                            that occurred in locations that are part of location with id 42.
+                        搜索返回的Procedure资源实例是根据Procedure.location来匹配的。由于Location资源中的partOf元素引用的资源类型也是Location，这就构成了一个循环引用。并且此循环引用的意义是“此地是属于另一地的一部分，以此类推”，它形成了严格的层级结构。所以可以使用<code>:below</code>后缀修饰符在Location.partOf的层级结构中进行传递性搜索。
+						即，此搜索不仅仅以id为42的Location资源实例B作为匹配条件，而且将B “之下”（属于B的一部分）的所有Location资源实例都作为匹配条件。换句话说，搜索条件是：Procedure资源的Procedure.location.id=42，或者Procedure.location.partOf.id=42或者Procedure.location.partOf.partOf.id=42，以此类推。无论partOf有多少个层级，只要它属于B,那么在此Location上发生的Procedure都符合搜索条件。
                         </p>
 <pre>
-GET [基地址]/MedicationAdministration?encounter:above=21
+GET [基地址]/MedicationAdministration?context:above=21
 </pre>
                         <p>
-                            Returns all medication administrations that happened during encounter with id 21 or during any "parent"
-                            encounter of that encounter.
-                        </p>
+                         
+							搜索返回的MedicationAdministration资源实例是根据MedicationAdministration.context来匹配的。由于Encounter资源中的partOf元素引用的资源类型也是Encounter，这就构成了一个循环引用。并且此循环引用的意义是“在管理上或时间上,此医疗活动是另一个医疗活动其中的一部分，以此类推”，它形成了严格的层级结构。所以可以使用<code>:above</code>后缀修饰符在Encounter.partOf的层级结构中进行传递性搜索。
+							即，此搜索不仅仅以id为21的Encounter资源实例C匹配条件，而且将C “之上”（C的父级）的所有Encounter资源实例都作为匹配条件。
+							换句话说，搜索条件是：MedicationAdministration资源的MedicationAdministration.context=Encounter/21?_revinclude=Encounter:partOf（关于“反向包含”<a href="#revinclude"><code>_revinclude</code></a>将在后文介绍）或者反向包含中的每个Encounter中再次反向包含的Encounter，以此类推。无论反向包含有多少个层级，只要Encounter是C的父级Encounter,那么在此Encounter期间的MedicationAdministration都符合搜索条件。
+							
+						                        </p>
                         <p>
-                            Servers indicate that :above/:below is supported on a search parameter by defining them as
-                            <a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the
-                            Search Parameter definition.
+                           
+							服务器通过定义搜索参数资源的<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a>元素来说明是否支持<code>:above/:below</code>后缀修饰符。
                         </p>
 
 
