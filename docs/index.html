@@ -1,10 +1,10 @@
-﻿<html xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<html xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
   <title>FHIR 中国 - HL7 FHIR中文版</title>
   <meta charset="UTF-8"/>
   <meta name="keywords" content="FHIR,FHIR中文,FHIR中国,FHIR标准,FHIR资源,FHIR教程,FHIR培训,医疗信息标准"/>
   <meta name="description" content="HL7 FHIR标准的中文版，目标是助推下一代医疗数据交换标准在中国的实施。提供FHIR资源的中国本地化、FHIR实施指南、FHIR术语服务、FHIR测试服务器、开源FHIR组件与工具、FHIR培训、FHIR项目实施咨询服务等。"/>
-
+ <!-- <link  rel="icon" href="./img/favicon.ico" /> -->
 
 <script>
 var _hmt = _hmt || [];
@@ -19,41 +19,363 @@ var _hmt = _hmt || [];
 
 </head>
 <body>
-<p>
-  HL7 FHIR标准是一个软件数据交互标准。它由国际HL7组织发布的一个平台式标准规范，它定义了一系列在进行医疗健康活动中所需的“平台能力”。它能灵活支持不同区域不同医疗机构的不同场景，包括所有的国家和地区。
-  </p>
-  
-  <p>
-  本网站是<a href="http://hl7.org/fhir" target="_balnk">HL7 FHIR 官方网站</a>的中文版，目标是助推下一代医疗数据交换标准在中国的实施。提供包括HL7 FHIR标准规范的中文翻译、FHIR资源的中国本地化、FHIR实施指南、FHIR术语服务、FHIR测试服务器、开源FHIR组件与工具、FHIR培训、FHIR项目实施咨询服务等。
-  </P>
-  
-<p>
-<ul>
-        <li> <b>目前翻译仍在持续进行中，翻译进度可点击右上角的“目录”图标进入</b>：
-<br/>1.目录中仅有英文标题的是还没开始翻译的内容。本站将持续对本目录包含的主题进行翻译。
-		<br/>
-        2.对已经开始翻译的主题会在原标题后提供中文标题，整个主题翻译完成后会将标题加粗。
-       <br/>
-	   3.若有勘误或补充内容会在括号里简要说明。
-        </li>  
-		 
-   
-
-			</ul>	
-
-  
-</p>
-
-<hr/>
-  <div>
-  <a href="R4/index.html">HL7 FHIR R4 第四版中文版</a>
-  </div>
-
-  <div>
-  <a href="#">HL7 FHIR R5 第五版开发版</a>
-  </div>
-  
-  <hr/>
-  蜀ICP20023191号-5
+<div class="content">
+<!-- 	<div class="heider">
+		<div class="navigation-img">
+		<div class="internal">
+		<div class="left-text">
+			<div>
+			<img src="img/fhir-logo.png" />
+			</div>
+			<div>
+			<span>FHIR中文版 R4 ( 第四版 )</span>
+			</div>
+		</div>
+			<div class="right-img">
+				<div>
+				<img src="./img/search.png"/>
+				</div>
+				<div>
+				<img src="./img/fhirIndex.png" />
+				</div>
+				<div class="hl">
+				<img src="./img/hl7-logo.png" />
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="navigation">
+		<div class="navigation-content">		
+				<span>主页</span>
+				<span>入门</span>
+				<span>文档</span>
+				<span>资源类型</span>
+				<span>本地化</span>
+				<span>扩展</span>
+				<span>操作</span>
+				<span>术语</span>		
+		</div>
+		</div>
+		<div class=" currentpage">
+			<div class="currentpage-content">
+			<div class="currentpage-left">
+				<span>当前位置 : 主页</span>
+			</div>
+			<div class="currentpage-right">
+				<span>切换英文</span>
+			</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="middle">
+		<div class="middle-content">
+			<div class="content-FHIR">
+				<p>HL7 FHIR 中文版</p>
+				<p>HL7 FHIR标准是一个软件数据交互标准。</p>
+				<p>HL7 FHIR标准是国际HL7组织发布的一个平台式标准规范，它定义了一系列在进行医疗健康活动中所需的“平台能力”。</p>
+				<p>HL7 FHIR标准能灵活支持不同区域不同医疗机构的不同场景，包括所有的国家和地区。</p>
+			</div>
+			<div class="content-version">
+				<div class="version-left">
+					<div class="version-text">
+						<div>
+						<p>
+						本网站是<a href="http://hl7.org/fhir" target="_balnk">HL7 FHIR 官方网站</a>的中文版，目标是助推下一代医疗数据交换标准在中国的实施。提供包括HL7 FHIR标准规范的中文翻译、FHIR资源的中国本地化、FHIR实施指南、FHIR术语服务、FHIR测试服务器、开源FHIR组件与工具、FHIR培训、FHIR项目实施咨询服务等。
+						</P>
+						</div>
+					</div>
+				</div>
+				<div class="version-right">
+					<div class="version-twotext">
+					<p>目前翻译仍在持续进行中，可通过<a href="R4/toc.html" target="_balnk">目录</a>查看翻译进度。请注意：</p>
+					<p>1.目录中仅有英文标题的是还没开始翻译的内容。本站将持续对本目录包含的主题进行翻译。</p>
+					<p>2.对已经开始翻译的主题会在原标题后提供中文标题，整个主题翻译完成后会将标题加粗。</p>
+					<p>3.若有勘误或补充内容会在括号里简要说明。</p>
+					</div>
+				</div>
+			</div>
+			<div class="content-entrance">
+				<div class="entrance-left" onclick="window.open('R4/index.html')">
+					<div class="">
+						<p>HL7 FHIR</p>
+						<span>R4</span><span>第四版 ( 中文版 ) <img src="./img/箭头.png"></span>
+					</div>
+				</div>
+				<div class="entrance-right" onclick="window.open('R5/index.html')">
+					<div class="">
+						<p>HL7 FHIR</p>
+						<span>R4</span><span>第五版 ( 中文版 ) <img src="./img/箭头.png"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<span>©2020 蜀ICP备20023191号-5</span>
+	</div>
+</div>
 </body>
 </html>
+<script>
+
+</script>
+<style>
+	body{		
+		margin: 0px;
+		padding: 0px;
+	}
+	p{
+		margin: 0px;
+		padding: 0px;
+	}
+	span{
+		margin: 0px;
+		padding: 0px;
+	}
+	.content{
+		width: 100%;
+		background: white;
+		font-size: 14px;
+	}
+	.heider{
+		width: 100%;
+	    height: 10.5em;
+	}
+	.navigation-img{
+		background:#E6E6E6 ;
+		width: 100%;
+		height: 4.5em;		
+	}
+	.internal{
+		width: 80%;
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
+	}
+		.left-text{
+			display: flex;
+			justify-content: center;
+	        align-items: center;
+			padding-left: 0.7em;
+		}
+	.right-img {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.right-img img{
+		margin-left: 1.2em;
+	}	
+	.hl img{
+		width: 3.8em;
+		height: 3.8em;
+	}
+	.navigation{
+		background: #AD1F2F;
+		width: 100%;
+		height: 3.21em;
+	}
+	.navigation-content{
+		width: 80%;
+		margin: auto;		
+		}	
+	.navigation-content span{
+		margin-right: 1.5em;
+		line-height: 3.25em;
+		color: #E0DADE;
+	}
+	.currentpage{
+		background: #F5F5F5;
+		width: 100%;
+		height: 2.85em;
+	}
+	.currentpage-content{
+		width: 80%;
+		margin: auto;
+		display: flex;
+		justify-content: space-between;	
+	}
+	.currentpage-content span{
+		line-height: 2.8em;
+	}
+
+	.currentpage-left span{
+		color: #353435;
+		font-weight: 700;
+	}
+	.currentpage-right span{
+		color: #5A5C5E;
+	}
+	.navigation-img span{
+		font-size: 1.2em;	
+			font-weight: bold;
+			color: #952323;
+	}
+	
+	.middle{
+		width: 100%;
+	}
+	.middle-content{
+		width: 80%;
+		margin: auto;	
+	}
+	.content-FHIR{
+		background: url(img/banner.png) no-repeat;
+		height: 25rem;
+		background-size: 100% 100%;
+	}
+	.content-FHIR p{
+		margin-left: 2.5rem;
+		font-size: 18px;
+		color: #FDFEFD;
+		margin-top: 3.8rem;
+		width: 50%;
+	}
+	.content-FHIR p:nth-child(1){
+		padding-top: 3rem;
+		margin-top: 0rem;
+		font-size: 36px;
+		color: #FDFEFD;
+		font-weight: bold;
+	}
+	.content-FHIR p:nth-child(3){
+		width: 50%;
+		margin-top: 2.2rem;
+	}
+	.content-FHIR p:nth-child(4){
+		width: 44%;
+		margin-top: 1.7rem;
+	}
+	.version-text{
+		margin: 3rem 2.5rem;
+		font-size: 18px;
+		color: #EAE9E9;
+	font-weight: 500;
+	}
+	.version-twotext{
+		margin: 2rem  1rem;
+		font-size: 16px;
+		color: #EAE9E9;
+	}
+	.version-twotext p:nth-child(1)
+	{
+		
+		font-weight: 550;
+	}
+	.version-twotext p{
+		line-height: 2.2rem;
+	}
+	.version-text p{
+		line-height: 2.2rem;
+	}
+	.version-text a{
+		text-decoration: none;
+		color: #4B7DCD;
+	}
+	.content-version{
+		height: 18rem;
+		width: 100%;
+		margin-top: 1.2rem;
+		display: flex;
+		justify-content: space-between;
+	}
+	.version-left{
+		width: 51%;
+		background: url(img/bg.png)no-repeat;
+		background-size: 100% 100%; 
+		
+	}
+	.version-right{
+		width: 50%;
+		background: #EC2029;		
+	}
+	.content-entrance{
+		height:11rem;
+		width: 100%;
+		margin-top: 1.2rem;
+		display: flex;
+		justify-content: space-between;
+	}
+	.entrance-left{
+		width: 50%;
+		background: #FFFFE7;
+		border: 1px solid #A3866C;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	.entrance-right p{
+		font-size: 30px;
+		color: #480000;		
+	}
+	.entrance-right span:nth-child(2)
+	{
+		font-size: 64px;
+		font-weight: bold;
+		color: #480000;
+	}
+	.entrance-right span:nth-child(3)
+	{ 		
+		position: relative;
+	     bottom: 30px;
+		 left: 20px;
+		font-size: 30px;		
+		color: #480000;
+	}
+	.entrance-left p{
+		font-size: 30px;
+		color: #480000;		
+	}
+	.entrance-left span:nth-child(2)
+	{
+		font-size: 64px;
+		font-weight: bold;
+		color: #480000;
+	}
+	.entrance-left span:nth-child(3)
+	{ 		
+		position: relative;
+		 bottom: 30px;
+		 left: 20px;
+		font-size: 30px;		
+		color: #480000;
+	}
+	.entrance-left img{
+		position: relative;
+		top: 0.3rem;
+		left: 0.5rem;
+	}
+	.entrance-right img{
+		position: relative;
+		top: 0.3rem;
+		left: 0.5rem;
+	}
+	.entrance-right{
+		width: 49%;
+		background: #E6E6E6;
+		border: 1px solid #A3866C;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		pointer-events: none;
+		cursor: pointer;
+	}
+	
+	.bottom{
+		width: 80%;
+		background: #E6E6E6;
+		height: 5em;
+		margin: auto;
+		margin-top: 1.2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.bottom span{
+		color: #737373;
+		font-size: 16px;
+		font-weight: 500;
+	}
+</style>
