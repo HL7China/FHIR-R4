@@ -26,8 +26,8 @@ var navData = {
 
 
 var footerData = {
-    text: ['搜索', '历史版本', '目录', '贡献', 'License', '提出建议', '联系我们:contact@hl7fhir.cn'],
-    link: ['http://hl7.org/fhir/search.cfm', 'history.html', 'toc.html', 'credits.html', "license.html",   'http://hl7.org/fhir-issues', 'mailto:contact@hl7fhir.cn']
+    text: ['搜索', '历史版本', '目录', '贡献', 'License', '提出建议', '联系我们:contact@hl7fhir.cn','蜀ICP备20023191号-5'],
+    link: ['http://hl7.org/fhir/search.cfm', 'history.html', 'toc.html', 'credits.html', "license.html",   'http://hl7.org/fhir-issues', 'mailto:contact@hl7fhir.cn','https://beian.miit.gov.cn/']
 };
 
 var headerHtml=document.getElementById('header-temp').innerHTML;
