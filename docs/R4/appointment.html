@@ -112,134 +112,102 @@
                             <a name="basic-workflow"></a>
                             <h3 class="self-link-parent"><span class="sectioncount">12.10.1.1</span> The basic workflow to create an appointment <a href="appointment.html#basic-workflow" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
                             <ul>
-                                <li>
-                                    <b>Discovery/Addressing</b>
-                                    <p>
-                                        Before an appointment can be made, the address/endpoint details of the resource that we want
-                                        to schedule an appointment with must be determined. This is often based on the healthcare service type
-                                        and any formatting information which indicates how to make the request.
-                                        This is typically handled via the Schedule resource.
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Checking Availability on the Schedule (optional)</b>
-                                    <p>
-                                        This optional step permits the checking of any existing available times
-                                        (<a href="slot.html">Slot</a> resources associated with a selected <a href="schedule.html">Schedule</a>) that can be booked against.
-                                        Just because a time is indicated as available doesn't guarantee that an appointment can be made.
-                                        The booking system that is going to process the request may make other qualifying decisions to
-                                        determine if the appointment can be made, such as permissions, assessments, availability of other
-                                        resources, etc.
-                                    </p>
-                                    <p>
-                                        This step is optional, as the creation of the appointment is never a guaranteed action.
-                                        But by performing this availability check, you can increase the chances of making a successful
-                                        booking.
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Making the Appointment Request</b>
-                                    <p>
-                                        When an appointment is required, a requester creates new Appointment resource with the Appointment.status="proposed".<br />
-                                        All included participants (optional or mandatory) should have the status="needs-action" to allow filtering and displaying
-                                        appointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules,
-                                        certain statuses may be automatically updated, for example: "reject because the requested participant is on vacation" or
-                                        "this type of user is not allowed to request those specific appointments".
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Replying to the request</b>
-                                    <p>
-                                        The reply process is simply performed by the person/system handing the requests, updating
-                                        the participant statuses on the appointment as needed. If there are multiple systems involved, then these
-                                        will create AppointmentResponse entries with the desired statuses.
-                                    </p>
-                                    <p>
-                                        Once all participants have their participation status created/updated
-                                        (and the main system marking the appointment participant records with the AppointmentResponse
-                                        statuses) then the overall status of the Appointment is updated.
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Checking the overall status (Requester)</b>
-                                    <p>
-                                        The requester (organizer) of the appointment checks for the overall status of the appointment
-                                        (and appointment responses, where applicable) using FHIR pub-sub techniques.
-                                    </p>
-                                    <p>
-                                        Where the participant statuses indicate that a re-scheduling is required, then the process may
-                                        start again, with other systems replying to a new set of times.
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Waitlisting the Appointment (optional)</b>
-                                    <p>
-                                        This optional step permits creating a waitlisted appointment. This could occur if an
-                                        appointment needs to be booked into a time that is not ideal for the patient due to lack of available
-                                        time slots.  In this workflow, there would be two appointments, the booked appointment in the time
-                                        slot that is currently available, and the waitlisted appointment with a requestedPeriod spanning the
-                                        time that the patient would prefer if new slots become available.
-                                    </p>
-                                    <p>
-                                        If new time slots become available during the requestedPeriod, the scheduling system, or staff
-                                        at the scheduling organization, can notify the patient that a new time slot is available.  If the patient
-                                        chooses, the waitlisted appointment would then be booked into that specific slot, and the previously booked
-                                        appointment would be canceled.  The specific business process for notifying patients of new availability is not
-                                        specified, and is up to the implementing system to determine.
-                                    </p>
-                                </li>
-                            </ul>
+			<li>
+				<b title="Discovery/Addressing">发现/寻址</b>
+				<p title="Before an appointment can be made, the address/endpoint details of the resource that we want to schedule an appointment with must be determined. This is often based on the healthcare service type and any formatting information which indicates how to make the request. This is typically handled via the Schedule resource.">
+					在进行预约之前，必须确定要预约的Schedule资源的地址/终结点详细信息。这通常基于医疗服务类型和指示如何发出请求的任何格式信息。这通常是通过Schedule资源处理的。
+				</p>
+			</li>
+			<li>
+				<b title="Checking Availability on the Schedule (optional)">检查Schedule可用性（可选）</b>
+				<p title="This optional step permits the checking of any existing available times (Slot resources associated with a selected Schedule) that can be booked against. Just because a time is indicated as available doesn't guarantee that an appointment can be made. The booking system that is going to process the request may make other qualifying decisions to determine if the appointment can be made, such as permissions, assessments, availability of other resources, etc.">
+					此可选步骤允许检查可以预订的任何现有可用时间（与Schedule资源关联的Slot资源）。
+					仅仅因为时间是可用的，并不保证可以预约。
+					处理请求的预订系统可能会做出其他符合条件的决定，以确定是否可以进行预约，例如权限、评估、其他资源的可用性等。
+				</p>
+				<p title="This step is optional, as the creation of the appointment is never a guaranteed action. But by performing this availability check, you can increase the chances of making a successful booking.">
+					此步骤之所以是可选的，是因为创建一个预约从来都不能保证一定成功。通过检查可用性，仅仅只是增加了预订成功的机会。
+				</p>
+			</li>
+			<li>
+				<b title="Making the Appointment Request">创建预约请求</b>
+				<p title="When an appointment is required, a requester creates new Appointment resource with the Appointment.status=\"proposed\".">
+					当需要预约时，请求者将创建一个新的预约资源并把状态设置为"proposed"。
+				</p>
+				<p title="All included participants (optional or mandatory) should have the status=\"needs-action\" to allow filtering and displaying appointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules, certain statuses may be automatically updated, for example: \"reject because the requested participant is on vacation" or "this type of user is not allowed to request those specific appointments\".">
+					所有包含的参与者的状态（可选或者强制）都应该设置为"needs-action",当有一个新的预约被创建或者更新一个现有的预约时，参与者状态可以用来筛选或者显示此操作是否是可行的。 
+					用于通过参与者去筛选和显示是否可以接受一个新的预约请求，或更新一个预约请求。
+					根据内部系统业务规则，某些状态可能会自动更新，例如：“由于请求的参与者正在休假而拒绝”或“不允许此类用户请求这些特定预约”。
+				</p>
+			</li>
+			<li>
+				<b title="Replying to the request">应答请求</b>
+				<p title="The reply process is simply performed by the person/system handing the requests, updating the participant statuses on the appointment as needed. If there are multiple systems involved, then these will create AppointmentResponse entries with the desired statuses.">
+					参与者或者系统对预约请求的一个简单的应答是直接根据需要更新预约资源的参与者的状态。
+					如果这个预约请求会影响到多个系统，那么这些系统需要创建多个带有期望状态的AppointmentResponse资源。
+				</p>
+				<p title="Once all participants have their participation status created/updated (and the main system marking the appointment participant records with the AppointmentResponse statuses) then the overall status of the Appointment is updated.">
+					一旦所有参与者都创建/更新了他们的参与状态（主系统根据AppointmentResponse资源的状态更新参与者状态），那么将更新预约资源的总体状态。
+				</p>
+			</li>
+			<li>
+				<b title="Checking the overall status (Requester)">检查整体状态</b>
+				<p title="The requester (organizer) of the appointment checks for the overall status of the appointment (and appointment responses, where applicable) using FHIR pub-sub techniques.">
+					请求者或者组织者用FHIR的发布-订阅技术检查预约资源的整体状态（也适用于AppointmentResponse资源）。
+				</p>
+				<p title="Where the participant statuses indicate that a re-scheduling is required, then the process may start again, with other systems replying to a new set of times.">
+					如果参与者状态显示需要重新调度，则流程可以再次启动，其他系统将对新的时间作出响应。
+				</p>
+			</li>
+			<li>
+				<b title="Waitlisting the Appointment (optional)">等待预约（可选）</b>
+				<p title="This optional step permits creating a waitlisted appointment. This could occur if an appointment needs to be booked into a time that is not ideal for the patient due to lack of available time slots. In this workflow, there would be two appointments, the booked appointment in the time slot that is currently available, and the waitlisted appointment with a requestedPeriod spanning the time that the patient would prefer if new slots become available.">
+					此可选步骤允许创建预约等待列表。由于缺少可用的时间间隔，预约时间不适合患者，则可能发生这种情况。
+					在此工作流中，将有两个预约，一个时间段内已预定的可用预约，以及跨域当前时间段的等待预约，等待预约的患者更希望一个新的可用时间段被创建。
+				</p>
+				<p title="If new time slots become available during the requestedPeriod, the scheduling system, or staff at the scheduling organization, can notify the patient that a new time slot is available. If the patient chooses, the waitlisted appointment would then be booked into that specific slot, and the previously booked appointment would be canceled. The specific business process for notifying patients of new availability is not specified, and is up to the implementing system to determine.">				
+					如果在请求的时间段内新的Slot可用，调度系统或调度组织的员工可以通知患者新的Slot可用。如果患者选择，那么等待预约将被预订到该特定时段，而之前预订的预约将被取消。未指定通知患者新可用性的具体业务流程，由实施系统确定。	
+				</p>
+			</li>
+		</ul>
 
-                            <a name="workflow-types"></a>
-                            <h3 class="self-link-parent"><span class="sectioncount">12.10.1.2</span> There are 2 typical workflows that occur with appointments <a href="appointment.html#workflow-types" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-                            <ul>
-                                <li>
-                                    <b>Outlook Style - Community</b>
-                                    <p>
-                                        These types of requests are typically handled by selecting a specific time from a list of available slots,
-                                        then making the request for that timeslot.
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Hospital Scheduling - Clinical</b>
-                                    <p>
-                                        Clinical scheduling is often far more complex in its requirements and processing.
-                                        Often this involves checking multiple availabilities across multiple systems and
-                                        timing with other internal systems, not just those exposed by the Slot resources.
-                                    </p>
-                                    <p>
-                                        Consideration should be given to situations where scheduling needs to be handled
-                                        in more of a queue-like process.
-                                    </p>
-                                    <blockquote>
-                                        <p>
-                                            <b>Implementation Note:</b>
-                                            Note: This type of clinical appointment scheduling has not been specifically covered
-                                            with this definition of the Appointment resource (and other related resources), however if you
-                                            would like to contribute to the modification of this resource to cover these use cases,
-                                            please contact the HL7 Patient Administration work-group.
-                                        </p>
-                                    </blockquote>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a name="bnr"></a>
-                            <h2 class="self-link-parent"><span class="sectioncount">12.10.2</span> Boundaries and Relationships <a href="appointment.html#bnr" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
-                            <h3 class="self-link-parent"><span class="sectioncount">12.10.2.1<a name="12.10.2.1"> </a></span> Appointment Request/Response Pattern <a href="appointment.html#12.10.2.1" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-                            <p>
-                                When using a request-response style of appointment this is done using Appointment
-                                and AppointmentResponse resources.<br />
-                                The request is made in the form of an Appointment with a proposed or pending status,
-                                and the list of actors with a participation status of "needs-action".
-                            </p>
-                            <p>
-                                Participants in the appointment respond with their acceptance (or not) to the appointment
-                                by creating AppointmentResponse resources.<br />
-                                Once all the participants have replied, then the Appointment resource is able to be
-                                updated with an overall status which collates the results of all the participants
-                                and presents the approved details of the appointment.
-                            </p>
+		<a name="workflow-types"></a>
+		<h3 class="self-link-parent"><span class="sectioncount">12.13.1.2</span> There are 2 typical workflows that occur with appointments <a href="appointment.html#workflow-types" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+		<ul>
+			<li>
+				<b title="Outlook Style - Community">Outlook Style - Community</b>
+				<p title="These types of requests are typically handled by selecting a specific time from a list of available slots, then making the request for that timeslot.">
+					此类型的请求通常是通过从可用时间段列表中选择特定时间，然后对该时间段发出请求来处理的。
+				</p>
+			</li>
+			<li>
+				<b>Hospital Scheduling - Clinical</b>
+				<p title="Clinical scheduling is often far more complex in its requirements and processing. Often this involves checking multiple availabilities across multiple systems and timing with other internal systems, not just those exposed by the Slot resources.">
+					临床调度在需求和处理上往往要复杂得多。这通常涉及跨多个系统检查多个可用性，以及与其他内部系统的计时，而不仅仅是公开的Slot资源。
+				</p>
+				<p title="Consideration should be given to situations where scheduling needs to be handled in more of a queue-like process.">
+					应该考虑需要在更类似于排队的流程中处理调度的情况。
+				</p>
+<blockquote><p> <b>实施说明:</b> 
+						注意：这种类型的临床预约安排并没有被预约资源（和其他相关资源）的定义明确涵盖，但是如果您希望对该资源的修改做出贡献以涵盖这些用例，请联系HL7患者管理工作组。
+</p></blockquote>
+			</li>
+		</ul>
+	</div>
+  <div>
+<a name="bnr"></a>
+    <h2 class="self-link-parent" title="Boundaries and Relationships"><span class="sectioncount">12.13.2</span> 界限和关系 <a href="appointment.html#bnr" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+		<h3 class="self-link-parent" title="Appointment Request/Response Pattern"><span class="sectioncount">12.13.2.1<a name="12.13.2.1"> </a></span> 预约请求/响应模式 <a href="appointment.html#12.13.2.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+		<p title="When using a request-response style of appointment this is done using Appointment and AppointmentResponse resources.The request is made in the form of an Appointment with a proposed or pending status, and the list of actors with a participation status of \"needs-action\".">
+			当预约使用的是请求-响应的模式，那么就是用Appointment与AppointmentResponse资源。
+			<br/>
+			此请求用Appointment资源的形式创建，并且资源的状态为 proposed 或者 pending，资源中actors列表中的参与者的状态是needs-action。
+		</p>
+		<p title="Participants in the appointment respond with their acceptance (or not) to the appointment by creating AppointmentResponse resources.Once all the participants have replied, then the Appointment resource is able to be updated with an overall status which collates the results of all the participants and presents the approved details of the appointment.">
+			参与者是否接受预约的响应通过创建AppointmentResponse资源来实现。
+			<br/>
+			一旦所有的参与者都回复了，就可以用一个整体的状态更新Appointment资源，并且整理所有参与者的结果并把它交给Appointment资源。
+		</p>
                             <p>
                                 The participant type property can be used to represent a specific role that a practitioner
                                 is required to perform for the appointment. This could be specified without an actor when the actual
