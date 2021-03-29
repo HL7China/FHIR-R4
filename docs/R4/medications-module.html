@@ -110,15 +110,15 @@ This module is concerned with resources and functionality in 3 main domains:
         <tr>
             <td>
                 <ul>
-                    <li><a href="medicationrequest.html">MedicationRequest</a></li>
-                    <li><a href="medicationdispense.html">MedicationDispense</a></li>
-                    <li><a href="medicationadministration.html">MedicationAdministration</a></li>
+                    <li><a href="medicationrequest.html">药品医嘱/处方<br/>MedicationRequets</a></li>
+                    <li><a href="medicationdispense.html">发药配药<br/>MedicationDispense</a></li>
+                    <li><a href="medicationadministration.html">用药记录<br/>MedicationAdministration</a></li>
                 </ul>
             </td>
             <td>
                 <ul>
                     <li><a href="medicationstatement.html">MedicationStatement</a></li>
-                    <li><a href="medication.html">Medication</a></li>
+                    <li><a href="medication.html">药物<br/>Medication</a></li>
                 	<li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
                 </ul>
             </td>
@@ -131,32 +131,32 @@ This module is concerned with resources and functionality in 3 main domains:
             </td>
         </tr>
     </table>
-
-
-
+        
 <a name="meds"></a>
 <h4 class="self-link-parent"><span class="sectioncount">11.0.2.1</span> Medications <a href="medications-module.html#meds" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <table class="bare">
-    <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+    <tr><td><b>资源名称</b></td><td><b>描述</b></td></tr>
 	<tr bgcolor="#EFEFEF">
-		<td valign="top"><a href="medicationrequest.html">MedicationRequest</a></td>
+		<td valign="top"><a href="medicationrequest.html">药品医嘱/处方<br/>MedicationRequest</a></td>
 		<td>
-		<p>Represents an instruction for the administration of medication to a patient - both in the inpatient (hospital) and
-		community setting. It can also include instructions for the dispensing, the reasons why the administration should
-		occur and other data.</p>
-		<p>It is called an 'Request' to be consistent with other FHIR resources and the workflow pattern, but a common alias for this resource is a 'Prescription' or an 'Order'.
-		The Order itself represents the content of the instruction and is not, by itself, actionable. The workflow process
-		around 'fulfilling' the order is part of the <a href="workflow-module.html">generic FHIR workflow</a> (see below),
-			with the MedicationRequest representing the contents.</p>
+		<p>	用于表示对患者的用药说明，包括配药说明、用药原因和其他相关数据。此资源的通用别名是“处方”或“药品医嘱”。
+		</p>
+		<p>
+		它的英文名称之所以直译为“用药请求”，是为了与FHIR工作流模式中的其他请求类资源保持一致。
+		此资源本身只能表示下达医嘱的内容，而不可用于表示医嘱的执行。医嘱的执行是通过“医嘱执行工作流”（<a href="workflow-module.html">通用FHIR工作流</a>的一部分）实现的，此资源在“医嘱执行工作流”中仅用于表示医嘱的内容。
+
+		</p>
 
 	</td></tr>
 	<tr>
-		<td><a href="medicationdispense.html">MedicationDispense</a></td>
-		<td>The provision of a supply of a medication with the intention that it is subsequently consumed by a patient
-			(usually in response to a prescription).</td></tr>
+		<td><a href="medicationdispense.html">发药配药<br/>MedicationDispense</a></td>
+		<td>
+		为患者所需的备药供给，通常是对处方的响应。
+		</td></tr>
 	<tr bgcolor="#EFEFEF">
-		<td><a href="medicationadministration.html">MedicationAdministration</a></td>
-		<td>A record of a patient actually consuming a medicine, or if it has otherwise been administered to them</td></tr>
+		<td><a href="medicationadministration.html">用药记录<br/>MedicationAdministration</a></td>
+		<td>
+		患者的实际用药记录，无论是服用还是其它方式的用药。</td></tr>
 	<tr>
 		<td><a href="medicationstatement.html">MedicationStatement</a></td>
 		<td>
@@ -167,7 +167,7 @@ This module is concerned with resources and functionality in 3 main domains:
 			The source for this information can be the patient, significant other (such as a family member or spouse),
 			or a clinician.  A common scenario where this information is captured is during the history taking
 			process during a patient visit or stay.
-			A medication statement is not a part of the prescribe-&gt;dispense-&gt;administer sequence,
+			A medication statement is not a part of the prescribe->dispense->administer sequence,
 			but is a report that such a sequence (or at least a part of it) did take place,
 			resulting in a belief that the patient has received a particular medication.
 			It may be used to construct a patients 'Current Medications' list.
@@ -175,20 +175,35 @@ This module is concerned with resources and functionality in 3 main domains:
 
 		</td></tr>
 	<tr bgcolor="#EFEFEF">
-		<td><a href="medication.html">Medication</a></td>
-		<td>The medication resource represents an actual medication that can be given to a patient, and referenced by the
-			other medication resources. In many cases, this resource is not needed and the drug is indicated by
-		 a reference to the appropriate terminology and so can be represented using a codeable concept. In other cases, however,
-		it may be desired to indicate more details than the simple drug (such as the packaging, whether it is a generic medication
-			or the active and inactive ingredients)
-		and so the Medication resource can be used for this.</td></tr>
+		<td><a href="medication.html">药物<br/>Medication</a></td>
+		<td> 
+			此资源用于表示可用于患者的实际药物。其它与药物相关的资源都引用了它。由于药物都被收纳入药物术语体系（如中国的“药典”），这意味这药物都能用可编码概念的形式来表示，所以在大多数情况下，没必要使用此资源。然而，在某此情况下，除了基本的药物信息之外，可能还需要更多的细节信息，比如药物的包装、是否为通用药品、是否含有活性成分等等。这时就需要用于此资源了。
+		 </td></tr>
 	<tr bgcolor="#EFEFEF">
 		<td><a href="medicationknowledge.html">MedicationKnowledge</a></td>
 		<td>The MedicationKnowledge resource is draft and is included for comment purposes.  This resource represents information about a medication, for example, details about the medication including interactions, contraindications, cost, regulatory status, administration guidelines, etc.</td></tr>
 </table>
     <a name="imm"></a>
-    <h4 class="self-link-parent"><span class="sectioncount">11.0.2.2</span> Immunizations <a href="medications-module.html#imm" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+    <h4>Immunizations</h4>
     <table class="bare">
+        <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+	<tr bgcolor="#EFEFEF">
+		<td><a href="immunization.html">Immunization</a></td>
+		<td>The Immunization resource is intended to cover the recording of current and historical administration of vaccines
+			to patients across all healthcare disciplines in all care settings and all regions.
+			This includes immunization of both humans and animals, but does not include the administration of non-vaccine agents,
+			even those that may have or claim to have immunological effects.</td></tr>
+	<tr>
+		<td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td>
+		<td>A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility
+			according to a published schedule) with optional supporting justification</td></tr>
+    	<tr>
+    		<td><a href="immunizationevaluation.html">ImmunizationEvaluation</a></td>
+    		<td>The ImmunizationEvaluation resource is intended to cover communicating the results of an evaluation of a vaccine administration event (documented using the Immunization resource) against a set of published recommendations (protocols).</td></tr>
+</table>
+    <a name="imm"></a>
+    <h4 class="self-link-parent"><span class="sectioncount">11.0.2.2</span> Immunizations <a href="medications-module.html#imm" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+    
         <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
 	<tr bgcolor="#EFEFEF">
 		<td><a href="immunization.html">Immunization</a></td>
