@@ -144,44 +144,57 @@
                                 </td>
                             </tr>
                         </table>
-                        <p>
-
-                            另外，还有一个特殊的<a href="#query"><code>_query</code></a>搜索参数和<a href="#filter">
-                                <code>_filter</code>
-                            </a>过滤器，它提供了另一种搜索方式。
-                            以及为所有RESTful API交互定义的<code>_format</code> and <code>_pretty</code> <a href="http.html#parameters">
-                                通用参数
+                        <p>除上表外，所有的其它参数请参见<a href="searchparameter-registry.html">完整的搜索参数清单</a>，其中以下几个通用参数比较特殊：</p>
+  <ul>
+  <li>
+  <code>_query</code>：<a href="#query">高级搜索参数</a>。
+  </li><li>
+  <code>_filter</code>：<a href="#filter">高级过滤</a>，它提供了另一种搜索方式。
+	 </li><li>
+       <code>_format</code>
+	 与
+	   <code>_pretty</code> ：用于控制输出格式的<a href="http.html#parameters">通用参数
                             </a>。
-                        </p>
+   </ul>                     
                         <p>
 
-                            此外，还有一个单独的页面落列了<a href="searchparameter-registry.html">所有搜索参数</a>。
                             请注意，搜索参数名称区分大小写，虽然此规范中没有名称相同但大小写不同的参数。
                             客户端<b>应该</b>使用正确的大小写，服务器<b>不能</b>额外定义名称相同但大小写不同的参数。
                         </p>
                         <p>
-                            有几个与搜索相关的<a href="safety.html#search">安全问题</a>，实施者应该始终牢记在心。
+                            实施者应该始终将搜索的<a href="safety.html#search">安全问题</a>牢记在心。
                         </p>
 
                         <a name="Introduction"></a>
                         <h3 class="self-link-parent"><span class="sectioncount">3.1.1.2</span> 介绍 <a href="search.html#Introduction" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
-                        <p>
-
-                            在最简单的情况下，搜索是在RESTful框架中执行<code>GET</code>动作来完成的：
-                        </p>
-                        <pre>
- GET [基地址]/[资源类型]?[参数名]=[参数值]&amp;[参数名]=[参数值]&amp;...{&amp;_format=[mime-type]}}
-</pre>
-                        <p>
-                            对于此RESTful搜索（请参阅<a href="http.html#search">
-                                RESTful API中的定义
-                            </a>），参数以“?[参数名]=[参数值]”的形式直接编码在URL地址中，
-                            或者通过<code>POST</code>动作，以application/x-www-form-urlencoded 格式的Body消息体提交：
-
-                        </p>
+ <h4>提交语法</h4>
+ <p>
+ 在最简单的情况下，搜索是在RESTful框架中执行<code>GET</code>动作来完成的：
+  </p>
 <pre>
- POST  [基地址]/[资源类型]/_search{?[parameters]{&amp;_format=[mime-type]}}
+ GET [基地址]/[资源类型]?[参数名1]=[参数值]&amp;[参数名2]=[参数值]&amp;...{&amp;_format=[媒体类型]}
 </pre>
+<p>或者通过<code>POST</code>动作来完成:</p>
+<pre>
+ POST [基地址]/[资源类型]/_search?{[参数名1]=[参数值]&amp;[参数名2]=[参数值]&amp;...{&amp;_format=[媒体类型]}}
+</pre>
+      <p>
+	  上述语法中的中括号是需要整体替换的内容，大括号是可选内容。
+	  </p>
+	  <p>
+	  第一行命令的语法是通过<code>GET</code>动作实现的，它将参数以“?[参数名]=[参数值]”的明码形式直接输入在URL地址中。
+	  </p>
+	  <p>
+	   第二行命令的语法是通过<code>POST</code>动作实现的，它的参数可以在<code>_search</code>参数后直接输入到URL地址中（大括号中的可选内容），
+	   也可以输入到格式为URL编码的Body消息体中提交（HEAD头的Content-Type设置为“application/x-www-form-urlencoded” ）。
+	   当同时在URL地址中和Body消息体中输入了参数时，所有参数是以“并且”的关系同时生效。
+	  </p>
+	  <p>
+         对于GET和POST的详细信息请参见：<a href="http.html#search">FHIR RESTful API中的定义搜索</a>。
+      </p>
+ <h4>返回结果</h4>
+	  
+		
                         <p>
                             服务器将符合条件的资源以<a href="bundle.html">bundle</a>资源包的形式返回到HTTP的响应中，资源包中的资源即搜索结果。
 
