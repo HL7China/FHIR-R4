@@ -436,48 +436,25 @@ is easier with a flat structure.
 </p>
 
 <a name="snapshot"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.9</span> Differential vs Snapshot <a href="profiling.html#snapshot" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.9</span> Differential 与 Snapshot <a href="profiling.html#snapshot" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-StructureDefinitions may contain a differential statement, a snapshot
-statement or both.
-</p>
-<p>Differential statements describe only the differences that they make
-relative to the structure definition they constrain (which is most often the base FHIR resource or data type).
-For example, a profile may make a single element mandatory (cardinality 1..1).
-In the example of a differential structure, it will contain a single element
-with the path of the element being made mandatory, and a cardinality statement.
-Nothing else is stated - all the rest of the structural information is implied (note that
-this means that a differential profile can be sparse and only
-mention the elements that are changed, without having to list the
-full structure. This rule includes the root element - it is not needed in
-a sparse differential).
+结构定义资源（StructureDefinitions）中可能包含差异陈述（differential）和/或简要说明（snapshot）。
 </p>
 <p>
-Note that a differential can choose not to constrain elements.
-Doing so means that the profile will be more flexible in terms of compatibility
-with other profiles, but will require more work to support from implementing
-systems. Alternatively, a profile can constrain all optional elements to be not
-present (max cardinality = 0) - this closes the content, which makes
-implementation easier, but also reduces its usefulness.
+差异陈述（differential）是对比其约束的基结构定义（baseDefinition，通常是FHIR原生资源类型或数据类型），描述二者不同之处。
+例如，一个资源结构定义文件将一个元素的基数强制约束为1..1。此时，其差异陈述中只会有这个元素，且元素的路径被设置为强制要求，同时描述了其基数的要求。
+除了这些信息之外，其余的结构信息都是隐式的继承其基结构定义。这意味着差异陈述可能十分精炼，它只提及已更改的元素，而不会列出完整的结构。包括根元素在内的其它元素均不会在精炼的差异陈述中体现。
 </p>
 <p>
-In order to properly understand a differential structure, it must be
-applied to the structure definition on which it is based. In order to save
-tools from needing to support this operation (which is computationally intensive - and
-impossible if the base structure is not available), a StructureDefinition
-can also carry a "snapshot" - a fully calculated form of the
-structure that is not dependent on any other structure. The FHIR
-project provides tools for the common platforms that can populate
-a snapshot from a differential (note that the tools generate complete
-verbose snapshots; they do not support suppressing mappings or constraints).
+请注意，差异陈述对可选元素处理有两种方案。一是不对其进行约束。这样可以提高与其它资源结构定义文件之间的兼容性，但这样会在具体实现时付出更多工作。二是将其基数约束为0（max cardinality=0），即，不允许元素出现。这使得实现更容易，但也降低了它的适合范围。
 </p>
 <p>
-StructureDefinitions can contain both a differential and a snapshot view.
-In fact, this is the most useful form - the differential
-form serves the authoring process, while the snapshot serves
-the implementation tooling. StructureDefinition resources used in operational
-systems should always have the snapshot view populated.
+必须结合基结构定义才能“正确理解”差异陈述,即:通过<code>$snapshot</code>操作方法计算出完整的资源结构。这种方式不仅计算量大，而且当基结构（通过URL获取）不可访问时，就无法获取完整的资源结构信息。因此，结构定义资源（StructureDefinitions）还能自带一个简要说明（snapshot），它不依赖于任何其它资源结构，是一个计算后得到的完整资源结构形式。FHIR项目提供了一些可以差异陈述生成简要说明的工具，这些工具生成的简要说明非常完整与详细，但它们<b>不能</b>让映射（mapping ）和约束（constraint）失效，即基资源结构的映射和约束会强制继承在简要说明中。
+</p>
+<p>
+结构定义资源（StructureDefinitions）可以包含差异陈述（differential）和简要说明（snapshot）两种视图。这两种视图的用途偏向不同：差异陈述适合在编写结构定义的过程中使用，而简要说明更多用于编辑工具实现。
+在运行的系统中使用结构定义资源时，应始终带有简要说明。
 </p>
 
 <a name="slicing"></a>
