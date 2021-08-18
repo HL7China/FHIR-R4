@@ -436,7 +436,7 @@ is easier with a flat structure.
 </p>
 
 <a name="snapshot"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.9</span> Differential 与 Snapshot <a href="profiling.html#snapshot" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.9</span> 结构定义资源（StructureDefinitions）与差异陈述（differential） <a href="profiling.html#snapshot" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
 结构定义资源（StructureDefinitions）中可能包含差异陈述（differential）和/或简要说明（snapshot）。
@@ -450,7 +450,7 @@ is easier with a flat structure.
 请注意，差异陈述对可选元素处理有两种方案。一是不对其进行约束。这样可以提高与其它资源结构定义文件之间的兼容性，但这样会在具体实现时付出更多工作。二是将其基数约束为0（max cardinality=0），即，不允许元素出现。这使得实现更容易，但也降低了它的适合范围。
 </p>
 <p>
-必须结合基结构定义才能“正确理解”差异陈述,即:通过<code>$snapshot</code>操作方法计算出完整的资源结构。这种方式不仅计算量大，而且当基结构（通过URL获取）不可访问时，就无法获取完整的资源结构信息。因此，结构定义资源（StructureDefinitions）还能自带一个简要说明（snapshot），它不依赖于任何其它资源结构，是一个计算后得到的完整资源结构形式。FHIR项目提供了一些可以差异陈述生成简要说明的工具，这些工具生成的简要说明非常完整与详细，但它们<b>不能</b>让映射（mapping ）和约束（constraint）失效，即基资源结构的映射和约束会强制继承在简要说明中。
+必须结合基结构定义才能“正确理解”差异陈述,即:通过<code>$snapshot</code>操作方法计算出完整的资源结构。这种方式不仅计算量大，而且当基结构（通过URL获取）不可访问时，就无法获取完整的资源结构信息。因此，结构定义资源（StructureDefinitions）还能自带一个简要说明（snapshot），它不依赖于任何其它资源结构，是一个计算后得到的完整资源结构形式。FHIR项目这主流平台提供了一些利用差异陈述生成简要说明的工具，这些工具生成的简要说明非常完整与详细，但它们<b>不支持</b>让映射（mapping ）和约束（constraint）失效，即基资源结构的映射和约束会强制继承在简要说明中。
 </p>
 <p>
 结构定义资源（StructureDefinitions）可以包含差异陈述（differential）和简要说明（snapshot）两种视图。这两种视图的用途偏向不同：差异陈述适合在编写结构定义的过程中使用，而简要说明更多用于编辑工具实现。
@@ -458,40 +458,26 @@ is easier with a flat structure.
 </p>
 
 <a name="slicing"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.10</span> Slicing <a href="profiling.html#slicing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.10</span> 约束分割（Slicing） <a href="profiling.html#slicing" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-One common feature of constraining StructureDefinitions is to take an element that may occur more than once (e.g. in a list),
-and then split the list into a series of sub-lists, each with different restrictions on the elements in the sub-list with associated
-additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to
-"slice" a list into sub-lists with each containing just one element, effectively putting constraints on each element in the list.
+对结构定义资源（StructureDefinitions）进行约束时，有一种常见情况：将某个可能多次重复出现的元素（比如一个基数为0……*的列表）分割为一系列的子列表，每个子列表对其包含元素的约束限制都不同，并且每个子列表都有自己的附加含义。在FHIR中，此操作称为对列表的“约束分割（Slicing）”。将列表“分割”为子列表后，为了有效地对列表中的每个元素施加个性化的约束，通常每个子列表中只包含一个元素。这样就可以把每个包含一个元素的列表，看成是一个具有个性意义的“约束片”。
 </p>
 <p>
-Here is an example to illustrate the process:
+下图的示例展示了分片约束的过程：
 </p>
-<img src="slicing.png" alt="Slicing diagram" width="461" height="353"/>
+<img src="slicing.png" alt="Slicing diagram" width="520" height="353"/>
 <p>
-In this example, the base structure definition for the resource <a href="observation.html">Observation</a> defines
-the "component" element which contains a nested code and a value for observations that
-have multiple values. A classic example of this kind of observation is a blood pressure
-measurement - it contains 2 values, one for systolic, and one for diastolic (<a href="observation-example-bloodpressure.html">example</a>).
+
+在本示例中，基资源结构是观测资源类型（<a href="observation.html">Observation</a> ），它定义了一个0……*的“component”元素来表示不同的观测指标。每个观测指标的编码和取值分别嵌套在“component”元素中的,code和value表示。这类观测资源的一个<a href="observation-example-bloodpressure.html">典型例子</a>是血压测量，血压有两指标：收缩压和舒张压。
 </p>
 <p>
-This diagram shows the conceptual process of 'slicing' the component list into
-systolic and diastolic slices (note that to avoid clutter, the "name" attribute of Observation
-is shown as just a code not a full CodeableConcept).
+上图展示了将“component”元素列表分割为收缩压和舒张压两个“约束片”的概念过程。（注：为了避免混乱，血压的资源结构的“名称（name）”属性仅数字编码显示，真实场景中应使用完整的可编码概念CodeableConcept）。
 </p>
 <p>
-The structure definition for Blood Pressure splits the component list into
-two sub-lists of one element each: a systolic element, and a diastolic element. Each of these
-elements has a fixed value for the code element (a fixed LOINC code for
-the name), and both have a value of type Quantity. This process
-is known as "slicing" and the Systolic and Diastolic elements are called "slices".
+示例中血压的结构定义将“component”元素列表拆分为两个子列表，一个子列表包含一个收缩压元素，另一个子列表包含一个舒张元素。子列表中元素的编码属性值都固定为其对应的LOINC代码，并且将元素的值类型属性有固定为数量类型（Quantity）。这个过程被称为“约束分割（Slicing）”，收缩压和舒张压被称为“约束片”。
 </p>
 <p>
-Note that when the resource is exchanged, the serialization format that is exchanged is not
-altered by the constraining definition. This means that the item profile names defined in the
-structure definition ("systolic", etc. in this example) are never exchanged. A resource
-instance looks like this:
+请注意，交换资源时，通过约束分割对基结构定义的进一步约束并不会更改所交换的序列化格式。这意味着在结构定义文件中定义的名称（本例中为“systolic”等）永远不会用于交换数据（实例数据消息体）。资源实例如下所示：
 </p>
 <pre>
  &lt;Observation&gt;
@@ -507,75 +493,64 @@ instance looks like this:
  &lt;/Observation&gt;
 </pre>
 <p>
-In order to determine that the first related item corresponds to "Systolic" in
-the structure definition, so that it can then determine to which additional constraints for a sub-list the item conforms,
-the system checks the values of the elements. In this case, the "code" element
-in the target resource can be used to determine which slice that target refers to.
-This element is called the "discriminator".
+
+系统需要用某些元素来区分不同的约束片，通过对元素的值的检测来定位约束。在本例中，为了确定“component”元素的第一个约束片与收缩压相对应，就通过检测资源中的“code”元素的来分辨。此时，code元素就称为“辨别字段”。
 </p>
 
 <a name="discriminator"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.11</span> Discriminator <a href="profiling.html#discriminator" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.11</span> 辨别字段（Discriminator） <a href="profiling.html#discriminator" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-In the general case, systems processing resources using a structure definition
-that slices a list can determine the slice corresponding to an item in
-the list by checking whether the item's content meets the rules specified
-for the slice.
-This would require a processor to be able to check all the rules
-applied in the slice and to do so speculatively in a depth-first
-fashion. Both of these requirements are inappropriately difficult for an operational system,
-and particularly for generated code (e.g. software that is automatically produced based on
-the StructureDefinition). Thus, to provide a better way to distinguish
-slices, a sliced element can designate a field or set of fields that act as a "discriminator" used to tell the slices apart.
+
+在一般情况下，系统可以通过检测“约束片”中元素的具体内容是否满足约束规则的要求来判定与具体项目的对应关系。但这要求处理器能够检查应用于约束片中的所有规则，并以深度优先的方式进行推测。这两项要求对于运行系统来说都相当的困难，对于在运行时生成代码的系统（例如根据结构定义自动计算的软件）来说就更是难上加难了。因此，FHIR提供一个更好的区分约束片的方法：被约束分割的元素可以指定一个或一组字段，用作区分约束片的“辨别字段”。
 </p>
 <p>
-When a discriminator is provided, the composite of the values of
-the elements designated in the discriminator is unique and distinct
-for each possible slice and applications can easily determine
-which slice an item in a list is. The intention is that
-this can be done in generated code, e.g. using a switch/case
-statement.
+一旦指定了辨别字段，辨别字段中指定的元素的组合值将是唯一的，即在每个可能的约束片这些值的组合都会不同。这样应用程序可以容易地确定列表中的项目对应哪个约束片，甚至可以在运行时生成的代码中判定，例如使用switch/case语句。
 </p>
 <p>
-When a constraining structure designates one or more discriminators, it SHALL
-ensure that the possible values for each slice are different and non-overlapping,
-so that the slices can easily be distinguished.
+当约束结构指定一个或多个辨别字段时，<b>必须</b>确保它在每个约束片中的可能值不同且不重叠，以便易于区分约束片。
 </p>
 <p>
-Each discriminator is a pair of values: a type that indicates how the field is
-processed when evaluating the discriminator, and a <a href="fhirpath.html">FHIRPath</a>
-expression that identifies the element in which the discriminator is found. There are
-five different processing types for discriminators:
+
+每个辨别字段都是由一个类型和一个<a href="fhirpath.html">FHIRPath</a>表达式组成的一对值。FHIRPath：如何找到辨别字段。类型：如何处理字段，辨别字段有五种不同的处理类型：
 </p>
 <table class="codes">
- <tr><td><a href="#value">value</a></td><td>The slices have different values in the nominated element.</td></tr>
- <tr><td><a href="#exists">exists</a></td><td>The slices are differentiated by the presence or absence of the nominated element.</td></tr>
- <tr><td><a href="#pattern">pattern</a></td><td>The slices have different values in the nominated element, as determined by testing them against the applicable ElementDefinition.pattern[x].</td></tr>
- <tr><td><a href="#type">type</a></td><td>The slices are differentiated by type of the nominated element.</td></tr>
- <tr><td><a href="#profile">profile</a></td><td>The slices are differentiated by conformance of the nominated element to a specified profile. Note that if the path specifies .resolve() then the profile is the target profile on the reference. In this case, validation by the possible profiles is required to differentiate the slices.</td></tr>
+<tr><td>类型</td><td>如何处理</td></tr>
+ <tr><td><a href="#value">value</a></td><td>
+ 通过简单类型的元素值辨别。约束片中指定一个简单类型的元素作为辨别字段，此元素在每个约束片中的值都不同。
+</td></tr>
+ <tr><td><a href="#exists">exists</a></td><td>
+ 通过是否存某个元素辨别。约束片中指定一个元素作为辨别字段，在资源实例中可能存在此元素，也可能缺失此元素。
+</td></tr>
+ <tr><td><a href="#pattern">pattern</a></td>
+ <td>
+ 通过复杂类型的元素值辨别。约束片中指定一个复杂类型的元素作为辨别字段，此元素在每个约束片中的值都不同，可以通过<a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>的定义来测试。</td></tr>
+ <tr><td><a href="#type">type</a></td>
+ <td>通过元素的类型辨别。约束片中指定可变类型[x]的元素作为辨别字段，此元素在每个约束片中的采用的类型都不同。
+ </td></tr>
+ <tr><td><a href="#profile">profile</a></td>
+ <td>
+ 通过元素的结构定义辨别。约束片中指定一个元素作为辨别字段，通过测试此元素的实例值是否符合指定的结构定义来分区约束片。此时，约束片的路径值（elementDefinition.slicing.discriminator.path）对应元素的实例值的数据类型应该是StructureDefinition或ImplementationGuide。注意，如果约束片的路径值为resolve()函数，即，elementDefinition.slicing.discriminator.path设置为resolve()，就应该使用约束片的引用的目标结构定义（elementDefinition.type.targetProfile）来测试元素的符合性。在这种情况下，要求验证可能符合的结构定义来辨别约束片。
+
+ </td></tr>
 </table>
 
 <p>
-The FHIRPath statement that allows for the selection of the element on which the
-discriminator is based is a restricted FHIRPath statement that is allowed to include:
+辨别字段上应用FHIRPath语句只能受限使用，此时只使用以下语法和函数：
 </p>
 <ul>
- <li>Element selections (e.g. FHIRPath statements without "()" such as <code>component.value</code>)</li>
- <li>The function <code>extension(url)</code> to allow selection of a particular extension</li>
- <li>The function <code>resolve()</code> to allow slicing across resource boundaries</li>
- <li>The function <code>ofType()</code> to allow choosing a type in a polymorphic element</li>
+ <li>选择元素的语句，即：仅使用“.”来定位元素的路径，而不使用带“()”函数，比如 <code>component.value</code>。</li>
+ <li>选择扩展的函数，即：<code>extension(url)</code> 。用于定位某个扩展。</li>
+ <li>表决函数，即： <code>resolve()</code>，它允许约束分割跨越资源边界</li>
+ <li>选择类型的函数，即： <code>ofType()</code> 用于选择多态类型元素的具体类型</li>
 </ul>
 <p>
-See the <a href="fhirpath.html#simple">full details about the restricted FHIRPath statement</a>.
+请参阅<a href="fhirpath.html#simple">FHIRPath受限子集</a>.
 </p>
-<p>
-Further notes about the use of the different discriminator types:
+<p>不同类型的辨别字段：进一步说明：
 </p>
 <table class="codes">
  <tr><td>value</td><td>
-   This is the most commonly used discriminator type: to decide based on the value of an element. 
-   Elements used like this are mostly primitive types- <code>code</code>, <code>uri</code>. 
-   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email etc.
+ 这是辨别字段最常用的一种类型：根据元素的值进行辨别。此时作为辨别字段的元素的数据类型通常为诸如<code>code</code>, <code>uri</code>等的基本数据类型。例如：对<code>Patient.telecom.system</code>进行约束分割，由于此元素值可以phone, email 等，所以可以通过电话、电子邮件等联系方式来辨别不同的约束。
  </td></tr>
  <tr><td>pattern</td><td>
   This is mostly used with elements of type <code>CodeableConcept</code> where the elements are distinguished by the presence of a particular code
@@ -698,25 +673,34 @@ When an element of a fixed cardinality m..n is sliced, the following rules apply
 
 
 <a name="default-slice"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.13</span> Default Slice <a href="profiling.html#default-slice" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.13</span> 默认约束片 <a href="profiling.html#default-slice" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-There is a special slice, called the default slice. This allows
-a profile to describe a set of specific slices, and then make a set of rules that apply to all of the remaining
-content that is not in one of the defined slices. Some rules about the default slice:
+
+有一个特殊的约束片，称为默认约束片。它用于在资源结构定义文件中排除一组约束片，仅将相关规则应用默认约束片之外的其它内容。这些规则包括：
 </p>
 <ul>
- <li>It is identified because the name of the slice is <code>@default</code>. The sliceName '@default' is reserved and cannot be used in any other context</li>
- <li>Default slices are only allowed when the slicing rule = closed</li>
- <li>Default slices must not fix the value of the discriminator elements</li>
- <li>Default slices can be re-sliced in dependent profiles</li>
+ <li>
+ 由于<code>@default</code>是为约束片保留的名称，所以“@default”不能在任何其他上下文中使用，它是默认约束片的唯一标识。
+ </li>
+ <li>
+ 仅当约束分割规则为关闭（elementDefinition.slicing.rules = closed），才允许使用默认约束片。
+ </li>
+ <li>
+ 默认约束片不能将辨别字段元素的值固定</li>
+ <li>
+ 可以在从属的资源结构定义文件中将默认约束片进行再分割。
+ </li>
 </ul>
 <p>
-One use of a default slice would be the case where the profile slices
-an identifier element to require a set of known identifiers, where
-the <code>type</code> element is prohibited (since they are known identifiers) but requires
-<code>type</code> on all other identifiers if any are present. In this case, the
-default slice makes no rules about the identifier.system (which is the slicing discriminator),
-but fixes the cardinality of type to 1..1 in the @default slice.
+这种场景需求可能会用到默认约束片：需要提供一个或多个证件，且必须提供身份证（为了减少交换数据量，不提供身份证件类型的代码）。只要没指定采用哪个证件类型的标准，就是默认的为身份证。如果指定了证件标准（如，identifier.system=GN n37.7 ，护照类型代码），则要求提供具体哪种类型（如，Identifier.type=11，外交护照）。 
+</p>
+<p>
+利用默认约束片实现以上场景的方法为：对一个标识元素进行约束分割，并将identifier.system设置为辨别字段。
+
+添加一个名为“@default”的约束片作为默认约束片，将其基数设置为1…1，并禁用其<code>type</code>元素（因为默认会使用某些已知标识符类型，如身份证）。
+再设置其它可能的约束片的<code>type</code>元素（如果有，比如针对护照类型的约束片，其将identifier.system值固定为GN n37.7，其tpye基数设置为1…*）。
+
+此时，辨别字段的约束规则对默认约束片就不再不适用，仅对其它约束片生效。即当不提供identifier.system值或没有任何一个约束片的identifier.system值能匹配时，默认使用默认约束片。
 </p>
 
 <a name="reslicing"></a>
