@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title>配置FHIR - HL7 FHIR 中国</title>
+    <title>FHIR本地化 - HL7 FHIR 中国</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -436,24 +436,24 @@ is easier with a flat structure.
 </p>
 
 <a name="snapshot"></a>
-<h3 class="self-link-parent"><span class="sectioncount">5.1.0.9</span> 结构定义资源（StructureDefinitions）与差异陈述（differential） <a href="profiling.html#snapshot" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">5.1.0.9</span> 结构定义资源（StructureDefinitions）与差异视图（differential） <a href="profiling.html#snapshot" title="此处链接地址" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-结构定义资源（StructureDefinitions）中可能包含差异陈述（differential）和/或简要说明（snapshot）。
+结构定义资源（StructureDefinitions）中可能包含差异视图（differential）和/或完整视图（snapshot）。
 </p>
 <p>
-差异陈述（differential）是对比其约束的基结构定义（baseDefinition，通常是FHIR原生资源类型或数据类型），描述二者不同之处。
-例如，一个资源结构定义文件将一个元素的基数强制约束为1..1。此时，其差异陈述中只会有这个元素，且元素的路径被设置为强制要求，同时描述了其基数的要求。
-除了这些信息之外，其余的结构信息都是隐式的继承其基结构定义。这意味着差异陈述可能十分精炼，它只提及已更改的元素，而不会列出完整的结构。包括根元素在内的其它元素均不会在精炼的差异陈述中体现。
+差异视图（differential）是对比其约束的基结构定义（baseDefinition，通常是FHIR原生资源类型或数据类型），描述二者不同之处。
+例如，一个资源结构定义文件将一个元素的基数强制约束为1..1。此时，其差异视图中只会有这个元素，且元素的路径被设置为强制要求，同时描述了其基数的要求。
+除了这些信息之外，其余的结构信息都是隐式的继承其基结构定义。这意味着差异视图可能十分精炼，它只提及已更改的元素，而不会列出完整的结构。包括根元素在内的其它元素均不会在精炼的差异视图中体现。
 </p>
 <p>
-请注意，差异陈述对可选元素处理有两种方案。一是不对其进行约束。这样可以提高与其它资源结构定义文件之间的兼容性，但这样会在具体实现时付出更多工作。二是将其基数约束为0（max cardinality=0），即，不允许元素出现。这使得实现更容易，但也降低了它的适合范围。
+请注意，差异视图对可选元素处理有两种方案。一是不对其进行约束。这样可以提高与其它资源结构定义文件之间的兼容性，但这样会在具体实现时付出更多工作。二是将其基数约束为0（max cardinality=0），即，不允许元素出现。这使得实现更容易，但也降低了它的适合范围。
 </p>
 <p>
-必须结合基结构定义才能“正确理解”差异陈述,即:通过<code>$snapshot</code>操作方法计算出完整的资源结构。这种方式不仅计算量大，而且当基结构（通过URL获取）不可访问时，就无法获取完整的资源结构信息。因此，结构定义资源（StructureDefinitions）还能自带一个简要说明（snapshot），它不依赖于任何其它资源结构，是一个计算后得到的完整资源结构形式。FHIR项目这主流平台提供了一些利用差异陈述生成简要说明的工具，这些工具生成的简要说明非常完整与详细，但它们<b>不支持</b>让映射（mapping ）和约束（constraint）失效，即基资源结构的映射和约束会强制继承在简要说明中。
+必须结合基结构定义才能“正确理解”差异视图,即:通过<code>$snapshot</code>操作方法计算出完整的资源结构。这种方式不仅计算量大，而且当基结构（通过URL获取）不可访问时，就无法获取完整的资源结构信息。因此，结构定义资源（StructureDefinitions）还能自带一个完整视图（snapshot），它不依赖于任何其它资源结构，是一个计算后得到的完整资源结构形式。FHIR项目这主流平台提供了一些利用差异视图生成简要说明的工具，这些工具生成的简要说明非常完整与详细，但它们<b>不支持</b>让映射（mapping ）和约束（constraint）失效，即基资源结构的映射和约束会强制继承在简要说明中。
 </p>
 <p>
-结构定义资源（StructureDefinitions）可以包含差异陈述（differential）和简要说明（snapshot）两种视图。这两种视图的用途偏向不同：差异陈述适合在编写结构定义的过程中使用，而简要说明更多用于编辑工具实现。
+结构定义资源（StructureDefinitions）可以包含差异视图（differential）和简要说明（snapshot）两种视图。这两种视图的用途偏向不同：差异视图适合在编写结构定义的过程中使用，而简要说明更多用于编辑工具实现。
 在运行的系统中使用结构定义资源时，应始终带有简要说明。
 </p>
 
@@ -516,16 +516,19 @@ is easier with a flat structure.
 <table class="codes">
 <tr><td>类型</td><td>如何处理</td></tr>
  <tr><td><a href="#value">value</a></td><td>
- 通过简单类型的元素值辨别。约束片中指定一个简单类型的元素作为辨别字段，此元素在每个约束片中的值都不同。
+ 通过基本数据类型的元素值辨别。约束片中指定一个简单类型的元素作为辨别字段，此元素在每个约束片中的值都不同。
 </td></tr>
- <tr><td><a href="#exists">exists</a></td><td>
- 通过是否存某个元素辨别。约束片中指定一个元素作为辨别字段，在资源实例中可能存在此元素，也可能缺失此元素。
-</td></tr>
+
  <tr><td><a href="#pattern">pattern</a></td>
  <td>
- 通过复杂类型的元素值辨别。约束片中指定一个复杂类型的元素作为辨别字段，此元素在每个约束片中的值都不同，可以通过<a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>的定义来测试。</td></tr>
+ 通过复杂数据类型的元素值辨别。约束片中指定一个复杂类型的元素作为辨别字段，此元素在每个约束片中的值都不同，可以通过<a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>的定义来测试。</td></tr>
+ 
+  <tr><td><a href="#exists">exists</a></td><td>
+ 通过是否存某个元素辨别。约束片中指定一个元素作为辨别字段，在资源实例中可能存在此元素，也可能缺失此元素。
+</td></tr>
+
  <tr><td><a href="#type">type</a></td>
- <td>通过元素的类型辨别。约束片中指定可变类型[x]的元素作为辨别字段，此元素在每个约束片中的采用的类型都不同。
+ <td>通过元素的类型辨别。约束片中指定多态类型元素[x]作为辨别字段，此元素在每个约束片中的采用的类型都不同。
  </td></tr>
  <tr><td><a href="#profile">profile</a></td>
  <td>
@@ -553,58 +556,45 @@ is easier with a flat structure.
  这是辨别字段最常用的一种类型：根据元素的值进行辨别。此时作为辨别字段的元素的数据类型通常为诸如<code>code</code>, <code>uri</code>等的基本数据类型。例如：对<code>Patient.telecom.system</code>进行约束分割，由于此元素值可以phone, email 等，所以可以通过电话、电子邮件等联系方式来辨别不同的约束。
  </td></tr>
  <tr><td>pattern</td><td>
-  This is mostly used with elements of type <code>CodeableConcept</code> where the elements are distinguished by the presence of a particular code
-  but other codes are expected to be present, and are irrelevant for the slice matching process. 
-  Typical example: slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc
+   常用于通过<code>CodeableConcept</code>类型的元素值辨别：将辨别字段与<code>element.patternCodeableConcept</code>中的一组预期编码进行匹配。虽然可以资源实例数据可能出现其它编码，但这与约束片的匹配过程无关。典型示例：对<code>Observation.code</code>的值进行约束分割，将LOINC编码为1234-5、4235-8等分割为一个约束片。
  </td></tr>
  <tr><td>exists</td><td>
-   This is not used commonly - it only has 2 values, so not much discrimination power. It's mainly used as an adjunct slicing criteria along with other discriminators.
-   Elements used like this are mostly complex backbone elements. 
-   Typical example: slice on the pattern of Observation.code and the presence of Observation.component.   
+   由于它只能实现“是”和“否”两种情况的约束片，所以单独使用它的时候不多，常常作用辅助辨别字段与其他辨别字段结合在一起用使用，以达到更精准的分割标准。多用于对复杂的主干元素的分割。典型示例：将pattern类型的Observation.code辨别字段和exists类型的Observation.component辨别字段结合使用。
  </td></tr>
  <tr><td>type</td><td>
-   Used to match slices based on the type of the item. 
-   While it can be used with polymorphic elements such as <code>Observation.value[x]</code>,    
-   mostly it is used with Resource types on references, to apply different profiles based on the different resource type. 
-   Typical example: slice on the type of <code>List.item.resolve()</code> for the types Patient, RelatedPerson.
+  基于元素的数据类型来匹配约束片。虽然它可以基于多态类型元素（如Observation.value[x]）分割约束片，但它更常用于基于引用的资源类型的分割，以实现根据不同的资源类型应用不同的资源结构定义文件。
+  
+  典型示例：通过对<code>List.entry.item.resolve()</code>进行type类型的约束分割，将List.entry.item分割为Patient类型和RelatedPerson类型的约束片。
  </td></tr>
  <tr><td>profile</td><td>
-   Used to match slices based on the whether the item conforms to the specified profile. 
-   This provides the most power, since the full range of profiling capabilities are available,
-   but it is also the hardest to implement, and requires the most processing (&gt;1000-fold compared
-   to the others). Implementers should use this only where absolutely required. 
-   Typical example: slice on the type of <code>Composition.section.entry()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
+   通过对辨别字段的检测，判断其是否符合指定的资源结构定义文件，以匹配对应的约束片。它的功能最强大，因为profile支持FHIR标准符合性的全部特性，但它也是最难实现的，并且处理量巨大（是其它类型处理量的1000倍以上）。当只能使用它才能实现需求时，才采用此模式。
+   典型示例：通过对<code>Composition.section.entry()</code> 的约束分割来定义CDA的章节，每个章节分割为一个约束片，如当前临床状况、历史医疗事件等章节。
  </td></tr>
 </table>
 
 <p>
-Each slice must use the <a href="elementdefinition.html">element definition</a> for the
-element(s) in the discriminator(s) to ensure that the slices are clearly differentiated by
-assigning an appropriate value domain, depending on the discriminator type. If the type is <code>value</code>, or <code>pattern</code>, then the element definition must use either:
+
+每个约束片的辨别字段必须使用<a href="elementdefinition.html">元素定义（ElementDefinition）</a>定义其中的元素，以确保通过根据辨别字段的类型指定合适当的值来明确区分约束片。如果辨别字段的类型为value或pattern，则约束片的元素定义必须符合下列要求之一：
 </p>
 <ul>
- <li><a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>, or</li>
- <li><a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>, or</li>
- <li>if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a> that enumerates the list of possible codes in the value set ("extensional definition")</li>
+ <li>使用<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a> 指定固定值；
+ </li>
+ <li>使用<a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>指定元素类型；</li>
+ <li>
+ 如果元素具有术语绑定，则需要使用<a href="valueset.html#required">值域集</a>进行绑定，该值域集枚举了所有可能使用的编码列表（在“外部定义”）。
+</li>
 </ul>
 <p>
-It is the composite (combined) values of the discriminators
-that are unique, not each discriminator alone. For example,
-a slice on a list of items that are references to other
-resources could designate fields from different resources,
-where each resource only has one of the designated elements,
-as long as they are distinct across slices.
+约束片的唯一性是靠多个辨别字段的组合值来确定的。
+例如，对一组引用其它资源的节点进行约束分割，每个约束片都可以指定不同资源中的一个元素作为辨别字段，只要这些元素在所有约束片中都是可以区分的。
 </p>
 <p>
-A structure definition is not required to designate any discriminator at all
-for a slice, but those that don't identify discriminators are describing
-content that is very difficult to process, and so this is
-discouraged.
+
+虽然没有强制要求结构定义必须为约束片指定辨别字段，但仅通过描述内容来处理非常难以处理，因此不鼓励这样做。
 </p>
 <p>
-Within a structure definition, a slice is defined using multiple <i>element</i>
-entries that share a <i>path</i> but have distinct <i>name</i>s.
-These entries together form a "slice group" that is:
+
+在结构定义中对条目元素进行约束分割后产生的多个约束片可共同构成“约束片组”，组内约束片元素的路径（<i>path</i>）相同，但名称（<i>sliceName</i>）不同。即：
 </p>
 <ol>
 
@@ -639,11 +629,30 @@ Some examples of discriminators:
 </p>
 <table class="grid">
  <tr>  <td><b>Context</b></td> <td><b>Discriminator Type</b></td> <td><b>Discriminator Path</b></td> <td><b>Interpretation</b></td> </tr>
- <tr>  <td>List.entry</td> <td>value</td> <td>item.resolve().name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
- <tr>  <td>List.entry</td> <td>type</td> <td>item.resolve()</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
- <tr>  <td>List.entry</td> <td>profile</td> <td>item.resolve()</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition in the profile</td> </tr>
- <tr>  <td>List.entry</td> <td>value</td> <td>item.extension("http://acme.org/extensions/test").value</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
- <tr>  <td>List.entry.extension</td> <td>value</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
+ <tr>  <td>List.entry</td> <td>value</td> <td>item.resolve().name</td> 
+ 
+ <td>
+ 通过解析目标资源的name元素来区分条目。目标资源可能是一个Organization资源，这可以通过资源结构定义文件中提供的信息来确定。
+ </td> </tr>
+ <tr>  <td>List.entry</td> <td>type</td> <td>item.resolve()</td> <td>
+
+ 通过解析目标资源的类型来区分条目。
+ </td> </tr>
+ <tr>  <td>List.entry</td> <td>profile</td> <td>item.resolve()</td> <td>
+
+ 通过解析目标资源的资源结构定义文件中的标签（tag）来区分条目。标签由资源结构定义文件中的结构定义指定。
+ 
+ </td> </tr>
+ <tr>  <td>List.entry</td> <td>value</td> <td>item.extension("http://acme.org/extensions/test").value</td>
+ <td>
+ 通过解析目标资源的特定扩展元素的值来区分条目。扩展元素的定义由括号中的URL定义。
+ </td> </tr>
+ <tr>  <td>List.entry.extension</td> <td>value</td> <td>url</td> 
+  通过解析目标资源的特定扩展元素的值来区分条目。
+ <td>
+ Extensions are differentiated by the value of their url property (usually how extensions are sliced)
+ 扩展的区别在于其url属性的值（通常是扩展的切片方式）
+ </td> </tr>
  <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
  <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
