@@ -109,9 +109,9 @@
                                 HealthcareService资源用于描述一个组织在某个地点提供的单个医疗服务或服务类别。<br />
                                 服务的位置可以是虚拟的，就像远程医疗服务一样。<br />
                             </p>
-                            <p>以下是使用HealthcareServices资源的一些例子:</p>
+                            <p>以下是一些常用的HealthcareServices资源实例:</p>
                             <ul>
-                                <li>医联体</li>
+                                <li>健康综合助理</li>
                                 <li>临床神经心理专家</li>
                                 <li>足部医疗服务</li>
                                 <li>乡镇医院急救服务</li>
@@ -119,35 +119,39 @@
                                 <li>24小时紧急电话咨询服务</li>
                                 <li>在线问诊或转诊服务</li>
                                 <li>乡村远程医疗服务</li>
-                                <li>Hospital in the home</li>
-                                <li>Yellow Cabs</li>
-                                <li>Pharmacy</li>
-                                <li>Active Rehab</li>
-                                <li>Social Support</li>
-                                <li>Drug and/or alcohol counseling</li>
-                                <li>Day Programs, Adult Training &amp; Support Services</li>
-                                <li>Consulting psychologists and/or psychology services</li>
-                                <li>Group Hydrotherapy</li>
-                                <li>Little River Home Maintenance</li>
+                                <li>家庭医疗</li>
+                                <li>网约车服务（非急诊运送）</li>
+                                <li>药店</li>
+                                <li>康复理疗</li>
+                                <li>社会护工服务</li>
+                                <li>戒毒/戒酒咨询</li>
+                                <li>日间项目、培训及支持服务</li>
+                                <li>心理咨询师、心理咨询服务</li>
+                                <li>水疗班</li>
+                                <li>居家康复治疗</li>
                             </ul>
                             <p>
-                                <i>HealthcareService resources do not represent Computer related Services (not SOA)</i>
+                                <i>HealthcareService资源和计算机软件相关的服务无关（即：不是web service、SOA、微服务API等）</i>
                             </p>
-                            <p>Example uses of HealthcareService resources are:</p>
+                            <p>以下是使用HealthcareServices资源的一些例子:</p>
                             <ul>
-                                <li>National Services Directory - Consumer Focus</li>
-                                <li>National Services Directory - Practitioner Referrals Searching</li>
-                                <li>Organization's Client Portal - to locate services / book appointments</li>
+                                <li>医疗服务项目目录 —— 患者视角</li>
+                                <li>医疗服务项目目录 —— 医务人员搜索</li>
+                                <li>Organization's Client Portal - to locate services / book appointments
+								医院门户网站 —— 服务项目查询/预约
+								</li>
                                 <li>
-                                    Address book of services for Referrals<br />
-                                    <i>including references to Questionnaires for assessments that are required as part of the referral</i>
+                                    转诊服务地址簿<br />
+                                    <i>
+									包括转诊所要求填写的参考评估问卷
+									</i>
                                 </li>
                                 <li>
-                                    Health Network internal directory
+                                    内部服务目录
                                     <i>
-                                        Used for tracking available services offered internally,
-                                        and also those offered by business partners.<br />
-                                        This information may also include costing information.
+									用于内部对可用服务以及商业伙伴提供的服务的查询。
+                                   <br />
+                                       此信息中可能包括收费标准。
                                     </i>
                                 </li>
                             </ul>
@@ -157,19 +161,22 @@
                             <a name="bnr"></a>
                             <h2 class="self-link-parent"><span class="sectioncount">8.8.2</span> Boundaries and Relationships <a href="healthcareservice.html#bnr" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
                             <p>
-                                The HealthcareService resource can be used with the Schedule resource to define actual availability
-                                of the service. This would be done by using the Schedule's Actor property.
+                               可以通过给Schedule资源的Actor属性指定关联的HealthcareService资源来定义服务的实际可用性。
                             </p>
                             <p>
-                                When creating an Appointment, the HealthcareService is to be assigned to one of the participants.<br />
-                                It is up to the scheduling system to determine if the service is available and can be accepted.
+                               
+								创建预约时，HealthcareService将分配给其中一名参与者。<br />
+                              
+								由排班调度系统决定服务是否可用，是否可以接受预约。
                             </p>
-                            <p>The HealthcareService resource is used with the following resources:</p>
+                            <p>HealthcareService资源与以下资源一起使用：</p>
                             <ul>
-                                <li><b><a href="organization.html">Organization</a></b>: The organization provides the services, the healthcareservice describes the services</li>
-                                <li><b><a href="servicerequest.html">ServiceRequest</a></b>: This is a subject specific request for a specific service, it may be to a specific healthcare service, and/or simply a coded service value. The granularity included in the request codes may be finer than defined in the healthcare service. </li>
-                                <li><b><a href="organizationaffiliation.html">OrganizationAffiliation</a></b>: Might constrain a list of healthcare services that are available between 2 organizations</li>
-                                <li><b><a href="location.html">Location</a></b>: Specifies the place where the service(s) are offered/available within.</li>
+                                <li><b><a href="organization.html">组织机构</a></b>: Organization提供服务，Healthcareservice描述服务</li>
+                                <li><b><a href="servicerequest.html">服务申请</a></b>: 
+								这是针对具体服务的申请，可能在ServiceRequest.performer中使用Healthcareservice来表示，也可能在ServiceRequest.code中使用编码来表示服务。用编码表示服务的粒度可能比用Healthcareservice实例中定义的粒度更细。
+							 </li>
+                                <li><b><a href="organizationaffiliation.html">机构隶属关系</a></b>: 当机构在处于某种关系的角色时，限制其可用的医疗健康服务范围</li>
+                                <li><b><a href="location.html">位置</a></b>: 指定提供服务的地点。</li>
                             </ul>
                         </div>
 
