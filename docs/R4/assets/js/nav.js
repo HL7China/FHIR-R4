@@ -15,7 +15,7 @@ document.write('<script id="nav-temp" type="text/html"><ul class="nav navbar-nav
     '</ul ></script>');
 
 document.write('<script id="foot-temp" type="text/html"><div class="container"><div class="inner-wrapper"><p>'+
-    '&reg;&copy; HL7.org 2011+. FHIR Release 4 (v4.0.0) 于2018年12月27日发布. <a style="color: #ffffff" href="qa.html">QA 页面</a><br /><span style="color: #FFFF77">链接:' +
+    '&reg;&copy; HL7.org 2011+. FHIR Release 4 (v4.0.0) 于2018年12月27日发布. <a style="color: #ffffff" href="qa.html">QA 页面</a><br /><span style="color: #FFFF77">翻译主办:' +
     '<% for (var i = 0; i < text.length; i++) { %> <a style="color: #b8dcf9" href="<%= link[i] %>"><%= text[i] %></a>| <% } %>' +
     '</span></p></div></div></script>');
 
@@ -26,8 +26,8 @@ var navData = {
 
 
 var footerData = {
-    text: ['搜索', '历史版本', '目录', '贡献', 'License', '提出建议', '联系我们:contact@hl7fhir.cn','蜀ICP备20023191号-5'],
-    link: ['http://hl7.org/fhir/search.cfm', 'history.html', 'toc.html', 'credits.html', "license.html",   'http://hl7.org/fhir-issues', 'mailto:contact@hl7fhir.cn','https://beian.miit.gov.cn/']
+    text: ['四川省卫生信息学会', '历史版本', '目录', '贡献', 'License', '提出建议', '联系我们',' 蜀ICP备16019200号-2'],
+    link: ['http://www.schia.cn/', 'history.html', 'toc.html', 'credits.html', "license.html",   'http://hl7.org/fhir-issues', 'mailto:contact@hl7fhir.cn','https://beian.miit.gov.cn/']
 };
 
 var headerHtml=document.getElementById('header-temp').innerHTML;
